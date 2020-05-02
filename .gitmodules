@@ -1,0 +1,54 @@
+[submodule "vim/.config/vim/plugged/ale"]
+	path = vim/.config/vim/plugged/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim/.config/vim/plugged/bullets.vim"]
+	path = vim/.config/vim/plugged/bullets.vim
+	url = https://github.com/dkarter/bullets.vim
+[submodule "vim/.config/vim/plugged/csv.vim"]
+	path = vim/.config/vim/plugged/csv.vim
+	url = https://github.com/chrisbra/csv.vim
+[submodule "vim/.config/vim/plugged/incsearch.vim"]
+	path = vim/.config/vim/plugged/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim.git
+[submodule "vim/.config/vim/plugged/indentLine"]
+	path = vim/.config/vim/plugged/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "vim/.config/vim/plugged/python-syntax"]
+	path = vim/.config/vim/plugged/python-syntax
+	url = https://github.com/vim-python/python-syntax
+[submodule "vim/.config/vim/plugged/rust.vim"]
+	path = vim/.config/vim/plugged/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/.config/vim/plugged/supertab"]
+	path = vim/.config/vim/plugged/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "vim/.config/vim/plugged/ultisnips"]
+	path = vim/.config/vim/plugged/ultisnips
+	url = https://github.com/sirver/ultisnips
+[submodule "vim/.config/vim/plugged/vim-expand-region"]
+	path = vim/.config/vim/plugged/vim-expand-region
+	url = https://github.com/terryma/vim-expand-region.git
+[submodule "vim/.config/vim/plugged/vim-json"]
+	path = vim/.config/vim/plugged/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "vim/.config/vim/plugged/vim-markdown"]
+	path = vim/.config/vim/plugged/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/.config/vim/plugged/vim-polyglot"]
+	path = vim/.config/vim/plugged/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/.config/vim/plugged/vim-snippets"]
+	path = vim/.config/vim/plugged/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "vim/.config/vim/plugged/vim-sxhkdrc"]
+	path = vim/.config/vim/plugged/vim-sxhkdrc
+	url = https://github.com/baskerville/vim-sxhkdrc
+[submodule "vim/.config/vim/plugged/vim-systemd-syntax"]
+	path = vim/.config/vim/plugged/vim-systemd-syntax
+	url = https://github.com/wgwoods/vim-systemd-syntax
+[submodule "vim/.config/vim/plugged/vim-table-mode"]
+	path = vim/.config/vim/plugged/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "vim/.config/vim/plugged/vimtex"]
+	path = vim/.config/vim/plugged/vimtex
+	url = https://github.com/lervag/vimtex.git
