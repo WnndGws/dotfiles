@@ -18,6 +18,9 @@ export FZF_DEFAULT_OPTS='-i --border' #Left in .zshrc since borders are interact
 #Aliases
 source $XDG_CONFIG_HOME/zsh/.zaliases
 
+#GPG
+export GPG_TTY=$(tty)
+
 ###--------------###
 ###--- History---###
 ###--------------###

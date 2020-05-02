@@ -19,6 +19,7 @@ export XDG_DATA_HOME=$HOME'/.local/share'
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export _FASD_DATA="$XDG_CACHE_HOME/fasd/fasd"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GPG_TTY=$(tty)
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint 
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
