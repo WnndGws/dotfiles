@@ -52,3 +52,6 @@
 [submodule "vim/.config/vim/plugged/vimtex"]
 	path = vim/.config/vim/plugged/vimtex
 	url = https://github.com/lervag/vimtex.git
+[submodule "vim/.config/vim/plugged/LaTeX-Box"]
+	path = vim/.config/vim/plugged/LaTeX-Box
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box

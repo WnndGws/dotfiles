@@ -1,0 +1,47 @@
+prompt_order = [
+    "time",
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "nix_shell",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "character",
+]
+
+[time]
+disabled = false
+style = "yellow"
+
+[username]
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = true
+prefix = ""
+suffix = ""
+disabled = false
+style = "bold red"
+
+[directory]
+truncation_length = 8
+truncate_to_repo = true
+disabled = false
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+min_time = 2_000
+style = "yellow"
+
+[character]
+symbol = "❯"
+error_symbol = "✖"
+use_symbol_for_status = false
+vicmd_symbol = "❮"
+style_success = "bold green"
+style_failure = "bold red"

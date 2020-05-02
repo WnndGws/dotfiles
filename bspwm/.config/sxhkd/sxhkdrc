@@ -1,0 +1,30 @@
+###--------------------###
+###--- Applications ---###
+###--------------------###
+alt + {_,shift +} Return
+    {alacritty, rofi -show run}
+
+alt + d
+    rofi -show run
+
+alt + f
+    firefox
+
+#Quit things by giving a rofi window
+alt + q
+    $XDG_CONFIG_HOME/rofi/rofi_yn_prompt "Quit?" "bspc node --close"
+
+#Handle volume with my script
+alt + {semicolon,apostrophe,m}
+    $XDG_CONFIG_HOME/polybar/scripts/vol --{down,up,togmute}
+
+###----------------------###
+###--- BSPWM Bindings ---###
+###----------------------###
+# Focus node in certain direction
+alt + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Focus given workspace
+alt + {0-9}
+    bspc desktop -f {0-9}
