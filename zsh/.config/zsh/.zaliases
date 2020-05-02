@@ -48,7 +48,7 @@ alias git_push_all="~/Git/OneOffCodes/Shell/gitPushAll"
 alias gtpa="git_push_all"
 #Use script to push everything in all my repos
 
-alias git_push='git add -p . && git commit -aS && git pull && git push'
+alias git_push='git add . && git commit -aS && git pull && git push'
 alias gtp='git_push'
 #Add, commit, and push git in one command
 
