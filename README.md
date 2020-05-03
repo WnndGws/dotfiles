@@ -1,5 +1,5 @@
 # dotfiles
-My dotfiles. Handles by GNU-stow
+My dotfiles. Handled by GNU-stow
 
 ## To stow dotfiles
 ```bash
