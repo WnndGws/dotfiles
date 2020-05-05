@@ -1,8 +1,11 @@
 ###--------------------###
 ###--- Applications ---###
 ###--------------------###
-alt + {_,shift +} Return
-    {alacritty, rofi -show run}
+alt + Return
+    [ "$(bspc query -N -d | wc -l)" -eq 1 ] && bspc node -p south && alacritty || alacritty
+
+alt + shift + Return
+    rofi -show run
 
 alt + d
     rofi -show run
@@ -28,3 +31,16 @@ alt + {h,j,k,l}
 # Focus given workspace
 alt + {0-9}
     bspc desktop -f {0-9}
+
+alt + shift + {0-9}
+    bspc node --to-desktop {0-9}
+
+# Back and forth between nodes
+alt + Escape
+    bspc node -f last
+
+alt + shift + {h,j,k,l}
+    bspc node --to-node {south,west,east,north}
+
+alt + {Left,Down,Up,Right}
+    bspc node --presel-dir {west,south,north,east}

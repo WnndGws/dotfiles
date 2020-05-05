@@ -1,14 +1,34 @@
-#! /bin/sh
+#!/bin/sh
 
+###------------------###
+###--- Autostarts ---###
+###------------------###
 sxhkd &
 polybar --reload --config=$XDG_CONFIG_HOME/polybar/config_top top &
 polybar --reload --config=$XDG_CONFIG_HOME/polybar/config_bottom bottom &
 
-bspc monitor -d 1 2 3 4 5 6
+###-------------###
+###--- BSPWM ---###
+###-------------###
+if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
+    bspc monitor DVI-I-1 -d 1 2 3 4 5
+    bspc monitor HDMI-1 -d 6 7 8 9 0
+else
+    bspc monitor -d 1
+fi
 
 bspc config border_width         2
-bspc config window_gap          12
+bspc config window_gap           0
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
+# Make sure borders are always on
+bspc config borderless_monocle   false
 bspc config gapless_monocle      true
+
+# Next window attaches to last created window
+bspc config initial_polarity second_child
+
+# Split window into 50/50
+bspc config split_ratio 0.5
+
+# Follow mouse
+bspc config focus_follows_pointer true

@@ -5,4 +5,4 @@ xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DV
 [ -f ~/.config/xmodmap/Xmodmap ] && xmodmap ~/.config/xmodmap/Xmodmap
 
 #Lines following an exec are ignored so place this last
-session=exec bspwm
+session=exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc

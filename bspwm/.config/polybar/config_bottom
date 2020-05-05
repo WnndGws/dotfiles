@@ -64,7 +64,7 @@ cursor-scroll = ns-resize
 
 [module/weather]
 type = custom/script
-exec = $HOME/Git/scripts/python/weather.py
+exec = $HOME/Git/scripts/Python/weather.py
 
 interval = 1800
 
@@ -73,25 +73,25 @@ label-padding = 1
 
 [module/pkg]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/scripts/pkg
+exec = $HOME/Git/scripts/Shell/pkg
 interval = 300
 
 [module/script_mem]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/scripts/mem
+exec = $HOME/Git/scripts/Shell/mem
 tail = true
 
 [module/script_cpu]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/scripts/cpu
+exec = $HOME/Git/scripts/Shell/cpu
 tail = true
 
 [module/script_vol]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/scripts/vol --listen
+exec = $HOME/Git/scripts/Shell/vol --listen
 tail = true
 
 [module/script_wlan_speed]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/scripts/wlan_rate
+exec = $HOME/Git/scripts/Shell/wlan_rate
 tail = true
