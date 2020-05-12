@@ -73,6 +73,7 @@ set mousehide
 
 "Everything is in UTF
 scriptencoding utf-8
+set encoding=utf-8
 " '.' is an end of word designator
 set iskeyword-=.
 " '"' is an end of word designator
@@ -137,9 +138,6 @@ set foldnestmax=3
 "Display command line’s tab complete options as a menu.
 set wildmenu
 
-"Enable syntax highlighting
-syntax enable
-au BufNewFile,BufRead * if &syntax == '' | set syntax=dosini | endif
 
 """----------------"""
 """--- keyboard ---"""
@@ -284,7 +282,7 @@ Plug 'https://github.com/honza/vim-snippets'
 
 "Youcompleteme
 ""Need YouCompleteMe for a nice popup interface for ultisnips
-"Install vim-youcompleteme-git from aur
+Plug 'https://github.com/ycm-core/YouCompleteMe'
 
 "Supertab
 ""Need SuperTab to allow YouCompleteMe selection to expand
@@ -330,3 +328,18 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"""---"""
+"""YCM"""
+"""---"""
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_auto_trigger = 1
+let g:ycm_auto_hover = ''
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+
+"Needs to be set last to allow all plugins to do their thing
+"Enable syntax highlighting
+syntax enable
+au BufNewFile,BufRead * if &syntax == '' | set syntax=dosini | endif

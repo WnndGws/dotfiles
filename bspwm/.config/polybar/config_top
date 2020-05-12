@@ -64,6 +64,8 @@ cursor-scroll = ns-resize
 [module/bspwm]
 type = internal/bspwm
 
+format = <label-state>
+
 pin-workspaces = false
 
 label-focused = %index%
@@ -71,7 +73,7 @@ label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 2
 
 label-urgent = %index%!

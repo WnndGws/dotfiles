@@ -2,6 +2,8 @@
 
 xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DVI-I-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 
+$HOME/Git/Agendrum/agendrum.py && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm $HOME/.fehbg &
+
 [ -f ~/.config/xmodmap/Xmodmap ] && xmodmap ~/.config/xmodmap/Xmodmap
 
 #Lines following an exec are ignored so place this last

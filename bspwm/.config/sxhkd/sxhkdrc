@@ -15,7 +15,7 @@ alt + f
 
 #Quit things by giving a rofi window
 alt + q
-    $XDG_CONFIG_HOME/rofi/rofi_yn_prompt "Quit?" "bspc node --close"
+    $HOME/Git/scripts/Shell/rofi_yn_prompt "Quit?" "bspc node --close"
 
 #Handle volume with my script
 alt + {semicolon,apostrophe,m}
@@ -29,8 +29,9 @@ alt + {h,j,k,l}
     bspc node -f {west,south,north,east}
 
 # Focus given workspace
+# Use Hex name so that i can change the actual 'name' to an icon
 alt + {0-9}
-    bspc desktop -f {0-9}
+    bspc desktop -f 0x0040000{F,6,8,9,A,B,7,C,D,E}
 
 alt + shift + {0-9}
     bspc node --to-desktop {0-9}
