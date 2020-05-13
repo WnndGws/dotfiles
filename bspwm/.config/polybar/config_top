@@ -103,7 +103,7 @@ label-underline = #268bd2
 
 [module/nextevent]
 type = custom/script
-exec = $HOME/Git/scripts/Python/next_event.py
+exec = $HOME/Git/scripts/python/nextevent
 
 interval = 1800
 
