@@ -15,11 +15,11 @@ alt + f
 
 #Quit things by giving a rofi window
 alt + q
-    $HOME/Git/scripts/Shell/rofi_yn_prompt "Quit?" "bspc node --close"
+    $HOME/Git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
 
 #Handle volume with my script
 alt + {semicolon,apostrophe,m}
-    $XDG_CONFIG_HOME/polybar/scripts/vol --{down,up,togmute}
+    $HOME/Git/scripts/shell/polybar_vol --{down,up,togmute}
 
 ###----------------------###
 ###--- BSPWM Bindings ---###
@@ -40,8 +40,11 @@ alt + shift + {0-9}
 alt + Escape
     bspc node -f last
 
-alt + shift + {h,j,k,l}
-    bspc node --to-node {south,west,east,north}
+alt + shift + {j,k}
+    bspc node @/ --rotate {90,-90}
 
 alt + {Left,Down,Up,Right}
     bspc node --presel-dir {west,south,north,east}
+
+alt + control + {h,j,k,l}
+    $HOME/Git/scripts/shell/bspwm_resize {west,south,north,east} 50
