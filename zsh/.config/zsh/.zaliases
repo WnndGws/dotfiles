@@ -44,19 +44,15 @@ alias fif="findinfile"
 alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 #Create a gitignore file
 
-alias git_push_all="~/Git/OneOffCodes/Shell/gitPushAll"
-alias gtpa="git_push_all"
+alias gtpa="gitpushall"
 #Use script to push everything in all my repos
 
-alias git_push='git add . && git commit -aS && git pull && git push'
+alias git_push='git add -p . && git commit -aS && git pull && git push'
 alias gtp='git_push'
 #Add, commit, and push git in one command
 
-alias gif_make='$HOME/Git/OneOffCodes/Python/gifmaker/gifmaker.py make_gif'
+alias gif_make='gifmaker make_gif'
 #Make webms from videos
-
-alias gpg_encrypt="~/Git/OneOffCodes/Shell/gpgEncrypt"
-#GPG encrypt a file to the recipient and myself
 
 alias ipython="/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi"
 #Always open ipython with vim mappings
@@ -85,7 +81,7 @@ alias md='/usr/bin/mkdir -p'
 alias mm='wyman'
 #Uses myman script
 
-alias nb="killall newsboat; newsboat --import-from-file $HOME/GoogleDrive/01_Personal/04_Software/newsboatcache.txt; newsboat && newsboat --export-to-file /home/wynand/GoogleDrive/01_Personal/04_Software/newsboatcache.txt"
+#alias nb="killall newsboat; newsboat --import-from-file $HOME/GoogleDrive/01_Personal/04_Software/newsboatcache.txt; newsboat && newsboat --export-to-file /home/wynand/GoogleDrive/01_Personal/04_Software/newsboatcache.txt"
 #Saves typing, sets class of terminal instead of default
 
 alias nf="neofetch"
@@ -97,18 +93,13 @@ alias pdf2smallpdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=
 pdfmerge() { gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=$@ ; }
 #The usage looks like this: pdfmerge merged.pdf mine1.pdf mine2.pdf
 
-alias pg="while true; do; prettyping --nolegend -c 5 google.com && break; echo 'trying again...'; done"
-#Quick ping google.com
-
 alias paorph='pacman --query --unrequired --deps --quiet'
 alias po='paorph'
 alias porm='paorph | xargs -I{} pikaur -R --noconfirm {}; paorph | xargs -I{} pikaur -R --noconfirm {}; paorph | xargs -I{} pikaur -R --noconfirm {}'
 #Pacaur orphans
 
-alias play_DCAU="~/Git/OneOffCodes/Shell/playlistPlay ~/wynZFS/Media/WatchOrders/DCAU.order"
+alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Plays the next episode in the DCAU that I am up to
-
-alias playlist_play="~/Git/OneOffCodes/Shell/playlistPlay"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
 
@@ -125,11 +116,6 @@ alias sab_ssh_tun='ssh -L 8080:localhost:8080 gouws.com.au -N'
 alias sonar_ssh_tun='ssh -L 8081:localhost:8081 gouws.com.au -N'
 alias torrent_ssh_tun='ssh -L 8082:localhost:8082 gouws.com.au -N'
 #Create ssh tunnels to my localhosts
-
-alias shutdown_at="~/Git/OneOffCodes/Shell/shutdownAt"
-#Allows user to enter shutdown_in hh:mm:ss and gives a countdown
-alias shutdown_in="~/Git/OneOffCodes/Shell/shutdownIn"
-#Allows user to enter shutdown_in hh:mm:ss and gives a countdown
 
 alias sx="startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
 #Startx to use XDG
