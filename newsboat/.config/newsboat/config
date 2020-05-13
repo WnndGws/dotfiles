@@ -10,7 +10,7 @@ auto-reload yes
 reload-time 3
 reload-threads 5
 external-url-viewer "urlscan"
-browser $HOME/Git/scripts/Shell/rofi_openwith_prompt
+browser $HOME/Git/scripts/shell/rofi_openwith
 cleanup-on-quit	no
 delete-read-articles-on-quit yes
 mark-as-read-on-hover no
