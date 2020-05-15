@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/wynand/Git/scripts/Shell'
 let g:netrw_dirhist_3='/home/wynand/.config/xinit'
 let g:netrw_dirhist_2='/home/wynand/Git/scripts/shell'
 let g:netrw_dirhist_1='/home/wynand/.config/xinit'
