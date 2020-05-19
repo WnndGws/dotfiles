@@ -62,6 +62,8 @@ wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+enable-ipc = true
+
 [module/weather]
 type = custom/script
 exec = $HOME/Git/scripts/python/polybar_weather
@@ -72,9 +74,11 @@ label-underline = #268bd2
 label-padding = 1
 
 [module/pkg]
-type = custom/script
-exec = $HOME/Git/scripts/shell/polybar_pkg
-interval = 300
+type = custom/ipc
+hook-0 = $HOME/Git/scripts/shell/polybar_pkg
+initial = 1
+#Add a systemd timer to run script on a timer
+#Also add polybar-msg to end of arch-update script
 
 [module/script_mem]
 type = custom/script
