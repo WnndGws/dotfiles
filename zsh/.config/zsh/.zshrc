@@ -1,4 +1,3 @@
-#
 #WHERE SHOULD STUFF GO:
 #.zshenv: Sourced always and first. Contain exported variables needed by other programs and scripts. Should be light weight since its run for every command
 #export ZDOTDIR=$HOME/.config/zsh in /etc/zsh/zshenv
@@ -100,6 +99,7 @@ setopt MENU_COMPLETE
 ###------------------------------###
 ###--- Sources that look nice ---###
 ###------------------------------###
+
 #find-the-command
 #make sure to run pacman -Fy and systemctl enable pacman-files.timer
 source /usr/share/doc/find-the-command/ftc.zsh
