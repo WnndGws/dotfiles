@@ -141,7 +141,7 @@ alias pin='pikaur -S --noconfirm'
 #Pikaur install
 alias pq='pikaur -Qi | rg -B3 -A3'
 #Pikaur Query
-alias pb='pikaur -S --rebuild'
+alias pir='pikaur -S --rebuild'
 #Pikaur rebuild already installed program
 
 alias time='hyperfine'
