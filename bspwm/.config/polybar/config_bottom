@@ -77,7 +77,7 @@ label-padding = 1
 type = custom/ipc
 hook-0 = $HOME/Git/scripts/shell/polybar_pkg
 initial = 1
-#Add a systemd timer to run script on a timer
+#Add a systemd timer to run polybar-msg every 15mins
 #Also add polybar-msg to end of arch-update script
 
 [module/script_mem]
