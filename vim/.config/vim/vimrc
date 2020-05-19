@@ -219,19 +219,19 @@ if has('autocmd')
   augroup END
 endif
 
-"if has('autocmd')
-  "augroup templates
-    "autocmd BufNewFile *.tex 0r ~/.vim/templates/skeleton_docs.tex
-    "autocmd BufNewFile *.service 0r ~/.vim/templates/skeleton.service
-    "autocmd BufNewFile *.timer 0r ~/.vim/templates/skeleton.timer
-    "autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
-    "autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+if has('autocmd')
+  augroup templates
+    autocmd BufNewFile *.tex 0r $XDG_CONFIG_HOME/vim/templates/skeleton_docs.tex
+    autocmd BufNewFile *.service 0r $XDG_CONFIG_HOME/vim/templates/skeleton.service
+    autocmd BufNewFile *.timer 0r $XDG_CONFIG_HOME/vim/templates/skeleton.timer
+    autocmd BufNewFile *.py 0r $XDG_CONFIG_HOME/vim/templates/skeleton.py
+    autocmd BufNewFile *.sh 0r $XDG_CONFIG_HOME/vim/templates/skeleton.sh
     "autocmd BufNewFile *soln.md 0r ~/.vim/templates/skeleton_soln.md
-    "autocmd BufNewFile *beamer*.md 0r ~/.vim/templates/skeleton_beamer.md
+    autocmd BufNewFile *beamer*.md 0r $XDG_CONFIG_HOME/vim/templates/skeleton_beamer.md
     "autocmd BufNewFile README.md 0r ~/.vim/templates/skeleton_readme.md
     "autocmd BufNewFile CONTRIBUTING.md 0r ~/.vim/templates/skeleton_contributing.md
-  "augroup END
-"endif
+  augroup END
+endif
 
 augroup markdown
   autocmd FileType markdown let g:indentLine_enabled=0
