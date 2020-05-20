@@ -18,7 +18,7 @@ alt + q
     $HOME/Git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
 
 #Handle volume with my script
-alt + {semicolon,apostrophe,m}
+alt + {bracketleft,bracketright,m}
     $HOME/Git/scripts/shell/polybar_vol --{down,up,togmute}
 
 ###----------------------###
@@ -31,7 +31,7 @@ alt + {h,j,k,l}
 # Focus given workspace
 # Use Hex name so that i can change the actual 'name' to an icon
 alt + {0-9}
-    bspc desktop -f 0x0040000{F,6,8,9,A,B,C,7,D,E}
+    bspc desktop -f 0x0060000{F,6,8,9,A,B,C,7,D,E}
 
 alt + shift + {0-9}
     bspc node --to-desktop {0-9}
