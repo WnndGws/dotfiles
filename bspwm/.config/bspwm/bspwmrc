@@ -44,6 +44,6 @@ bspc config pointer_action1 move
 ###---------------###
 ###--- COLOURS ---###
 ###---------------###
-bspc config normal_border_color #343d46
-bspc config active_border_color #839496
-bspc config focused_border_color #268bd2
+bspc config normal_border_color '#343d46'
+bspc config active_border_color '#839496'
+bspc config focused_border_color '#268bd2'
