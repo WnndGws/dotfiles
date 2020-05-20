@@ -3,9 +3,10 @@
 ###------------------###
 ###--- Autostarts ---###
 ###------------------###
-sxhkd &
 polybar --reload --config=$XDG_CONFIG_HOME/polybar/config_top top &
 polybar --reload --config=$XDG_CONFIG_HOME/polybar/config_bottom bottom &
+$HOME/Git/Agendrum/agendrum.py && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm $HOME/.fehbg
+$HOME/Git/scripts/shell/bspwm_desktopnamer.sh &
 
 ###-------------###
 ###--- BSPWM ---###
@@ -14,7 +15,7 @@ if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     bspc monitor DVI-I-1 -d 1 2 3 4 5 6
     bspc monitor HDMI-1 -d 7 8 9 0
 else
-    bspc monitor -d 1
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
 
 bspc config border_width         2
