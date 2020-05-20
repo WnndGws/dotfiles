@@ -187,7 +187,7 @@ colors:
   normal:
     black:   '#343d46' # Oceanic Next Black #happy
     red:     '#e65350' # Solarized red #happy
-    green:   '#99c794' # Oceanic green #happy
+    green:   '#99c76c' # Modified Oceanic green #happy
     yellow:  '#ffc24b' # Tender yellow #happy
     blue:    '#268bd2' # Solarized blue #happy
     magenta: '#cd00cd' # xTerm magenta #happy
