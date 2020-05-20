@@ -48,6 +48,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = CaskaydiaCove Nerd Font Mono:pixelsize=13;1
+font-1 = FreeMono:pixelsize=13;1
 
 modules-left =
 modules-center = weather pkg script_mem script_cpu script_vol script_wlan_speed
@@ -98,4 +99,9 @@ tail = true
 [module/script_wlan_speed]
 type = custom/script
 exec = $HOME/Git/scripts/shell/polybar_wlanrate
+tail = true
+
+[module/script_temp]
+type = custom/script
+exec = $HOME/Git/scripts/shell/polybar_temps
 tail = true
