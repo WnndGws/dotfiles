@@ -44,11 +44,13 @@ alias fif="findinfile"
 alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 #Create a gitignore file
 
+alias gs="git status"
+#Saves typing
+
 alias gtpa="gitpushall"
 #Use script to push everything in all my repos
 
-alias git_push='git add -p . && git commit -aS && git pull && git push'
-alias gtp='git_push'
+alias gtp='gitpush'
 #Add, commit, and push git in one command
 
 alias gif_make='gifmaker make_gif'
