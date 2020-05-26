@@ -53,3 +53,4 @@ $ for i in $(ls); do
 - [x] wallpaper
 - [ ] neomutt
 - [x] XDG dirs
+- [ ] Enable trim.timer if have sdd
