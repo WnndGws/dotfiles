@@ -27,3 +27,5 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
