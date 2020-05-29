@@ -10,8 +10,8 @@ A working example in my dotfiles is the X11 folder in my dotfiles. In this I inc
 
 ## To stow dotfiles
 ```bash
-$ cd ~/Git/dotfiles
-$ for i in $(ls); do
+$ cd ~/git/dotfiles
+$ for i in */; do
     stow --restow --target=$HOME $i
   done
 ```
