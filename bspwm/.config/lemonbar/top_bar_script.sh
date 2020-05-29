@@ -10,6 +10,11 @@ num_mon=$(bspc query -M | wc -l)
 # We have set it up in the init script so that each line starts with a different letter so that we can case them
 while read -r line; do
     case $line in
+        # I have set the time script to always start with a T
+        T*)
+            # Strip the 1st character
+            time="%{F$COLOR_CLOC_FG}%{B$COLOR_CLOC_BG} ${line#?} %{B-}%{F-}"
+            ;;
         # bspc subcribe report output always starts with a W
         W*)
             wm=
@@ -37,7 +42,7 @@ while read -r line; do
                                 on_focused_monitor=1
                                 ;;
                         esac
-                        [ $num_mon -lt 2 ] && shift && continue
+                        [ "$num_mon" -lt 2 ] && shift && continue
                         wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
                         ;;
                     # Desktops
@@ -114,7 +119,7 @@ while read -r line; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm}%{c}${title}%{r}${sys}"
+    printf "%s\n" "%{l}${wm}%{c}${title}%{r}${time}"
 done
 
 
