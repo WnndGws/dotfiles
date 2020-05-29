@@ -29,7 +29,15 @@ export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
 
 unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+if [ -f "${GNUPGHOME}/gpg-agent-info" ]; then
+     source "${GNUPGHOME}/gpg-agent-info"
+       export GPG_AGENT_INFO
+       export SSH_AUTH_SOCK
+       export SSH_AGENT_PID
+else
+    eval $( gpg-agent --daemon --write-env-file "$GNUPGHOME"/gpg-agent-info )
 fi
-gpgconf --launch gpg-agent
+#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  #export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+#fi
+#gpgconf --launch gpg-agent
