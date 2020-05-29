@@ -18,26 +18,20 @@ export XDG_DATA_HOME=$HOME'/.local/share'
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export _FASD_DATA="$XDG_CACHE_HOME/fasd/fasd"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export GPG_TTY=$(tty)
+export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint 
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
-
+###-----------------###
+###--- GPG Paths ---###
+###-----------------###
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GPG_TTY=$(tty)
 unset SSH_AGENT_PID
-if [ -f "${GNUPGHOME}/gpg-agent-info" ]; then
-     source "${GNUPGHOME}/gpg-agent-info"
-       export GPG_AGENT_INFO
-       export SSH_AUTH_SOCK
-       export SSH_AGENT_PID
-else
-    eval $( gpg-agent --daemon --write-env-file "$GNUPGHOME"/gpg-agent-info )
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
-#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  #export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-#fi
-#gpgconf --launch gpg-agent
+gpgconf --launch gpg-agent
