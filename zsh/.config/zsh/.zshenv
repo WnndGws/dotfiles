@@ -31,6 +31,7 @@ export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GPG_TTY=$(tty)
 unset SSH_AGENT_PID
+#TODO: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=835394
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
