@@ -29,28 +29,28 @@ $ for i in $(ls); do
 - [x] vim
 - [x] scripts
 - [x] alacritty
-- [x] polybar
+- [ ] lemonbar
 - [x] bspwm
 - [x] sxhkd
-- [x] firefox
+- [ ] firefox
 - [x] gpg
 - [x] ssh
 - [x] git
-- [x] zfs
-- [x] aur-auto-vote
-- [x] fail2ban
-- [x] steam
-- [x] sonarr
+- [ ] zfs
+- [ ] aur-auto-vote
+- [ ] fail2ban
+- [ ] steam
+- [ ] sonarr
 - [ ] radarr
-- [x] sabnzbd
-- [x] jellyfin
+- [ ] sabnzbd
+- [ ] jellyfin
 - [ ] mega.nz
-- [x] rofi
-- [x] newsboat
-- [x] myman
+- [ ] rofi
+- [ ] newsboat
+- [ ] myman
 - [ ] torrents
 - [ ] cmus
-- [x] wallpaper
+- [ ] wallpaper
 - [ ] neomutt
 - [x] XDG dirs
 - [ ] Enable trim.timer if have sdd
