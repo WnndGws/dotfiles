@@ -1,7 +1,7 @@
 #. ------------------ #
 # >>>>> ALIASES <<<<< #
 #. ------------------ #
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts -o /etc/hosts ; tldr --update; sudo updatedb; polybar-msg hook pkg 1'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; tldr --update; sudo updatedb'
 alias ad="archdate"
 #Update command
 
