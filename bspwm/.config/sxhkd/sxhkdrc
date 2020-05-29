@@ -31,10 +31,10 @@ alt + {h,j,k,l}
 # Focus given workspace
 # Use Hex name so that i can change the actual 'name' to an icon
 alt + {0-9}
-    bspc desktop -f 0x0060000{D,4,5,6,7,8,9,A,B,C}
+    bspc desktop --focus \^{10,1,2,3,4,5,6,7,8,9}.local
 
 alt + shift + {0-9}
-    bspc node --to-desktop 0x0060000{D,4,5,6,7,8,9,A,B,C}
+    bspc node --to-desktop \^{10,2,3,4,5,6,7,8,9}.local
 
 # Back and forth between nodes
 alt + Escape
@@ -47,4 +47,4 @@ alt + {Left,Down,Up,Right}
     bspc node --presel-dir {west,south,north,east}
 
 alt + control + {h,j,k,l}
-    $HOME/Git/scripts/shell/bspwm_resize {west,south,north,east} 50
+    $HOME/git/scripts/shell/bspwm_resize {west,south,north,east} 50

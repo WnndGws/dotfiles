@@ -3,11 +3,13 @@
 ###------------------###
 ###--- Autostarts ---###
 ###------------------###
-#polybar --reload --config=$XDG_CONFIG_HOME/polybar/config_top top &
-#polybar --reload --config=$XDG_CONFIG_HOME/polybar/config_bottom bottom &
-#$HOME/Git/Agendrum/agendrum.py && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm $HOME/.fehbg
-#$HOME/Git/scripts/shell/bspwm_desktopnamer.sh &
-$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh &
+#$HOME/Git/Agendrum/agendrum.py && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm $HOME/.fehbg &
+# Pull all my repos to keep them up to date
+"$HOME/git/scripts/shell/gitpullall" &
+
+# Init lemonbars
+"$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
+"$HOME/Git/scripts/shell/bspwm_desktopnamer.sh" &
 
 ###-------------###
 ###--- BSPWM ---###

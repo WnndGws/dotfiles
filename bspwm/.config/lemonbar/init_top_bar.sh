@@ -2,8 +2,9 @@
 ## This is the script to setup thr FIFO and run the FIFO in a bar
 
 PANEL_FIFO=/tmp/panel-fifo-top
-PANEL_HEIGHT=24
-PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+PANEL_HEIGHT=35
+#PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+PANEL_FONT="CaskaydiaCove Nerd Font Mono:size=20"
 PANEL_WM_NAME=bspwm_panel_top
 
 # Check if panel already running
