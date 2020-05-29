@@ -123,7 +123,7 @@ alias sonar_ssh_tun='ssh -L 8081:localhost:8081 gouws.com.au -N'
 alias torrent_ssh_tun='ssh -L 8082:localhost:8082 gouws.com.au -N'
 #Create ssh tunnels to my localhosts
 
-alias shutdown="$HOME/Git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/Git/scripts/shell/shutdownin 00:00:10'"
+alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/scripts/shell/shutdownin 00:00:10'"
 #Shutdown with rofiyesno
 
 alias sx="startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"

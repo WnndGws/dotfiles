@@ -1,6 +1,6 @@
 ## Sourced always and first. Contain exported variables needed by other programs and scripts. Should be light weight since its run for every command
 
-export PATH=/usr/local/bin:$HOME/.local/share/cargo/bin:$HOME/.local/share/bin:$HOME/Git/scripts/shell:$HOME/Git/scripts/python:$PATH
+export PATH=/usr/local/bin:$HOME/.local/share/cargo/bin:$HOME/.local/share/bin:$HOME/git/scripts/shell:$HOME/git/scripts/python:$PATH
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 
 ###-----------###
