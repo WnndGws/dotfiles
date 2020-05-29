@@ -34,7 +34,7 @@ alt + {0-9}
     bspc desktop --focus \^{10,1,2,3,4,5,6,7,8,9}.local
 
 alt + shift + {0-9}
-    bspc node --to-desktop \^{10,2,3,4,5,6,7,8,9}.local
+    bspc node --to-desktop \^{10,1,2,3,4,5,6,7,8,9}.local
 
 # Back and forth between nodes
 alt + Escape
