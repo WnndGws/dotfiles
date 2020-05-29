@@ -31,10 +31,10 @@ alt + {h,j,k,l}
 # Focus given workspace
 # Use Hex name so that i can change the actual 'name' to an icon
 alt + {0-9}
-    bspc desktop -f 0x0060000{F,6,8,9,A,B,C,7,D,E}
+    bspc desktop -f 0x0060000{D,4,5,6,7,8,9,A,B,C}
 
 alt + shift + {0-9}
-    bspc node --to-desktop 0x0060000{F,6,8,9,A,B,C,7,D,E}
+    bspc node --to-desktop 0x0060000{D,4,5,6,7,8,9,A,B,C}
 
 # Back and forth between nodes
 alt + Escape
