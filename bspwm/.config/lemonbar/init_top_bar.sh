@@ -23,10 +23,10 @@ mkfifo "$PANEL_FIFO"
 bspc subscribe report > "$PANEL_FIFO" &
 
 # Import colours
-. ./bar_colours
+. $XDG_CONFIG_HOME/lemonbar/bar_colours
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
-./top_bar_script.sh < "$PANEL_FIFO" | lemonbar -a 32 -u 2 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+$XDG_CONFIG_HOME/lemonbar/top_bar_script.sh < "$PANEL_FIFO" | lemonbar -a 32 -u 2 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"

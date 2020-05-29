@@ -2,7 +2,7 @@
 ## The script that parses the input from the init script
 
 # Import colour variables
-. ./bar_colours
+. $XDG_CONFIG_HOME/lemonbar/bar_colours
 
 num_mon=$(bspc query -M | wc -l)
 
