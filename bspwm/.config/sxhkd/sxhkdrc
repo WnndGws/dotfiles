@@ -15,11 +15,11 @@ alt + f
 
 #Quit things by giving a rofi window
 alt + q
-    $HOME/Git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
+    $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
 
 #Handle volume with my script
 alt + {bracketleft,bracketright,m}
-    $HOME/Git/scripts/shell/polybar_vol --{down,up,togmute}
+    $HOME/git/scripts/shell/polybar_vol --{down,up,togmute}
 
 ###----------------------###
 ###--- BSPWM Bindings ---###
