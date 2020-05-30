@@ -527,7 +527,6 @@ Session.vim
 Sessionx.vim
 
 # Temporary
-.netrwhist
 *.netrwhist
 
 # Auto-generated tag files
@@ -541,5 +540,10 @@ tags
 
 # End of https://www.gitignore.io/api/vim,tex,linux,latex,python
 *.pdf
+*.zcompdump
 
-*.zcompdump*
+# GPG
+*.kbx
+*.gpg
+*sshcontrol
+*private-keys*
