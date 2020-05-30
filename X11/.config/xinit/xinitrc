@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $(xrandr --query | rg -i screen | wc -l) = 2 ]; then
+if [ $(xrandr --query | rg -i " connected" | wc -l) = 2 ]; then
     xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DVI-I-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 fi
 
