@@ -1,15 +1,16 @@
 #!/usr/bin/env sh
 ## This is the script to setup thr FIFO and run the FIFO in a bar
 
-PANEL_FIFO=/tmp/panel-fifo-top
-PANEL_HEIGHT=35
-#PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-PANEL_FONT="CaskaydiaCove Nerd Font Mono:size=20"
-PANEL_WM_NAME=bspwm_panel_top
+BAR_FIFO=/tmp/bar-fifo-top
+BAR_HEIGHT=35
+BAR_FONT="CaskaydiaCove Nerd Font Mono:size=20"
+BAR_WM_NAME=bspwm_bar_top
+BAR_FG_COLOUR="#a7a5a5"
+BAR_BG_COLOUR="#333232"
 
-# Check if panel already running
-if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
-    printf "%s\n" "The panel is already running." >&2
+# Check if bar already running
+if xdo id -a "$BAR_WM_NAME" > /dev/null ; then
+    printf "%s\n" "The bar is already running." >&2
     exit 1
 fi
 
@@ -17,21 +18,18 @@ fi
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 # If an old FIFO exists, remove it and create a new one
-[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-mkfifo "$PANEL_FIFO"
+[ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
+mkfifo "$BAR_FIFO"
 
-# Add blocks to panel
-"$HOME/git/scripts/shell/lemonbar_time.sh" > "$PANEL_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_nextevent.sh" > "$PANEL_FIFO" &
-bspc subscribe report > "$PANEL_FIFO" &
-
-# Import colours
-. $XDG_CONFIG_HOME/lemonbar/bar_colours
+# Add blocks to bar
+"$HOME/git/scripts/shell/lemonbar_time.sh" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_nextevent.sh" > "$BAR_FIFO" &
+bspc subscribe report > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
-$XDG_CONFIG_HOME/lemonbar/top_bar_script.sh < "$PANEL_FIFO" | lemonbar -a 32 -u 2 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+"$XDG_CONFIG_HOME/lemonbar/top_bar_script.sh" < "$BAR_FIFO" | lemonbar -a 32 -u 4 -n "$BAR_WM_NAME" -g x$BAR_HEIGHT -f "$BAR_FONT" -F "$BAR_FG_COLOUR" -B "$BAR_BG_COLOUR" | sh &
 
-wid=$(xdo id -m -a "$PANEL_WM_NAME")
+wid=$(xdo id -m -a "$BAR_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
 wait

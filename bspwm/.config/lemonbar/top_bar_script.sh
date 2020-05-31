@@ -13,11 +13,11 @@ while read -r line; do
         # I have set the time script to always start with a T
         T*)
             # Strip the 1st character
-            time="%{F$COLOR_CLOC_FG}%{B$COLOR_CLOC_BG} ${line#?} %{B-}%{F-}"
+            time="%{F$white}%{U$grey} %{+u}${line#?}%{-u} %{U-}%{F-}"
             ;;
         # Next event starts with a N
         N*)
-            nextevent="%{F$COLOR_CLOC_FG}%{B$COLOR_CLOC_BG} ${line#?} %{B-}%{F-}"
+            nextevent="%{F$white}%{U$grey} %{+u}${line#?}%{-u} %{U-}%{F-}"
             ;;
         # bspc subcribe report output always starts with a W
         W*)
@@ -35,84 +35,73 @@ while read -r line; do
                         case $item in
                             # Unfocussed Monitor
                             m*)
-                                FG=$COLOR_MONITOR_FG
-                                BG=$COLOR_MONITOR_BG
+                                FG=$grey
                                 on_focused_monitor=
                                 ;;
                             #Focussed monitor
                             M*)
-                                FG=$COLOR_FOCUSED_MONITOR_FG
-                                BG=$COLOR_FOCUSED_MONITOR_BG
+                                FG=$blue
                                 on_focused_monitor=1
                                 ;;
                         esac
                         [ "$num_mon" -lt 2 ] && shift && continue
-                        wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
+                        wm="${wm}%{F${FG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{F-}"
                         ;;
                     # Desktops
                     [fFoOuU]*)
                         case $item in
                             # Free Desktop
                             f*)
-                                FG=$COLOR_FREE_FG
-                                BG=$COLOR_FREE_BG
-                                UL=$BG
+                                FG=$black
+                                UL=$FG
                                 ;;
                             # Focussed
                             F*)
                                 # Focussed but free
                                 if [ "$on_focused_monitor" ] ; then
-                                    FG=$COLOR_FOCUSED_FREE_FG
-                                    BG=$COLOR_FOCUSED_FREE_BG
-                                    UL=$BG
+                                    FG=$white
+                                    UL=$blue
                                 # Active but free
                                 else
-                                    FG=$COLOR_FREE_FG
-                                    BG=$COLOR_FREE_BG
-                                    UL=$COLOR_FOCUSED_FREE_BG
+                                    FG=$red
+                                    UL=$FG
                                 fi
                                 ;;
                             # Occupied Desktop
                             o*)
-                                FG=$COLOR_OCCUPIED_FG
-                                BG=$COLOR_OCCUPIED_BG
-                                UL=$BG
+                                FG=$grey
+                                UL=$grey
                                 ;;
                             # Occupied
                             O*)
                                 # Focussed and occupied
                                 if [ "$on_focused_monitor" ] ; then
-                                    FG=$COLOR_FOCUSED_OCCUPIED_FG
-                                    BG=$COLOR_FOCUSED_OCCUPIED_BG
-                                    UL=$BG
+                                    FG=$white
+                                    UL=$blue
                                 # Active and ocupied
                                 else
-                                    FG=$COLOR_OCCUPIED_FG
-                                    BG=$COLOR_OCCUPIED_BG
-                                    UL=$COLOR_FOCUSED_OCCUPIED_BG
+                                    FG=$bright_green
+                                    UL=$FG
                                 fi
                                 ;;
                             # Urgent
                             u*)
-                                FG=$COLOR_URGENT_FG
-                                BG=$COLOR_URGENT_BG
-                                UL=$BG
+                                FG=$bright_red
+                                UL=$FG
                                 ;;
                             U*)
                                 # Focussed urgent
                                 if [ "$on_focused_monitor" ] ; then
-                                    FG=$COLOR_FOCUSED_URGENT_FG
-                                    BG=$COLOR_FOCUSED_URGENT_BG
-                                    UL=$BG
+                                    FG=$bright_white
+                                    UL=$FG
                                 # Active urgent
                                 else
-                                    FG=$COLOR_URGENT_FG
-                                    BG=$COLOR_URGENT_BG
-                                    UL=$COLOR_FOCUSED_URGENT_BG
+                                    FG=$red
+                                    UL=$FG
                                 fi
                                 ;;
                         esac
-                        wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}%{-u}"
+                        wm="${wm}%{F${FG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{F-}%{-u}"
                         ;;
                     # Layout, state, flags
                     [LTG]*)
@@ -123,5 +112,5 @@ while read -r line; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm}%{r}${nextevent}|%{r}${time}"
+    printf "%s\n" "%{l}${wm}%{r}${nextevent} | ${time}"
 done
