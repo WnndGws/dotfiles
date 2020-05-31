@@ -22,11 +22,13 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
 mkfifo "$BAR_FIFO"
 
-# TODO: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
-# Order: weather, pkg, vol, wlan_speed, wlan_dl
+# Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
+# TODO: weather, vol, wlan_speed, wlan_dl
 # Add blocks to bar
+"$HOME/git/scripts/shell/lemonbar_pkg" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_cpu" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_mem" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_wlanrate" > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
 "$XDG_CONFIG_HOME/lemonbar/bottom_bar_script.sh" < "$BAR_FIFO" | lemonbar -b -a 32 -u 3 -n "$BAR_WM_NAME" -g x$BAR_HEIGHT -f "$BAR_FONT" -F "$BAR_FG_COLOUR" -B "$BAR_BG_COLOUR" | sh &

@@ -44,6 +44,23 @@ while read -r line; do
                     mem="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
             esac
             ;;
+        P*)
+            # Packages
+            pkg=
+            line=${line#?}
+            case $line in
+                H*)
+                    pkg="%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    ;;
+                L*)
+                    pkg="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    ;;
+            esac
+            ;;
+        W*)
+            #WLAN rate
+            wlan="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+            ;;
     esac
-    printf "%s\n" "%{l}%{c}${cpu}|${mem}%{r}"
+    printf "%s\n" "%{l}%{c}${pkg}|${cpu}|${mem}|${wlan}%{r}"
 done
