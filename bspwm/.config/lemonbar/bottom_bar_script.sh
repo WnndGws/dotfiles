@@ -15,10 +15,10 @@ while read -r line; do
             line=${line#?}
             case $line in
                 U*)
-                    cpu="%{F$white%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    cpu="%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
                     ;;
                 H*)
-                    cpu="%{F$white%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    cpu="%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
                     ;;
                 L*)
                     cpu="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
@@ -32,10 +32,10 @@ while read -r line; do
             line=${line#?}
             case $line in
                 U*)
-                    mem="%{F$white%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    mem="%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
                     ;;
                 H*)
-                    mem="%{F$white%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    mem="%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
                     ;;
                 M*)
                     mem="%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
