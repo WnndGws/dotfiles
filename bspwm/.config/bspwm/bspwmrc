@@ -9,6 +9,7 @@
 
 # Init lemonbars
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
+"$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
 "$HOME/git/scripts/shell/bspwm_desktopnamer.sh" &
 
 ###-------------###
