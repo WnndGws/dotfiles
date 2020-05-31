@@ -22,6 +22,7 @@ mkfifo "$PANEL_FIFO"
 
 # Add blocks to panel
 "$HOME/git/scripts/shell/lemonbar_time.sh" > "$PANEL_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_nextevent.sh" > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
 
 # Import colours

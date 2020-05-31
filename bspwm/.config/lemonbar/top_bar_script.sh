@@ -15,6 +15,10 @@ while read -r line; do
             # Strip the 1st character
             time="%{F$COLOR_CLOC_FG}%{B$COLOR_CLOC_BG} ${line#?} %{B-}%{F-}"
             ;;
+        # Next event starts with a N
+        N*)
+            nextevent="%{F$COLOR_CLOC_FG}%{B$COLOR_CLOC_BG} ${line#?} %{B-}%{F-}"
+            ;;
         # bspc subcribe report output always starts with a W
         W*)
             wm=
@@ -119,7 +123,5 @@ while read -r line; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm}%{c}${title}%{r}${time}"
+    printf "%s\n" "%{l}${wm}%{r}${nextevent}|%{r}${time}"
 done
-
-
