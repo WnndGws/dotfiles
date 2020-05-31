@@ -22,9 +22,6 @@ else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
 
-bspc config border_width         2
-bspc config window_gap           0
-
 # Make sure borders are always on
 bspc config borderless_monocle   false
 bspc config gapless_monocle      true
@@ -48,6 +45,8 @@ bspc config pointer_action1 move
 ###---------------###
 ###--- COLOURS ---###
 ###---------------###
+bspc config border_width 1
+bspc config window_gap 0
 bspc config normal_border_color '#343d46'
 bspc config active_border_color '#839496'
 bspc config focused_border_color '#268bd2'
