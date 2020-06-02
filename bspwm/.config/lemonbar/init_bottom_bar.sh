@@ -25,10 +25,10 @@ mkfifo "$BAR_FIFO"
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
 # TODO: weather, vol, wlan_speed, wlan_dl
 # Add blocks to bar
-"$HOME/git/scripts/shell/lemonbar_pkg" > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_cpu" > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_mem" > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_wlanrate" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_mem.sh" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_wlanrate.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
