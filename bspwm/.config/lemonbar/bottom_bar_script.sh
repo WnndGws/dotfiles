@@ -61,6 +61,10 @@ while read -r line; do
             #WLAN rate
             wlan="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
             ;;
+        B*)
+            ##Battery
+            bat=${line#?}
+            ;;
     esac
-    printf "%s\n" "%{l}%{c}${pkg}|${cpu}|${mem}|${wlan}%{r}"
+    printf "%s\n" "%{l}%{c}${pkg}|${cpu}|${mem}|${bat}|${wlan}%{r}"
 done

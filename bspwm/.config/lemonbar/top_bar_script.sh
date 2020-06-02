@@ -77,7 +77,7 @@ while read -r line; do
                                 # Focussed and occupied
                                 if [ "$on_focused_monitor" ] ; then
                                     FG=$white
-                                    UL=$blue
+                                    UL=$yellow
                                 # Active and ocupied
                                 else
                                     FG=$bright_green
@@ -112,5 +112,5 @@ while read -r line; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm}%{r}${nextevent} | ${time}"
+    printf "%s\n" "%{l}${wm}%{r}${nextevent}|${time}"
 done

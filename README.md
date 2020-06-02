@@ -29,25 +29,25 @@ $ for i in */; do
 - [x] vim
 - [x] scripts
 - [x] alacritty
-- [ ] lemonbar
+- [x] lemonbar
 - [x] bspwm
 - [x] sxhkd
 - [ ] firefox
 - [x] gpg
 - [x] ssh
 - [x] git
-- [ ] zfs
+- [x] zfs
 - [ ] aur-auto-vote
 - [ ] fail2ban
-- [ ] steam
-- [ ] sonarr
-- [ ] radarr
-- [ ] sabnzbd
-- [ ] jellyfin
+- [x] steam
+- [x] sonarr
+- [x] radarr
+- [x] sabnzbd
+- [x] jellyfin
 - [ ] mega.nz
-- [ ] rofi
+- [x] rofi
 - [ ] newsboat
-- [ ] myman
+- [x] myman
 - [ ] torrents
 - [ ] cmus
 - [ ] wallpaper
