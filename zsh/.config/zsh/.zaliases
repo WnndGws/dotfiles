@@ -133,10 +133,15 @@ convert480p() { ffmpeg -i "$1" -vf scale=-2:480 -crf 20 -vcodec h264 -acodec lib
 #Convert a video to 576p
 
 alias ss="sudo systemctl"
+alias sdr="sudo systemctl daemon-reload"
 alias sss="sudo systemctl status"
 alias ssr="sudo systemctl restart"
 alias sse="sudo systemctl enable"
 alias ssd="sudo systemctl disable"
+
+alias sudr="systemctl --user daemon-reload"
+alias sus="systemctl --user status"
+alias sur="systemctl --user restart"
 #Saves typing
 
 alias sv='sudo vim'
