@@ -40,10 +40,10 @@ $ for i in */; do
 - [ ] aur-auto-vote
 - [ ] fail2ban
 - [x] steam
-- [x] sonarr
-- [x] radarr
-- [x] sabnzbd
-- [x] jellyfin
+- [ ] sonarr
+- [ ] radarr
+- [ ] sabnzbd
+- [ ] jellyfin
 - [ ] mega.nz
 - [x] rofi
 - [ ] newsboat
