@@ -29,7 +29,6 @@ export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 ###--- GPG Paths ---###
 ###-----------------###
 # GPG now handled by systemctl --user
-# GPG socet dirs in ~/.config/systemd/user
 # https://eklitzke.org/using-gpg-agent-effectively
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 unset SSH_AGENT_PID

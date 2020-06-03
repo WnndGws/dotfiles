@@ -19,7 +19,7 @@ source $XDG_CONFIG_HOME/zsh/.zaliases
 
 #GPG
 export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
+gpg-connect-agent updatestartuptty /bye > /dev/null 2>&1
 
 ###--------------###
 ###--- History---###
