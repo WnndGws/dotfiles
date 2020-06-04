@@ -28,9 +28,6 @@ alt + {bracketleft,bracketright,m}
 alt + {h,j,k,l}
     bspc node -f {west,south,north,east}
 
-alt + shift + {0-9}
-    bspc node --to-desktop \^{10,1,2,3,4,5,6,7,8,9}.local
-
 # Back and forth between nodes
 alt + Escape
     bspc node -f last
@@ -44,7 +41,8 @@ alt + {Left,Down,Up,Right}
 alt + control + {h,j,k,l}
     $HOME/git/scripts/shell/bspwm_resize {west,south,north,east} 50
 
-### THESE MUST BE THE LAST 3 LINES, AS THEY GET CUT
+### THESE MUST BE THE LAST 4 LINES, AS THEY GET CUT
+
 #Added by script
 #Focus or Move window to desktops
 alt + {shift + ,_} {1-9,0}
