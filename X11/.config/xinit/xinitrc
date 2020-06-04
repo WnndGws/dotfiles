@@ -8,8 +8,8 @@ fi
 
 [ -f ~/.config/xmodmap/Xmodmap ] && xmodmap ~/.config/xmodmap/Xmodmap
 
-# Use the correct names for desktops
-"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && sxhkd &
+# Init sxhkd so can work with it even if bspwm doesnt load nicely
+sxhkd &
 
 #Lines following an exec are ignored so place this last
 session=exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc

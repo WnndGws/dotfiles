@@ -13,6 +13,9 @@
 "$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
 "$HOME/git/scripts/shell/bspwm_desktopnamer.sh" &
 
+# Reinit sxhkd to provide session specific bindings
+"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall sxhkd && sxhkd &
+
 ###-------------###
 ###--- BSPWM ---###
 ###-------------###
