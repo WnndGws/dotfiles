@@ -46,5 +46,6 @@ alt + control + {h,j,k,l}
 
 ### THESE MUST BE THE LAST 3 LINES, AS THEY GET CUT
 #Added by script
-alt + {1-9,0}
-    bspc desktop --focus 0x0060000{6,8,9,A,B,C,7,D,E,F}
+#Focus or Move window to desktops
+alt + {shift + ,_} {1-9,0}
+    bspc {node --to-desktop, desktop --focus} 0x0060000{4,5,6,7,8,9,A,B,C,D}

@@ -7,7 +7,9 @@ if [ $(xrandr --query | rg -i " connected" | wc -l) = 2 ]; then
 fi
 
 [ -f ~/.config/xmodmap/Xmodmap ] && xmodmap ~/.config/xmodmap/Xmodmap
-sxhkd &
+
+# Use the correct names for desktops
+"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && sxhkd &
 
 #Lines following an exec are ignored so place this last
 session=exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
