@@ -65,6 +65,25 @@ while read -r line; do
             ##Battery
             bat=${line#?}
             ;;
+        V*)
+            ##Volume
+            vol=
+            line=${line#?}
+            case $line in
+                L*)
+                    #Low
+                    vol="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    ;;
+                M*)
+                    #Med
+                    vol="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    ;;
+                H*)
+                    #High
+                    vol="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    ;;
+            esac
+            ;;
     esac
-    printf "%s\n" "%{l}%{c}${pkg}|${cpu}|${mem}|${bat}|${wlan}%{r}"
+    printf "%s\n" "%{l}%{c}${pkg}|${cpu}|${mem}|${bat}|${vol}|${wlan}%{r}"
 done

@@ -19,7 +19,7 @@ alt + q
 
 #Handle volume with my script
 alt + {bracketleft,bracketright,m}
-    $HOME/git/scripts/shell/polybar_vol --{down,up,togmute}
+    $HOME/git/scripts/shell/lemonbar_vol.sh --{down,up,togmute}
 
 ###----------------------###
 ###--- BSPWM Bindings ---###
