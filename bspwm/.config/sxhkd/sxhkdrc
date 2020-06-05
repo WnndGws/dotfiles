@@ -17,9 +17,9 @@ alt + f
 alt + q
     $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
 
-#Handle volume with my script
+#Handle volume
 alt + {bracketleft,bracketright,m}
-    $HOME/git/scripts/shell/lemonbar_vol.sh --{down,up,togmute}
+    pamixer {--decrease 5,--increase 5,--toggle-mute}
 
 ###----------------------###
 ###--- BSPWM Bindings ---###

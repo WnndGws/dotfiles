@@ -70,6 +70,10 @@ while read -r line; do
             vol=
             line=${line#?}
             case $line in
+                m*)
+                    #Muted
+                    vol="[%{F$white}%{U$grey} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    ;;
                 L*)
                     #Low
                     vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
