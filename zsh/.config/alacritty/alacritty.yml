@@ -338,7 +338,7 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     launcher:
-      program: dmenu_openwith_prompt
+      program: rofi_openwith
     #  args: []
 
     # URL modifiers
