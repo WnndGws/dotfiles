@@ -15,13 +15,13 @@ while read -r line; do
             line=${line#?}
             case $line in
                 U*)
-                    cpu="%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    cpu="[%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 H*)
-                    cpu="%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    cpu="[%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 L*)
-                    cpu="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    cpu="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
             esac
             ;;
@@ -32,16 +32,16 @@ while read -r line; do
             line=${line#?}
             case $line in
                 U*)
-                    mem="%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    mem="[%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 H*)
-                    mem="%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    mem="[%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 M*)
-                    mem="%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    mem="[%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 L*)
-                    mem="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    mem="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
             esac
             ;;
         P*)
@@ -50,16 +50,16 @@ while read -r line; do
             line=${line#?}
             case $line in
                 H*)
-                    pkg="%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    pkg="[%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 L*)
-                    pkg="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    pkg="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
             esac
             ;;
         W*)
             #WLAN rate
-            wlan="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+            wlan="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
             ;;
         B*)
             ##Battery
@@ -72,18 +72,18 @@ while read -r line; do
             case $line in
                 L*)
                     #Low
-                    vol="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 M*)
                     #Med
-                    vol="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
                 H*)
                     #High
-                    vol="%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}"
+                    vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
                     ;;
             esac
             ;;
     esac
-    printf "%s\n" "%{l}%{c}${pkg}|${cpu}|${mem}|${bat}|${vol}|${wlan}%{r}"
+    printf "%s\n" "%{l}%{c}${pkg}${cpu}${mem}${bat}${vol}${wlan}%{r}"
 done
