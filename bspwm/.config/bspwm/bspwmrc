@@ -4,7 +4,8 @@
 ###--- Autostarts ---###
 ###------------------###
 
-#$HOME/Git/Agendrum/agendrum.py && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm $HOME/.fehbg &
+# Set wallpaper
+"$HOME/git/agendrum/agendrum.py" && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm "$HOME/.fehbg" &
 # Pull all my repos to keep them up to date
 #"$HOME/git/scripts/shell/gitpullall" &
 
