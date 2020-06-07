@@ -23,7 +23,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$BAR_FIFO"
 
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
-# TODO: weather, vol, wlan_dl
+# TODO: wlan_dl
 # Add blocks to bar
 "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
