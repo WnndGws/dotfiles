@@ -21,11 +21,6 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 """------------------------"""
 """--- General Settings ---"""
 """------------------------"""
-" Vertically center document when entering insert mode
-augroup niceties
-    autocmd InsertEnter * norm zz
-augroup END
-
 "New lines inherit the indentation of previous lines
 set autoindent
 
