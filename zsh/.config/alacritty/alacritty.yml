@@ -538,9 +538,9 @@ key_bindings:
   #- { key: V,      mods: Control,       mode: Vi, action: ToggleBlockSelection    }
   #- { key: V,      mods: Alt,           mode: Vi, action: ToggleSemanticSelection }
   #- { key: Return,                      mode: Vi, action: Open                    }
-  - { key: K,       mods: Shift,                   action: ScrollLineUp            }
-  #- { key: K,                           mode: Vi, action: Up                      }
-  - { key: J,       mods: Shift,                   action: ScrollLineDown          }
+  #- { key: K,       mods: Shift,         action: ScrollLineUp            }
+  #- { key: K,                           mode: ~Vi, action: ScrollLineUp                      }
+  #- { key: J,       mods: Shift,         action: ScrollLineDown          }
   #- { key: J,                           mode: Vi, action: Down                    }
   #- { key: H,                           mode: Vi, action: Left                    }
   #- { key: L,                           mode: Vi, action: Right                   }
