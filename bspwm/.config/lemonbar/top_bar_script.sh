@@ -40,7 +40,7 @@ while read -r line; do
                                 ;;
                             #Focussed monitor
                             M*)
-                                FG=$blue
+                                FG=$grey
                                 on_focused_monitor=1
                                 ;;
                         esac
