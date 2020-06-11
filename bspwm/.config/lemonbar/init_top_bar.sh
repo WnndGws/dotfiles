@@ -3,8 +3,9 @@
 
 BAR_FIFO=/tmp/bar-fifo-top
 BAR_HEIGHT=35
-BAR_FONT_0="Cascadia Code:size=20"
-BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=22"
+HOSTNAME=$(paste /etc/hostname)
+[ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=20"
+[ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=22"
 BAR_WM_NAME=bspwm_bar_top
 BAR_FG_COLOUR="#a7a5a5"
 BAR_BG_COLOUR="#333232"

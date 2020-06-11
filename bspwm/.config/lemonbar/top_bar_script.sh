@@ -80,8 +80,8 @@ while read -r line; do
                                     UL=$yellow
                                 # Active and ocupied
                                 else
-                                    FG=$bright_green
-                                    UL=$FG
+                                    FG=$white
+                                    UL=$blue
                                 fi
                                 ;;
                             # Urgent
