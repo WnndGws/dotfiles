@@ -6,8 +6,8 @@ export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomo
 ###-----------###
 ###--- Vim ---###
 ###-----------###
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 
 ###-----------------###
 ###--- XDG Paths ---###
@@ -21,7 +21,7 @@ export _FASD_DATA="$XDG_CACHE_HOME/fasd/fasd"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint 
-export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
+#export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 

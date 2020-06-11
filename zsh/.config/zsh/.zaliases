@@ -93,6 +93,10 @@ alias nb='newsboat'
 alias nf="neofetch"
 #Neofetch
 
+alias nv="nvim"
+alias vim="nvim"
+#Help transition
+
 alias pdf2smallpdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/<screen(72dpi)ebook(150dpi)prepress(300dpi)> -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf"
 #Uses ghostscript to downsize pdfs
 
