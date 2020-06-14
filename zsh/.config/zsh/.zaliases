@@ -41,8 +41,10 @@ alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++>
 alias fif="findinfile"
 # using ripgrep combined with preview. Ran as a custom script from scripts folder
 
-getlinkfile() { rsync --verbose --recursive --update --human-readable --partial --progress -e "ssh -p 2222" "$1":/tmp/linkfile.txt /tmp }
+getlinkfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/linkfile.txt /tmp }
 alias glf="getlinkfile"
+readlinkfile() { paste /tmp/linkfile.txt | while read LINK; do "$HOME/git/scripts/shell/rofi_openwith" "$LINK" && sed -i '1d' /tmp/linkfile.txt; done }
+alias rlf="readlinkfile"
 # Allows me to quickly get the linkfile. Use as glf user@ip
 
 alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
