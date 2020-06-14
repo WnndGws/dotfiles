@@ -548,3 +548,6 @@ tags
 *sshcontrol
 *private-keys*
 *crls*
+
+# ZSH
+*.zcompdump
