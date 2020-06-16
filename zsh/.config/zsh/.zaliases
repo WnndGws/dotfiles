@@ -122,6 +122,9 @@ alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
 #Sometimes Capslock loses its escape-ability
 
+alias resetnetwork='sudo systemctl restart systemd-networkd.service; sudo systemctl restart networkd-resolved.service; sudo systemctl restart iwd.service'
+#Saves typing
+
 alias rm='trash -riv'
 #Prompt when removing files, force recursive
 

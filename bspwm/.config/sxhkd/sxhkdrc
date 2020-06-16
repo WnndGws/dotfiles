@@ -32,6 +32,10 @@ alt + {h,j,k,l}
 alt + Escape
     bspc node -f last
 
+# Cycle desktops
+alt + Tab
+    bspc desktop next.occupied --focus
+
 alt + shift + {j,k}
     bspc node @/ --rotate {90,-90}
 
