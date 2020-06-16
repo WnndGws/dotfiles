@@ -11,19 +11,17 @@ while read -r line; do
         # CPU
         C*)
             # Strip the 1st character and check the leader
-            cpu=
             line=${line#?}
-            case $line in
-                U*)
-                    cpu="[%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-                    ;;
-                H*)
-                    cpu="[%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-                    ;;
-                L*)
-                    cpu="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-                    ;;
-            esac
+            cpu=
+            # Strip the percentage sign from the number
+            line0=${line%%%}
+            if [ $line0 -ge 75 ]; then
+                cpu="[%{F$white}%{U$red} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            elif [ $line0 -ge 50 ]; then
+                cpu="[%{F$white}%{U$yellow} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            else
+                cpu="[%{F$white}%{U$blue} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            fi
             ;;
         # Memory
         M*)

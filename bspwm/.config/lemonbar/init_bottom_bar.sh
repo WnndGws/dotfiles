@@ -28,7 +28,7 @@ mkfifo "$BAR_FIFO"
 # TODO: wlan_dl
 # Add blocks to bar
 "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
+$HOME/.local/bin/slstatus.cpu -s > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_mem.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_wlanrate.sh" > "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
