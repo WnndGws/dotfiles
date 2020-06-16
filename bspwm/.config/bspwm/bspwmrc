@@ -17,6 +17,9 @@
 # Reinit sxhkd to provide session specific bindings
 "$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall sxhkd && sxhkd &
 
+# Start unclutter to remove cursor
+unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
+
 ###-------------###
 ###--- BSPWM ---###
 ###-------------###
