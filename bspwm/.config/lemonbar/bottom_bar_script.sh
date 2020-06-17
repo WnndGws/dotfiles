@@ -28,19 +28,14 @@ while read -r line; do
             # Strip the 1st character and check the leader
             mem=
             line=${line#?}
-            case $line in
-                U*)
-                    mem="[%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-                    ;;
-                H*)
-                    mem="[%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-                    ;;
-                M*)
-                    mem="[%{F$white}%{U$yellow} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-                    ;;
-                L*)
-                    mem="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
-            esac
+            line0=${line%%%}
+            if [ $line0 -ge 75 ]; then
+                mem="[%{F$white}%{U$red} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            elif [ $line0 -ge 50 ]; then
+                mem="[%{F$white}%{U$yellow} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            else
+                mem="[%{F$white}%{U$blue} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            fi
             ;;
         P*)
             # Packages
