@@ -66,6 +66,9 @@ alias gif_make='gifmaker make_gif'
 alias ipython="/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi"
 #Always open ipython with vim mappings
 
+alias jf="jftui"
+#Save my precious time
+
 alias latex_shortcuts="cat $HOME/.vimrc | rg 'autocmd FileType tex inoremap.*' | cut -d';' -f2"
 #Prints tha latex shortcuts I have in my vimrc
 
