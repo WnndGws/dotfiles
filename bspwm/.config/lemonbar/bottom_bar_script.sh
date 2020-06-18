@@ -29,9 +29,9 @@ while read -r line; do
             mem=
             line=${line#?}
             line0=${line%%%}
-            if [ $line0 -ge 75 ]; then
+            if [ "$line0" -ge 75 ]; then
                 mem="[%{F$white}%{U$red} %{+u} ${line}%{-u} %{U-}%{F-}]"
-            elif [ $line0 -ge 50 ]; then
+            elif [ "$line0" -ge 50 ]; then
                 mem="[%{F$white}%{U$yellow} %{+u} ${line}%{-u} %{U-}%{F-}]"
             else
                 mem="[%{F$white}%{U$blue} %{+u} ${line}%{-u} %{U-}%{F-}]"
@@ -52,7 +52,7 @@ while read -r line; do
             ;;
         W*)
             #WLAN rate
-            wlan="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+            wlan="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
             ;;
         R*)
             #Weather
