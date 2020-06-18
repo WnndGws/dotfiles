@@ -46,7 +46,7 @@ while read -r line; do
                     pkg="[%{F$white}%{U$red} %{+u}${line#* }%{-u} %{U-}%{F-}]"
                     ;;
                 L*)
-                    pkg="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    pkg="[%{F$white}%{U$blue} %{+u}${line#* }%{-u} %{U-}%{F-}]"
                     ;;
             esac
             ;;
