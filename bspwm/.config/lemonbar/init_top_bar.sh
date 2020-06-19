@@ -24,7 +24,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$BAR_FIFO"
 
 # Add blocks to bar
-"$HOME/git/scripts/shell/lemonbar_time.sh" > "$BAR_FIFO" &
+"$HOME/.local/bin/slstatus.datetime" -s > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_nextevent.sh" > "$BAR_FIFO" &
 bspc subscribe report > "$BAR_FIFO" &
 

@@ -1,7 +1,7 @@
 #. ------------------ #
 # >>>>> ALIASES <<<<< #
 #. ------------------ #
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; echo "PL0  0" > /tmp/bar-fifo-bottom; tldr --update'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; echo "PL 0  0" > /tmp/bar-fifo-bottom; tldr --update'
 alias ad="archdate"
 #Update command
 

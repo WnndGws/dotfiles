@@ -25,12 +25,11 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$BAR_FIFO"
 
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
-# TODO: wlan_dl
 # Add blocks to bar
 "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
-$HOME/.local/bin/slstatus.cpu -s > "$BAR_FIFO" &
-$HOME/.local/bin/slstatus.mem -s > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_wlanrate.sh" > "$BAR_FIFO" &
+"$HOME/.local/bin/slstatus.cpu" -s > "$BAR_FIFO" &
+"$HOME/.local/bin/slstatus.mem" -s > "$BAR_FIFO" &
+"$HOME/.local/bin/slstatus.wlan" -s> "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
