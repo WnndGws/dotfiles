@@ -63,7 +63,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default
 
 # filters
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCoLrcjPV5PbUrUyXq5mjc_A" "title !~ \"Giants\""
-ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCpdXIv0o46znhDWZH03fF4w" "title !~ \"Eagles\""
+ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCxAeHdLDAatFV_vt95MSO-g" "title !~ \"Eagles\""
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCDOGExGCsrrt_RrGDgLuMww" "title !~ \"Rebel\""
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCoh_z6QB0AGB1oxWufvbDUg" "title !~ \"Warriors|Sixers|Lakers\" or title !~ \"Full Game\""
 ignore-article "http://feeds.lifehacker.com.au/LifehackerAustralia" "age >= 1"
@@ -71,7 +71,7 @@ ignore-article "https://theconversation.com/au/articles.atom" "age >= 1"
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCiDJtJKMICpb9B1qf7qjEOA" "title !~ \"Savage\""
 ignore-article "https://sportscult.org/rss2.php" "title !~ \"NFL\" and title !~ \"Boxing\""
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCDVYQ4Zhbm3S2dlz7P1GBDg" "title !~ \"Week\" or title =~ \"49\""
-always-download "https://www.youtube.com/feeds/videos.xml?channel_id=UCDVYQ4Zhbm3S2dlz7P1GBDg"
+#always-download "https://www.youtube.com/feeds/videos.xml?channel_id=UCDVYQ4Zhbm3S2dlz7P1GBDg"
 #ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCDVYQ4Zhbm3S2dlz7P1GBDg" "title !~ \"Week\""
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCkBY0aHJP9BwjZLDYxAQrKg" "title !~ \"\\|\""
 ignore-article "https://old.reddit.com/user/nathanwpyle/.rss" " title =~ \"/u/nathanwpyle on\""
