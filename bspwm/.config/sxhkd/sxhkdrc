@@ -13,6 +13,9 @@ alt + d
 alt + f
     firefox
 
+alt + s
+    alacritty --class "jftui,jftui" -e "jftui"
+
 #Quit things by giving a rofi window
 alt + q
     $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
