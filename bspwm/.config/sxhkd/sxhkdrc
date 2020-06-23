@@ -2,7 +2,8 @@
 ###--- Applications ---###
 ###--------------------###
 alt + Return
-    [ "$(bspc query -N -d | wc -l)" -eq 1 ] && bspc node -p south && alacritty || alacritty
+    alacritty
+    #[ "$(bspc query -N -d | wc -l)" -eq 1 ] && bspc node -p south && alacritty || alacritty
 
 alt + shift + Return
     rofi -show run

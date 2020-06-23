@@ -117,6 +117,9 @@ Plug 'https://github.com/terryma/vim-expand-region.git'
 "latex and vim
 Plug 'https://github.com/lervag/vimtex.git'
 
+"vim surround
+Plug 'https://github.com/tpope/vim-surround.git'
+
 "polyglot for syntax highlighting
 Plug 'https://github.com/sheerun/vim-polyglot.git'
 Plug 'https://github.com/chrisbra/csv.vim' "polyglot-csv
