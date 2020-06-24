@@ -552,3 +552,11 @@ tags
 
 # ZSH
 *.zcompdump
+
+# Cmus
+*cmus/autosave
+*cmus/cache
+*cmus/command-history
+*cmus/lib.pl
+*cmus/playlists*
+*cmus/search-history
