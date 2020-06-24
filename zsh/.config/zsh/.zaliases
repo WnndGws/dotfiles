@@ -16,6 +16,9 @@ alias compile_latex='fd -e tex --max-depth 1 | entr -c -d latexrun -Wall /_'
 alias cl='compile_latex'
 #Compile and open latex
 
+alias cmus='sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && cmus'
+#Add sshfs where audio is stored
+
 alias cpu="ps axch -o cmd,%cpu --sort=-%cpu | head"
 alias mem="ps axch -o cmd,%mem --sort=-%mem | head"
 #Outputs system stats
