@@ -58,6 +58,9 @@ set wrap
 "Avoid wrapping a line in the middle of a word.
 set linebreak
 
+"Dont fold
+set nofoldenable
+
 """--------------"""
 """---Keyboard---"""
 """--------------"""
