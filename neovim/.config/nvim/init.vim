@@ -189,7 +189,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 """ULTISNIPS
 """"""""""""
 " Trigger configuration. Do not use <tab> if you use YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<S-i>"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<S-f>"
 let g:UltiSnipsJumpBackwardTrigger="<S-b>"
 
