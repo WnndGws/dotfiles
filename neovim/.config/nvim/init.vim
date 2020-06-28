@@ -126,7 +126,7 @@ Plug 'https://github.com/tpope/vim-surround.git'
 "polyglot for syntax highlighting
 Plug 'https://github.com/sheerun/vim-polyglot.git'
 Plug 'https://github.com/chrisbra/csv.vim' "polyglot-csv
-Plug 'https://github.com/LaTeX-Box-Team/LaTeX-Box' "polyglot-latex
+"Plug 'https://github.com/LaTeX-Box-Team/LaTeX-Box' "polyglot-latex
 Plug 'https://github.com/vim-python/python-syntax' "polyglot-python
 Plug 'https://github.com/rust-lang/rust.vim' "polyglot-rust
 Plug 'https://github.com/elzr/vim-json' "polyglot-json
@@ -142,10 +142,6 @@ Plug 'https://github.com/WnndGws/vim-snippets'
 "Youcompleteme
 ""Need YouCompleteMe for a nice popup interface for ultisnips
 Plug 'https://github.com/ycm-core/YouCompleteMe'
-
-"Supertab
-""Need SuperTab to allow YouCompleteMe selection to expand
-Plug 'https://github.com/ervandew/supertab'
 
 call plug#end()
 
@@ -192,18 +188,16 @@ vmap <C-v> <Plug>(expand_region_shrink)
 """"""""""""
 """ULTISNIPS
 """"""""""""
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>', 'J']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>', 'K']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<S-i>"
+let g:UltiSnipsJumpForwardTrigger="<S-f>"
+let g:UltiSnipsJumpBackwardTrigger="<S-b>"
 
 """"""""""""""""
 """YOUCOMPLETEME
 """"""""""""""""
+let g:ycm_key_list_select_completion = ['<Down>', 'J']
+let g:ycm_key_list_previous_completion = ['<Up>', 'K']
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_auto_trigger = 1
 let g:ycm_auto_hover = ''
