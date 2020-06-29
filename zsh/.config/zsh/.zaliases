@@ -57,11 +57,10 @@ alias gc="git commit --verbose --patch -S"
 alias gs="git status"
 #Saves typing on git commands
 
-alias gtpa="gitpushall"
-#Use script to push everything in all my repos
-
-alias gtp='gitpush'
-#Add, commit, and push git in one command
+alias gpa="gitpushall"
+alias gp='gitpush'
+alias gla='gitpullall'
+#Git scripts
 
 alias gif_make='gifmaker make_gif'
 #Make webms from videos
