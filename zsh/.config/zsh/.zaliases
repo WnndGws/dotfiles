@@ -16,7 +16,7 @@ alias compile_latex='/usr/bin/fd -e tex --max-depth 1 | entr -c -d latexrun -Wal
 alias cl='compile_latex'
 #Compile and open latex
 
-alias cmus='sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && cmus'
+alias cmus='sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && /usr/bin/cmus'
 #Add sshfs where audio is stored
 
 alias cpu="ps axch -o cmd,%cpu --sort=-%cpu | head"
@@ -26,7 +26,7 @@ alias mem="ps axch -o cmd,%mem --sort=-%mem | head"
 alias cx="chmod +x"
 #Change mode of file
 
-alias dd='sudo dd status=progress conv=fsync'
+alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 #always dd with same flags
 
 alias du="ncdu --color dark -rr -x"
@@ -70,9 +70,6 @@ alias ipython="/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi"
 
 alias jf="jftui"
 #Save my precious time
-
-alias latex_shortcuts="cat $HOME/.vimrc | rg 'autocmd FileType tex inoremap.*' | cut -d';' -f2"
-#Prints tha latex shortcuts I have in my vimrc
 
 alias lsa='exa --all --color always --color-scale'
 #List all including hidden
@@ -162,7 +159,7 @@ alias sus="systemctl --user status"
 alias sur="systemctl --user restart"
 #Saves typing
 
-alias sv='sudo vim'
+alias sv='sudo nvim'
 #Saves typing
 
 alias p='pikaur -Ss'
