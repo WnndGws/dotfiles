@@ -560,3 +560,6 @@ tags
 **/cmus/lib.pl
 **/cmus/playlists/*
 **/cmus/search-history
+
+# Custom binaries
+**wyman
