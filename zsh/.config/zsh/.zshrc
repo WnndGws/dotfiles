@@ -141,6 +141,9 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 bindkey -M vicmd 'j' history-substring-search-down
 
+#you-should-use
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+
 #glob-alias
 #https://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
 globalias() {
