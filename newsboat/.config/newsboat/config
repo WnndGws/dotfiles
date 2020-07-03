@@ -15,7 +15,7 @@ cleanup-on-quit	no
 delete-read-articles-on-quit yes
 mark-as-read-on-hover no
 show-read-feeds no
-show-read-articles yes
+show-read-articles no
 ignore-mode "display"
 download-timeout 240
 max-items 0
@@ -63,7 +63,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default
 
 # filters
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCoLrcjPV5PbUrUyXq5mjc_A" "title !~ \"Giants\""
-ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCxAeHdLDAatFV_vt95MSO-g" "title !~ \"Eagles\""
+ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCxAeHdLDAatFV_vt95MSO-g" "title !~ \"West\""
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCDOGExGCsrrt_RrGDgLuMww" "title !~ \"Rebel\""
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UCoh_z6QB0AGB1oxWufvbDUg" "title !~ \"Warriors|Sixers|Lakers\" or title !~ \"Full Game\""
 ignore-article "http://feeds.lifehacker.com.au/LifehackerAustralia" "age >= 1"
