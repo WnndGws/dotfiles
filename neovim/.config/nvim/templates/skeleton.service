@@ -1,3 +1,5 @@
+#NOTE: When completed move to ~/.config/systemd/user/
+#Enable with systemctl --user daemon-reload/enable
 [Unit]
 Description=My Miscellaneous Service
 Wants=network-online.target
@@ -7,7 +9,9 @@ After=network-online.target
 Type=oneshot
 RemainAfterExit=no
 User=wynand
+#Unneeded if going in .config/systemd, but do need if going in /etc/systemd/system
 Group=users
+#Unneeded if going in .config/systemd, but do need if going in /etc/systemd/system
 WorkingDirectory=/home/wynand
 Environment=<++>
 #Set any enviroment variables you might need

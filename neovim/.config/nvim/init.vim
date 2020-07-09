@@ -212,3 +212,15 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "Enable syntax highlighting
 syntax enable
 au BufNewFile,BufRead * if &syntax == '' | set syntax=dosini | endif
+
+"Use skeleton files
+if has('autocmd')
+    augroup skeletons
+        autocmd BufNewFile *.py 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.py
+        autocmd BufNewFile *.timer 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.timer
+        autocmd BufNewFile *.sh 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.sh
+        autocmd BufNewFile *.service 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.service
+        autocmd BufNewFile *.tex 0r $XDG_CONFIG_HOME/nvim/templates/skeleton_docs.tex
+        autocmd BufNewFile *beamer*.md 0r $XDG_CONFIG_HOME/nvim/templates/skeleton_beamer.md
+    augroup END
+endif

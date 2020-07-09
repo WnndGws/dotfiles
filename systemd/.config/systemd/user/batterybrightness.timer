@@ -1,0 +1,9 @@
+[Unit]
+Description=Checks batterybrightness every 10mins
+
+[Timer]
+OnCalendar=*-*-* *:0..59/10:00
+
+[Install]
+WantedBy=timers.target
+
