@@ -21,8 +21,8 @@ download-timeout 240
 max-items 0
 
 #feedlist-format     "%90t %-12u (%T)"
-feedlist-format     "%64t %-12u (%T)"
-articlelist-format  "%32i %D   %?T?|%-17T|  ?%t"
+feedlist-format     "%-16t %16u (%T)"
+articlelist-format  "%i %D   %?T?|%-17T|  ?%t"
 
 bind-key o open-in-browser-and-mark-read
 bind-key O open-all-unread-in-browser-and-mark-read
