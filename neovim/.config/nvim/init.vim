@@ -40,7 +40,7 @@ set ignorecase
 set smartcase
 
 " Uses spellcheck in nvim
-"set spell spelllang=en_au
+set spell spelllang=en_au
 
 "Insert “tabstop” number of spaces when the “tab” key is pressed.
 set smarttab
@@ -76,6 +76,11 @@ map <leader>sc :setlocal spell!<cr>
 " ]s is go to next spelling error
 " zg adds to dictionary
 map <leader>sa <Esc>]szg
+
+"Spell correct next spelling error to 1st suggestsion
+" ]s is go to next spelling error
+" 1z= accepts the first suggestion
+map <leader>cs <Esc>]s1z=
 
 " Save file using leader w
 nnoremap <Leader>w :w<CR>
@@ -204,6 +209,11 @@ let g:ycm_auto_hover = ''
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+""""""""""""""""
+"""Vimtex
+""""""""""""""""
+"Prevent conceal in LaTeX files
+let g:tex_conceal = ''
 
 """-----------------"""
 """ GENERAL SETTINGS"""
