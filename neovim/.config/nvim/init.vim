@@ -41,6 +41,7 @@ set smartcase
 
 " Uses spellcheck in nvim
 set spell spelllang=en_au
+set spell !
 
 "Insert “tabstop” number of spaces when the “tab” key is pressed.
 set smarttab
