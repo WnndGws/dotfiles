@@ -1,4 +1,5 @@
 *urls filter=git-crypt diff=git-crypt
 *sshcontrol filter=git-crypt diff=git-crypt
+**mbsyncrc filter=git-crypt diff=git-crypt
 
 .gitattributes !filter !diff
