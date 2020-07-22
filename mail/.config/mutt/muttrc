@@ -1,0 +1,21 @@
+# vim: filetype=neomuttrc
+# muttrc file for account gmail
+set realname = "Wynand Gouws"
+set from = "wynand.gouws.wg@gmail.com"
+set sendmail = "msmtp -a gmail"
+alias me $realname <$fulladdr>
+set folder = "/home/wynand/.local/share/gmail"
+#set header_cache = $cachedir/$title/headers
+#set message_cachedir = $cachedir/$title/bodies
+#set mbox_type = Maildir
+#set crypt_autosign = yes
+#set crypt_opportunistic_encrypt = yes
+#set pgp_self_encrypt = yes
+#set pgp_default_key  = $keyid
+#bind index,pager gg noop
+#bind index,pager g noop
+#bind index,pager M noop
+#bind index,pager C noop
+#bind index gg first-entry
+#macro index o \"<shell-escape>mbsync -V $title<enter>\" \"run mbsync to sync $title\"
+#unmailboxes *
