@@ -45,7 +45,11 @@ alias fif="findinfile"
 # using ripgrep combined with preview. Ran as a custom script from scripts folder
 
 getlinkfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/linkfile.txt /tmp }
+getsummaryfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/summary.txt /tmp }
+getparafile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/paragraph.txt /tmp }
 alias glf="getlinkfile"
+alias gsf="getsummaryfile"
+alias gpf="getparafile"
 readlinkfile() { paste /tmp/linkfile.txt | while read LINK; do "$HOME/git/scripts/shell/rofi_openwith" "$LINK" && sed -i '1d' /tmp/linkfile.txt; done }
 readsinglelinkfile() { "$HOME/git/scripts/shell/rofi_openwith" "$(head -n1 /tmp/linkfile.txt)" && sed -i "1d" /tmp/linkfile.txt }
 alias rlf="readlinkfile"
