@@ -46,7 +46,7 @@ alias fif="findinfile"
 
 getlinkfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/linkfile.txt /tmp }
 getsummaryfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/summary.txt /tmp }
-getparafile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/paragraph.txt /tmp }
+getparafile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/para.txt /tmp }
 alias glf="getlinkfile"
 alias gsf="getsummaryfile"
 alias gpf="getparafile"
