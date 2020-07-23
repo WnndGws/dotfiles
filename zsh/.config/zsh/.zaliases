@@ -66,6 +66,7 @@ alias gs="git status"
 alias gpa="gitpushall"
 alias gp='gitpush'
 alias gla='gitpullall'
+alias gpp='gitpullall && gitpushall'
 #Git scripts
 
 alias gif_make='gifmaker make_gif'
