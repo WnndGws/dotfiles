@@ -97,9 +97,9 @@ bind editor <Tab> complete-query
 macro index / "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 macro index am "<limit>all\n" "show all messages (undo limit)"
 macro index gf "<change-vfolder>?" "Change to vfolder overview"
-macro index gi "<change-vfolder>Inbox" "Change to Inbox"
-macro index ga "<change-vfolder>Archive" "Change to Archive"
-macro index gs "<change-vfolder>Sent" "Change to Sent"
+macro index gi "<change-vfolder>inbox" "Change to Inbox"
+macro index ga "<change-vfolder>archive" "Change to Archive"
+macro index gs "<change-vfolder>sent" "Change to Sent"
 macro index ma "<modify-labels>+archive -unread -inbox\\n" "Archive message"
 macro index mr "<modify-labels>-unread\\n" "Message Read"
 
