@@ -32,24 +32,24 @@ $ for i in */; do
 - [x] lemonbar
 - [x] bspwm
 - [x] sxhkd
-- [ ] firefox
+- [x] firefox
 - [x] gpg
 - [x] ssh
 - [x] git
 - [x] zfs
-- [ ] aur-auto-vote
-- [ ] fail2ban
+- [x] aur-auto-vote
+- [x] fail2ban
 - [x] steam
-- [ ] sonarr
+- [x] sonarr
 - [ ] radarr
-- [ ] sabnzbd
-- [ ] jellyfin
+- [x] sabnzbd
+- [x] jellyfin
 - [ ] mega.nz
 - [x] rofi
-- [ ] newsboat
+- [x] newsboat
 - [x] myman
 - [ ] torrents
-- [ ] cmus
+- [x] cmus
 - [ ] wallpaper
 - [ ] neomutt
 - [x] XDG dirs
