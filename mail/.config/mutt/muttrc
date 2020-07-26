@@ -94,6 +94,9 @@ bind editor <Tab> complete-query
 ### ----------------- ###
 ### Notmuch searching ###
 ### ----------------- ###
+
+virtual-mailboxes "inbox" "notmuch://?query=tag:inbox"
+
 macro index / "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 macro index am "<limit>all\n" "show all messages (undo limit)"
 macro index gf "<change-vfolder>?" "Change to vfolder overview"
