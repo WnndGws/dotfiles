@@ -20,6 +20,9 @@
 # Start unclutter to remove cursor
 unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
 
+# Start espanso
+espanso daemon &
+
 # Swallow windows
 "$HOME/git/scripts/python/bspwm_swallow" &
 
