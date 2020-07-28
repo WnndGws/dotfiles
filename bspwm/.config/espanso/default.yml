@@ -10,9 +10,6 @@ matches:
   # Simple text replacement
   - trigger: ":espanso"
     replace: "Hi there!"
-  
-  - trigger: "krwg"
-    replace: "Kind Regards,\nWynand Gouws"
 
   # Dates
   - trigger: ":date"
