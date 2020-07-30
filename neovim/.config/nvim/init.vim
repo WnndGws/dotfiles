@@ -210,11 +210,22 @@ let g:ycm_auto_hover = ''
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-""""""""""""""""
-"""Vimtex
-""""""""""""""""
+"""""""""
+"""VIMTEX
+"""""""""
 "Prevent conceal in LaTeX files
 let g:tex_conceal = ''
+
+
+""""""""""""""""
+"""VIM-MARKDOWN
+""""""""""""""""
+"Disable folding
+let g:vim_markdown_folding_disabled = 1
+
+"Disable concealing (which is hiding the ** in *italics*)
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 """-----------------"""
 """ GENERAL SETTINGS"""
