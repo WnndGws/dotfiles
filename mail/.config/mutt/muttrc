@@ -61,6 +61,7 @@ bind index,pager + noop
 bind index,pager g noop
 bind index,pager i noop
 bind index,pager m noop
+bind index,pager A noop
 bind index,pager,attach,compose b noop
 
 bind index j next-entry
@@ -83,6 +84,7 @@ bind index,query <space> tag-entry
 #bind browser h goto-parent
 macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
 bind index,pager H view-raw-message
+#bind index,pager A "<modify-labels>+archive -unread -inbox<enter>" "Archive message"
 bind browser l select-entry
 bind pager,browser gg top-page
 bind pager,browser G bottom-page
@@ -97,7 +99,8 @@ bind editor <Tab> complete-query
 ### ----------------- ###
 
 # Set up virtual mailboxes
-set folder = $XDG_CONFIG_HOME/notmuch
+# Folder found by `notmuch config get database.path`
+set nm_default_url = "notmuch:///home/wynand/.local/share/mail"
 source $XDG_CONFIG_HOME/notmuch/mailboxes
 
 macro index / "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
@@ -106,8 +109,10 @@ macro index gf "<change-vfolder>?" "Change to vfolder overview"
 macro index gi "<change-vfolder>Inbox" "Change to Inbox"
 macro index ga "<change-vfolder>Archive" "Change to Archive"
 macro index gs "<change-vfolder>Sent" "Change to Sent"
-macro index ma "<modify-labels>+archive -unread -inbox\\n" "Archive message"
-macro index mr "<modify-labels>-unread\\n" "Message Read"
+macro index gu "<change-vfolder>Uni" "Change to Uni"
+macro index gw "<change-vfolder>Work" "Change to Work"
+macro index ma "<modify-labels>+archive -unread -inbox" "Archive message"
+macro index mr "<modify-labels>-unread" "Message Read"
 
 ### --------------------------- ###
 ### Use goobook as address book ###
