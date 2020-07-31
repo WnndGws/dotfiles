@@ -6,8 +6,6 @@
 
 # Set wallpaper
 "$HOME/git/agendrum/agendrum.py" && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm "$HOME/.fehbg" &
-# Pull all my repos to keep them up to date
-#"$HOME/git/scripts/shell/gitpullall" &
 
 # Init lemonbars
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
@@ -19,6 +17,9 @@
 
 # Start unclutter to remove cursor
 unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
+
+# Start redshift
+redshift -b 1.0:0.75 -l -31.9505:115.8605 -t 6500:6500 -m randr &
 
 # Start espanso
 espanso daemon &
