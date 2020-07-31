@@ -84,7 +84,6 @@ bind index,query <space> tag-entry
 #bind browser h goto-parent
 macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
 bind index,pager H view-raw-message
-#bind index,pager A "<modify-labels>+archive -unread -inbox<enter>" "Archive message"
 bind browser l select-entry
 bind pager,browser gg top-page
 bind pager,browser G bottom-page
@@ -112,6 +111,7 @@ macro index gs "<change-vfolder>Sent" "Change to Sent"
 macro index gu "<change-vfolder>Uni" "Change to Uni"
 macro index gw "<change-vfolder>Work" "Change to Work"
 macro index ma "<modify-labels>+archive -unread -inbox" "Archive message"
+macro index md "<modify-labels>+trash -unread -inbox" "Archive message"
 macro index mr "<modify-labels>-unread" "Message Read"
 
 ### --------------------------- ###
