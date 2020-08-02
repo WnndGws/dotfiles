@@ -16,6 +16,7 @@ source $XDG_CONFIG_HOME/mutt/accounts/gmail.muttrc
 ### ---------------- ###
 ### General Settings ###
 ### ---------------- ###
+set mailcap_path = "/home/wynand/.config/mutt/mailcap:/usr/share/neomutt/mailcap:/etc/mailcap:/etc/mailcap:/usr/etc/mailcap:/usr/local/etc/mailcap"
 alternative_order text/plain text/enriched text/html
 auto_view application/pdf                                       #automatically show pdfs
 auto_view application/pgp-encrypted                             #automatically decrypt if possible
