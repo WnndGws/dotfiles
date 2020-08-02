@@ -108,6 +108,13 @@ alias nb='alacritty --class "newsboat,newsboat" -e "newsboat" & disown && exit &
 alias nf="neofetch"
 #Neofetch
 
+alias nm="neomutt"
+#Neomutt
+
+alias nmt="notmuch tag -unread -inbox +trash 'tag:inbox from:\"\"'"
+alias nma="notmuch tag -unread -inbox +archive 'tag:inbox from:\"\"'"
+# Quickly tag email using notmuch
+
 alias nv="nvim"
 alias vim="nvim"
 #Help transition

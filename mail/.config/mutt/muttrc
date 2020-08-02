@@ -33,11 +33,11 @@ set forward_format = "Fwd: %s"                                  #subject line wh
 set forward_quote = yes                                         #include forwarded text in message being forwarded
 set include = yes                                               #include messages in replies
 set index_format="%2C %Z %D %-15.15F %s (%-4.4c)"
-set mailcap_path = $HOME/git/scripts/shell/rofi_openwith
 set mark_old = no                                               #unread mail stays unread until explicitly changed
 set markers = no                                                #disables + at start of line wraps
 set mime_forward=yes                                            #attachments are forwarded with email
 set move = yes
+set new_mail_command = "$HOME/.config/notmuch/notmuch_hook.sh"  #run notmuch after new mail received
 set reverse_name = yes                                          #reply as whomever it was sent to
 set rfc2047_parameters = yes
 set sleep_time = 0                                              #sleep 0s before infor messages pop up
@@ -102,6 +102,9 @@ bind editor <Tab> complete-query
 # Folder found by `notmuch config get database.path`
 set nm_default_url = "notmuch:///home/wynand/.local/share/mail"
 source $XDG_CONFIG_HOME/notmuch/mailboxes
+
+# This causes trouble for now
+set nm_query_type = threads
 
 macro index / "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 macro index am "<limit>all\n" "show all messages (undo limit)"
