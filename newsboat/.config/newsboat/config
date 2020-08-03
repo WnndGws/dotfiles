@@ -7,7 +7,7 @@ always-display-description true
 refresh-on-startup yes
 suppress-first-reload yes
 auto-reload yes
-reload-time 3
+reload-time 30
 reload-threads 5
 external-url-viewer "urlscan"
 browser $HOME/git/scripts/shell/rofi_openwith
