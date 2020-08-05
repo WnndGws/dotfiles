@@ -215,6 +215,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 """""""""
 "Prevent conceal in LaTeX files
 let g:tex_conceal = ''
+let g:tex_flavor = 'latex'
 
 
 """"""""""""""""
