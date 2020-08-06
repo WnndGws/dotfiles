@@ -17,6 +17,9 @@ alt + f
 alt + s
     alacritty --class "jftui,jftui" -e "jftui"
 
+alt + n
+    alacritty --class "neomutt,neomutt" -e "neomutt"
+
 #Quit things by giving a rofi window
 alt + q
     $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
