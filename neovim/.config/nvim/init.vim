@@ -129,6 +129,9 @@ Plug 'https://github.com/lervag/vimtex.git'
 "vim surround
 Plug 'https://github.com/tpope/vim-surround.git'
 
+"vim easymotion
+Plug 'https://github.com/easymotion/vim-easymotion'
+
 "polyglot for syntax highlighting
 Plug 'https://github.com/sheerun/vim-polyglot.git'
 Plug 'https://github.com/chrisbra/csv.vim' "polyglot-csv
@@ -227,6 +230,27 @@ let g:vim_markdown_folding_disabled = 1
 "Disable concealing (which is hiding the ** in *italics*)
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+""""""""""""""""
+"""VIM-EASYMOTION
+""""""""""""""""
+"Disable default mappings
+let g:EasyMotion_do_mapping = 0
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap f <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+"nmap f <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 """-----------------"""
 """ GENERAL SETTINGS"""
