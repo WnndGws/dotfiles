@@ -2,7 +2,7 @@
 ###--- Applications ---###
 ###--------------------###
 alt + Return
-    alacritty
+    alacritty --live-config-reload
     #[ "$(bspc query -N -d | wc -l)" -eq 1 ] && bspc node -p south && alacritty || alacritty
 
 alt + shift + Return
