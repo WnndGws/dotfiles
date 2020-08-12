@@ -102,7 +102,8 @@ alias mm='wyman'
 #alias nb="killall newsboat; newsboat --import-from-file $HOME/GoogleDrive/01_Personal/04_Software/newsboatcache.txt; newsboat && newsboat --export-to-file /home/wynand/GoogleDrive/01_Personal/04_Software/newsboatcache.txt"
 #Saves typing, sets class of terminal instead of default
 
-alias nb='alacritty --class "newsboat,newsboat" -e "newsboat" & disown && exit && alacritty'
+#alias nb='alacritty --class "newsboat,newsboat" -e "newsboat"'
+alias nb='newsboat'
 #Saves typing
 
 alias nf="neofetch"
