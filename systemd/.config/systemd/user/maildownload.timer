@@ -1,0 +1,10 @@
+[Unit]
+Description=Downloads new email on a schedule
+
+[Timer]
+OnStartupSec=20min
+# Gives syncthing time to syncronise
+OnUnitActiveSec=10min
+
+[Install]
+WantedBy=timers.target
