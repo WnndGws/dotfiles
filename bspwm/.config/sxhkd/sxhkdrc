@@ -20,6 +20,9 @@ alt + s
 alt + n
     alacritty --class "neomutt,neomutt" -e "neomutt"
 
+alt + b
+    alacritty --class "newsboat,newsboat" -e "newsboat"
+
 #Quit things by giving a rofi window
 alt + q
     $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
