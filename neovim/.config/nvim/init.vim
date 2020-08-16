@@ -148,9 +148,10 @@ Plug 'https://github.com/wgwoods/vim-systemd-syntax' "polyglot-systemd
 "Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "To install my plugins run:
-"pikaur -S npm
+"pikaur -S yarn
 "Cocinstall coc-json coc-jedi coc-markdownlint coc-sh coc-snippets coc-texlab coc-vimlsp
-"pikaur -R npm
+"pip install -U jedi-language-server
+"pikaur -R yarn
 
 "vim-snippets used by coc-snippets
 Plug 'https://github.com/honza/vim-snippets'
