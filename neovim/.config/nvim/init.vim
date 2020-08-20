@@ -12,6 +12,9 @@ set viewdir=$XDG_DATA_HOME/nvim/view
 "New lines inherit the indentation of previous lines
 set autoindent
 
+"Set window titles
+set title
+
 "Line numbers are good
 set number
 

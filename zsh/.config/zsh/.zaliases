@@ -109,7 +109,8 @@ alias nb='newsboat'
 alias nf="neofetch"
 #Neofetch
 
-alias nm="alacritty --class 'neomutt,neomutt' -e neomutt"
+#alias nm="alacritty --class 'neomutt,neomutt' -e neomutt"
+alias nm='echo -e "\033]0;Neomutt\007" && neomutt'
 #Neomutt
 
 nmt() { notmuch tag -unread -inbox +trash 'tag:inbox from:"'$1'"' }
