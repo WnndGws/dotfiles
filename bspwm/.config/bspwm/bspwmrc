@@ -10,10 +10,10 @@
 # Init lemonbars
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
 "$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
-"$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
 
 # Reinit sxhkd to provide session specific bindings
 "$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall sxhkd && sxhkd &
+"$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
 
 # Start unclutter to remove cursor
 unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
