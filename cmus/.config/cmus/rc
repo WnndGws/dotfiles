@@ -69,7 +69,7 @@ set show_remaining_time=true
 #color_win_dir
 #color_win_fg
 #color_win_attr
-color_win_inactive_cur_sel_bg=green
+#color_win_inactive_cur_sel_bg=green
 #color_win_inactive_cur_sel_fg
 #color_win_inactive_cur_sel_attr
 #color_win_inactive_sel_bg
