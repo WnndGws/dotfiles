@@ -1,49 +1,61 @@
 #. ------------------ #
 # >>>>> ALIASES <<<<< #
 #. ------------------ #
+
+#Lots of cd's
+alias ...='cd ../..' 
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+#Update commands
 alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; echo "PL0  0" > /tmp/bar-fifo-bottom; tldr --update'
 alias ad="archdate"
-#Update command
 
-alias cf=". cf"
 #Run cf in current process instead of subshell
+alias cf=". cf"
 
+#Latex Stuff
+##Remove lint latex files
 alias latex_clean="find ./ -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.bcf' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.xml' -o -name '*.gz' -o -name '*.xdv' \) | xargs -I{} rm -f {} && latexmk -c"
 alias lc='latex_clean'
-#Remove lint latex files
-
+##Compile and open latex
 alias compile_latex='/usr/bin/fd -e tex --max-depth 1 | entr -c -d latexrun -Wall /_'
 alias cl='compile_latex'
-#Compile and open latex
 
-alias cmus='sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && /usr/bin/cmus'
 #Add sshfs where audio is stored
+alias cmus='sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && /usr/bin/cmus'
 
+#Confirm before overwriting something
+alias cp="cp -i"
+alias mv="mv -i"
+
+#Outputs system stats
 alias cpu="ps axch -o cmd,%cpu --sort=-%cpu | head"
 alias mem="ps axch -o cmd,%mem --sort=-%mem | head"
-#Outputs system stats
 
-alias cx="chmod +x"
 #Change mode of file
+alias cx="chmod +x"
 
-alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 #always dd with same flags
+alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 
-alias du="ncdu --color dark -rr -x"
 #Use a nicer du
+alias du="/usr/bin/ncdu --color dark -rr -x"
 
-entrwatch() { exa "$1" | entr /_ }
 #watches a file, and runs that file everytime it changes
+entrwatch() { exa "$1" | entr /_ }
 
-alias failed_ctl='systemctl list-units --state=failed'
 #To list any failed systemctl units
+alias failed_ctl='systemctl list-units --state=failed'
 
-alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++> '<regex>' <path> --exec '<command>'"
 #Alias fd for me
+alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++> '<regex>' <path> --exec '<command>'"
 
-alias fif="findinfile"
 # using ripgrep combined with preview. Ran as a custom script from scripts folder
+alias fif="findinfile"
 
+# Allows me to quickly get the linkfile. Use as glf user@ip
 getlinkfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/linkfile.txt /tmp }
 getsummaryfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/summary.txt /tmp }
 getparafile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/para.txt /tmp }
@@ -54,160 +66,155 @@ readlinkfile() { paste /tmp/linkfile.txt | while read LINK; do "$HOME/git/script
 readsinglelinkfile() { "$HOME/git/scripts/shell/rofi_openwith" "$(head -n1 /tmp/linkfile.txt)" && sed -i "1d" /tmp/linkfile.txt }
 alias rlf="readlinkfile"
 alias rslf="readsinglelinkfile"
-# Allows me to quickly get the linkfile. Use as glf user@ip
 
-alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 #Create a gitignore file
+alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 
+#Saves typing on git commands. Some run as scripts in git folder
 alias gc="git commit --verbose --patch -S"
 alias gs="git status"
-#Saves typing on git commands
-
 alias gpa="gitpushall"
 alias gp='gitpush'
 alias gla='gitpullall'
 alias gpp='gitpullall && gitpushall'
-#Git scripts
 
-alias gif_make='gifmaker make_gif'
 #Make webms from videos
+alias gif_make='gifmaker make_gif'
 
-alias ipython="/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi"
 #Always open ipython with vim mappings
+alias ipython="/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi"
 
-alias jf="jftui"
+#Get error messages from journalctl 
+alias jctl="journalctl -p 3 -xb"
+
 #Save my precious time
+alias jf="jftui"
 
-alias lsa='exa --all --color always --color-scale'
 #List all including hidden
+alias lsa='exa --all --color always --color-scale'
 
-alias ll='exa --all --color always --color-scale --long'
 #List all including hidden in a long list
+alias ll='exa --all --color always --color-scale --long'
 
-alias ls='exa --color always --color-scale'
 #Colours in ls
+alias ls='exa --color always --color-scale'
 
-alias lt='exa --color always --color-scale --tree --level=5'
 # Show tree of folder depth 3
+alias lt='exa --color always --color-scale --tree --level=5'
 
-alias lta='exa --all --color always --color-scale --tree --level=5'
 # Show tree of all folders depth 3
+alias lta='exa --all --color always --color-scale --tree --level=5'
 
-alias md='/usr/bin/mkdir -p'
 #Speed up making dirs
+alias md='/usr/bin/mkdir -p'
 
-alias mm='wyman'
+#Get fastest mirrors 
+alias getmirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias getmirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias getmirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias getmirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist" 
+
 #Uses myman script
+alias mm='wyman'
 
-#alias nb="killall newsboat; newsboat --import-from-file $HOME/GoogleDrive/01_Personal/04_Software/newsboatcache.txt; newsboat && newsboat --export-to-file /home/wynand/GoogleDrive/01_Personal/04_Software/newsboatcache.txt"
-#Saves typing, sets class of terminal instead of default
-
-#alias nb='alacritty --class "newsboat,newsboat" -e "newsboat"'
-alias nb='newsboat'
 #Saves typing
+alias nb='echo -e "\033]0;Newsboat\007" && newsboat'
 
-alias nf="neofetch"
 #Neofetch
+alias nf="neofetch"
 
-#alias nm="alacritty --class 'neomutt,neomutt' -e neomutt"
-alias nm='echo -e "\033]0;Neomutt\007" && neomutt'
 #Neomutt
+alias nm='echo -e "\033]0;Neomutt\007" && neomutt'
 
+#Quickly tag email using notmuch
 nmt() { notmuch tag -unread -inbox +trash 'tag:inbox from:"'$1'"' }
 nma() { notmuch tag -unread -inbox +archive 'tag:inbox from:"'$1'"' }
-# Quickly tag email using notmuch
 
+#Help transition
 alias nv="nvim"
 alias vim="nvim"
-#Help transition
 
-alias pdf2smallpdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/<screen(72dpi)ebook(150dpi)prepress(300dpi)> -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf"
 #Uses ghostscript to downsize pdfs
+alias pdf2smallpdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/<screen(72dpi)ebook(150dpi)prepress(300dpi)> -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf"
 
-alias pdfblackbar="convert -size 1750x150 canvas:black black.png && convert black.png blackbar.pdf && pdfjam --paper 'a4paper' --scale 0.7 --offset '-1cm +1.1cm' --outfile stamp.pdf blackbar.pdf && pdftk 1st_page.pdf stamp stamp.pdf output test.pdf && zathura test.pdf"
 #Create black png, convert to pdf, downscale image, combine both pdfs together
+alias pdfblackbar="convert -size 1750x150 canvas:black black.png && convert black.png blackbar.pdf && pdfjam --paper 'a4paper' --scale 0.7 --offset '-1cm +1.1cm' --outfile stamp.pdf blackbar.pdf && pdftk 1st_page.pdf stamp stamp.pdf output test.pdf && zathura test.pdf"
 
-pdfmerge() { gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=$@ ; }
 #The usage looks like this: pdfmerge merged.pdf mine1.pdf mine2.pdf
+pdfmerge() { gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=$@ ; }
 
+#Pacaur orphans
 alias paorph='pacman --query --unrequired --deps --quiet'
 alias po='paorph'
 alias porm='paorph | xargs -I{} pikaur -R --noconfirm {}; paorph | xargs -I{} pikaur -R --noconfirm {}; paorph | xargs -I{} pikaur -R --noconfirm {}'
-#Pacaur orphans
 
-alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Plays the next episode in the DCAU that I am up to
+alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
 
-alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
 #Sometimes Capslock loses its escape-ability
+alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
 
-alias resetnetwork='sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && ping 1.1.1.1'
 #Saves typing
+alias resetnetwork='sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && ping 1.1.1.1'
 
-alias rm='trash -riv'
 #Prompt when removing files, force recursive
+alias rm='trash -riv'
 
-alias rs="rsync --verbose --recursive --update --human-readable --partial --progress"
 #I always use rsync with these flags
+alias rs="rsync --verbose --recursive --update --human-readable --partial --progress"
 
-alias sab_ssh_tun='ssh -L 8080:localhost:8080 gouws.com.au -N'
-alias sonar_ssh_tun='ssh -L 8081:localhost:8081 gouws.com.au -N'
-alias torrent_ssh_tun='ssh -L 8082:localhost:8082 gouws.com.au -N'
-#Create ssh tunnels to my localhosts
-
-alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/scripts/shell/shutdownin 00:00:10'"
 #Shutdown with rofiyesno
+alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/scripts/shell/shutdownin 00:00:10'"
 
-alias sx="startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
 #Startx to use XDG
+alias sx="startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
 
+#Convert a video to 480p
 convert480p() { ffmpeg -i "$1" -vf scale=-2:480 -crf 20 -vcodec h264 -acodec libvorbis -ac 2 Small_"$1" }
-#Convert a video to 576p
 
+#Systemd Stuff
 alias ss="sudo systemctl"
 alias sdr="sudo systemctl daemon-reload"
 alias sss="sudo systemctl status"
 alias ssr="sudo systemctl restart"
 alias sse="sudo systemctl enable"
 alias ssd="sudo systemctl disable"
-
 alias sudr="systemctl --user daemon-reload"
 alias sus="systemctl --user status"
 alias sur="systemctl --user restart"
 alias sue="systemctl --user enable --now"
 alias sud="systemctl --user disable"
-#Saves typing
 
+#Saves typing
 alias sv='sudo nvim'
-#Saves typing
 
+#Pacman stuff
 alias p='pikaur -Ss'
-#Minimize keystrokes
+##Remove package using pacman
 alias pare='pikaur -R'
-#Remove package using pacman
+##Pikaur install
 alias pin='pikaur -S --noconfirm'
-#Pikaur install
+##Pikaur Query
 alias pq='pikaur -Qi | rg -B3 -A3'
-#Pikaur Query
+##Pikaur rebuild already installed program
 alias pir='pikaur -S --rebuild'
-#Pikaur rebuild already installed program
 
-alias time='hyperfine'
 #Use hyperfine to time commands
+alias time='hyperfine'
 
+#Udiskie
 alias udm="udiskie-mount -a"
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
-#Udiskie
 
+#Quick opening files with vim
 alias v='vimfind' 
 alias c='fasd_cd -d -i' 
-#Quick opening files with vim
 
+#Youtube download
 alias ytdl="youtube-dl --add-metadata"
-#Youtube Upload
 
+#Times my zsh load time
 alias zsh_time='time "zsh -i -c exit"'
 alias zt='zsh_time'
-#Times my zsh load time
