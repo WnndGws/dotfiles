@@ -8,6 +8,9 @@
 ###---------------------------------------------------###
 ###--- ENV Variables that extend interactive shell ---###
 ###---------------------------------------------------###
+#If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 #Use starship
 eval "$(starship init zsh)"
 
