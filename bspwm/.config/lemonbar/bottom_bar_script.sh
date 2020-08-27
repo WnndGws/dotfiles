@@ -15,7 +15,7 @@ while read -r line; do
             cpu=
             # Strip the percentage sign from the number
             line0=${line%%%}
-            if [ $line0 -ge 75 ]; then
+            if [ "$line0" -ge 75 ]; then
                 cpu="[%{F$white}%{U$red} %{+u} ${line}%{-u} %{U-}%{F-}]"
             elif [ $line0 -ge 50 ]; then
                 cpu="[%{F$white}%{U$yellow} %{+u} ${line}%{-u} %{U-}%{F-}]"
