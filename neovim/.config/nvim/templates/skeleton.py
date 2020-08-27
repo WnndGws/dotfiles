@@ -3,5 +3,6 @@
 """
 
 #standard imports
-
 #3rd party imports
+
+print(locals())
