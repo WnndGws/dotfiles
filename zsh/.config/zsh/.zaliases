@@ -50,7 +50,7 @@ entrwatch() { exa "$1" | entr /_ }
 alias failed_ctl='systemctl list-units --state=failed'
 
 #Alias fd for me
-alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++> '<regex>' <path> --exec '<command>'"
+alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++> '<regex>' <path> --exec <command {}>"
 
 # using ripgrep combined with preview. Ran as a custom script from scripts folder
 alias fif="findinfile"
