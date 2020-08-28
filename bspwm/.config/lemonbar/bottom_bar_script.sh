@@ -90,5 +90,5 @@ while read -r line; do
             esac
             ;;
     esac
-    printf "%s\n" "%{l}%{c}${weather}${fuel}${pkg}${cpu}${mem}${bat}${vol}${wlan}%{r}"
+    printf "%s\n" "%{l}%{c}${weather}${pkg}${cpu}${mem}${bat}${vol}${wlan}%{r}"
 done
