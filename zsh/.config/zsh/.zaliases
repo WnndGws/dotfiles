@@ -153,6 +153,10 @@ alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
 
+#Reset BSPWM workspace bindings to cerrect ones
+alias resetbspwmworkspaces='"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall sxhkd && sxhkd & disown'
+
+
 #Sometimes Capslock loses its escape-ability
 alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
 
