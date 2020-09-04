@@ -1,4 +1,4 @@
-#NOTE: When completed move to ~/.config/systemd/user/
+#NOTE: When completed move to ~/.config/systemd/user/ or /etc/systemd/system
 #Enable with systemctl --user daemon-reload/enable
 [Unit]
 Description=My Miscellaneous Service
