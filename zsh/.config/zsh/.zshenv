@@ -25,7 +25,7 @@ export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/password-store"
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint 
 #export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
-#export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 
 ###-----------------###
