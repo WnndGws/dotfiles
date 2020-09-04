@@ -118,7 +118,7 @@ alias getmirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/
 alias mm='wyman'
 
 #Saves typing
-alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" '
+alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007"'
 
 #Neofetch
 alias nf="neofetch"
