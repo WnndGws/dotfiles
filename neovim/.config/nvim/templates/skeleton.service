@@ -15,7 +15,7 @@ Group=users
 WorkingDirectory=/home/wynand
 Environment=<++>
 #Set any enviroment variables you might need
-ExecStart=<++>
+ExecStart=/bin/zsh -c "source /home/wynand/.config/zsh/.zshenv && /path/to/script"
 ExecReload=<++>
 ExecStop=killall -9 <++>
 Restart=on-failure
