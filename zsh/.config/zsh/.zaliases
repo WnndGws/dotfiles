@@ -183,7 +183,7 @@ alias mountsshfs='sshfs wynand@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/m
 
 #Systemd Stuff
 alias ss="sudo systemctl"
-alias sdr="sudo systemctl daemon-reload"
+alias ssdr="sudo systemctl daemon-reload"
 alias sss="sudo systemctl status"
 alias ssr="sudo systemctl restart"
 alias sse="sudo systemctl enable"
