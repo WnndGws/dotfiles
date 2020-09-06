@@ -109,10 +109,7 @@ alias lta='exa --all --color always --color-scale --tree --level=5'
 alias md='/usr/bin/mkdir -p'
 
 #Get fastest mirrors 
-alias getmirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias getmirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias getmirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias getmirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist" 
+alias getmirrors="sudo reflector --country AU,NZ --latest 50 --verbose --sort rate --save /etc/pacman.d/mirrorlist"
 
 #Uses myman script
 alias mm='wyman'
