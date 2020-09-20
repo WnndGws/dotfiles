@@ -24,7 +24,8 @@ alias cf=". cf"
 alias latex_clean="find ./ -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.bcf' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.xml' -o -name '*.gz' -o -name '*.xdv' \) | xargs -I{} rm -f {} && latexmk -c"
 alias lc='latex_clean'
 ##Compile and open latex
-alias compile_latex='/usr/bin/fd -e tex --max-depth 1 | entr -c -d latexrun -Wall /_'
+#alias compile_latex='/usr/bin/fd -e tex --max-depth 1 | entr -c -d latexrun -Wall /_'
+compile_latex() { /usr/bin/fd -e tex --max-depth 1 "$1" | entr -c -d latexrun -Wall /_ }
 alias cl='compile_latex'
 
 #Add sshfs where audio is stored
