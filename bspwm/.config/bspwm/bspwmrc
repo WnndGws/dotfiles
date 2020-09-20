@@ -34,8 +34,12 @@ espanso daemon &
 ###--- BSPWM ---###
 ###-------------###
 if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
+    # Desktop screens
     bspc monitor HDMI-1 -d 1 2 3 4 5 6
     bspc monitor DVI-D-2 -d 7 8 9 0
+    # Laptop screens
+    bspc monitor eDP1 -d 1 2 3 4 5 6
+    bspc monitor DVI-I-2-1 -d 7 8 9 0
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
