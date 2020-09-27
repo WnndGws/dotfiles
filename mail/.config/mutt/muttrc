@@ -115,8 +115,9 @@ macro index ga "<change-vfolder>Archive" "Change to Archive"
 macro index gs "<change-vfolder>Sent" "Change to Sent"
 macro index gu "<change-vfolder>Uni" "Change to Uni"
 macro index gw "<change-vfolder>Work" "Change to Work"
-macro index ma "<modify-labels>+archive -unread -inbox" "Archive message"
-macro index md "<modify-labels>+trash -unread -inbox" "Archive message"
+macro index gj "<change-vfolder>Jobs" "Change to Jobs"
+macro index ma "<modify-labels>+archive -unread -inbox -jobs" "Archive message"
+macro index md "<modify-labels>+trash -unread -inbox -jobs" "Delete message"
 macro index mr "<modify-labels>-unread" "Message Read"
 
 ### --------------------------- ###
