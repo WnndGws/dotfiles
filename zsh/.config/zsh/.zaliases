@@ -175,7 +175,7 @@ alias rs="rsync --verbose --recursive --update --human-readable --partial --prog
 alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/scripts/shell/shutdownin 00:00:10'"
 
 #Startx to use XDG
-alias sx="startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
+alias sx="cd $HOME && startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
 
 #Convert a video to 480p
 convert480p() { ffmpeg -i "$1" -vf scale=-2:480 -crf 20 -vcodec h264 -acodec libvorbis -ac 2 Small_"$1" }
