@@ -54,6 +54,10 @@ while read -r line; do
             #WLAN rate
             wlan="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
             ;;
+        L*)
+            #SSHuttle check
+            sshuttle="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+            ;;
         R*)
             #Weather
             weather="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
@@ -90,5 +94,5 @@ while read -r line; do
             esac
             ;;
     esac
-    printf "%s\n" "%{l}%{c}${weather}${fuel}${pkg}${cpu}${mem}${bat}${vol}${wlan}%{r}"
+    printf "%s\n" "%{l}%{c}${weather}${fuel}${pkg}${cpu}${mem}${bat}${vol}${sshuttle}${wlan}%{r}"
 done
