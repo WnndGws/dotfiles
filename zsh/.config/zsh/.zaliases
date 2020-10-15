@@ -42,6 +42,10 @@ alias mem="ps axch -o cmd,%mem --sort=-%mem | head"
 #Change mode of file
 alias cx="chmod +x"
 
+#Output network traffic since last restart
+alias daily_network='rx=$(paste /sys/class/net/wlan0/statistics/rx_bytes) && tx=$(paste /sys/class/net/wlan0/statistics/tx_bytes) && tot=$(( $rx + $tx )) && echo $tot | numfmt --to=iec && unset rx && unset tx'
+alias daily_download='daily_network'
+
 #always dd with same flags
 alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 
