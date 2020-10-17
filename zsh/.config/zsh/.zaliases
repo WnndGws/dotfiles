@@ -167,7 +167,7 @@ alias resetbspwmworkspaces='"$HOME/git/scripts/shell/bspwm_output_desktops_to_sx
 alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
 
 #Saves typing
-alias resetnetwork='sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sleep 3.0 && ping 1.1.1.1'
+alias resetnetwork='sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sleep 3.0 && ping -c5 1.1.1.1'
 
 #Prompt when removing files, force recursive
 alias rm='trash -riv'
