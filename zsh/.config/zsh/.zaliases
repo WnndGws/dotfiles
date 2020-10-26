@@ -225,6 +225,9 @@ udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; 
 alias v='vimfind' 
 alias c='fasd_cd -d -i' 
 
+#Work Calendars
+work() {gcalcli --config-folder "$HOME/.config/gcalcli" add --title "Work" --where $2 --when "$1 22:00" --duration "600" --calendar "Personal Calendar" --noprompt}
+
 #Youtube download
 alias ytdl="youtube-dl --add-metadata"
 
