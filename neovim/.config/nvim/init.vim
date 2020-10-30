@@ -173,7 +173,7 @@ let g:ale_linters_explicit = 1
 let g:ale_list_vertical = 1
 
 " install from AUR: shellcheck-bin, python-pylint
-let g:ale_linters ={'zsh': ['shellcheck'], 'sh': ['shellcheck'], 'latex': ['chktex'], 'python': ['pylint'],'rust': ['cargo']}
+let g:ale_linters ={'zsh': ['shellcheck'], 'sh': ['shellcheck'], 'latex': ['lacheck'], 'python': ['pylint'],'rust': ['cargo']}
 
 """"""""""""
 """INCSEARCH
