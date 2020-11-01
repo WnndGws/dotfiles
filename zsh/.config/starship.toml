@@ -5,6 +5,7 @@ format = """
 $time\
 $username\
 $hostname\
+${custom.ssh}\
 $directory\
 $git_branch\
 $git_commit\
@@ -35,6 +36,13 @@ ssh_only = false
 style = "yellow bold"
 format = "[ on ](grey)[$hostname]($style)"
 
+[custom.ssh]
+when = 'test -n "$SSH_CLIENT"'
+format = "(red)[ via ](grey)[$symbol $output]($style)"
+symbol = "ﳣ"
+command = "echo 'SSH'"
+style = "red"
+
 [directory]
 disabled = false
 truncation_length = 8
@@ -43,8 +51,11 @@ fish_style_pwd_dir_length = 1
 style = "cyan bold"
 read_only_symbol = "READONLY"
 read_only_symbol_style = "red"
-format = "[ in ](grey)[$path ]($style)[$lock_symbol]($lock_style)"
+format = "[ in ](grey)[$path]($style)[$lock_symbol]($lock_style)"
 
 [cmd_duration]
 min_time = 2_000
 format = "[ took](grey) [$duration](bold yellow)"
+
+[python]
+symbol = ""
