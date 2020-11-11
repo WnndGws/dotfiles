@@ -51,7 +51,7 @@ fish_style_pwd_dir_length = 1
 style = "cyan bold"
 read_only_symbol = "READONLY"
 read_only_symbol_style = "red"
-format = "[ in ](grey)[$path]($style)[$lock_symbol]($lock_style)"
+format = "[ in ](grey)[$path ]($style)[$lock_symbol]($lock_style)"
 
 [cmd_duration]
 min_time = 2_000

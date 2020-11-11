@@ -126,6 +126,10 @@ Plug 'https://github.com/Yggdroot/indentLine.git'
 "vim expand
 Plug 'https://github.com/terryma/vim-expand-region.git'
 
+"gists in vim
+Plug 'https://github.com/mattn/vim-gist'
+Plug 'https://github.com/mattn/webapi-vim'
+
 "latex and vim
 Plug 'https://github.com/lervag/vimtex.git'
 
@@ -174,6 +178,16 @@ let g:ale_list_vertical = 1
 
 " install from AUR: shellcheck-bin, python-pylint
 let g:ale_linters ={'zsh': ['shellcheck'], 'sh': ['shellcheck'], 'latex': ['lacheck'], 'python': ['pylint'],'rust': ['cargo']}
+
+""""""""""
+"""GISTVIM
+""""""""""
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+let g:gist_token_file = stdpath('config') . '/gist-vim'
 
 """"""""""""
 """INCSEARCH
