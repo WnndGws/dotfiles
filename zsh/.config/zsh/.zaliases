@@ -215,6 +215,9 @@ alias pq='pikaur -Qi | rg -B3 -A3'
 ##Pikaur rebuild already installed program
 alias pir='pikaur -S --rebuild'
 
+#xdg pidgin
+alias pidgin='pidgin --config="$XDG_DATA_HOME"/purple'
+
 #Use hyperfine to time commands
 alias time='hyperfine'
 
