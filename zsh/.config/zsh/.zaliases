@@ -92,7 +92,7 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Always open ipython with vim mappings
-alias ipython="/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi"
+ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
 
 #Get error messages from journalctl 
 alias jctl="journalctl -p 3 -xb"
