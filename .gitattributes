@@ -4,5 +4,7 @@
 **notmuch_hook.sh filter=git-crypt diff=git-crypt
 **notmuchrc filter=git-crypt diff=git-crypt
 **.muttrc filter=git-crypt diff=git-crypt
+**xml filter=git-crypt diff=git-crypt
+**html filter=git-crypt diff=git-crypt
 
 .gitattributes !filter !diff
