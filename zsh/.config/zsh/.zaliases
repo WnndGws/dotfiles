@@ -13,6 +13,7 @@ alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur 
 alias ad="archdate"
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl='remove_database_lock'
+alias pacrm='remove_database_lock'
 
 # Attach laptop second monitor
 alias attachrightmonitor='xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2-1 --mode 1366x768 --pos 1920x0 --rotate normal && bspc monitor eDP1 -d 1 2 3 4 5 6 && bspc monitor DVI-I-2-1 -d 7 8 9 0 && "$HOME/git/agendrum/agendrum.py" && feh --bg-fill /tmp/wallpaper.png && /usr/bin/rm "$HOME/.fehbg" && resetbspwmworkspaces'
