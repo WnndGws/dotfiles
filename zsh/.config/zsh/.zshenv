@@ -16,18 +16,19 @@ export XDG_CACHE_HOME=$HOME'/.cache'
 export XDG_CONFIG_HOME=$HOME'/.config'
 export XDG_DATA_HOME=$HOME'/.local/share'
 
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export _FASD_DATA="$XDG_CACHE_HOME/fasd/fasd"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
-export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/password-store"
+export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME"/password-store
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 #export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
+export XINITRC="$XDG_CONFIG_HOME"/xinit/xinitrc
 
 ###-----------------###
 ###--- GPG Paths ---###
