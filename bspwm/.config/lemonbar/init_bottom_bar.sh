@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-## This is the script to setup thr FIFO and run the FIFO in a bar
+## This is the script to setup the FIFO and run the FIFO in a bar
 
 BAR_FIFO=/tmp/bar-fifo-bottom
 BAR_HEIGHT=35
