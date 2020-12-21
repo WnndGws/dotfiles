@@ -3,7 +3,7 @@
 gpg-agent --daemon --options "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
 
 if [ $(xrandr --query | rg -i " connected" | wc -l) = 2 ]; then
-    xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-2 --mode 1920x1080 --pos 1920x0 --rotate normal
+    xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-1 --mode 1920x1080 --pos 1920x0 --rotate normal
 fi
 
 [ -f ~/.config/xmodmap/Xmodmap ] && xmodmap ~/.config/xmodmap/Xmodmap

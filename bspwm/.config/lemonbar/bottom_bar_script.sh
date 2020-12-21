@@ -15,12 +15,14 @@ while read -r line; do
             cpu=
             # Strip the percentage sign from the number
             line0=${line%%%}
-            if [ "$line0" -ge 75 ]; then
-                cpu="[%{F$white}%{U$red} %{+u} ${line}%{-u} %{U-}%{F-}]"
+            if [ "$line0" = "n/a" ]; then
+                cpu="[%{F$white}%{U$red}%{+u}  n/a %{-u}%{U-}%{F-}]"
+            elif [ "$line0" -ge 75 ]; then
+                cpu="[%{F$white}%{U$red}%{+u} ${line} %{-u}%{U-}%{F-}]"
             elif [ $line0 -ge 50 ]; then
-                cpu="[%{F$white}%{U$yellow} %{+u} ${line}%{-u} %{U-}%{F-}]"
+                cpu="[%{F$white}%{U$yellow}%{+u} ${line} %{-u}%{U-}%{F-}]"
             else
-                cpu="[%{F$white}%{U$blue} %{+u} ${line}%{-u} %{U-}%{F-}]"
+                cpu="[%{F$white}%{U$blue}%{+u} ${line} %{-u}%{U-}%{F-}]"
             fi
             ;;
         # Memory
@@ -30,11 +32,11 @@ while read -r line; do
             line=${line#?}
             line0=${line%%%}
             if [ "$line0" -ge 75 ]; then
-                mem="[%{F$white}%{U$red} %{+u} ${line}%{-u} %{U-}%{F-}]"
+                mem="[%{F$white}%{U$red}%{+u}  ${line} %{-u}%{U-}%{F-}]"
             elif [ "$line0" -ge 50 ]; then
-                mem="[%{F$white}%{U$yellow} %{+u} ${line}%{-u} %{U-}%{F-}]"
+                mem="[%{F$white}%{U$yellow}%{+u}  ${line} %{-u}%{U-}%{F-}]"
             else
-                mem="[%{F$white}%{U$blue} %{+u} ${line}%{-u} %{U-}%{F-}]"
+                mem="[%{F$white}%{U$blue}%{+u}  ${line} %{-u}%{U-}%{F-}]"
             fi
             ;;
         P*)
@@ -43,20 +45,20 @@ while read -r line; do
             line=${line#?}
             case $line in
                 H*)
-                    pkg="[%{F$white}%{U$red} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    pkg="[%{F$white}%{U$red}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
                     ;;
                 L*)
-                    pkg="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    pkg="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
                     ;;
             esac
             ;;
         W*)
             #WLAN rate
-            wlan="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+            wlan="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
             ;;
         R*)
             #Weather
-            weather="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+            weather="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
             ;;
         B*)
             ##Battery
@@ -64,7 +66,7 @@ while read -r line; do
             ;;
         F*)
             ##Fuelwatch
-            fuel="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+            fuel="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
             ;;
         V*)
             ##Volume
@@ -73,19 +75,19 @@ while read -r line; do
             case $line in
                 m*)
                     #Muted
-                    vol="[%{F$white}%{U$grey} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    vol="[%{F$white}%{U$grey}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
                     ;;
                 L*)
                     #Low
-                    vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    vol="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
                     ;;
                 M*)
                     #Med
-                    vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    vol="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
                     ;;
                 H*)
                     #High
-                    vol="[%{F$white}%{U$blue} %{+u}${line#?}%{-u} %{U-}%{F-}]"
+                    vol="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
                     ;;
             esac
             ;;
