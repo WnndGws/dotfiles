@@ -32,7 +32,7 @@ mkfifo "$BAR_FIFO"
 "$HOME/.local/bin/slstatus.wlan" -s> "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &
-#"$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
 #"$HOME/git/scripts/shell/lemonbar_fuelwatch.sh" > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
