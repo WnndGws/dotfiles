@@ -549,6 +549,8 @@ tags
 *private-keys*
 *crls*
 *random_seed
+*tofu.db
+*#*desk-ARCH.[0-9]*
 
 # ZSH
 *.zcompdump
