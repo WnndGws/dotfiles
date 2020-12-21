@@ -35,8 +35,8 @@ unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
 ###-------------###
 if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     # Desktop screens
-    bspc monitor HDMI-1 -d 1 2 3 4 5 6
-    bspc monitor DVI-D-1 -d 7 8 9 0
+    bspc monitor HDMI-0 -d 1 2 3 4 5 6
+    bspc monitor DVI-D-0 -d 7 8 9 0
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
