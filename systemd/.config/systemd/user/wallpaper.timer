@@ -1,0 +1,16 @@
+[Unit]
+Description=Change wallpaper twice a day
+
+[Timer]
+#OnCalendar=*-*-* *:0..59/15:*
+#Runs every 15mins
+#use 'systemd-analyze calendar "text" to validate text
+#can be minutely, hourly etc
+
+OnStartupSec=6h
+#OnUnitActiveSec=10m
+#Runs unit 10mins after boot, and every 10mins after that
+
+[Install]
+WantedBy=timers.target
+

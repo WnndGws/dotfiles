@@ -5,7 +5,7 @@
 ###------------------###
 
 # Set wallpaper
-"$HOME/git/agendrum/agendrum.py" && feh --bg-center /tmp/wallpaper.png && /usr/bin/rm "$HOME/.fehbg" &
+"$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper.png &
 
 # Init lemonbars
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
