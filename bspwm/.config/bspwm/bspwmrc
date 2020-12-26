@@ -35,6 +35,8 @@ syncthing --no-browser &
 ###-------------###
 if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     # Desktop screens
+    # Basically sets HDMI as first monitor, even though its on the "right"
+    bspc wm --reorder-monitors HDMI-0 DVI-D-0
     bspc monitor HDMI-0 -d 1 2 3 4 5 6
     bspc monitor DVI-D-0 -d 7 8 9 0
 else

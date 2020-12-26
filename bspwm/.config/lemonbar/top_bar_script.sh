@@ -112,5 +112,5 @@ while read -r line; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm}%{r}${nextevent}|${time}"
+    printf "%s\n" "%{S1}%{l}${wm}%{r}${nextevent}|${time}"
 done
