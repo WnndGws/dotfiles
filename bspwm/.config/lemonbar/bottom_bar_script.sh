@@ -8,6 +8,21 @@
 # We have set it up in the init script so that each line starts with a different letter so that we can case them
 while read -r line; do
     case $line in
+        # GPU
+        G*)
+            # Strip the 1st character
+            line=${line#?}
+            gpu=
+            # Strip the percentage sign from the number
+            line0=$(echo "%i" $line | awk '{print substr($2, 1, length($2)-1)}')
+            if [ "$line0" -ge 75 ]; then
+                gpu="[%{F$white}%{U$red}%{+u} ${line} %{-u}%{U-}%{F-}]"
+            elif [ "$line0" -ge 50 ]; then
+                gpu="[%{F$white}%{U$yellow}%{+u} ${line} %{-u}%{U-}%{F-}]"
+            else
+                gpu="[%{F$white}%{U$blue}%{+u} ${line} %{-u}%{U-}%{F-}]"
+            fi
+            ;;
         # CPU
         C*)
             # Strip the 1st character and check the leader
@@ -19,7 +34,7 @@ while read -r line; do
                 cpu="[%{F$white}%{U$red}%{+u}  n/a %{-u}%{U-}%{F-}]"
             elif [ "$line0" -ge 75 ]; then
                 cpu="[%{F$white}%{U$red}%{+u} ${line} %{-u}%{U-}%{F-}]"
-            elif [ $line0 -ge 50 ]; then
+            elif [ "$line0" -ge 50 ]; then
                 cpu="[%{F$white}%{U$yellow}%{+u} ${line} %{-u}%{U-}%{F-}]"
             else
                 cpu="[%{F$white}%{U$blue}%{+u} ${line} %{-u}%{U-}%{F-}]"
@@ -92,5 +107,5 @@ while read -r line; do
             esac
             ;;
     esac
-    printf "%s\n" "%{S1}%{l}%{c}${weather}${fuel}${pkg}${cpu}${mem}${bat}${vol}${wlan}%{r}"
+    printf "%s\n" "%{S1}%{l}%{c}${weather}${fuel}${pkg}${cpu}${gpu}${mem}${bat}${vol}${wlan}%{r}"
 done
