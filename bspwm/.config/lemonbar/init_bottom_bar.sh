@@ -27,8 +27,9 @@ mkfifo "$BAR_FIFO"
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
 # Add blocks to bar
 "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
-#"$HOME/git/scripts/shell/lemonbar_gpu.sh" > "$BAR_FIFO" &
-"$HOME/.local/bin/slstatus.cpu" -s > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_gpu.sh" > "$BAR_FIFO" &
+#"$HOME/.local/bin/slstatus.cpu" -s > "$BAR_FIFO" &
+"$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.mem" -s > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.wlan" -s> "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &

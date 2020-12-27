@@ -14,7 +14,7 @@ while read -r line; do
             line=${line#?}
             gpu=
             # Strip the percentage sign from the number
-            line0=$(echo "%i" $line | awk '{print substr($2, 1, length($2)-1)}')
+            line0=$(echo "$line" | awk '{print substr($2, 1, length($2)-1)}')
             if [ "$line0" -ge 75 ]; then
                 gpu="[%{F$white}%{U$red}%{+u} ${line} %{-u}%{U-}%{F-}]"
             elif [ "$line0" -ge 50 ]; then
@@ -23,23 +23,40 @@ while read -r line; do
                 gpu="[%{F$white}%{U$blue}%{+u} ${line} %{-u}%{U-}%{F-}]"
             fi
             ;;
-        # CPU
+        # CPU when using script
         C*)
             # Strip the 1st character and check the leader
             line=${line#?}
-            cpu=
-            # Strip the percentage sign from the number
-            line0=${line%%%}
-            if [ "$line0" = "n/a" ]; then
-                cpu="[%{F$white}%{U$red}%{+u}  n/a %{-u}%{U-}%{F-}]"
-            elif [ "$line0" -ge 75 ]; then
-                cpu="[%{F$white}%{U$red}%{+u} ${line} %{-u}%{U-}%{F-}]"
-            elif [ "$line0" -ge 50 ]; then
-                cpu="[%{F$white}%{U$yellow}%{+u} ${line} %{-u}%{U-}%{F-}]"
-            else
-                cpu="[%{F$white}%{U$blue}%{+u} ${line} %{-u}%{U-}%{F-}]"
-            fi
+            line0=${line#?}
+            case $line in
+                U*)
+                    cpu="[%{F$white}%{U$red}%{+u} ${line0} %{-u}%{U-}%{F-}]"
+                    ;;
+                H*)
+                    cpu="[%{F$white}%{U$yellow}%{+u} ${line0} %{-u}%{U-}%{F-}]"
+                    ;;
+                L*)
+                    cpu="[%{F$white}%{U$blue}%{+u} ${line0} %{-u}%{U-}%{F-}]"
+                    ;;
+            esac
             ;;
+        # CPU when using slstatus
+        #C*)
+            ## Strip the 1st character and check the leader
+            #line=${line#?}
+            #cpu=
+            ## Strip the percentage sign from the number
+            #line0=${line%%%}
+            #if [ "$line0" = "n/a" ]; then
+                #cpu="[%{F$white}%{U$red}%{+u}  n/a %{-u}%{U-}%{F-}]"
+            #elif [ "$line0" -ge 75 ]; then
+                #cpu="[%{F$white}%{U$red}%{+u} ${line} %{-u}%{U-}%{F-}]"
+            #elif [ "$line0" -ge 50 ]; then
+                #cpu="[%{F$white}%{U$yellow}%{+u} ${line} %{-u}%{U-}%{F-}]"
+            #else
+                #cpu="[%{F$white}%{U$blue}%{+u} ${line} %{-u}%{U-}%{F-}]"
+            #fi
+            #;;
         # Memory
         M*)
             # Strip the 1st character and check the leader
