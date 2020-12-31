@@ -172,6 +172,9 @@ alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmod
 #Saves typing
 alias resetnetwork='sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sleep 3.0 && ping -c5 1.1.1.1'
 
+#Reinstalls steam and GPU dependencies
+resetsteam() {pacman -Si nvidia nvidia-settings nvidia-utils lib32-nvidia-utils steam-native-runtime | awk -F ": " -v filter="^Depends" \ '$0 ~ filter {gsub(/[>=<][^ ]*/,"",$2) ; gsub(/ +/,"\n",$2) ; print $2}' | sudo pacman -S --asdeps -}
+
 #Prompt when removing files, force recursive
 alias rm='trash -riv'
 
