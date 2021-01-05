@@ -1,5 +1,5 @@
 # dotfiles
-My dotfiles. Handled by GNU-stow
+My dotfiles. Handled by GNU Stow.
 
 ## A note on GNU-stow
 Stow is just a way of symlinking multiple directories. For example, you you have `~/dotfiles/<GROUP>/.config`. In this `<GROUP>/.config` folder you can have a collection of config files that are somehow related to each other.
