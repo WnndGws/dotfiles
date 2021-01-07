@@ -14,8 +14,11 @@ alt + d
 alt + f
     firefox
 
-alt + s
+alt + y
     alacritty --class "jftui,jftui" -e "jftui"
+
+alt + s
+    steam-native
 
 alt + n
     alacritty --class "neomutt,neomutt" -e "neomutt"
