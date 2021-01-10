@@ -34,10 +34,6 @@ alt + q
 alt + {bracketleft,bracketright,m}
     pamixer {--decrease 5,--increase 5,--toggle-mute}
 
-#Screenshots
-Print
-    $HOME/git/scripts/shell/screenshots
-
 ###----------------------###
 ###--- BSPWM Bindings ---###
 ###----------------------###

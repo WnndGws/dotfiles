@@ -181,6 +181,9 @@ alias rm='trash -riv'
 #I always use rsync with these flags
 alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate"
 
+# Scrots
+alias scrot='scrot --quality 100 --select "$HOME/%FT%T.png"'
+
 #Shutdown with rofiyesno
 alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/scripts/shell/shutdownin 00:00:10'"
 
