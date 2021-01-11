@@ -84,6 +84,10 @@ while read -r line; do
                     ;;
             esac
             ;;
+        D*)
+            #Downloads since restart
+            dlsr="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
+            ;;
         W*)
             #WLAN rate
             wlan="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
@@ -124,5 +128,5 @@ while read -r line; do
             esac
             ;;
     esac
-    printf "%s\n" "%{S1}%{l}%{c}${weather}${fuel}${pkg}${cpu}${gpu}${mem}${bat}${vol}${wlan}%{r}"
+    printf "%s\n" "%{S1}%{l}%{c}${weather}${fuel}${pkg}${cpu}${gpu}${mem}${bat}${vol}${wlan}${dlsr}%{r}"
 done
