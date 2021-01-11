@@ -86,7 +86,7 @@ while read -r line; do
             ;;
         D*)
             #Downloads since restart
-            dlsr="[%{F$white}%{U$blue}%{+u} ${line#?} %{-u}%{U-}%{F-}]"
+            dlsr="[%{F$white}%{U$blue}%{+u}  ${line#?} %{-u}%{U-}%{F-}]"
             ;;
         W*)
             #WLAN rate
