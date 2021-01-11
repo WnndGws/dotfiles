@@ -8,7 +8,7 @@ Description=Change wallpaper twice a day
 #can be minutely, hourly etc
 
 OnStartupSec=6h
-#OnUnitActiveSec=10m
+OnUnitActiveSec=6h
 #Runs unit 10mins after boot, and every 10mins after that
 
 [Install]
