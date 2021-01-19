@@ -32,7 +32,7 @@ compile_latex() { /usr/bin/fd -e tex --max-depth 1 "$1" | entr -c -d latexrun -W
 alias cl='compile_latex'
 
 #Add sshfs where audio is stored
-alias cmus='sshfs server@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && /usr/bin/cmus'
+#alias cmus='sshfs server@192.168.20.101:/mnt/zfs/media/Audio/ /mnt/sshfs/audio && /usr/bin/cmus'
 
 #Confirm before overwriting something
 alias cp="cp -i"
