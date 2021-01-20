@@ -194,7 +194,7 @@ alias sx="cd $HOME && startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
 convert480p() { ffmpeg -i "$1" -vf scale=-2:480 -crf 20 -vcodec h264 -acodec libvorbis -ac 2 Small_"$1" }
 
 #Mount sshfs
-alias mountsshfs='sshfs wynand@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/movies & sshfs wynand@192.168.20.101:/mnt/zfs/media/TV /mnt/sshfs/tv & sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio /mnt/sshfs/audio & sshfs wynand@192.168.20.101:/mnt/zfs/wynand /mnt/sshfs/wynand'
+alias mountsshfs='sshfs server@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/movies & sshfs server@192.168.20.101:/mnt/zfs/media/TV /mnt/sshfs/tv & sshfs server@192.168.20.101:/mnt/zfs/media/Audio /mnt/sshfs/audio & sshfs server@192.168.20.101:/mnt/zfs/wynand /mnt/sshfs/wynand'
 
 #Systemd Stuff
 alias ss="sudo systemctl"
