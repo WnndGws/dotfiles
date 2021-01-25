@@ -18,7 +18,7 @@ alt + y
     alacritty --class "jftui,jftui" -e "jftui"
 
 alt + s
-    steam-native
+    steam-native -no-browser
 
 alt + n
     alacritty --class "neomutt,neomutt" -e "neomutt"
