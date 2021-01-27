@@ -62,4 +62,4 @@ alt + control + {h,j,k,l}
 #Added by script
 #Focus or Move window to desktops
 alt + {shift + ,_} {1-9,0}
-    bspc {node --to-desktop, desktop --focus} 0x006000{06,0B,0C,0D,0E,0F,07,08,09,0A}
+    bspc {node --to-desktop, desktop --focus} 0x006000{06,07}
