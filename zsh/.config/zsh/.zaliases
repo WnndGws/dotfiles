@@ -242,6 +242,8 @@ work() {gcalcli --config-folder "$HOME/.config/gcalcli" add --title "Work" --whe
 
 #Youtube download
 alias ytdl="youtube-dl --add-metadata"
+alias ytdlf="youtube-dl --list-formats"
+mpvf() {mpv --ytdl-format="$1" $2}
 
 #Times my zsh load time
 alias zsh_time='time "zsh -i -c exit"'
