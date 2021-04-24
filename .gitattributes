@@ -1,5 +1,5 @@
 *urls filter=git-crypt diff=git-crypt
-**newsboat/config filter=git-crypt diff=git-crypt
+*newsboat/config filter=git-crypt diff=git-crypt
 *sshcontrol filter=git-crypt diff=git-crypt
 **mbsyncrc filter=git-crypt diff=git-crypt
 **notmuch_hook.sh filter=git-crypt diff=git-crypt
