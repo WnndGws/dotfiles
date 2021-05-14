@@ -28,7 +28,7 @@ unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
 redshift -x && redshift -b 1.0:0.65 -l -31.9505:115.8605 -t 6500:6500 -m randr &
 
 # Start syncthing
-#syncthing --no-browser &
+syncthing --no-browser &
 
 # Start espanso
 #espanso daemon &
