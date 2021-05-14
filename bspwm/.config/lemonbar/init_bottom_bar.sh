@@ -27,15 +27,14 @@ mkfifo "$BAR_FIFO"
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
 # Add blocks to bar
 "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
-grep --silent "desk-ARCH" /etc/hostname && "$HOME/git/scripts/shell/lemonbar_gpu.sh" > "$BAR_FIFO" &
-#"$HOME/.local/bin/slstatus.cpu" -s > "$BAR_FIFO" &
+#grep --silent "desk-ARCH" /etc/hostname && "$HOME/git/scripts/shell/lemonbar_gpu.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.mem" -s > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.wlan" -s> "$BAR_FIFO" &
-grep --silent "lap-ARCH" /etc/hostname && "$HOME/git/scripts/shell/lemonbar_downloads_since_startup.sh" > "$BAR_FIFO" &
+grep --silent "arch-X220" /etc/hostname && "$HOME/git/scripts/shell/lemonbar_downloads_since_startup.sh" > "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
+#"$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
 #"$HOME/git/scripts/shell/lemonbar_fuelwatch.sh" > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar

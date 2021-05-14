@@ -4,8 +4,14 @@
 ###--- Autostarts ---###
 ###------------------###
 
+HOST=$(paste /etc/hostname)
+
 # Set wallpaper
-"$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper.png &
+if [ "$HOST" = "arch-X220" ]; then
+  "$HOME/git/agendrum/agendrum.py" --resolution 1366x768 && xwallpaper --center /tmp/wallpaper.png &
+else
+  "$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper.png &
+fi
 
 # Init lemonbars
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
@@ -22,7 +28,7 @@ unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
 redshift -x && redshift -b 1.0:0.65 -l -31.9505:115.8605 -t 6500:6500 -m randr &
 
 # Start syncthing
-syncthing --no-browser &
+#syncthing --no-browser &
 
 # Start espanso
 #espanso daemon &
@@ -76,4 +82,4 @@ bspc config focused_border_color '#e65350'
 ###--- RULES ---###
 ###-------------###
 # Dont float zathura
-bspc rule --add Zathura state=tiled
+#bspc rule --add Zathura state=tiled
