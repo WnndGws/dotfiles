@@ -4,6 +4,8 @@
 BAR_FIFO=/tmp/bar-fifo-bottom
 BAR_HEIGHT=35
 HOSTNAME=$(paste /etc/hostname)
+NETWORK=$(iwctl station wlan0 show | sed -n 7p | awk '{print $3}')
+PACKAGES=$(pacman -Qqu)
 [ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=20"
 [ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=22"
 BAR_WM_NAME=bspwm_bar_bottom
@@ -26,12 +28,12 @@ mkfifo "$BAR_FIFO"
 
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
 # Add blocks to bar
-"$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
+[ -n "$PACKAGES" ] && "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
 #grep --silent "desk-ARCH" /etc/hostname && "$HOME/git/scripts/shell/lemonbar_gpu.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.mem" -s > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.wlan" -s> "$BAR_FIFO" &
-grep --silent "arch-X220" /etc/hostname && "$HOME/git/scripts/shell/lemonbar_downloads_since_startup.sh" > "$BAR_FIFO" &
+[ "$NETWORK" = "WG" ] && "$HOME/git/scripts/shell/lemonbar_downloads_since_startup.sh" > "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &
 #"$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
