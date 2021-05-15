@@ -1,0 +1,8 @@
+# set <option> <value>
+# map [mode] <binding> <shortcut> <arg>
+#   mode: normal, fullscreen, index, presentation
+
+set adjust-open "best-fit"
+
+map [normal] f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
