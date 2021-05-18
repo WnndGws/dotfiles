@@ -79,6 +79,9 @@ readsinglelinkfile() { "$HOME/git/scripts/shell/rofi_openwith" "$(head -n1 /tmp/
 alias rlf="readlinkfile"
 alias rslf="readsinglelinkfile"
 
+#Gcalcli Calendars
+alias gcalcli='gcalcli --config-folder "$HOME/.config/gcalcli"'
+
 #Create a gitignore file
 alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 
@@ -238,9 +241,6 @@ udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; 
 #Quick opening files with vim
 alias v='vimfind' 
 alias c='fasd_cd -d -i' 
-
-#Work Calendars
-work() {gcalcli --config-folder "$HOME/.config/gcalcli" add --title "Work" --where $2 --when "$1 22:00" --duration "600" --calendar "Personal Calendar" --noprompt}
 
 #Youtube download
 alias ytdl="youtube-dl --add-metadata"
