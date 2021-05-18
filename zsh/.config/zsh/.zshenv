@@ -29,6 +29,9 @@ export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 #export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE=-
+export TEXMFHOME=$XDG_DATA_HOME/texmf
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/xinit/xinitrc
 
