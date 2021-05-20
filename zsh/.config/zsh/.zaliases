@@ -81,6 +81,8 @@ alias rslf="readsinglelinkfile"
 
 #Gcalcli Calendars
 alias gcalcli='gcalcli --config-folder "$HOME/.config/gcalcli"'
+alias cwork='gcalcli --default-calendar "Personal Calendar" add --title "Cricket Work" --where "Online" --description "Cricket Work"'
+alias rwork='gcalcli --default-calendar "Personal Calendar" add --title "Rugby Work" --where "Online" --description "Rugby Work"'
 
 #Create a gitignore file
 alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
