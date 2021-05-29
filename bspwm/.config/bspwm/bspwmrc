@@ -10,9 +10,10 @@ HOST=$(paste /etc/hostname)
 if [ "$HOST" = "arch-X220" ]; then
   if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     "$HOME/git/agendrum/agendrum.py" --resolution 1366x768 && xwallpaper --output LVDS1 --center /tmp/wallpaper_1366x768.png &
-    "$HOME/git/agendrum/agendrum.py" --resolution 1920x1080 && xwallpaper --ouput HDMI3 --center /tmp/wallpaper1920x1080.png &
+    "$HOME/git/agendrum/agendrum.py" --resolution 1920x1080 && xwallpaper --output HDMI3 --center /tmp/wallpaper_1920x1080.png &
   else
     "$HOME/git/agendrum/agendrum.py" --resolution 1366x768 && xwallpaper --center /tmp/wallpaper_1366x768.png &
+  fi
 else
   "$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper_1920x1080.png &
 fi
@@ -46,9 +47,9 @@ syncthing --no-browser &
 if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     # Desktop screens
     # Basically sets HDMI as first monitor, even though its on the "right"
-    bspc wm --reorder-monitors HDMI3 LVDS1
-    bspc monitor LVDS1 -d 7 8 9 0
-    bspc monitor HDMI3 -d 1 2 3 4 5 6
+    #bspc wm --reorder-monitors HDMI3 LVDS1
+    bspc monitor HDMI3 -d 7 8 9 0
+    bspc monitor LVDS1 -d 1 2 3 4 5 6
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
