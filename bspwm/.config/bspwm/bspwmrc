@@ -43,8 +43,8 @@ if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     # Desktop screens
     # Basically sets HDMI as first monitor, even though its on the "right"
     #bspc wm --reorder-monitors HDMI-0 DVI-D-0
-    bspc monitor HDMI-A-0 -d 7 8 9 0
-    bspc monitor DVI-I-0 -d 1 2 3 4 5 6
+    bspc monitor LVDS1 -d 7 8 9 0
+    bspc monitor HDMI3 -d 1 2 3 4 5 6
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
