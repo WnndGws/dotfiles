@@ -2,7 +2,7 @@
 ## This is the script to setup thr FIFO and run the FIFO in a bar
 
 BAR_FIFO=/tmp/bar-fifo-top
-BAR_HEIGHT=35
+BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primary ).*(?<=\+)\d+" | sed -E 's/x[0-9]{4}/x35/')
 HOSTNAME=$(paste /etc/hostname)
 [ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=20"
 [ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=22"
@@ -29,7 +29,7 @@ mkfifo "$BAR_FIFO"
 bspc subscribe report > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
-"$XDG_CONFIG_HOME/lemonbar/top_bar_script.sh" < "$BAR_FIFO" | lemonbar -a 32 -u 4 -n "$BAR_WM_NAME" -g x$BAR_HEIGHT -f "$BAR_FONT_0" -f "$BAR_FONT_1" -F "$BAR_FG_COLOUR" -B "$BAR_BG_COLOUR" | sh &
+"$XDG_CONFIG_HOME/lemonbar/top_bar_script.sh" < "$BAR_FIFO" | lemonbar -a 32 -u 4 -n "$BAR_WM_NAME" -g "$BAR_DIMEN" -f "$BAR_FONT_0" -f "$BAR_FONT_1" -F "$BAR_FG_COLOUR" -B "$BAR_BG_COLOUR" | sh &
 
 wid=$(xdo id -m -a "$BAR_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
