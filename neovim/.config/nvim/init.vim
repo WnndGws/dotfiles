@@ -241,7 +241,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 let g:tex_conceal = ''
 let g:tex_flavor = 'latex'
 
-
 """"""""""""""""
 """VIM-MARKDOWN
 """"""""""""""""
