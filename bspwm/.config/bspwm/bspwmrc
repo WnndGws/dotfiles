@@ -19,6 +19,7 @@ else
 fi
 
 # Init lemonbars
+killall -9 lemonbar
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
 "$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
 
@@ -27,13 +28,13 @@ fi
 "$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
 
 # Start unclutter to remove cursor
-unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
+pgrep unclutter || unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
 
 # Start redshift
-redshift -x && redshift -b 1.0:0.65 -l -31.9505:115.8605 -t 6500:6500 -m randr &
+killall -9 redshift && redshift -x && redshift -b 1.0:0.65 -l -31.9505:115.8605 -t 6500:6500 -m randr &
 
 # Start syncthing
-syncthing --no-browser &
+pgrep syncthing || syncthing --no-browser &
 
 # Start espanso
 #espanso daemon &
