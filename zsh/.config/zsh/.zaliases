@@ -187,7 +187,7 @@ resetsteam() {pacman -Si xf86-video-amdgpu mesa lib32-mesa vulkan-radeon lib32-v
 alias rm='trash -riv'
 
 #I always use rsync with these flags
-alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate"
+alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
 
 # Scrots
 alias scrot='scrot --quality 100 --select "$HOME/%FT%T.png"'
