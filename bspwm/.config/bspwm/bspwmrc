@@ -42,6 +42,9 @@ pgrep syncthing || syncthing --no-browser &
 # Swallow windows
 "$HOME/git/scripts/python/bspwm_swallow" &
 
+# Disable right channel microphone
+amixer sset 'Capture',0 frontright 0% &
+
 ###-------------###
 ###--- BSPWM ---###
 ###-------------###
