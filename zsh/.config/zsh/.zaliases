@@ -99,6 +99,9 @@ alias gpp='gitpullall && gitpushall'
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
 
+#Attach Headphones
+alias headphones='bluetoothctl power on & bluetoothctl connect 88:D0:39:64:E8:27'
+
 #Always open ipython with vim mappings
 ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
 
