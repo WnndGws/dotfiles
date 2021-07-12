@@ -91,4 +91,4 @@ bspc config focused_border_color '#e65350'
 ###--- RULES ---###
 ###-------------###
 # Dont float zathura
-#bspc rule --add Zathura state=tiled
+bspc rule --add Zathura state=tiled
