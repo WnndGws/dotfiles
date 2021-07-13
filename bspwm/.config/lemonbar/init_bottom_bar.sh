@@ -6,7 +6,7 @@ BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primar
 HOSTNAME=$(paste /etc/hostname)
 NETWORK=$(iwctl station wlan0 show | sed -n 7p | awk '{print $3}')
 PACKAGES=$(pacman -Qqu)
-[ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=20"
+[ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=18"
 [ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=22"
 BAR_WM_NAME=bspwm_bar_bottom
 BAR_FG_COLOUR="#a7a5a5"
