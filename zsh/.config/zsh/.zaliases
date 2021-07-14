@@ -19,6 +19,11 @@ alias pacrm='remove_database_lock'
 alias attachrightmonitor='xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2-1 --mode 1366x768 --pos 1920x0 --rotate normal && bspc monitor eDP1 -d 1 2 3 4 5 6 && bspc monitor DVI-I-2-1 -d 7 8 9 0 && "$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper.png && resetbspwmworkspaces'
 alias arm="attachrightmonitor"
 
+# Bat extras
+alias bm="batman"
+alias bw="batwatch"
+alias bd="batdiff"
+
 #Run cf in current process instead of subshell
 alias cf=". cf"
 
