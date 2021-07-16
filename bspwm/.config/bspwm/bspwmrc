@@ -45,6 +45,9 @@ pgrep syncthing || syncthing --no-browser &
 # Disable right channel microphone
 amixer sset 'Capture',0 frontright 0% &
 
+# Start VPN
+sudo /bin/wg-quick up mullvad-au3
+
 ###-------------###
 ###--- BSPWM ---###
 ###-------------###
