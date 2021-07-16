@@ -446,5 +446,6 @@ if has('autocmd')
         autocmd BufNewFile *.service 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.service
         autocmd BufNewFile *.tex 0r $XDG_CONFIG_HOME/nvim/templates/skeleton_docs.tex
         autocmd BufNewFile *beamer*.md 0r $XDG_CONFIG_HOME/nvim/templates/skeleton_beamer.md
+        autocmd BufNewFile README 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.readme
     augroup END
 endif
