@@ -29,6 +29,8 @@ get_paragraph() {
 case "$url" in
   *"i.redd"*) open_images ;;
   *"imgur"*) open_images ;;
+  *"jpg") open_images ;;
+  *"png") open_images ;;
   *"v.red"*) mpv "$url" >/dev/null 2>&1 & ;;
   *"streama"*) mpv "$url" >/dev/null 2>&1 & ;;
   *)
