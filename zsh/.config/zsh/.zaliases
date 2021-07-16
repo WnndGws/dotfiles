@@ -143,7 +143,7 @@ alias getmirrors="sudo reflector --country AU,NZ --latest 50 --verbose --sort ra
 alias mm='wyman'
 
 #Saves typing
-alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007"'
+alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
 #Neofetch
 alias nf="neofetch"
