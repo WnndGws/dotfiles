@@ -26,6 +26,10 @@ get_paragraph() {
   "$HOME/git/scripts/python/paragraphscraper/article_summarise_cosine.py" --file-name /tmp/para.txt --context > /tmp/summary.txt
 }
 
+floating_terminal() {
+  bspc rule -a \* -o state=floating rectangle=1250x650+58+59
+}
+
 case "$url" in
   *"i.redd"*) open_images ;;
   *"imgur"*) open_images ;;
@@ -44,11 +48,11 @@ case "$url" in
       bookmark) buku --add "$url" toread,"$feed_title" --title "$title" >/dev/null 2>&1 & ;;
       firefox) firefox "$url" >/dev/null 2>&1 & ;;
       feh) open_images ;;
-      paragraph) get_paragraph && alacritty --hold -e bat /tmp/para.txt ;;
-      summary) get_paragraph && alacritty --hold -e bat /tmp/summary.txt ;;
+      paragraph) get_paragraph && floating_terminal && alacritty --hold -e /bin/zsh -c "sleep 1 && bat /tmp/para.txt && exit 0" ;;
+      summary) get_paragraph && floating_terminal && alacritty --hold -e /bin/zsh -c "sleep 1 && bat /tmp/summary.txt && exit 0" ;;
       ytdl) youtube-dl "$url" >/dev/null 2>&1 & ;;
-      speedread) get_paragraph && alacrity --hold -e /usr/bin/speedread -w 350 /tmp/para.txt ;;
-      speedread_summary) get_paragraph && alacritty --hold -e /usr/bin/speedread -w 350 /tmp/summary.txt ;;
+      speedread) get_paragraph && floating_terminal && alacritty --hold -e /bin/zsh -c "sleep 1 && /usr/bin/speedread -w 350 /tmp/para.txt && exit 0" ;;
+      speedread_summary) get_paragraph && floating_terminal && alacritty --hold -e /bin/zsh -c "sleep 1 && /usr/bin/speedread -w 350 /tmp/summary.txt && exit 0" ;;
     esac
   ;;
 esac
