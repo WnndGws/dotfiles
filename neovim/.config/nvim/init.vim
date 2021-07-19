@@ -17,6 +17,7 @@ set title
 
 "Line numbers are good
 set number
+set relativenumber
 
 "Have a line under the cursor
 set cursorline
