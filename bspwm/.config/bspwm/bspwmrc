@@ -4,6 +4,9 @@
 ###--- Autostarts ---###
 ###------------------###
 
+# Start dunst
+dunst &
+
 # Set wallpaper
 xrandr -q | rg ' connected' | while read -r line; do
   disp=$(echo "$line" | awk '{print $1}')
@@ -40,6 +43,9 @@ amixer sset 'Capture',0 frontright 0% &
 
 # Start VPN
 sudo /bin/wg-quick up mullvad-au3 &
+
+# Connect bluetooth to phone if available and start an2linuxserver
+bluetoothctl power on && bluetoothctl connect 88:54:1F:2E:D5:7E && an2linuxserver.py &
 
 ###-------------###
 ###--- BSPWM ---###
