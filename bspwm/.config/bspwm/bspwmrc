@@ -44,8 +44,9 @@ amixer sset 'Capture',0 frontright 0% &
 # Start VPN
 sudo /bin/wg-quick up mullvad-au3 &
 
-# Connect bluetooth to phone if available and start an2linuxserver
-bluetoothctl power on && bluetoothctl connect 88:54:1F:2E:D5:7E && an2linuxserver.py &
+# Start an2linuxserver
+#printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl &
+an2linuxserver.py &
 
 ###-------------###
 ###--- BSPWM ---###

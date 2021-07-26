@@ -105,7 +105,8 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Attach Headphones
-alias headphones='bluetoothctl power on & bluetoothctl connect 88:D0:39:64:E8:27'
+alias headphones='printf "power on\nagent on\ndefault-agent\nconnect 88:D0:39:64:E8:27" | bluetoothctl'
+alias phone='printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl'
 
 #Always open ipython with vim mappings
 ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
