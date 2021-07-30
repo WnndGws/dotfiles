@@ -12,6 +12,7 @@ alias ......='cd ../../../../..'
 alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && zsh'
 alias ad="archdate"
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
+alias pdb=remove_database_lock
 alias rdl='remove_database_lock'
 alias pacrm='remove_database_lock'
 
