@@ -177,8 +177,8 @@ let g:ale_lint_on_save = 1
 let g:ale_linters_explicit = 1
 let g:ale_list_vertical = 1
 
-" install from AUR: shellcheck-bin, python-pylint
-let g:ale_linters ={'zsh': ['shellcheck'], 'sh': ['shellcheck'], 'latex': ['chktex'], 'python': ['flake8'],'rust': ['cargo']}
+" install from AUR: shellcheck-bin, python-flake8
+let g:ale_linters ={'zsh': ['shellcheck --shell=bash'], 'sh': ['shellcheck'], 'latex': ['chktex'], 'python': ['flake8'],'rust': ['cargo']}
 
 """"""""""
 """GISTVIM
