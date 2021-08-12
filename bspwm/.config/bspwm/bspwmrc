@@ -5,7 +5,7 @@
 ###------------------###
 
 # Start dunst
-#dunst &
+dunst &
 
 # Set wallpaper
 #xrandr -q | rg ' connected' | while read -r line; do
@@ -46,7 +46,7 @@ pgrep syncthing || syncthing --no-browser &
 
 # Start an2linuxserver
 #printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl &
-#an2linuxserver.py &
+an2linuxserver.py &
 
 ###-------------###
 ###--- BSPWM ---###
