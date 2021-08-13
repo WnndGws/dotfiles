@@ -42,7 +42,7 @@ pgrep syncthing || syncthing --no-browser &
 #amixer sset 'Capture',0 frontright 0% &
 
 # Start VPN
-nmcli connection up mlvd-au3 || sudo /bin/wg-quick up mullvad-au3 &
+nmcli connection up mlvd-au3 || sudo /bin/wg-quick up mlvd-au3 &
 
 # Start an2linuxserver
 #printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl &
