@@ -4,7 +4,7 @@
 BAR_FIFO=/tmp/bar-fifo-bottom
 BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primary ).*(?<=\+)\d+" | sed -E 's/x[0-9]{3,4}/x35/')
 HOSTNAME=$(paste /etc/hostname)
-#NETWORK=$(iwctl station wlan0 show | sed -n 7p | awk '{print $3}')
+NETWORK=$(iwctl station wlan0 show | sed -n 7p | awk '{print $3}')
 PACKAGES=$(pacman -Qqu)
 #[ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=18"
 [ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_0="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_0="Cascadia Code:size=18"
