@@ -191,7 +191,7 @@ alias resetbspwmworkspaces='"$HOME/git/scripts/shell/bspwm_output_desktops_to_sx
 alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
 
 #Saves typing
-alias resetnetwork='sudo wg-quick down mullvad-au3 && sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sudo wg-quick up mullvad-au3 && sleep 3 && ping -c3 google.com'
+alias resetnetwork='sudo wg-quick down mlvd-au3 && sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sudo wg-quick up mlvd-au3 && sleep 3 && ping -c3 google.com'
 
 #Reinstalls steam and GPU dependencies
 resetsteam() {pacman -Si xf86-video-amdgpu mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon mesa-vdpau lib32-mesa-vdpau steam-native-runtime | awk -F ": " -v filter="^Depends" \ '$0 ~ filter {gsub(/[>=<][^ ]*/,"",$2) ; gsub(/ +/,"\n",$2) ; print $2}' | sudo pacman -S --asdeps -}
