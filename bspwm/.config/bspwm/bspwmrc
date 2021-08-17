@@ -7,10 +7,6 @@
 # Start dunst
 dunst &
 
-killall -9 lemonbar
-"$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
-"$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
-
 # Reinit sxhkd to provide session specific bindings
 "$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall -9 sxhkd && sxhkd &
 "$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
@@ -33,9 +29,6 @@ pgrep syncthing || syncthing --no-browser &
 # Disable right channel microphone
 #amixer sset 'Capture',0 frontright 0% &
 
-# Start VPN
-nmcli connection up mlvd-au3 || sudo /bin/wg-quick up mlvd-au3 &
-
 # Start an2linuxserver
 #printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl &
 an2linuxserver.py &
@@ -44,10 +37,16 @@ an2linuxserver.py &
 xrandr -q | rg ' connected' | while read -r line; do
   disp=$(echo "$line" | awk '{print $1}')
   resol=$(echo "$line" | rg --only-matching '\d{4}x\d{3,4}')
-  "$HOME/git/agendrum/agendrum.py" --resolution "$resol" && xwallpaper --output "$disp" --center "/tmp/wallpaper_$resol.png" &
+  "$HOME/git/agendrum/agendrum.py" --resolution "$resol" && xwallpaper --output "$disp" --center "/tmp/wallpaper_$resol.png"
 done
 
 # Init lemonbars
+killall -9 lemonbar
+"$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
+"$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
+
+# Start VPN
+nmcli connection up mlvd-au3 || sudo /bin/wg-quick up mlvd-au3 &
 
 ###-------------###
 ###--- BSPWM ---###
