@@ -33,7 +33,7 @@ alt + b
 alt + q
     $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
 
-ctrl + alt + l
+ctrl + alt + +shift + l
     $HOME/git/scripts/shell/lock
 
 #Handle volume
@@ -72,6 +72,13 @@ alt + shift + {j,k}
 
 alt + {Left,Down,Up,Right}
     bspc node --presel-dir {west,south,north,east}
+
+# Resize windows
+alt + control + {h,j,k,l}
+  bspc node -z {left -20 0 || bspc node -z right -20 0, \
+                bottom 0 20 || bspc node -z top 0 20,\
+                top 0 -20 || bspc node -z bottom 0 -20,\
+                right 20 0 || bspc node -z left 20 0}
 
 #Added by script
 #Focus or Move window to desktops
