@@ -18,7 +18,7 @@ matches:
       - name: mydate
         type: date
         params:
-          format: "%d/%m/%Y"
+          format: "%Y-%m-%d"
 
   # Shell commands
   - trigger: ":shell"
@@ -28,3 +28,7 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
+
+  # MC to stop typing it out
+  - trigger: ":mc"
+    replace: "tnFCTRkvFCNfTk"
