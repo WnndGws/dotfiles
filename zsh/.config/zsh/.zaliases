@@ -105,6 +105,9 @@ alias gpp='gitpullall && gitpushall'
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
 
+#Init a venv
+alias initvenv="python3 -m venv env"
+
 #Always open ipython with vim mappings
 ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
 
