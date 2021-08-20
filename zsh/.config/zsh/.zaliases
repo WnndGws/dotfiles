@@ -92,7 +92,7 @@ alias clswork='gcalcli --default-calendar "Personal Calendar" add --title "CLS W
 alias rwork='gcalcli --default-calendar "Personal Calendar" add --title "Rugby Work" --where "Online" --description "Rugby Work"'
 
 #Create a gitignore file
-alias gi="curl https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
+alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 
 #Saves typing on git commands. Some run as scripts in git folder
 alias gc="git commit --verbose --patch -S"
