@@ -12,7 +12,7 @@ matches:
     replace: "Hi there!"
 
   # Dates
-  - trigger: ":date"
+  - trigger: ":today"
     replace: "{{mydate}}"
     vars:
       - name: mydate
