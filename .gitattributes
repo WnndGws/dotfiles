@@ -7,5 +7,6 @@ newsboat/.config/newsboat/config filter=git-crypt diff=git-crypt
 **.muttrc filter=git-crypt diff=git-crypt
 **xml filter=git-crypt diff=git-crypt
 **html filter=git-crypt diff=git-crypt
+espanso/.config/espanso/default.yml filter=git-crypt diff=git-crypt
 
 .gitattributes !filter !diff
