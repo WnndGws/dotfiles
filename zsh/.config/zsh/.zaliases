@@ -145,6 +145,7 @@ alias mm='wyman'
 
 #720p mpv
 alias mpv720='mpv --ytdl-format="bestvideo[height<=?720]+bestaudio/best"'
+alias mpv576='mpv --ytdl-format="bestvideo[height<=?576]+bestaudio/best"'
 
 #Saves typing
 alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
