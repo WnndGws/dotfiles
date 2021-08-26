@@ -34,7 +34,7 @@ alt + q
     $HOME/git/scripts/shell/rofi_yesno "Quit?" "bspc node --close"
 
 ctrl + alt + +shift + l
-    $HOME/git/scripts/shell/lock
+    xtrlock & sleep 1 && xset dpms force off
 
 #Handle volume
 alt + {bracketleft,bracketright,m}
