@@ -163,3 +163,6 @@ bindkey -M viins "^ " globalias
 
 # Autocompletions for wyman
 eval "$(_WYMAN_COMPLETE=source_zsh wyman)"
+
+# Better vi(m) mode
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
