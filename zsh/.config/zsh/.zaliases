@@ -220,7 +220,7 @@ convert576p() { ffmpeg -i "$1" -vf scale=-1:576 -crf 18 -vcodec h264 -acodec cop
 convert720p() { ffmpeg -i "$1" -vf scale=-1:720 -crf 18 -vcodec h264 -acodec copy -ac 2 -preset veryfast 720p_"$1" }
 
 #Mount sshfs
-alias mountsshfs='sshfs server@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/movies & sshfs server@192.168.20.101:/mnt/zfs/media/TV /mnt/sshfs/tv & sshfs server@192.168.20.101:/mnt/zfs/media/Audio /mnt/sshfs/audio & sshfs server@192.168.20.101:/mnt/zfs/wynand /mnt/sshfs/wynand'
+alias mountsshfs='sshfs wynand@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/movies & sshfs wynand@192.168.20.101:/mnt/zfs/media/TV /mnt/sshfs/tv & sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio /mnt/sshfs/audio & sshfs wynand@192.168.20.101:/mnt/zfs/wynand /mnt/sshfs/wynand'
 
 #Systemd Stuff
 alias ss="sudo systemctl"
