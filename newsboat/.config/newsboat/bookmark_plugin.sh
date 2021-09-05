@@ -40,7 +40,7 @@ case "$url" in
   *"streama"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
   *)
     echo $visual
-    link_handlers=$(printf "umpv\numpv_audio\nmpv\nbookmark\nfirefox\nfeh\nparagraph\nsummary\nytdl\nspeedread\nspeedread_summary\npico_summary" | rofi -matching fuzzy -dmenu -i -mesg "How should I open '$visual'?" -select)
+    link_handlers=$(printf "umpv\numpv_audio\nmpv\nbookmark\nfirefox\nfeh\nparagraph\nsummary\nytdl\nspeedread\nspeedread_summary\npico_summary\nbrowser_image" | rofi -matching fuzzy -dmenu -i -mesg "How should I open '$visual'?" -select)
     #echo "$link_handlers"
     case "$link_handlers" in
       umpv) "$HOME/git/scripts/python/umpv" "$url" >/dev/null 2>&1 & ;;
@@ -55,6 +55,7 @@ case "$url" in
       speedread) get_paragraph && floating_terminal && alacritty --hold -e /bin/zsh -c "sleep 1 && /usr/bin/speedread -w 350 /tmp/para.txt && exit 0" ;;
       speedread_summary) get_paragraph && floating_terminal && alacritty --hold -e /bin/zsh -c "sleep 1 && /usr/bin/speedread -w 350 /tmp/summary.txt && exit 0" ;;
       pico_summary) get_paragraph && cat /tmp/summary.txt | pico2wave -w /tmp/pico.wav && mpv /tmp/pico.wav && /bin/rm /tmp/pico.wav ;;
+      browser_image) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
     esac
   ;;
 esac
