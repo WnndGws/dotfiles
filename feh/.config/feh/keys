@@ -1,0 +1,7 @@
+# action [key1 [key2 [key3]]]
+scroll_left h Left
+scroll_right l Right
+scroll_up k Up
+scroll_down j Down
+scroll_up_page C-u
+scroll_down_page C-d
