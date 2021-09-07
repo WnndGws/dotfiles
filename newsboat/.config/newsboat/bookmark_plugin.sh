@@ -31,13 +31,15 @@ floating_terminal() {
 }
 
 case "$url" in
-  *"gif") mpv --loop "$url" >/dev/null 2>&1 & ;;
+  *"gifv?$") mpv --loop "$url" >/dev/null 2>&1 & ;;
   *"i.redd"*) open_images ;;
   *"imgur"*) open_images ;;
   *"jpg") open_images ;;
   *"png") open_images ;;
   *"v.red"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
   *"streama"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
+  *"twitter"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
+  *"old.reddit."*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
   *)
     echo $visual
     link_handlers=$(printf "umpv\numpv_audio\nmpv\nbookmark\nfirefox\nfeh\nparagraph\nsummary\nytdl\nspeedread\nspeedread_summary\npico_summary\nbrowser_image" | rofi -matching fuzzy -dmenu -i -mesg "How should I open '$visual'?" -select)
