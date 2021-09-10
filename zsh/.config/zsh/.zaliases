@@ -214,6 +214,9 @@ alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/sc
 #Startx to use XDG
 alias sx="cd $HOME && startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
 
+#Syncplay flags
+alias syncplay="syncplay --host 115.70.105.25 --no-gui --name 'da BIG salad' --player-path /bin/mpv"
+
 #Convert a video to 480p
 convert480p() { ffmpeg -i "$1" -vf scale=-1:480 -crf 18 -vcodec h264 -acodec copy -ac 2 -preset veryfast 480p_"$1" }
 convert576p() { ffmpeg -i "$1" -vf scale=-1:576 -crf 18 -vcodec h264 -acodec copy -ac 2 -preset veryfast 576p_"$1" }
