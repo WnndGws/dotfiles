@@ -5,3 +5,5 @@ scroll_up k Up
 scroll_down j Down
 scroll_up_page C-u
 scroll_down_page C-d
+zoom_in K
+zoom_out J
