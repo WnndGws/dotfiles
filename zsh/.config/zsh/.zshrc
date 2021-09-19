@@ -130,6 +130,9 @@ if [[ ! "$DISABLE_FZF_KEY_BINDINGS" == "true" ]]; then
 fi
 unset fzf_base fzf_shell dir fzfdirs
 
+#use fzf everywhere
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+
 #auto-suggestions
 #Make sure have AUR package installed
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh

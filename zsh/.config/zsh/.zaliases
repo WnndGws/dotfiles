@@ -108,6 +108,11 @@ alias gpp='gitpullall && gitpushall'
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
 
+#Interactive awk,sed,rg
+alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
+alias ised='$HOME/git/fzf-scripts/fzrepl -c sed'
+alias irg='$HOME/git/fzf-scripts/fzrg'
+
 #Init a venv
 alias initvenv="python3 -m venv env"
 
@@ -241,10 +246,13 @@ alias sud="systemctl --user disable"
 #Saves typing
 alias sv='sudo nvim'
 
+#Copy from server
+sshget() {$HOME/git/fzf-scripts/sshget wynand@192.168.20.101:"$1"}
+
 #Pacman stuff
-alias p='pikaur -Ss'
+alias p='$HOME/git/fzf-scripts/pkgsearch'
 ##Remove package using pacman
-alias pare='pikaur -R'
+alias pare='$HOME/git/fzf-scripts/pkgrm'
 ##Pikaur install
 alias pin='pikaur -S --noconfirm'
 ##Pikaur Query
