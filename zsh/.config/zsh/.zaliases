@@ -21,7 +21,8 @@ alias attachrightmonitor='xrandr --output eDP1 --primary --mode 1920x1080 --pos 
 alias arm="attachrightmonitor"
 
 # I want to manually change things
-alias black="/usr/bin/black --diff"
+alias black="/usr/bin/black --diff --color"
+alias binblack="/usr/bin/black"
 
 # Bat extras
 alias bm="batman"
