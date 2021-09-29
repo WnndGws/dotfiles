@@ -158,6 +158,8 @@ alias mpv576='mpv --ytdl-format="bestvideo[height<=?576]+bestaudio/best"'
 
 #Saves typing
 alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
+alias nbprogress='curl --silent -H 'X-API-KEY: ZSocFQRHTCe7buxKwSzHVj6wg3dbMFcM' http://localhost:8384/rest/db/completion\?folder=o2cyp-wcn4r | gron | rg "json.completion"'
+alias nbp=nbprogress
 
 #Neofetch
 alias nf="neofetch"
