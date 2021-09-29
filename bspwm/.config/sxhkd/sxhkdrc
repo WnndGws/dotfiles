@@ -38,7 +38,7 @@ ctrl + alt + +shift + l
 
 #Handle volume
 alt + {bracketleft,bracketright,m}
-    amixer --card 2 set Headphone {5%-, 5%+, toggle}
+    pamixer {--decrease 5,--increase 5,--toggle-mute}
 
 XF86AudioMute
     pamixer --toggle-mute
