@@ -11,5 +11,8 @@ fi
 # Init sxhkd so can work with it even if bspwm doesnt load nicely
 sxhkd &
 
+# Enable Keyboard in Xmodmap
+xkbset m &
+
 #Lines following an exec are ignored so place this last
 session=exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
