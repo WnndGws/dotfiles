@@ -134,6 +134,9 @@ Plug 'https://github.com/mattn/webapi-vim'
 "latex and vim
 Plug 'https://github.com/lervag/vimtex.git'
 
+"git fugitive
+Plug 'https://github.com/tpope/vim-fugitive'
+
 "git abolish
 Plug 'https://github.com/tpope/vim-abolish'
 
