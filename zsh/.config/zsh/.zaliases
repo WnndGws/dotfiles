@@ -124,7 +124,7 @@ ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" 
 alias jctl="journalctl -p 3 -xb"
 
 #Save my precious time
-alias jf="jftui"
+alias jf="mullvad-exclude jftui"
 
 alias kayo="wine .wine/drive_c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe > /dev/null 2>&1"
 
