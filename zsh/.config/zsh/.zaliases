@@ -32,6 +32,9 @@ alias bd="batdiff"
 #Run cf in current process instead of subshell
 alias cf=". cf"
 
+#Save typing
+alias czc="cz c"
+
 #Latex Stuff
 ##Remove lint latex files
 alias latex_clean="find ./ -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.bcf' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.xml' -o -name '*.gz' -o -name '*.xdv' \) | xargs -I{} rm -f {} && latexmk -c"
