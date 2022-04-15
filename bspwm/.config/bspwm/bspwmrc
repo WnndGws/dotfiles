@@ -21,7 +21,7 @@ pgrep unclutter || unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --for
 pgrep syncthing || syncthing --no-browser &
 
 # Start espanso
-espanso daemon &
+killall -9 espanso & espanso daemon &
 
 # Swallow windows
 "$HOME/git/scripts/python/bspwm_swallow" &
