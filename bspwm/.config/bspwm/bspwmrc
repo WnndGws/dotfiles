@@ -11,10 +11,6 @@ sleep 10
 # Start dunst
 dunst &
 
-# Reinit sxhkd to provide session specific bindings
-"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall -9 sxhkd && sxhkd &
-"$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
-
 # Start unclutter to remove cursor
 pgrep unclutter || unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
 
@@ -81,6 +77,10 @@ bspc config presel_feedback false
 # Allow moving with mouse
 bspc config pointer_modifier mod1
 bspc config pointer_action1 move
+
+# Reinit sxhkd to provide session specific bindings
+"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall -9 sxhkd && sxhkd &
+"$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
 
 ###---------------###
 ###--- COLOURS ---###
