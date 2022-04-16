@@ -545,7 +545,6 @@ tags
 # GPG
 *.kbx
 *.gpg
-*sshcontrol
 *private-keys*
 *crls*
 *random_seed
