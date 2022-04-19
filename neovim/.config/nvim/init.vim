@@ -9,6 +9,32 @@ set viewdir=$XDG_DATA_HOME/nvim/view
 """------------------------"""
 """--- GENERAL SETTINGS ---"""
 """------------------------"""
+
+"Always show statusline
+set laststatus=2
+
+"Status line
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%{StatuslineGit()}
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
+
 "New lines inherit the indentation of previous lines
 set autoindent
 

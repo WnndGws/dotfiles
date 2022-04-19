@@ -7,8 +7,8 @@ HOSTNAME=$(paste /etc/hostname)
 NETWORK=$(iwctl station wlan0 show | sed -n 7p | awk '{print $3}')
 PACKAGES=$(pacman -Qqu)
 #[ "$HOSTNAME" = "desk-ARCH" ] && BAR_FONT_0="Cascadia Code:size=16" || BAR_FONT_0="Cascadia Code:size=18"
-[ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_0="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_0="Cascadia Code:size=18"
-[ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_1="Cascadia Code:size=22" || BAR_FONT_1="CaskaydiaCove Nerd Font Mono:size=22"
+[ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_0="CaskaydiaCove Nerd Font Mono:size=18" || BAR_FONT_0="CaskaydiaCove Nerd Font Mono:size=18"
+[ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_1="Cascadia Code:size=22" || BAR_FONT_1="Cascadia Code:size=22"
 BAR_WM_NAME=bspwm_bar_bottom
 BAR_FG_COLOUR="#a7a5a5"
 BAR_BG_COLOUR="#333232"
@@ -35,7 +35,7 @@ mkfifo "$BAR_FIFO"
 "$HOME/git/scripts/shell/lemonbar_mullvad.sh" > "$BAR_FIFO" &
 "$HOME/.local/bin/slstatus.mem" -s > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/.local/bin/slstatus.wlp6s0" -s > "$BAR_FIFO" &
-[ "$HOSTNAME" = "arch-X220" ] && "$HOME/.local/bin/slstatus.wlan0" -s > "$BAR_FIFO" &
+[ "$HOSTNAME" = "x220" ] && "$HOME/.local/bin/slstatus.wlan0" -s > "$BAR_FIFO" &
 [ "$NETWORK" = "WG" ] && "$HOME/git/scripts/python/lemonbar_4Gremaining.py" > "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &

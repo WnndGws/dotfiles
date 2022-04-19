@@ -10,15 +10,14 @@ alias ......='cd ../../../../..'
 
 #Update commands
 alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && zsh'
-alias ad="archdate"
+ad() { archdate }
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
-alias pdb=remove_database_lock
-alias rdl='remove_database_lock'
-alias pacrm='remove_database_lock'
+rdl() { remove_database_lock }
+pacrm() { remove_database_lock }
 
 # Attach laptop second monitor
 alias attachrightmonitor='xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2-1 --mode 1366x768 --pos 1920x0 --rotate normal && bspc monitor eDP1 -d 1 2 3 4 5 6 && bspc monitor DVI-I-2-1 -d 7 8 9 0 && "$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper.png && resetbspwmworkspaces'
-alias arm="attachrightmonitor"
+arm() { attachrightmonitor }
 
 # I want to manually change things
 alias black="/usr/bin/black --diff --color"
@@ -38,7 +37,7 @@ alias czc="cz c"
 #Latex Stuff
 ##Remove lint latex files
 alias latex_clean="find ./ -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.bcf' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.xml' -o -name '*.gz' -o -name '*.xdv' \) | xargs -I{} rm -f {} && latexmk -c"
-alias lc='latex_clean'
+lc() { latex_clean }
 ##Compile and open latex
 #alias compile_latex='/usr/bin/fd -e tex --max-depth 1 | entr -c -d latexrun -Wall /_'
 compile_latex() { /usr/bin/fd -e tex --max-depth 1 "$1" | entr -c -d tectonic /_ }
@@ -60,7 +59,7 @@ alias cx="chmod +x"
 
 #Output network traffic since last restart
 alias daily_network='rx=$(paste /sys/class/net/wlan0/statistics/rx_bytes) && tx=$(paste /sys/class/net/wlan0/statistics/tx_bytes) && tot=$(( $rx + $tx )) && echo $tot | numfmt --to=iec && unset rx && unset tx'
-alias daily_download='daily_network'
+daily_download() { daily_network }
 
 #always dd with same flags
 alias dd='sudo /usr/bin/dd status=progress conv=fsync'
@@ -80,23 +79,8 @@ alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++>
 # using ripgrep combined with preview. Ran as a custom script from scripts folder
 alias fif="findinfile"
 
-# Allows me to quickly get the linkfile. Use as glf user@ip
-getlinkfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/linkfile.txt /tmp }
-getsummaryfile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/summary.txt /tmp }
-getparafile() { rsync --verbose --recursive --update --human-readable --partial --progress --remove-source-files -e "ssh -p 2222" "$1":/tmp/para.txt /tmp }
-alias glf="getlinkfile"
-alias gsf="getsummaryfile"
-alias gpf="getparafile"
-readlinkfile() { paste /tmp/linkfile.txt | while read LINK; do "$HOME/git/scripts/shell/rofi_openwith" "$LINK" && sed -i '1d' /tmp/linkfile.txt; done }
-readsinglelinkfile() { "$HOME/git/scripts/shell/rofi_openwith" "$(head -n1 /tmp/linkfile.txt)" && sed -i "1d" /tmp/linkfile.txt }
-alias rlf="readlinkfile"
-alias rslf="readsinglelinkfile"
-
 #Gcalcli Calendars
 alias gcalcli='gcalcli --config-folder "$HOME/.config/gcalcli"'
-alias cwork='gcalcli --default-calendar "Personal Calendar" add --title "Cricket Work" --where "Online" --description "Cricket Work"'
-alias clswork='gcalcli --default-calendar "Personal Calendar" add --title "CLS Work" --where "Online"'
-alias rwork='gcalcli --default-calendar "Personal Calendar" add --title "Rugby Work" --where "Online" --description "Rugby Work"'
 
 #Create a gitignore file
 alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
@@ -117,9 +101,6 @@ alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
 alias ised='$HOME/git/fzf-scripts/fzrepl -c sed'
 alias irg='$HOME/git/fzf-scripts/fzrg'
 
-#Init a venv
-alias initvenv="python3 -m venv env"
-
 #Always open ipython with vim mappings
 ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
 
@@ -128,8 +109,6 @@ alias jctl="journalctl -p 3 -xb"
 
 #Save my precious time
 alias jf="mullvad-exclude jftui"
-
-alias kayo="wine .wine/drive_c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe > /dev/null 2>&1"
 
 #List all including hidden
 alias lsa='exa --all --color always --color-scale'
@@ -160,7 +139,7 @@ alias mpv720='mpv --ytdl-format="bestvideo[height<=?720]+bestaudio/best"'
 alias mpv576='mpv --ytdl-format="bestvideo[height<=?576]+bestaudio/best"'
 
 #Saves typing
-alias nb='curl -X POST -H "X-API-KEY: ZSocFQRHTCe7buxKwSzHVj6wg3dbMFcM" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: ZSocFQRHTCe7buxKwSzHVj6wg3dbMFcM" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
+alias nb='curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
 
 #Neofetch
 alias nf="neofetch"
@@ -187,8 +166,8 @@ pdfmerge() { gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -
 
 #Pacaur orphans
 alias paorph='pacman --query --unrequired --deps --quiet'
-alias po='paorph'
-alias porm='paorph | xargs -I{} pikaur -R --noconfirm {}; paorph | xargs -I{} pikaur -R --noconfirm {}; paorph | xargs -I{} pikaur -R --noconfirm {}'
+po() { paorph }
+alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}'
 
 #Plays the next episode in the DCAU that I am up to
 alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
