@@ -139,7 +139,7 @@ alias mpv720='mpv --ytdl-format="bestvideo[height<=?720]+bestaudio/best"'
 alias mpv576='mpv --ytdl-format="bestvideo[height<=?576]+bestaudio/best"'
 
 #Saves typing
-alias nb='curl -X POST -H "X-API-KEY: ZSocFQRHTCe7buxKwSzHVj6wg3dbMFcM" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: ZSocFQRHTCe7buxKwSzHVj6wg3dbMFcM" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
+alias nb='curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
 
 #Neofetch
 alias nf="neofetch"
