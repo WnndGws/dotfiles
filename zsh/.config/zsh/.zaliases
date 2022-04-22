@@ -3,7 +3,7 @@
 #. ------------------ #
 
 #Lots of cd's
-alias ...='cd ../..' 
+alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
@@ -104,7 +104,7 @@ alias irg='$HOME/git/fzf-scripts/fzrg'
 #Always open ipython with vim mappings
 ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
 
-#Get error messages from journalctl 
+#Get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
 #Save my precious time
@@ -128,7 +128,7 @@ alias lta='exa --all --color always --color-scale --tree --level=5'
 #Speed up making dirs
 alias md='/usr/bin/mkdir -p'
 
-#Get fastest mirrors 
+#Get fastest mirrors
 alias getmirrors="sudo reflector --country AU,NZ --latest 50 --verbose --sort rate --save /etc/pacman.d/mirrorlist"
 
 #Uses myman script
@@ -256,8 +256,8 @@ alias udm="udiskie-mount -a"
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
 
 #Quick opening files with vim
-alias v='vimfind' 
-alias c='fasd_cd -d -i' 
+alias v='vimfind'
+alias c='fasd_cd -d -i'
 
 #Youtube download
 alias ytdl="youtube-dl --add-metadata"
