@@ -235,7 +235,7 @@ alias sv='sudo nvim'
 sshget() {$HOME/git/fzf-scripts/sshget wynand@192.168.20.101:"$1"}
 
 #Pacman stuff
-p() { '$HOME/git/fzf-scripts/pkgsearch' }
+p() { $HOME/git/fzf-scripts/pkgsearch }
 ##Remove package using pacman
 alias pare='$HOME/git/fzf-scripts/pkgrm'
 ##Pikaur install
