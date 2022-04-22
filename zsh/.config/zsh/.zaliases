@@ -96,6 +96,12 @@ alias gpp='gitpullall && gitpushall'
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
 
+#Bluetooth headphones use different settings for mic and not-mic
+alias hsm="pactl set-card-profile bluez_card.88_D0_39_64_E8_27 headset-head-unit"
+alias hsnm="pactl set-card-profile bluez_card.88_D0_39_64_E8_27 a2dp-sink"
+alias micv100="pactl set-source-volume bluez_input.88_D0_39_64_E8_27.headset-head-unit 100%"
+alias micv50="pactl set-source-volume bluez_input.88_D0_39_64_E8_27.headset-head-unit 50%"
+
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
 alias ised='$HOME/git/fzf-scripts/fzrepl -c sed'
