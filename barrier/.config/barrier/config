@@ -1,0 +1,33 @@
+# sample barrier configuration file
+#
+# comments begin with the # character and continue to the end of
+# line.  comments may appear anywhere the syntax permits.
+# +-------+  +--------+ +------+
+# |Dell   |  |x220    | |Screen|
+# |       |  |        | |      |
+# +-------+  +--------+ +------+
+
+section: screens
+	# three hosts named:  Laptop, Desktop1, and iMac
+	# These are the nice names of the hosts to make it easy to write the config file
+	# The aliases section below contain the "actual" names of the hosts (their hostnames)
+	Dell:
+	x220:
+end
+
+section: links
+	# iMac is to the right of Desktop1
+	# Laptop is to the left of Desktop1
+	x220:
+		left  = Dell
+
+	# Desktop1 is to the left of iMac
+	Dell:
+		right  = x220
+end
+
+section: aliases
+	# The "real" name of iMac is John-Smiths-iMac-3.local. If we wanted we could remove this alias and instead use John-Smiths-iMac-3.local everywhere iMac is above. Hopefully it should be easy to see why using an alias is nicer
+	Dell:
+		DESKTOP-HMD553S
+end

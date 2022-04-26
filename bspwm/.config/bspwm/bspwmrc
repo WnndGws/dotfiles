@@ -4,10 +4,6 @@
 ###--- Autostarts ---###
 ###------------------###
 
-# Start VPN
-nmcli connection up mlvd-au3 || sudo /bin/wg-quick up mlvd-au3 &
-sleep 10
-
 # Start dunst
 dunst &
 
@@ -56,6 +52,11 @@ if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     bspc monitor HDMI-A-0 -d 1 2 3 4 5 6
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+fi
+
+HOSTNAME=$(paste /etc/hostname)
+if [ "$HOSTNAME" = "x220" ]; then
+  barriers --name x220 --no-tray --daemon --address ":24800" --config "$HOME/.config/barrier/config" --disable-client-cert-checking --disable-crypto
 fi
 
 # Make sure borders are always on
