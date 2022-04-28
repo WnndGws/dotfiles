@@ -130,7 +130,7 @@ matches:
   - trigger: ":signal"
     replace: |
       So with these encoders theres a few tips
-      
+
       1) Make sure the antennas are on the correct port (theyre labelled, also best to have both on even if not using WiFi)
       2) Have the encoder as far off the ground as reasonable (ie. on a table or chair is fine)
       3) Have as little as possible between the encoders and the sky (ie. an umbrella is fine, or next to a window is better than at the back of the bar etc)
