@@ -109,6 +109,8 @@ alias hsm="pactl set-card-profile bluez_card.88_D0_39_64_E8_27 headset-head-unit
 alias hsnm="pactl set-card-profile bluez_card.88_D0_39_64_E8_27 a2dp-sink"
 alias micv100="pactl set-source-volume bluez_input.88_D0_39_64_E8_27.headset-head-unit 100%"
 alias micv50="pactl set-source-volume bluez_input.88_D0_39_64_E8_27.headset-head-unit 50%"
+headphones_on() { bluetoothctl power on && bluetoothctl connect 88:D0:39:64:E8:27 }
+headphones_off() { bluetoothctl power on && bluetoothctl disconnect 88:D0:39:64:E8:27 }
 
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
