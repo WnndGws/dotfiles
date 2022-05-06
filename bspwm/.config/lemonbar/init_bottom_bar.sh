@@ -41,6 +41,7 @@ mkfifo "$BAR_FIFO"
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/git/scripts/shell/lemonbar_fuelwatch.sh" > "$BAR_FIFO" &
+[ "$HOSTNAME" = "x220" ] && "$HOME/git/scripts/shell/lemonbar_gettimez.sh" > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
 "$XDG_CONFIG_HOME/lemonbar/bottom_bar_script.sh" < "$BAR_FIFO" | lemonbar -b -a 32 -u 3 -n "$BAR_WM_NAME" -g "$BAR_DIMEN" -f "$BAR_FONT_0" -f "$BAR_FONT_1" -F "$BAR_FG_COLOUR" -B "$BAR_BG_COLOUR" | sh &
