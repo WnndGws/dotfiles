@@ -56,7 +56,7 @@ fi
 
 HOSTNAME=$(paste /etc/hostname)
 if [ "$HOSTNAME" = "x220" ]; then
-  barriers --name x220 --no-tray --daemon --address ":24800" --config "$HOME/.config/barrier/config" --disable-client-cert-checking --disable-crypto
+  barrierc --name x220 --no-tray --daemon --disable-crypto 192.168.20.38
 fi
 
 # Make sure borders are always on
