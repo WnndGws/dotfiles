@@ -101,9 +101,10 @@ alias gif_make='gifmaker make_gif'
 #Health Check for encoders at work
 hc() { python MCR/newFBC.py --health-check --encoder "$1" && MCR/pre_match_check_cli.py --encoder "$1" }
 new() { python MCR/newFBC.py --encoder "$1" }
-new_obs() { python MCR/newFBC.py --encoder "$1" --obs-restart }
-new_gfx_off() { python MCR/newFBC.py --gfx-off --encoder "$1" }
-new_gfx_on() { python MCR/newFBC.py --gfx-on --encoder "$1" }
+new_obs() { python MCR/newFBC.py --encoder "$1" --restart-obs }
+new_off() { python MCR/newFBC.py --gfx-off --encoder "$1" }
+new_on() { python MCR/newFBC.py --gfx-on --encoder "$1" }
+new_terminate() { python MCR/newFBC.py --terminate --encoder "$1" }
 
 
 #Bluetooth headphones use different settings for mic and not-mic
