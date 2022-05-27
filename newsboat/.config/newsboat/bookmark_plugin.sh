@@ -38,7 +38,7 @@ case "$url" in
   *"png") open_images ;;
   *"v.red"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
   *"streama"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
-  *"twitter"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
+  *"twitter"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --seconds 15 --url "$url" && feh /tmp/browser.png ;;
   *"old.reddit."*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
   *"xkcd.com"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" --seconds 2 && feh /tmp/browser.png ;;
   *)

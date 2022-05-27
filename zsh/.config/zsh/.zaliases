@@ -275,13 +275,12 @@ udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; 
 alias v='vimfind'
 alias c='fasd_cd -d -i'
 
-#Youtube download
-alias ytdl="youtube-dl --add-metadata"
-alias ytdlf="youtube-dl --list-formats"
-mpvf() {mpv --ytdl-format="$1" $2}
-
 #Times my zsh load time
 alias zsh_time='time "zsh -i -c exit"'
 alias zt='zsh_time'
 
 checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec isort {} && git add --patch && pre-commit run }
+
+#Youtube fzf types
+alias yts='ytfzf --preview-side=right -t --formats --keep-cache --loop --force-youtube --pages=5 --sort-by=relevance --type=all'
+alias ytc='ytfzf --preview-side=right -t --keep-cache --loop --force-youtube --sort-by=relevance --type=channel --submenu-opts="--sort --force-youtube --show-thumbnails --preview-side=right --pages=5"'

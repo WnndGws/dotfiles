@@ -4,6 +4,8 @@ scroll_right l Right
 scroll_up k Up
 scroll_down j Down
 scroll_up_page C-u
+scroll_up_page C-k
 scroll_down_page C-d
+scroll_down_page C-j
 zoom_in K
 zoom_out J
