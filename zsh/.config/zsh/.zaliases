@@ -282,5 +282,7 @@ alias zt='zsh_time'
 checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec isort {} && git add --patch && pre-commit run }
 
 #Youtube fzf types
-alias yts='ytfzf --preview-side=right -t --formats --keep-cache --loop --force-youtube --pages=5 --sort-by=relevance --type=all'
-alias ytc='ytfzf --preview-side=right -t --keep-cache --loop --force-youtube --sort-by=relevance --type=channel --submenu-opts="--sort --force-youtube --show-thumbnails --preview-side=right --pages=5"'
+alias ytr='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=relevance --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
+alias ytn='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=upload_date --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
+alias ytp='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=view_count --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
+alias ytc='ytfzf --preview-side=right -t --keep-cache --loop --force-youtube --sort-by=relevance --type=channel --submenu-opts="--sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith'
