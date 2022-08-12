@@ -1,0 +1,39 @@
+section: screens
+	DESKTOP-HMD553S:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none 
+		switchCornerSize = 0
+	x220:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	DESKTOP-HMD553S:
+		down = x220
+	x220:
+		up = DESKTOP-HMD553S
+end
+
+section: options
+	heartbeat = 5000
+	relativeMouseMoves = true
+	screenSaverSync = true
+	win32KeepForeground = false
+	clipboardSharing = false
+	switchCorners = none 
+	switchCornerSize = 0
+end
+
