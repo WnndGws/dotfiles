@@ -1,1 +1,8 @@
-/home/wynand/.config/systemd/user/change_wallpaper.timer
+[Unit]
+Description=Changes wallpaper every hour
+
+[Timer]
+OnCalendar=*-*-* *:00:*
+
+[Install]
+WantedBy=timers.target

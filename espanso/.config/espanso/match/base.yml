@@ -5,6 +5,12 @@ matches:
   - trigger: ":espanso"
     replace: Hi there!
 
+  - trigger: "eml"
+    replace: "wynandgouwswg@gmail.com"
+
+  - trigger: ":mc"
+    replace: "tnFCTRkvFCNfTk"
+
   - trigger: mcmid
     replace: MyCricket matchID
 

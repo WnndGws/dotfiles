@@ -36,7 +36,7 @@ mkfifo "$BAR_FIFO"
 "$HOME/.local/bin/slstatus.mem" -s > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/.local/bin/slstatus.wlp6s0" -s > "$BAR_FIFO" &
 [ "$HOSTNAME" = "x220" ] && "$HOME/.local/bin/slstatus.wlan0" -s > "$BAR_FIFO" &
-# [ "$NETWORK" = "WG" ] && "$HOME/git/scripts/python/lemonbar_4Gremaining.py" > "$BAR_FIFO" &
+# [ "$NETWORK" = "WG" ] && "$HOME/git/scripts/shell/ > "$BAR_FIFO" &
 [ -e "/sys/class/power_supply/BAT0" ] && "$HOME/git/scripts/shell/lemonbar_battery.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_getvol.sh" > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &

@@ -9,6 +9,8 @@ set viewdir=$XDG_DATA_HOME/nvim/view
 """------------------------"""
 """--- GENERAL SETTINGS ---"""
 """------------------------"""
+" Set text files as text not unknown
+autocmd BufNewFile,BufRead *.txt set filetype=txt
 
 "Always show statusline
 set laststatus=2
@@ -210,7 +212,7 @@ let g:ale_linters_explicit = 1
 let g:ale_list_vertical = 1
 
 " install from AUR: shellcheck-bin, python-flake8
-let g:ale_linters ={'zsh': ['shellcheck --shell=bash'], 'sh': ['shellcheck'], 'latex': ['chktex'], 'python': ['flake8'],'rust': ['cargo']}
+let g:ale_linters ={'txt': [], 'zsh': ['shellcheck --shell=bash'], 'sh': ['shellcheck'], 'latex': ['chktex'], 'python': ['flake8'],'rust': ['cargo']}
 
 """"""""""
 """GISTVIM

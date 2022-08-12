@@ -7,9 +7,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && zsh'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && $HOME/git/agendrum/agendrum.py --resolution 1366x768 && xwallpaper --output LVDS-1 --center /tmp/wallpaper_1366x768.png && zsh'
 ad() { archdate }
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 rdl() { remove_database_lock }
@@ -20,6 +19,11 @@ alias attachrightmonitor='xrandr --output VGA-1 --mode 1366x768 --pos 1366x0 --r
 arm() { attachrightmonitor }
 alias removerightmonitor='xrandr --output VGA-1 --off --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal && bspc monitor LVDS-1 -d 1 2 3 4 5 6 7 8 9 0 && "$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper_1366x768.png && $HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh && killall -9 sxhkd && sxhkd & disown && killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown & $HOME/.config/lemonbar/init_top_bar.sh & disown'
 rrm() { removerightmonitor }
+
+alias barrierw="killall barriers; barriers --name x220 --no-tray --address :24800 --debug INFO --disable-client-cert-checking --daemon --disable-crypto -c ~/.config/barrier/server.windows"
+alias bwin=barrierw
+alias barrierb="killall barriers; barriers --name x220 --no-tray --address :24800 --debug INFO --disable-client-cert-checking --daemon --disable-crypto -c ~/.config/barrier/server.beast"
+alias bbea=barrierb
 
 # I want to manually change things
 alias black="/usr/bin/black --diff --color"
@@ -105,6 +109,10 @@ new_obs() { python MCR/newFBC.py --encoder "$1" --restart-obs }
 new_off() { python MCR/newFBC.py --gfx-off --encoder "$1" }
 new_on() { python MCR/newFBC.py --gfx-on --encoder "$1" }
 new_terminate() { python MCR/newFBC.py --terminate --encoder "$1" }
+new_start() { python MCR/pre_match_check_cli.py --encoder "$1" --stop-start }
+find_encoder() { python MCR/pre_match_check_cli.py --online-test --debug --encoder "$1" | rg -B 7 -A 15 "$1" }
+games() { python Freshdesk/check_for_games.py --ticket "$1" }
+alias get="python MCR/get_match_info.py --url-file matches.txt --output-file && paplay /usr/share/sounds/Oxygen-Sys-App-Positive.ogg"
 
 
 #Bluetooth headphones use different settings for mic and not-mic
@@ -227,7 +235,7 @@ convert576p() { ffmpeg -i "$1" -vf scale=-1:576 -crf 18 -vcodec h264 -acodec cop
 convert720p() { ffmpeg -i "$1" -vf scale=-1:720 -crf 18 -vcodec h264 -acodec copy -ac 2 -preset veryfast 720p_"$1" }
 
 #Mount sshfs
-alias mountsshfs='sshfs wynand@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/movies & sshfs wynand@192.168.20.101:/mnt/zfs/media/TV /mnt/sshfs/tv & sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio /mnt/sshfs/audio & sshfs wynand@192.168.20.101:/mnt/zfs/wynand /mnt/sshfs/wynand'
+alias mountsshfs='sshfs wynand@192.168.20.101:/mnt/zfs/media/Movies /mnt/sshfs/movies & sshfs wynand@192.168.20.101:/mnt/zfs/media/TV /mnt/sshfs/tv & sshfs wynand@192.168.20.101:/mnt/zfs/media/Audio /mnt/sshfs/audio & sshfs wynand@192.168.20.101:/mnt/zfs/wynand /mnt/sshfs/wynand & sshfs wynand@192.168.20.101:/mnt/zfs/media/Sport /mnt/sshfs/sport'
 
 #Systemd Stuff
 alias ss="sudo systemctl"
@@ -285,4 +293,5 @@ checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-dept
 alias ytr='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=relevance --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
 alias ytn='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=upload_date --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
 alias ytp='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=view_count --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
-alias ytc='ytfzf --preview-side=right -t --keep-cache --loop --force-youtube --sort-by=relevance --type=channel --submenu-opts="--sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith'
+alias ytc='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --type=channel --submenu-opts="--loop --formats --sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith"'
+alias ytpl='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --type=playlist --submenu-opts="--loop --formats --sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith"'

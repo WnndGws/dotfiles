@@ -4,6 +4,10 @@ export PATH=/usr/local/bin:$HOME/.local/bin:$HOME/git/scripts/shell:$HOME/git/sc
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist noma' -\""
 export BROWSER="$HOME/git/scripts/shell/rofi_openwith"
 
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 ###-----------###
 ###--- Vim ---###
 ###-----------###
