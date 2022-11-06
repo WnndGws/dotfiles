@@ -8,7 +8,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && $HOME/git/agendrum/agendrum.py --resolution 1366x768 && xwallpaper --output LVDS-1 --center /tmp/wallpaper_1366x768.png && zsh'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar && $HOME/.config/lemonbar/init_bottom_bar.sh & $HOME/.config/lemonbar/init_top_bar.sh & tldr --update && $HOME/git/agendrum/agendrum.py --resolution 1366x768 && xwallpaper --output LVDS-1 --center /tmp/wallpaper_1366x768.png & zsh'
 ad() { archdate }
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 rdl() { remove_database_lock }
