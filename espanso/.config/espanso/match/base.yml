@@ -62,7 +62,7 @@ matches:
       https://outlook.office365.com/owa/calendar/FrogBox@SportradarAG.onmicrosoft.com/bookings/
 
   - trigger: ":bluescreen"
-    replace: "We are currently seeing a bluescreen. This usually means either the camera is off, or there's a loose HDMI cable somewhere"
+    replace: "You're sending us a bluescreen. This usually means either the camera is off, or there's a loose HDMI cable somewhere.\n\nCan you also check the HDMI cable goes Camera -> Input -> Output -> Encoder"
 
   - trigger: ":longblue"
     replace: "We are seeing a blue screen on your feed. Can you please check the following\n1) The camera is on and plugged into the external battery\n2) The external battery is on\n3) The HDMI chain goes as follows\n  Camera -> Repeater Input\n  Repeater Output -> Long HDMI -> Encoder\nYou may need to unplug and re-plug some of the cables to ensure they're sitting tightly.\n"
@@ -142,7 +142,7 @@ matches:
       3) Have as little as possible between the encoders and the sky (ie. an umbrella is fine, or next to a window is better than at the back of the bar etc)
 
   - trigger: ":sim"
-    replace: "The sim tray is super temperamental, so you might need to take the sim card out, put it in the slot, face the gold part upwards (it should just sit in the slot), turn the encoder 'upside down' and just geeeeeently slide the tray in"
+    replace: "The sim tray is super temperamental, so you might need to take the sim card out, put it in the slot, face the gold part down (it should just sit in the slot), turn the encoder 'upside down' and just geeeeeently slide the tray in"
 
   - trigger: fb
     replace: FrogBox
@@ -166,6 +166,10 @@ matches:
 
   - trigger: wa
     replace: WhatsApp
+    word: true
+
+  - trigger: gfx
+    replace: graphics
     word: true
 
   - trigger: ":entity"

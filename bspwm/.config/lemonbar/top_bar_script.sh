@@ -45,7 +45,8 @@ while read -r line; do
                                 ;;
                         esac
                         [ "$num_mon" -lt 2 ] && shift && continue
-                        wm="${wm}%{F${FG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{F-}"
+                        # wm="${wm}%{F${FG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{F-}"
+                        wm="${wm}%{F${FG}}%{A:bspc monitor -f ${name}:}|| %{A}%{F-}"
                         ;;
                     # Desktops
                     [fFoOuU]*)

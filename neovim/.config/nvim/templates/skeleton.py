@@ -2,7 +2,6 @@
 """
 """
 
-#standard imports
-#3rd party imports
+import logging
 
-print(locals())
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")

@@ -20,11 +20,28 @@ end
 section: aliases
 end
 
+#          +-------------+ +----------------+
+#          |             | |                |
+#          |     Windows | |                |
+#          |             | |                |
+#          +-------------+ +----------------|
+#+-------+ +-------------+
+#|       | |             |
+#|       | |      x220   |
+#| x220  | |             |
+#|       | +-------------+
+#|       |
+#|       |
+#+-------+
+# Total width = 768 + 768
+# Total height = 1080 + 768 = 1848
+# All movements must be a percentage of this. eg moving off at 1080p is 1080/4608 = 23.4375
+
 section: links
 	DESKTOP-HMD553S:
-		down = x220
+		down = x220(37,100)
 	x220:
-		up = DESKTOP-HMD553S
+		up = DESKTOP-HMD553S(0,50)
 end
 
 section: options

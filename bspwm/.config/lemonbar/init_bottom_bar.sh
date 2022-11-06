@@ -2,7 +2,7 @@
 ## This is the script to setup the FIFO and run the FIFO in a bar
 
 BAR_FIFO=/tmp/bar-fifo-bottom
-BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primary ).*(?<=\+)\d+" | sed -E 's/x[0-9]{3,4}/x35/')
+BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primary ).*(?<=\+)\d+" | sed -E 's/x[0-9]{3,4}/x35/' | sed -E 's/\+[0-9]{3,4}$/\+0$/')
 HOSTNAME=$(paste /etc/hostname)
 NETWORK=$(iwctl station wlan0 show | sed -n 7p | awk '{print $3}')
 PACKAGES=$(pacman -Qqu)

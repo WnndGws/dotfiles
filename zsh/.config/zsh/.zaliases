@@ -103,14 +103,17 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
-hc() { python MCR/newFBC.py --health-check --encoder "$1" && MCR/pre_match_check_cli.py --encoder "$1" }
-new() { python MCR/newFBC.py --encoder "$1" }
-new_obs() { python MCR/newFBC.py --encoder "$1" --restart-obs }
-new_off() { python MCR/newFBC.py --gfx-off --encoder "$1" }
-new_on() { python MCR/newFBC.py --gfx-on --encoder "$1" }
-new_terminate() { python MCR/newFBC.py --terminate --encoder "$1" }
-new_start() { python MCR/pre_match_check_cli.py --encoder "$1" --stop-start }
-find_encoder() { python MCR/pre_match_check_cli.py --online-test --debug --encoder "$1" | rg -B 7 -A 15 "$1" }
+push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push --preview }
+alias checkonline='python ~/git/neoFrogBox/check_FBC.py --check-all-online'
+hc() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push && sleep 5 && python ~/git/neoFrogBox/check_FBC.py --encoder "$1" && python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --preview }
+new_obs() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --obs }
+new_off() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --gfxoff }
+new_on() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --gfxon }
+# new_terminate() { python MCR/newFBC.py --terminate --encoder "$1" }
+# new_start() { python MCR/pre_match_check_cli.py --encoder "$1" --stop-start }
+find_encoder() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --pprint }
+find_matches() { python ~/git/neoFrogBox/check_FBC.py --find-matches "$1" }
+alias fm="find_matches"
 games() { python Freshdesk/check_for_games.py --ticket "$1" }
 alias get="python MCR/get_match_info.py --url-file matches.txt --output-file && paplay /usr/share/sounds/Oxygen-Sys-App-Positive.ogg"
 
