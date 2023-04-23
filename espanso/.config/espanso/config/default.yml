@@ -8,5 +8,11 @@
 # it gets replaced by the "replace" string.
 
 # Dont restart with every alt press
-toggle_key: OFF
+toggle_key: RIGHT_CTRL
 search_trigger: OFF
+
+backend: Inject
+
+# Number of ms between text injections
+inject_delay: 2
+key_delay: 2

@@ -118,6 +118,9 @@ map <leader>cs <Esc>]s1z=
 " Save file using leader w
 nnoremap <Leader>w :w<CR>
 
+" Replace space with newline using leader n
+nnoremap <Leader>n whciw\n<Esc>:w<CR>
+
 "Remaps backspace to move back a paragraph
 nnoremap <BS> {
 onoremap <BS> {
@@ -140,6 +143,9 @@ vnoremap <leader>P "+P
 """---------------"""
 "Use a different location, so its not added to my dotfiles
 call plug#begin('~/.config/nvim_plugged')
+"Startup time
+Plug 'https://github.com/dstein64/vim-startuptime'
+
 "Linter
 Plug 'https://github.com/w0rp/ale.git'
 
@@ -197,6 +203,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "vim-snippets used by coc-snippets
 Plug 'https://github.com/honza/vim-snippets'
+
+"vim-folding
+Plug 'kalekundert/vim-coiled-snake'
+Plug 'Konfekt/FastFold'
 
 call plug#end()
 

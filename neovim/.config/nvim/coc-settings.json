@@ -21,5 +21,6 @@
       "command": "digestif",
       "filetypes": ["tex", "plaintex", "context"]
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

@@ -2,24 +2,64 @@
 # >>>>> ALIASES <<<<< #
 #. ------------------ #
 
+zmodload -F zsh/system p:sysparams # Load the sysparams table.
+zmodload -F zsh/terminfo b:echoti  # Load the echoti builtin.
+
+timed() {
+  local +h -i SECONDS=0
+
+  # Open an async process for the timer.
+  local -i timer_fd
+  exec {timer_fd}< <(
+    # Print the process id, so we can kill it later.
+    print $sysparams[pid]
+
+    echoti civis   # Make the cursor invisible.
+
+    while true; do
+      print "$(( SECONDS / 60 )) mins, $(( SECONDS % 60 )) secs"
+      echoti cuu1  # Move the cursor up 1 line.
+    done
+  )
+
+  # Read the timer process id.
+  local -i timer_pid
+  read timer_pid <&$timer_fd
+
+  # Start another async process for the actual task.
+  local -i task_fd
+  exec {task_fd}< <(
+    eval "$@"     # Run the task.
+
+    # Close the timer fd and kill the timer process.
+    exec {timer_fd}<&-
+    kill -KILL $timer_pid
+
+    echoti cnorm  # Make the cursor normal again.
+  )
+
+  # Redirect the output of the async processes to the terminal. This is
+  # a blocking operation. Thus, we won't get past these two lines until
+  # both async processes end.
+  <&$timer_fd
+  <&$task_fd
+
+  exec {task_fd}<&-  # We're done. Close the task fd.
+}
+
 #Lots of cd's
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar && $HOME/.config/lemonbar/init_bottom_bar.sh & $HOME/.config/lemonbar/init_top_bar.sh & tldr --update && $HOME/git/agendrum/agendrum.py --resolution 1366x768 && xwallpaper --output LVDS-1 --center /tmp/wallpaper_1366x768.png & zsh'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && $HOME/git/agendrum/agendrum.py --resolution 1366x768 && xwallpaper --output LVDS-1 --center /tmp/wallpaper_1366x768.png & zsh && sxhkd & disown & checkrebuild'
 ad() { archdate }
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 rdl() { remove_database_lock }
 pacrm() { remove_database_lock }
 
-# Attach laptop second monitor
-alias attachrightmonitor='xrandr --output VGA-1 --mode 1366x768 --pos 1366x0 --rotate left --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal && bspc monitor LVDS-1 -d 1 2 3 4 5 6 && bspc monitor VGA-1 -d 7 8 9 0 && $HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh & killall -9 sxhkd & sxhkd disown && xwallpaper --center /tmp/wallpaper_1366x768.png & killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown & $HOME/.config/lemonbar/init_top_bar.sh & disown'
-arm() { attachrightmonitor }
-alias removerightmonitor='xrandr --output VGA-1 --off --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal && bspc monitor LVDS-1 -d 1 2 3 4 5 6 7 8 9 0 && "$HOME/git/agendrum/agendrum.py" && xwallpaper --center /tmp/wallpaper_1366x768.png && $HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh && killall -9 sxhkd && sxhkd & disown && killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown & $HOME/.config/lemonbar/init_top_bar.sh & disown'
-rrm() { removerightmonitor }
-
+# Barrier shortcuts
 alias barrierw="killall barriers; barriers --name x220 --no-tray --address :24800 --debug INFO --disable-client-cert-checking --daemon --disable-crypto -c ~/.config/barrier/server.windows"
 alias bwin=barrierw
 alias barrierb="killall barriers; barriers --name x220 --no-tray --address :24800 --debug INFO --disable-client-cert-checking --daemon --disable-crypto -c ~/.config/barrier/server.beast"
@@ -55,6 +95,9 @@ alias cl='echo "Use tectonic to compile and tllocalmgr to install from CTAN\n\nR
 #Confirm before overwriting something
 alias cp="cp -i"
 alias mv="mv -i"
+
+#Freshdesk
+alias mt="python ~/git/Freshdesk/list_my_tickets.py"
 
 #Outputs system stats
 alias cpu="ps axch -o cmd,%cpu --sort=-%cpu | head"
@@ -103,19 +146,24 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
-push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push --preview }
+push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push }
+stopstart() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --stopstart }
 alias checkonline='python ~/git/neoFrogBox/check_FBC.py --check-all-online'
-hc() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push && sleep 5 && python ~/git/neoFrogBox/check_FBC.py --encoder "$1" && python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --preview }
+hc() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" && push "$1" && sleep 5 && stopstart "$1" && sleep 10 && python ~/git/neoFrogBox/check_FBC.py --screenshot "$1" && new_obs "$1" && sleep 10 && push "$1" && clear -x  }
+preview() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --preview }
 new_obs() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --obs }
 new_off() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --gfxoff }
 new_on() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --gfxon }
-# new_terminate() { python MCR/newFBC.py --terminate --encoder "$1" }
-# new_start() { python MCR/pre_match_check_cli.py --encoder "$1" --stop-start }
+new_terminate() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --terminate }
+alias nt="new_terminate"
 find_encoder() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --pprint }
+alias fe="find_encoder"
 find_matches() { python ~/git/neoFrogBox/check_FBC.py --find-matches "$1" }
 alias fm="find_matches"
+find_matches_guid() { python ~/git/neoFrogBox/check_FBC.py --find-matches-by-guid "$1" }
+alias fg="find_matches_guid"
 games() { python Freshdesk/check_for_games.py --ticket "$1" }
-alias get="python MCR/get_match_info.py --url-file matches.txt --output-file && paplay /usr/share/sounds/Oxygen-Sys-App-Positive.ogg"
+alias get="python get_match_info.py --url-file matches.txt --output-file --quick-add && paplay /usr/share/sounds/Oxygen-Sys-App-Positive.ogg"
 
 
 #Bluetooth headphones use different settings for mic and not-mic
@@ -215,7 +263,7 @@ alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmod
 alias resetnetwork='sudo wg-quick down mlvd-au3 && sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sudo wg-quick up mlvd-au3 && sleep 3 && ping -c3 google.com'
 
 #Prompt when removing files, force recursive
-alias rm='trash -riv'
+#alias rm='trash -riv'
 
 #I always use rsync with these flags
 alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
@@ -225,6 +273,9 @@ alias scrot='scrot --quality 100 --select "$HOME/%FT%T.png"'
 
 #Shutdown with rofiyesno
 alias shutdown="$HOME/git/scripts/shell/rofi_yesno 'Shutdown now?' '$HOME/git/scripts/shell/shutdownin 00:00:10'"
+
+#Sleepcount
+alias scc='sleepcount -c'
 
 #Startx to use XDG
 alias sx="cd $HOME && startx '$XDG_CONFIG_HOME/xinit/xinitrc' vt1"
@@ -290,7 +341,9 @@ alias c='fasd_cd -d -i'
 alias zsh_time='time "zsh -i -c exit"'
 alias zt='zsh_time'
 
-checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec isort {} && git add --patch && pre-commit run }
+checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec ufmt format {/} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {/} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec flake8 --ignore=E501 {/} && git add --patch && pre-commit run && czc }
+# checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec isort {} && git add --patch && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec refurb {} && git add --patch }
+alias ca='checkandadd'
 
 #Youtube fzf types
 alias ytr='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=relevance --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
@@ -298,3 +351,5 @@ alias ytn='ytfzf --preview-side=right -t --formats --loop --force-youtube --page
 alias ytp='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=view_count --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
 alias ytc='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --type=channel --submenu-opts="--loop --formats --sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith"'
 alias ytpl='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --type=playlist --submenu-opts="--loop --formats --sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith"'
+
+alias wifisettings='sudo nvim /etc/systemd/network/10-wlan0.network'

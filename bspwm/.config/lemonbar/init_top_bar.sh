@@ -27,7 +27,7 @@ mkfifo "$BAR_FIFO"
 # Add blocks to bar
 "$HOME/.local/bin/slstatus.datetime" -s > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_nextevent.sh" > "$BAR_FIFO" &
-"$HOME/git/scripts/shell/corona" > "$BAR_FIFO" &
+# "$HOME/git/scripts/shell/corona" > "$BAR_FIFO" &
 bspc subscribe report > "$BAR_FIFO" &
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar

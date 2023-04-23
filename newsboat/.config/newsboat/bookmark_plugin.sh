@@ -31,13 +31,15 @@ floating_terminal() {
 }
 
 case "$url" in
-  *"gifv?$") mpv --loop "$url" >/dev/null 2>&1 & ;;
+  *".gifv") mpv --loop "$url" ;;
+  *".gif") mpv --loop "$url" ;;
+  *"gfyc"*) mpv --loop "$url" ;;
   *"i.redd"*) open_images ;;
   *"imgur"*) open_images ;;
   *"jpg") open_images ;;
   *"png") open_images ;;
-  *"v.red"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
-  *"streama"*) mpv --loop "$url" >/dev/null 2>&1 & ;;
+  *"v.red"*) mpv --loop "$url" ;;
+  *"streama"*) mpv --loop "$url" ;;
   *"twitter"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --seconds 15 --url "$url" && feh /tmp/browser.png ;;
   *"old.reddit."*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
   *"xkcd.com"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" --seconds 2 && feh /tmp/browser.png ;;
