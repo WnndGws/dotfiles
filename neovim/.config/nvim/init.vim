@@ -494,3 +494,22 @@ if has('autocmd')
         autocmd BufNewFile README 0r $XDG_CONFIG_HOME/nvim/templates/skeleton.readme
     augroup END
 endif
+
+"Custom time diff script
+" line1 is the line number the first timestamp is on.
+" line2 is the line number the second timestamp is on.
+function! GetTimeDifference(line1,line2)
+    " Get line content and split it where ":" matches.
+    let l:t1List = split( getline(a:line1), ":" )
+    let l:t2List = split( getline(a:line2), ":" )
+
+    " Get the difference in minutes between the timestamps.
+    let l:difference = abs(  (l:t1List[0] * 3600 + l:t1List[1] * 60) - 
+                           \ (l:t2List[0] * 3600 + l:t2List[1] * 60)   ) / 60.0
+
+    " Replace the line with the result.
+   call setline(a:line1, printf("%.1f" ,l:difference))
+endfunction
+
+" Create a user-defined command.
+command! -range TimeDifference :call GetTimeDifference(<line1>,<line2>)

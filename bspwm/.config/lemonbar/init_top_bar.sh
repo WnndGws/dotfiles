@@ -2,7 +2,7 @@
 ## This is the script to setup thr FIFO and run the FIFO in a bar
 
 BAR_FIFO=/tmp/bar-fifo-top
-BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primary ).*(?<=\+)\d+" | sed -E 's/x[0-9]{3,4}/x35/' | sed -E 's/\+[0-9]{3,4}$/\+0$/')
+BAR_DIMEN=$(xrandr --properties | grep --perl-regexp --only-matching "(?<=primary ).*(?<=\+)\d+" | sed -E 's/x[0-9]{3,4}/x35/' | sed -E 's/\+[0-9]{3,4}$/\+0/')
 HOSTNAME=$(paste /etc/hostname)
 #[ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_0="Cascadia Code:size=18" || BAR_FONT_0="Cascadia Code:size=18"
 [ "$HOSTNAME" = "desk-beast" ] && BAR_FONT_0="CaskaydiaCove Nerd Font Mono:size=20" || BAR_FONT_0="Cascadia Code:size=18"

@@ -1,62 +1,62 @@
-#!/bin/sh
+#!/bin/zsh
 
 ###------------------###
 ###--- Autostarts ---###
 ###------------------###
 
 # Start dunst
-pgrep dunst || dunst &
+killall -9 dunst ; dunst &!
 
 # Start unclutter to remove cursor
-pgrep unclutter || unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &
+killall -9 unclutter ; unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &!
 
 # Start redshift
-#killall -9 redshift && redshift -x && redshift -b 1.0:0.65 -l -31.9505:115.8605 -t 6500:6500 -m randr &
-
-# Start syncthing
-pgrep syncthing || syncthing --no-browser &
+#killall -9 redshift && redshift -x && redshift -b 1.0:0.65 -l -31.9505:115.8605 -t 6500:6500 -m randr &!
 
 # Start espanso
-killall -9 espanso & espanso daemon &
+killall -9 espanso ; espanso daemon &!
 
 # Swallow windows
-"$HOME/git/scripts/python/bspwm_swallow" &
+ps -aux | grep 'bspwm_swallow' | grep -v grep | awk '{ print $2 }'| xargs kill
+"$HOME/git/scripts/python/bspwm_swallow" &!
 
 # Disable right channel microphone
 #amixer sset 'Capture',0 frontright 0% &
 
 # Start an2linuxserver
-#printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl &
-#an2linuxserver.py &
+#printf "power on\nagent on\ndefault-agent\nconnect 88:54:1F:2E:D5:7E" | bluetoothctl &!
+#an2linuxserver.py &!
 
 # Set wallpaper
+dunstify "Agendrum" "Loading..."
 xrandr -q | rg ' connected' | while read -r line; do
   disp=$(echo "$line" | awk '{print $1}')
   resol=$(echo "$line" | rg --only-matching '\d{4}x\d{3,4}')
-  "$HOME/git/agendrum/agendrum.py" --resolution "$resol" && xwallpaper --output "$disp" --center "/tmp/wallpaper_$resol.png" &
+  "$HOME/git/agendrum/agendrum.py" --resolution "$resol" && xwallpaper --output "$disp" --center "/tmp/wallpaper_$resol.png"
 done
-
-# Init lemonbars
-killall -9 lemonbar
-"$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &
-"$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &
-
-# Dont lose sxhkd and keyboard
-"$HOME/git/scripts/shell/laptop_check.sh" &
 
 ###-------------###
 ###--- BSPWM ---###
 ###-------------###
+
+dunstify "BSPWM" "Loading..."
 if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     # Desktop screens
     # Basically sets HDMI as first monitor, even though its on the "right"
-    #bspc wm --reorder-monitors HDMI3 LVDS1
-    bspc monitor DisplayPort-2 -d 7 8 9 0 || bspc monitor VGA1 -d 7 8 9 0
-    bspc monitor HDMI-A-0 -d 1 2 3 4 5 6
+    bspc wm --reorder-monitors VGA-1 LVDS-1
+    bspc monitor VGA-1 -d 7 8 9 0
+    bspc monitor LVDS-1 -d 1 2 3 4 5 6
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
 
+# Init lemonbars
+dunstify "Lemonbar" "Loading..."
+killall -9 lemonbar
+"$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &!
+"$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &!
+
+dunstify "Barrier" "Loading..."
 HOSTNAME=$(paste /etc/hostname)
 if [ "$HOSTNAME" = "x220" ]; then
   # barrierc --name x220 --no-tray --daemon --disable-crypto 192.168.20.38
@@ -66,6 +66,8 @@ fi
 # Make sure borders are always on
 bspc config borderless_monocle   false
 bspc config gapless_monocle      true
+bspc config -m LVDS-1 top_padding 35
+bspc config -m LVDS-1 bottom_padding 35
 
 # Next window attaches to last created window
 bspc config initial_polarity second_child
@@ -83,15 +85,6 @@ bspc config presel_feedback false
 bspc config pointer_modifier mod1
 bspc config pointer_action1 move
 
-# Reinit sxhkd to provide session specific bindings
-"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall -9 sxhkd && sxhkd &
-"$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &
-
-if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
-  sleep 60
-  /bin/zsh "$HOME/git/scripts/shell/leftscreen.sh"
-fi
-
 ###---------------###
 ###--- COLOURS ---###
 ###---------------###
@@ -106,3 +99,17 @@ bspc config focused_border_color '#e65350'
 ###-------------###
 # Dont float zathura
 bspc rule --add Zathura state=tiled
+
+# Reinit sxhkd to provide session specific bindings
+dunstify "SXHKD" "Loading SXHKD"
+"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall -9 sxhkd
+sxhkd &!
+
+ps -aux | grep 'bspwm_desktopnamer_subscriber' | grep -v grep | awk '{ print $2 }'| xargs kill
+"$HOME/git/scripts/shell/bspwm_desktopnamer_subscriber.sh" &!
+
+# ps -aux | grep 'laptop_check' | grep -v grep | awk '{ print $2 }'| xargs kill
+# sleep 120
+# "$HOME/git/scripts/shell/laptop_check.sh" &!
+
+dunstify "Done" "Loading all BSPWM"

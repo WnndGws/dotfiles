@@ -5,6 +5,9 @@ matches:
   - trigger: ":ss"
     image_path: "/tmp/screenshot.png"
 
+  - trigger: ":ci"
+    image_path: "/home/wynand/work-sync/Support_flows/Support_flows/enc_charge.jpeg"
+
   - trigger: "eml"
     replace: "wynandgouwswg@gmail.com"
 
@@ -39,18 +42,22 @@ matches:
   - trigger: ":booking"
     replace: |
       https://outlook.office365.com/owa/calendar/FrogBox@SportradarAG.onmicrosoft.com/bookings/
+    force_clipboard: true
 
   - trigger: ":bluescreen"
     replace: "You're sending us a bluescreen. This usually means either the camera is off, or there's a loose HDMI cable somewhere.\n\nCan you also check the HDMI cable goes Camera -> Input -> Output -> Encoder"
+    force_clipboard: true
 
   - trigger: ":longblue"
     replace: "We are seeing a blue screen on your feed. Can you please check the following\n1) The camera is on and plugged into the external battery\n2) The external battery is on\n3) The HDMI chain goes as follows\n  Camera -> Repeater Input\n  Repeater Output -> Long HDMI -> Encoder\nYou may need to unplug and re-plug some of the cables to ensure they're sitting tightly.\n"
+    force_clipboard: true
 
-  - trigger: ":restart"
-    replace: "Can you please restart your encoder, then let us know when you have a solid blue 4G light on the encoder again"
+  - trigger: ":reboot"
+    replace: "Can you please reboot your encoder, then let us know when you have a solid blue 4G light on the encoder again"
 
   - trigger: ":offline"
     replace: "We cant see your encoder online at the moment, do you have a solid blue 4G light?\n\nIf it is can you give the encoder a quick restart please and let us know when it has a solid blue 4G light?"
+    force_clipboard: true
 
   - trigger: ":charging"
     replace: Can you please check your encoder is connected to the external battery and the battery is on. The battery icon LED on the encoder should be either red or green to indicate it is charging
@@ -96,12 +103,14 @@ matches:
       3) Have as little as possible between the encoders and the sky (ie. an umbrella is fine, or next to a window is better than at the back of the bar etc)
 
       4) Have the encoder at least 1m away from any concrete or metal
+    force_clipboard: true
 
   - trigger: ":oneof2"
     replace: "If you have a solid blue 4G light, and we can't see it online, it is one of 2 issues\n\n1) The SIM doesn't have data on it\n\nOR\n\n2) The signal at the encoder is bad\rCan you please send us an image of the encoder and surroundings? We might see something we can suggest"
+    force_clipboard: true
 
   - trigger: ":sim"
-    replace: "The sim tray is super temperamental, so you might need to take the sim card out, put it in the slot, face the gold part down (it should just sit in the slot), turn the encoder 'upside down' and just geeeeeently slide the tray in"
+    replace: "The sim tray is super temperamental, so you might need to take the sim card out, put it in the slot, face the gold part down (it should just sit in the slot), turn the encoder 'upside down' and just geeeeeently slide the tray in\n\nhttps://youtu.be/j6Pqqmv8y-g"
 
   - trigger: fb
     replace: FrogBox
@@ -111,16 +120,12 @@ matches:
     replace: FrogBox Controller
     word: true
 
-  - trigger: mlive
-    replace: MLive
-    word: true
-
   - trigger: yt
     replace: YouTube
     word: true
 
   - trigger: mc
-    replace: MyCricket
+    replace: Match Center
     word: true
 
   - trigger: wa
@@ -129,8 +134,65 @@ matches:
 
   - trigger: gfx
     replace: graphics
-    word: true
 
   - trigger: i
     replace: I
     word: true
+
+  - trigger: lhl
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "Lets have a look"
+            - "Checking for us"
+            - "Let's check"
+            - "Taking a look"
+            - "Looking for you"
+
+  - trigger: pc
+    replace: play-cricket
+    word: true
+
+  - trigger: :dc
+    replace: "The camera charges with the round DC plug on the opposite side to the screen. Not the USB cable"
+
+  - trigger: :mute
+    replace: "We send a blank 3.5mm cable you can plug into the mic port of the encoder, that will mute everything"
+
+  - trigger: psm
+    replace: Product Services Manager
+
+  - trigger: :q
+    replace: "During busy times in can take us a little while to respond, if you send additional messages in whatsapp it actually pushes you back , just FYI"
+
+  - trigger: :nrq
+    replace: "Doesnt look like we have a request in our system for you\n\nCan you give me 2 pieces of info please\n\n1) The link to the match for today and I'll set it up\n\n2) The ticket number with the request so I can see why we missed it"
+    force_clipboard: true
+
+  - trigger: :sorry
+    replace: "Sorry for the delay, we are running into some issues with our servers that require manual intervention from us, so its made our response times slower than it should be"
+
+  - trigger: :pw
+    replace: 6$5@Evnoedbd!8^
+
+  - trigger: fx
+    replace: '[
+	{ "99988800446": "a64b896" },
+	{ "99988800501": "frogbox712" },
+	{ "99988800502": "frogbox712" },
+	{ "99988800503": "frogbox712" },
+	{ "99988800504": "frogbox712" },
+	{ "99988800505": "frogbox712" },
+	{ "99988800506": "frogbox712" },
+	{ "99988800507": "frogbox712" },
+	{ "99988800508": "frogbox712" },
+	{ "99988800509": "frogbox712" },
+	{ "99988800510": "frogbox712" },
+	{ "99988800511": "frogbox712" },
+	{ "99988800512": "frogbox712" },
+	{ "99988800513": "frogbox712" },
+	{ "99988800540": "frogbox712" }
+  ]'

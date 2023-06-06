@@ -40,9 +40,6 @@ case "$url" in
   *"png") open_images ;;
   *"v.red"*) mpv --loop "$url" ;;
   *"streama"*) mpv --loop "$url" ;;
-  *"twitter"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --seconds 15 --url "$url" && feh /tmp/browser.png ;;
-  *"old.reddit."*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" && feh /tmp/browser.png ;;
-  *"xkcd.com"*) "$HOME/git/scripts/python/newsboat_webpage_screenshotter.py" --url "$url" --seconds 2 && feh /tmp/browser.png ;;
   *)
     echo $visual
     link_handlers=$(printf "umpv\numpv_audio\nmpv\nbookmark\nfirefox\nfeh\nparagraph\nsummary\nytdl\nspeedread\nspeedread_summary\npico_summary\nbrowser_image" | rofi -matching fuzzy -dmenu -i -mesg "How should I open '$visual'?" -select)

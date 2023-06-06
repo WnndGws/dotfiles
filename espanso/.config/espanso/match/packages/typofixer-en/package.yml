@@ -12234,7 +12234,7 @@ matches:
   propagate_case: true
   word: true
 - trigger: noone
-  replace: no_one
+  replace: no one
   propagate_case: true
   word: true
 - trigger: nomencalture
@@ -12683,10 +12683,6 @@ matches:
   word: true
 - trigger: omniverously
   replace: omnivorously
-  propagate_case: true
-  word: true
-- trigger: noone
-  replace: one
   propagate_case: true
   word: true
 - trigger: nly
@@ -19547,10 +19543,6 @@ matches:
   word: true
 - trigger: wnat
   replace: want
-  propagate_case: true
-  word: true
-- trigger: wanna
-  replace: want_to
   propagate_case: true
   word: true
 - trigger: wnated

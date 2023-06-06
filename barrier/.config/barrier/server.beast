@@ -1,11 +1,11 @@
 section: screens
-	arch-beast:
+	WG-Windows-PC:
 		halfDuplexCapsLock = false
 		halfDuplexNumLock = false
 		halfDuplexScrollLock = false
 		xtestIsXineramaUnaware = false
 		preserveFocus = false
-		switchCorners = none 
+		switchCorners = none
 		switchCornerSize = 0
 	x220:
 		halfDuplexCapsLock = false
@@ -13,7 +13,7 @@ section: screens
 		halfDuplexScrollLock = false
 		xtestIsXineramaUnaware = false
 		preserveFocus = false
-		switchCorners = none 
+		switchCorners = none
 		switchCornerSize = 0
 end
 
@@ -21,10 +21,10 @@ section: aliases
 end
 
 section: links
-	arch-beast:
+	WG-Windows-PC:
 		down = x220
 	x220:
-		up = arch-beast
+		up = WG-Windows-PC
 end
 
 section: options

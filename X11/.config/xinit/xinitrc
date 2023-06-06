@@ -3,13 +3,10 @@
 gpg-agent --daemon --options "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
 
 if [ $(xrandr --query | rg -i " connected" | wc -l) = 2 ]; then
-    xrandr --output DisplayPort-2 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal || xrandr --output VGA1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output LVDS1 --mode 1366x768 --pos 277x1080 --rotate normal
+    xrandr --output VGA-1 --mode 1366x768 --pos 0x0 --rotate left --output LVDS-1 --mode 1366x768 --pos 768x0 --rotate normal --primary
 fi
 
-[ -f ~/.config/xmodmap/Xmodmap ] && xmodmap ~/.config/xmodmap/Xmodmap
-
-# Init sxhkd so can work with it even if bspwm doesnt load nicely
-sxhkd &
+killall -9 xmodmap ; xmodmap ~/.config/xmodmap/Xmodmap
 
 # Enable Keyboard in Xmodmap
 xkbset m &

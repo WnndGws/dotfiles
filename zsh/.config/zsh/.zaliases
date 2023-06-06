@@ -53,7 +53,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed; pikaur --deptest; killall -9 lemonbar & $HOME/.config/lemonbar/init_bottom_bar.sh & disown && $HOME/.config/lemonbar/init_top_bar.sh & disown && tldr --update && $HOME/git/agendrum/agendrum.py --resolution 1366x768 && xwallpaper --output LVDS-1 --center /tmp/wallpaper_1366x768.png & zsh && sxhkd & disown & checkrebuild'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && killall -9 lemonbar && sleep 10 && $HOME/.config/lemonbar/init_top_bar.sh & disown && $HOME/.config/lemonbar/init_bottom_bar.sh &! tldr --update && checkrebuild'
 ad() { archdate }
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 rdl() { remove_database_lock }
@@ -70,7 +70,7 @@ alias black="/usr/bin/black --diff --color"
 alias binblack="/usr/bin/black"
 
 # Bat extras
-alias bm="batman"
+alias man="batman"
 alias bw="batwatch"
 alias bd="batdiff"
 
@@ -110,11 +110,18 @@ alias cx="chmod +x"
 alias daily_network='rx=$(paste /sys/class/net/wlan0/statistics/rx_bytes) && tx=$(paste /sys/class/net/wlan0/statistics/tx_bytes) && tot=$(( $rx + $tx )) && echo $tot | numfmt --to=iec && unset rx && unset tx'
 daily_download() { daily_network }
 
+#Use difftastic
+alias diff='difft'
+
 #always dd with same flags
 alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 
 #Use a nicer du
 alias du="/usr/bin/ncdu --color dark -rr -x"
+
+#Touchpad stuff
+alias disable_touchpad='xinput set-prop 11 "Device Enabled" 0'
+alias enable_touchpad='xinput set-prop 11 "Device Enabled" 1'
 
 #watches a file, and runs that file everytime it changes
 entrwatch() { exa "$1" | entr /_ }
@@ -124,6 +131,9 @@ alias failed_ctl='systemctl list-units --state=failed'
 
 #Alias fd for me
 alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++> '<regex>' <path> --exec <command {}>"
+
+#Always search in HOME
+alias fv="cd ~ && fv"
 
 # using ripgrep combined with preview. Ran as a custom script from scripts folder
 alias fif="findinfile"
@@ -149,7 +159,11 @@ alias gif_make='gifmaker make_gif'
 push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push }
 stopstart() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --stopstart }
 alias checkonline='python ~/git/neoFrogBox/check_FBC.py --check-all-online'
-hc() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" && push "$1" && sleep 5 && stopstart "$1" && sleep 10 && python ~/git/neoFrogBox/check_FBC.py --screenshot "$1" && new_obs "$1" && sleep 10 && push "$1" && clear -x  }
+hc() { python ~/git/neoFrogBox/check_FBC.py --health-check "$1" && sleepcount -c 5m && clear -x }
+shc() { sleepcount -c "$1" && python ~/git/neoFrogBox/check_FBC.py --health-check "$2" && sleepcount -c 5m && clear -x }
+hcns() { python ~/git/neoFrogBox/check_FBC.py --health-check-no-screenshot "$1" && sleepcount -c 5m && clear -x }
+hcnr() { python ~/git/neoFrogBox/check_FBC.py --health-check-no-reset "$1" && sleepcount -c 5m && clear -x}
+screenshot() { python ~/git/neoFrogBox/check_FBC.py --screenshot "$1" && sleepcount -c 5m && clear -x }
 preview() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --preview }
 new_obs() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --obs }
 new_off() { python ~/git/neoFrogBox/check_FBC.py --encoder "$1" --gfxoff }
@@ -162,6 +176,8 @@ find_matches() { python ~/git/neoFrogBox/check_FBC.py --find-matches "$1" }
 alias fm="find_matches"
 find_matches_guid() { python ~/git/neoFrogBox/check_FBC.py --find-matches-by-guid "$1" }
 alias fg="find_matches_guid"
+find_guid_by_encoder() { python ~/git/neoFrogBox/check_FBC.py --find-guid-by-encoder "$1" }
+alias fge="find_guid_by_encoder"
 games() { python Freshdesk/check_for_games.py --ticket "$1" }
 alias get="python get_match_info.py --url-file matches.txt --output-file --quick-add && paplay /usr/share/sounds/Oxygen-Sys-App-Positive.ogg"
 
@@ -217,7 +233,11 @@ alias mpv720='mpv --ytdl-format="bestvideo[height<=?720]+bestaudio/best"'
 alias mpv576='mpv --ytdl-format="bestvideo[height<=?576]+bestaudio/best"'
 
 #Saves typing
-alias nb='curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
+#alias nb='curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
+alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
+
+#Taskell with icon
+alias tasks='echo -e "\033]0;taskell\007" && cd ~/work-sync && taskell && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
 #Neofetch
 alias nf="neofetch"
@@ -261,9 +281,6 @@ alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmod
 
 #Saves typing
 alias resetnetwork='sudo wg-quick down mlvd-au3 && sudo systemctl restart systemd-networkd.service; sudo systemctl restart systemd-resolved.service; sudo systemctl restart iwd.service && sudo wg-quick up mlvd-au3 && sleep 3 && ping -c3 google.com'
-
-#Prompt when removing files, force recursive
-#alias rm='trash -riv'
 
 #I always use rsync with these flags
 alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
@@ -315,7 +332,7 @@ sshget() {$HOME/git/fzf-scripts/sshget wynand@192.168.20.101:"$1"}
 #Pacman stuff
 p() { $HOME/git/fzf-scripts/pkgsearch "$1" }
 ##Remove package using pacman
-alias pare='$HOME/git/fzf-scripts/pkgrm'
+alias pare='$HOME/git/fzf-scripts/pkgrm -s'
 ##Pikaur install
 alias pin='pikaur -S --noconfirm'
 ##Pikaur Query
