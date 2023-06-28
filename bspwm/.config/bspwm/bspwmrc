@@ -53,6 +53,7 @@ fi
 # Init lemonbars
 dunstify "Lemonbar" "Loading..."
 killall -9 lemonbar
+sleep 30
 "$XDG_CONFIG_HOME/lemonbar/init_bottom_bar.sh" &!
 "$XDG_CONFIG_HOME/lemonbar/init_top_bar.sh" &!
 

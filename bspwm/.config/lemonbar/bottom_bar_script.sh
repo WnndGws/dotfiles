@@ -138,3 +138,4 @@ while read -r line; do
     esac
     printf "%s\n" "%{S1}%{l}%{c}${weather}${fuel}${pkg}${cpu}${gpu}${mem}${bat}${vol}${vpn}${wlan}${timezones}%{r}"
 done
+

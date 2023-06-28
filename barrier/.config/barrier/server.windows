@@ -1,11 +1,11 @@
 section: screens
-	DESKTOP-HMD553S:
+	DESKTOP-1NCF7A7:
 		halfDuplexCapsLock = false
 		halfDuplexNumLock = false
 		halfDuplexScrollLock = false
 		xtestIsXineramaUnaware = false
 		preserveFocus = false
-		switchCorners = none 
+		switchCorners = none
 		switchCornerSize = 0
 	x220:
 		halfDuplexCapsLock = false
@@ -13,35 +13,19 @@ section: screens
 		halfDuplexScrollLock = false
 		xtestIsXineramaUnaware = false
 		preserveFocus = false
-		switchCorners = none 
+		switchCorners = none
 		switchCornerSize = 0
 end
 
 section: aliases
 end
 
-#          +-------------+ +----------------+
-#          |             | |                |
-#          |     Windows | |                |
-#          |             | |                |
-#          +-------------+ +----------------|
-#+-------+ +-------------+
-#|       | |             |
-#|       | |      x220   |
-#| x220  | |             |
-#|       | +-------------+
-#|       |
-#|       |
-#+-------+
-# Total width = 768 + 768
-# Total height = 1080 + 768 = 1848
-# All movements must be a percentage of this. eg moving off at 1080p is 1080/4608 = 23.4375
-
 section: links
-	DESKTOP-HMD553S:
-		down = x220(37,100)
+	DESKTOP-1NCF7A7:
+		down(10,38) = x220(35.988,100)
+		#left(25,100) = x220(0, 35.988)
 	x220:
-		up = DESKTOP-HMD553S(0,50)
+		up(35.988, 100) = DESKTOP-1NCF7A7(10, 38)
 end
 
 section: options

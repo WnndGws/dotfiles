@@ -112,20 +112,20 @@ matches:
   - trigger: ":sim"
     replace: "The sim tray is super temperamental, so you might need to take the sim card out, put it in the slot, face the gold part down (it should just sit in the slot), turn the encoder 'upside down' and just geeeeeently slide the tray in\n\nhttps://youtu.be/j6Pqqmv8y-g"
 
+  - trigger: xchan
+    replace: Christian
+
   - trigger: fb
     replace: FrogBox
-    word: true
 
-  - trigger: fbc
-    replace: FrogBox Controller
-    word: true
+  - trigger: fnx
+    replace: Frognostics
+
+  - trigger: cnt
+    replace: Controller
 
   - trigger: yt
     replace: YouTube
-    word: true
-
-  - trigger: mc
-    replace: Match Center
     word: true
 
   - trigger: wa
@@ -139,7 +139,7 @@ matches:
     replace: I
     word: true
 
-  - trigger: lhl
+  - trigger: lhal
     replace: "{{output}}"
     vars:
       - name: output
@@ -151,10 +151,6 @@ matches:
             - "Let's check"
             - "Taking a look"
             - "Looking for you"
-
-  - trigger: pc
-    replace: play-cricket
-    word: true
 
   - trigger: :dc
     replace: "The camera charges with the round DC plug on the opposite side to the screen. Not the USB cable"
@@ -178,21 +174,5 @@ matches:
   - trigger: :pw
     replace: 6$5@Evnoedbd!8^
 
-  - trigger: fx
-    replace: '[
-	{ "99988800446": "a64b896" },
-	{ "99988800501": "frogbox712" },
-	{ "99988800502": "frogbox712" },
-	{ "99988800503": "frogbox712" },
-	{ "99988800504": "frogbox712" },
-	{ "99988800505": "frogbox712" },
-	{ "99988800506": "frogbox712" },
-	{ "99988800507": "frogbox712" },
-	{ "99988800508": "frogbox712" },
-	{ "99988800509": "frogbox712" },
-	{ "99988800510": "frogbox712" },
-	{ "99988800511": "frogbox712" },
-	{ "99988800512": "frogbox712" },
-	{ "99988800513": "frogbox712" },
-	{ "99988800540": "frogbox712" }
-  ]'
+  - trigger: "$$"
+    replace: "£"

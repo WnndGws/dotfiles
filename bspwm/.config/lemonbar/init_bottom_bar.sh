@@ -29,7 +29,7 @@ mkfifo "$BAR_FIFO"
 
 # Order: weather, pkg, mem, cpu, vol, wlan_speed, wlan_dl
 # Add blocks to bar
-"$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
+echo "$XDG_CACHE_HOME/check_pkg_update" | entr -n "$HOME/git/scripts/shell/lemonbar_pkg.sh" > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/git/scripts/shell/lemonbar_gpu.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_cpu.sh" > "$BAR_FIFO" &
 "$HOME/git/scripts/shell/lemonbar_mullvad.sh" > "$BAR_FIFO" &
@@ -42,6 +42,8 @@ mkfifo "$BAR_FIFO"
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/git/scripts/shell/lemonbar_weather.sh" > "$BAR_FIFO" &
 [ "$HOSTNAME" = "desk-beast" ] && "$HOME/git/scripts/shell/lemonbar_fuelwatch.sh" > "$BAR_FIFO" &
 [ "$HOSTNAME" = "x220" ] && "$HOME/git/scripts/shell/lemonbar_gettimez.sh" > "$BAR_FIFO" &
+
+echo 1 > "$XDG_CACHE_HOME/check_pkg_update"
 
 # Push the FIFO into the parsing script, then output that parsed to lemonbar
 "$XDG_CONFIG_HOME/lemonbar/bottom_bar_script.sh" < "$BAR_FIFO" | lemonbar -b -a 32 -u 3 -n "$BAR_WM_NAME" -g "$BAR_DIMEN" -f "$BAR_FONT_0" -f "$BAR_FONT_1" -F "$BAR_FG_COLOUR" -B "$BAR_BG_COLOUR" | sh &

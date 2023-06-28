@@ -22,9 +22,10 @@ end
 
 section: links
 	WG-Windows-PC:
-		down = x220
+		down(10,38) = x220(35.988,100)
+		#left(25,100) = x220(0, 35.988)
 	x220:
-		up = WG-Windows-PC
+		up(35.988, 100) = WG-Windows-PC(10, 38)
 end
 
 section: options

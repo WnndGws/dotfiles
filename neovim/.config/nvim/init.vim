@@ -304,7 +304,7 @@ let g:EasyMotion_do_mapping = 0
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap f <Plug>(easymotion-overwin-f)
+nmap ff <Plug>(easymotion-overwin-f)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
