@@ -14,12 +14,9 @@ search_trigger: OFF
 backend: Inject
 
 # Number of ms between text injections
-inject_delay: 1
-key_delay: 1
+inject_delay: 2
+key_delay: 2
 
-disable_x11_fast_inject: false
-x11_use_xclip_backend: true
-paste_shortcut: SHIFT+INSERT
-show_notifications: true
-# clipboard_threshold: 10
-apply_patch: false
+# Set clipboard configuration for when force_clipboard
+paste_shortcut: CTRL+SHIFT+V
+pre_paste_delay: 500

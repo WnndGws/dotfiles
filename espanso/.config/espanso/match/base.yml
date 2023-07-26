@@ -8,6 +8,12 @@ matches:
   - trigger: ":ci"
     image_path: "/home/wynand/work-sync/Support_flows/Support_flows/enc_charge.jpeg"
 
+  - trigger: ":dli"
+    image_path: "/home/wynand/work-sync/Support_flows/Support_flows/enc_charge.jpeg"
+
+  - trigger: ":dlt"
+    replace: "Can you download the fixture into your scoring app please. This will force a sync with our servers and I can configure it for you"
+
   - trigger: "eml"
     replace: "wynandgouwswg@gmail.com"
 
@@ -117,6 +123,10 @@ matches:
 
   - trigger: fb
     replace: FrogBox
+    word: true
+
+  - trigger: fbc
+    replace: FrogBox Controller
 
   - trigger: fnx
     replace: Frognostics
@@ -176,3 +186,12 @@ matches:
 
   - trigger: "$$"
     replace: "£"
+
+  - trigger: ":`"
+    replace: "```\n$|$\n```"
+
+  - trigger: "->"
+    replace: "→"
+
+  - trigger: "@sr"
+    replace: "w.gouws@sportradar.com"

@@ -1,0 +1,9 @@
+server=http://192.168.20.101:8096/jellyfin
+token=15109ca3bd064ae29cde52125d534826
+userid=8581072141464c59b2d822f8964120cf
+ssl_verifyhost=false
+client=jftui
+device=x220
+deviceid=6535763
+version=0.6.2
+try_local_files=no
