@@ -1,3 +1,5 @@
+## Make sure to set /etc/zsh/zshenv to 'ZDOTDIR=/home/<user>/.config/zsh'
+
 ## Sourced always and first. Contain exported variables needed by other programs and scripts. Should be light weight since its run for every command
 
 export PATH=/usr/local/bin:$HOME/.local/bin:$HOME/git/scripts/shell:$HOME/git/scripts/python:$HOME/git/fzf-scripts:$PATH
