@@ -123,7 +123,7 @@ alias du="/usr/bin/ncdu --color dark -rr -x"
 alias disable_touchpad='xinput set-prop 11 "Device Enabled" 0'
 alias enable_touchpad='xinput set-prop 11 "Device Enabled" 1'
 
-#watches a file, and runs that file everytime it changes
+#watches a file, and runs that file every time it changes
 entrwatch() { exa "$1" | entr /_ }
 
 #To list any failed systemctl units
@@ -156,6 +156,8 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
+mm7() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" --url "$2" --duration 7 }
+mm3() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" --url "$2" --duration 3 }
 push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push }
 stopstart() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --stopstart }
 alias checkonline='python ~/git/neoFrogBox/check_FBC.py --check-all-online'
@@ -192,13 +194,14 @@ alias micv50="pactl set-source-volume bluez_input.88_D0_39_64_E8_27.headset-head
 headphones_on() { bluetoothctl power on && bluetoothctl connect 88:D0:39:64:E8:27 }
 headphones_off() { bluetoothctl power on && bluetoothctl disconnect 88:D0:39:64:E8:27 }
 
+
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
 alias ised='$HOME/git/fzf-scripts/fzrepl -c sed'
 alias irg='$HOME/git/fzf-scripts/fzrg'
 
-#Always open ipython with vim mappings
-ipython() { /usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi -i "$1" -- }
+#iPython
+alias ipy='ipython'
 
 #Get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -240,6 +243,8 @@ alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty
 
 #Taskell with icon
 alias tasks='echo -e "\033]0;taskell\007" && cd ~/work-sync && taskell && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
+
+alias todo='rm /tmp/today.txt ; date -u +%Y-%m-%d >> /tmp/today.txt && echo "Finding unfinished tasks..." && rg -i "\[ \] " ~/work-sync/todo.txt >> /tmp/today.txt ; echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && echo "Counting FreshDesk tickets..." && python ~/git/Freshdesk/count_fd_tickets.py >> /tmp/today.txt && echo "\n" >> /tmp/today.txt && cat /tmp/today.txt ~/work-sync/todo.txt | tee ~/work-sync/todo.txt && vim ~/work-sync/todo.txt'
 
 #Neofetch
 alias nf="neofetch"

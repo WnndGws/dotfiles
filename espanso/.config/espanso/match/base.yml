@@ -9,7 +9,7 @@ matches:
     image_path: "/home/wynand/work-sync/Support_flows/Support_flows/enc_charge.jpeg"
 
   - trigger: ":dli"
-    image_path: "/home/wynand/work-sync/Support_flows/Support_flows/enc_charge.jpeg"
+    image_path: "/home/wynand/work-sync/Support_flows/Support_flows/downloadintoapp.png"
 
   - trigger: ":dlt"
     replace: "Can you download the fixture into your scoring app please. This will force a sync with our servers and I can configure it for you"

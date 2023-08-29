@@ -7,6 +7,14 @@ section: screens
 		preserveFocus = false
 		switchCorners = none
 		switchCornerSize = 0
+	DESKTOP-HMD553S:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none
+		switchCornerSize = 0
 	x220:
 		halfDuplexCapsLock = false
 		halfDuplexNumLock = false
@@ -23,9 +31,11 @@ end
 section: links
 	DESKTOP-1NCF7A7:
 		down(10,38) = x220(35.988,100)
-		#left(25,100) = x220(0, 35.988)
+    right = DESKTOP-HMD553S
 	x220:
 		up(35.988, 100) = DESKTOP-1NCF7A7(10, 38)
+  DESKTOP-HMD553S:
+    left = DESKTOP-1NCF7A7
 end
 
 section: options
