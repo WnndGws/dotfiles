@@ -5,5 +5,5 @@ ssl_verifyhost=false
 client=jftui
 device=x220
 deviceid=6535763
-version=0.7.1
+version=0.7.2
 try_local_files=no

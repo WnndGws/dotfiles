@@ -6,6 +6,22 @@
 
 # Start dunst
 killall -9 dunst ; dunst &!
+dunstify "BSPWM" "Loading..."
+
+dunstify "GPG Agent" "Loading..."
+gpg-agent --daemon --options "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
+
+if [ $(xrandr --query | rg -i " connected" | wc -l) = 2 ]; then
+  xrandr --output VGA1 --mode 1366x768 --pos 598x0 --rotate left --output LVDS1 --mode 1366x768 --pos 0x1366 --rotate normal --primary
+fi
+
+dunstify "Keymap" "Loading..."
+setxkbmap -layout 'ca(multix)'
+
+killall -9 xmodmap ; xmodmap ~/.config/xmodmap/Xmodmap
+
+ Enable Keyboard in Xmodmap
+xkbset m &
 
 # Start unclutter to remove cursor
 killall -9 unclutter ; unclutter --timeout 3 --jitter 5 --ignore-buttons 1,2,3 --fork &!
@@ -28,24 +44,23 @@ ps -aux | grep 'bspwm_swallow' | grep -v grep | awk '{ print $2 }'| xargs kill
 #an2linuxserver.py &!
 
 # Set wallpaper
-dunstify "Agendrum" "Loading..."
-xrandr -q | rg ' connected' | while read -r line; do
-  disp=$(echo "$line" | awk '{print $1}')
-  resol=$(echo "$line" | rg --only-matching '\d{4}x\d{3,4}')
-  "$HOME/git/agendrum/agendrum.py" --resolution "$resol" && xwallpaper --output "$disp" --center "/tmp/wallpaper_$resol.png"
-done
+#dunstify "Agendrum" "Loading..."
+#xrandr -q | rg ' connected' | while read -r line; do
+  #disp=$(echo "$line" | awk '{print $1}')
+  #resol=$(echo "$line" | rg --only-matching '\d{4}x\d{3,4}')
+  #"$HOME/git/agendrum/agendrum.py" --resolution "$resol" && xwallpaper --output "$disp" --center "/tmp/wallpaper_$resol.png"
+#done
 
 ###-------------###
 ###--- BSPWM ---###
 ###-------------###
 
-dunstify "BSPWM" "Loading..."
 if [ "$(bspc query -M | wc -l)" -eq 2 ]; then
     # Desktop screens
     # Basically sets HDMI as first monitor, even though its on the "right"
-    bspc wm --reorder-monitors VGA-1 LVDS-1
-    bspc monitor VGA-1 -d 7 8 9 0
-    bspc monitor LVDS-1 -d 1 2 3 4 5 6
+    bspc wm --reorder-monitors VGA1 LVDS1
+    bspc monitor VGA1 -d 7 8 9 0
+    bspc monitor LVDS1 -d 1 2 3 4 5 6
 else
     bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 fi
@@ -67,8 +82,8 @@ fi
 # Make sure borders are always on
 bspc config borderless_monocle   false
 bspc config gapless_monocle      true
-bspc config -m LVDS-1 top_padding 35
-bspc config -m LVDS-1 bottom_padding 35
+bspc config -m LVDS1 top_padding 35
+bspc config -m LVDS1 bottom_padding 35
 
 # Next window attaches to last created window
 bspc config initial_polarity second_child
