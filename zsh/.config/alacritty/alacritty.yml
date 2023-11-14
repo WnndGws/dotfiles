@@ -356,7 +356,7 @@ hints:
   enabled:
    - regex: "(magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
              [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-     command: rofi_openwith
+     command: wslview
      post_processing: true
      mouse:
        enabled: true

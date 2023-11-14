@@ -53,11 +53,13 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && echo 0 > ~/.cache/check_pkg_update && ~/git/scripts/shell/new_day_script.sh'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild'
 ad() { archdate }
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 rdl() { remove_database_lock }
 pacrm() { remove_database_lock }
+
+guid() { python ~/git/neoFrogBox/get_guid_info.py --au --guid "$1" && tail -n 1 ~/work-sync/mcr_output.txt | cut -d$'\t' -f2- | clip.exe }
 
 # Barrier shortcuts
 alias barrierw="killall barriers; barriers --name x220 --no-tray --address :24800 --debug INFO --disable-client-cert-checking --daemon --disable-crypto -c ~/.config/barrier/server.windows"
@@ -156,8 +158,8 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
-mm7() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" --url "$2" --duration 7 }
-mm3() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" --url "$2" --duration 3 }
+mm7() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 7 }
+mm3() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 3 }
 push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push }
 stopstart() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --stopstart }
 alias checkonline='python ~/git/neoFrogBox/check_FBC.py --check-all-online'
@@ -184,6 +186,7 @@ games() { python Freshdesk/check_for_games.py --ticket "$1" }
 alias get="python get_match_info.py --url-file matches.txt --output-file --quick-add && paplay /usr/share/sounds/Oxygen-Sys-App-Positive.ogg"
 check_days_stats() { python ~/git/neoFrogBox/check_date_range.py --start-date "$1" --end-date "$1" --count --playcricket --playhq --no-time-convert }
 check_days_stats_wentlive() { python ~/git/neoFrogBox/check_date_range.py --start-date "$1" --end-date "$1" --count --playcricket --playhq --went-live --no-time-convert }
+ggau() { ./get_guid_info.py --au --guid "$1" }
 
 
 #Bluetooth headphones use different settings for mic and not-mic
@@ -206,23 +209,20 @@ alias ipy='ipython'
 #Get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-#Save my precious time
-alias jf="mullvad-exclude jftui"
-
 #List all including hidden
-alias lsa='exa --all --color always --color-scale'
+alias lsa='exa --all --color always --color-scale all'
 
 #List all including hidden in a long list
-alias ll='exa --all --color always --color-scale --long'
+alias ll='exa --all --color always --color-scale all --long'
 
 #Colours in ls
-alias ls='exa --color always --color-scale'
+alias ls='exa --color always --color-scale all'
 
 # Show tree of folder depth 3
-alias lt='exa --color always --color-scale --tree --level=5'
+alias lt='exa --color always --color-scale all --tree --level=5'
 
 # Show tree of all folders depth 3
-alias lta='exa --all --color always --color-scale --tree --level=5'
+alias lta='exa --all --color always --color-scale all --tree --level=5'
 
 #Speed up making dirs
 alias md='/usr/bin/mkdir -p'
@@ -260,6 +260,9 @@ nma() { notmuch tag -unread -inbox +archive 'tag:inbox from:"'$1'"' }
 alias nv="nvim"
 alias vim="nvim"
 
+#Shortcut for pipenv
+alias pes="pipenv shell"
+
 #Uses ghostscript to downsize pdfs
 alias pdf2smallpdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/<screen(72dpi)ebook(150dpi)prepress(300dpi)> -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf"
 
@@ -278,6 +281,9 @@ alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --
 alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
+
+python_check() { doq -f "$1" --format=google -w ; ruff format --preview "$1" ; echo "\n\n" && ruff check --preview --fix "$1" ; echo "\n\n" && mypy --install-types "$1" }
+alias pc='python_check'
 
 #Reset BSPWM workspace bindings to cerrect ones
 alias resetbspwmworkspaces='"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall sxhkd && sxhkd & disown'
@@ -327,8 +333,6 @@ alias sus="systemctl --user status"
 alias sur="systemctl --user restart"
 alias sue="systemctl --user enable --now"
 alias sud="systemctl --user disable"
-
-alias ssh="mullvad-exclude ssh"
 
 #Saves typing
 alias sv='sudo nvim'

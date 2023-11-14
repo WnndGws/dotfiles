@@ -29,9 +29,16 @@ return {
               icon_only = true,
               separator = "",
               padding = {
-                left = 1, right = 0 }
+                left = 1,
+                right = 0,
+              },
             },
-            { "filename", path = 0, shortening_target = 40, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+            {
+              "filename",
+              path = 0,
+              shortening_target = 40,
+              symbols = { modified = "  ", readonly = "", unnamed = "" },
+            },
           },
           lualine_x = {
             {
@@ -45,9 +52,7 @@ return {
                 end
                 local best_diagnostic = nil
                 for _, diagnostic in ipairs(line_diagnostics) do
-                  if
-                      best_diagnostic == nil or diagnostic.severity < best_diagnostic.severity
-                  then
+                  if best_diagnostic == nil or diagnostic.severity < best_diagnostic.severity then
                     best_diagnostic = diagnostic
                   end
                 end
@@ -61,11 +66,15 @@ return {
                 else
                   return string.sub(message, 1, max_width) .. "..."
                 end
-              end
+              end,
             },
             {
-              function() return "  " .. require("dap").status() end,
-              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+              function()
+                return "  " .. require("dap").status()
+              end,
+              cond = function()
+                return package.loaded["dap"] and require("dap").status() ~= ""
+              end,
               color = Util.fg("Debug"),
             },
             { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = Util.fg("Special") },
@@ -81,12 +90,12 @@ return {
             },
           },
           lualine_z = {
-            { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
+            { "progress", separator = " ", padding = { left = 1, right = 0 } },
             { "location", padding = { left = 0, right = 1 } },
           },
         },
         extensions = { "neo-tree", "lazy" },
       }
     end,
-  }
+  },
 }
