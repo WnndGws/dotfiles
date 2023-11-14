@@ -190,8 +190,5 @@ matches:
   - trigger: ":`"
     replace: "```\n$|$\n```"
 
-  - trigger: "->"
-    replace: "→"
-
   - trigger: "@sr"
     replace: "w.gouws@sportradar.com"

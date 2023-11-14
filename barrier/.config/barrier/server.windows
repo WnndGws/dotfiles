@@ -7,7 +7,7 @@ section: screens
 		preserveFocus = false
 		switchCorners = none
 		switchCornerSize = 0
-	DESKTOP-HMD553S:
+	AUR1-AAD-775979:
 		halfDuplexCapsLock = false
 		halfDuplexNumLock = false
 		halfDuplexScrollLock = false
@@ -30,12 +30,14 @@ end
 
 section: links
 	DESKTOP-1NCF7A7:
-		down(10,38) = x220(35.988,100)
-    right = DESKTOP-HMD553S
+    down(10,45) = AUR1-AAD-775979
+    left = x220(0,66)
 	x220:
-		up(35.988, 100) = DESKTOP-1NCF7A7(10, 38)
-  DESKTOP-HMD553S:
-    left = DESKTOP-1NCF7A7
+    right(0,66) = DESKTOP-1NCF7A7
+    right(70,100) = AUR1-AAD-775979(0,67)
+  AUR1-AAD-775979:
+    up = DESKTOP-1NCF7A7(10,45)
+    left(0,90) = x220(70,100)
 end
 
 section: options

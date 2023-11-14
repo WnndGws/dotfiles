@@ -244,7 +244,7 @@ alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty
 #Taskell with icon
 alias tasks='echo -e "\033]0;taskell\007" && cd ~/work-sync && taskell && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
-alias todo='rm /tmp/today.txt ; date -u +%Y-%m-%d >> /tmp/today.txt && echo "Finding unfinished tasks..." && rg -i "\[ \] " ~/work-sync/todo.txt >> /tmp/today.txt ; echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && echo "Counting FreshDesk tickets..." && python ~/git/Freshdesk/count_fd_tickets.py >> /tmp/today.txt && echo "\n" >> /tmp/today.txt && cat /tmp/today.txt ~/work-sync/todo.txt | tee ~/work-sync/todo.txt && vim ~/work-sync/todo.txt'
+alias todo='rm /tmp/today.txt ; date -u +%Y-%m-%d >> /tmp/today.txt && echo "Finding unfinished tasks..." && rg -i "\[ \] " ~/work-sync/todo.txt >> /tmp/today.txt ; sed -i "s/\[ \]/\[x\]/" ; echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && echo "Counting FreshDesk tickets..." && python ~/git/Freshdesk/count_fd_tickets.py >> /tmp/today.txt && echo "\n" >> /tmp/today.txt && cat /tmp/today.txt ~/work-sync/todo.txt | tee ~/work-sync/todo.txt && vim ~/work-sync/todo.txt'
 
 #Neofetch
 alias nf="neofetch"

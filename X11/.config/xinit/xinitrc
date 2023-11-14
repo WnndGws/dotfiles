@@ -3,7 +3,7 @@
 gpg-agent --daemon --options "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
 
 if [ $(xrandr --query | rg -i " connected" | wc -l) = 2 ]; then
-    xrandr --output VGA-1 --mode 1366x768 --pos 0x0 --rotate left --output LVDS-1 --mode 1366x768 --pos 768x0 --rotate normal --primary
+    xrandr --output VGA1 --mode 1366x768 --pos 598x0 --rotate left --output LVDS1 --mode 1366x768 --pos 0x1366 --rotate normal --primary
 fi
 
 setxkbmap -layout 'ca(multix)'
@@ -14,4 +14,9 @@ killall -9 xmodmap ; xmodmap ~/.config/xmodmap/Xmodmap
 xkbset m &
 
 #Lines following an exec are ignored so place this last
+#session=exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
+dunst &
+sxhkd &
+dunstify "Post SXHKD" ""
+
 session=exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
