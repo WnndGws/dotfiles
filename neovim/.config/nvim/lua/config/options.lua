@@ -19,5 +19,6 @@ opt.spelllang = { "en_au" }
 opt.spell = false
 
 -- Wrapping
+
 opt.wrap = true
 opt.linebreak = true
