@@ -4,7 +4,7 @@
 
 export PATH=/usr/local/bin:$HOME/.local/bin:$HOME/git/scripts/shell:$HOME/git/scripts/python:$HOME/git/fzf-scripts:$PATH
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist noma' -\""
-export BROWSER="$HOME/git/scripts/shell/rofi_openwith"
+export BROWSER=/usr/bin/wslview
 
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"

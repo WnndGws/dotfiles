@@ -79,9 +79,6 @@ alias bd="batdiff"
 #Run cf in current process instead of subshell
 alias cf=". cf"
 
-#Save typing
-alias czc="cz c"
-
 #Latex Stuff
 ##Remove lint latex files
 alias latex_clean="find ./ -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.bcf' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.xml' -o -name '*.gz' -o -name '*.xdv' \) | xargs -I{} rm -f {} && latexmk -c"
@@ -130,9 +127,6 @@ entrwatch() { exa "$1" | entr /_ }
 
 #To list any failed systemctl units
 alias failed_ctl='systemctl list-units --state=failed'
-
-#Alias fd for me
-alias fd="/bin/fd --hidden --ignore-case --follow --show-errors --max-depth <++> '<regex>' <path> --exec <command {}>"
 
 #Always search in HOME
 alias fv="cd ~ && fv"
@@ -244,7 +238,7 @@ alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty
 #Taskell with icon
 alias tasks='echo -e "\033]0;taskell\007" && cd ~/work-sync && taskell && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
-alias todo='rm /tmp/today.txt ; date -u +%Y-%m-%d >> /tmp/today.txt && echo "Finding unfinished tasks..." && rg -i "\[ \] " ~/work-sync/todo.txt >> /tmp/today.txt ; sed -i "s/\[ \]/\[x\]/" ; echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && echo "Counting FreshDesk tickets..." && python ~/git/Freshdesk/count_fd_tickets.py >> /tmp/today.txt && echo "\n" >> /tmp/today.txt && cat /tmp/today.txt ~/work-sync/todo.txt | tee ~/work-sync/todo.txt && vim ~/work-sync/todo.txt'
+alias todo='rm -rf /tmp/today.txt; echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && echo "Counting FreshDesk tickets..." && python ~/git/Freshdesk/count_fd_tickets.py >> /tmp/today.txt && echo "\n" >> /tmp/today.txt && cat /tmp/today.txt | clip.exe && echo "Copied to Clipboard"'
 
 #Neofetch
 alias nf="neofetch"
