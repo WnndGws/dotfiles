@@ -3,17 +3,17 @@
 -- Add any additional keymaps here
 
 local function map(mode, lhs, rhs, opts)
-    local keys = require("lazy.core.handler").handlers.keys
-    ---@cast keys LazyKeysHandler
-    -- do not create the keymap if a lazy keys handler exists
-    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-        opts = opts or {}
-        opts.silent = opts.silent ~= false
-        if opts.remap and not vim.g.vscode then
-            opts.remap = nil
-        end
-        vim.keymap.set(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      opts.remap = nil
     end
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 end
 
 -- Spelling stuff
@@ -23,6 +23,7 @@ map("n", "<leader>cs", "<Esc>]s1z=", { desc = "Fix next spelling error to first 
 
 -- Save using leader-w
 map("n", "<leader>w", ":w<cr>", { desc = "Save using leader", remap = true })
+map("n", "<leader>gw", ":Gwrite | Gcommit<cr>", { desc = "Use fugitive to write and commit a file", remap = true })
 
 -- Vim expand
 map({ "n", "v" }, "v", "<Plug>(expand_region_expand)", { desc = "Vim expand", remap = true })

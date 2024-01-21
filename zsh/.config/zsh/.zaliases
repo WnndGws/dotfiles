@@ -152,8 +152,10 @@ alias gpp='gitpullall && gitpushall'
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
+alias neo='cd ~/git/neoFrogBox/ && pipenv shell'
 mm7() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 7 }
 mm3() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 3 }
+mme() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" }
 push() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --push }
 stopstart() { python ~/git/neoFrogBox/check_mlive.py --encoder "$1" --stopstart }
 alias checkonline='python ~/git/neoFrogBox/check_FBC.py --check-all-online'
@@ -276,7 +278,7 @@ alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
 
-python_check() { doq -f "$1" --format=google -w ; ruff format --preview "$1" ; echo "\n\n" && ruff check --preview --fix "$1" ; echo "\n\n" && mypy --install-types "$1" }
+python_check() { doq -f "$1" --format=google -w ; ruff format --preview "$1" ; echo "\n\n" && ruff check --preview --fix "$1" ; echo "\n\n" && mypy --install-types "$1" && git add --patch --verbose "$1" && cz}
 alias pc='python_check'
 
 #Reset BSPWM workspace bindings to cerrect ones
@@ -362,10 +364,6 @@ alias c='fasd_cd -d -i'
 #Times my zsh load time
 alias zsh_time='time "zsh -i -c exit"'
 alias zt='zsh_time'
-
-checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec ufmt format {/} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {/} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec flake8 --ignore=E501 {/} && git add --patch && pre-commit run && czc }
-# checkandadd() { /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec /bin/black {} && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec isort {} && git add --patch && /bin/fd --hidden --ignore-case --follow --show-errors --max-depth 2 '.*.py$' . --exec refurb {} && git add --patch }
-alias ca='checkandadd'
 
 #Youtube fzf types
 alias ytr='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=relevance --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
