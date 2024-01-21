@@ -23,7 +23,8 @@ map("n", "<leader>cs", "<Esc>]s1z=", { desc = "Fix next spelling error to first 
 
 -- Save using leader-w
 map("n", "<leader>w", ":w<cr>", { desc = "Save using leader", remap = true })
-map("n", "<leader>gw", ":Gwrite | Gcommit<cr>", { desc = "Use fugitive to write and commit a file", remap = true })
+map("n", "<leader>gw", ":w | Gwrite | Git commit<cr>",
+  { desc = "Use fugitive to write and commit a file", remap = true })
 
 -- Vim expand
 map({ "n", "v" }, "v", "<Plug>(expand_region_expand)", { desc = "Vim expand", remap = true })
