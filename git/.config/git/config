@@ -8,5 +8,14 @@
   conflictstyle = diff3
   prompt = false
 
+[push]
+  autoSetupRemote = true
+
 [pull]
   rebase = false
+
+[difftool "branchless"]
+  cmd = git-branchless difftool --read-only --dir-diff $LOCAL $REMOTE
+
+[mergetool "branchless"]
+  cmd = git-branchless difftool $LOCAL $REMOTE --base $BASE --output $MERGED

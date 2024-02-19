@@ -76,6 +76,10 @@ alias man="batman"
 alias bw="batwatch"
 alias bd="batdiff"
 
+# Clear FrogBox cache
+alias clear_frogbox_cache='rm -rf /home/wynand/git/neoFrogBox/cache/*'
+alias cfc=clear_frogbox_cache
+
 #Run cf in current process instead of subshell
 alias cf=". cf"
 
@@ -141,18 +145,27 @@ alias gcalcli='gcalcli --config-folder "$HOME/.config/gcalcli"'
 alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
 
 #Saves typing on git commands. Some run as scripts in git folder
-alias gc="git commit --verbose --patch -S"
-alias gs="git status"
-alias gpa="gitpushall"
-alias gp='gitpush'
-alias gla='gitpullall'
-alias gpp='gitpullall && gitpushall'
+#alias gc="git commit --verbose --patch -S"
+alias gc="git record --interactive"
+alias gcn="git record --interactive --create"
+alias gs="git status && git sl"
+alias gco="git checkout --detach"
+alias gci="git switch main && git merge -"
 
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
 alias neo='cd ~/git/neoFrogBox/ && pipenv shell'
+mark_qld() { for x in {'ac1ec2e3','656d4cd6','b35195e0','c82df18d','ee3bc54d','fb224250','9cbb9b8a','cbbbfae7','8a2e4918','eb147ec1','d6cc47e0','ac44fbd7'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_nsw() { for x in {'5b4cd7a2','3114b420','d25e581b','06c4ac94','17845c76','45451f6f','94999734','bf06c886','a7636229','e5555a3a','6075811b','7e11d803'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_vic() { for x in {'5f1e40ed','6ccb4c35','335d4987','1edd6f48','eacb0500','24eefb85','fc6a1883','5c366e13','e845178a','d649784b','858c8a79','28e8919e'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_wa() { for x in {'d3099a2e','26185a91','d089ae8d','1a3e94fd','eaa66024','f0274108','1a466bca','02ebb2a9','e406f4da','f34b668f','5d6c6019','7c797dd7','e878b2eb','6dd68bd3'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_act() { for x in {'508ee2d8','8ff7f529','692e0d69','0c8043f7','0d36e3c0','cc87763a','da1d26fd','0d70a4d1'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_sa() { for x in {'4292a424','6a99864e','dc9200be','47a4bbad','7ab777e4','49f82b3c','3739d6e7','5864f873','4add2778','8c715185','3e5bd33d','087dd8e3','9ed420c6','7753ee69'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_tas() { for x in {'ee56af44','8e722ed2','f6e14874','305efeb9','2dfad839','433a6f03','4f0dd236'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+mark_community() { for x in {'8ad3a437','efaeb395'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
+
 mm7() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 7 }
 mm3() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 3 }
 mme() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" }
