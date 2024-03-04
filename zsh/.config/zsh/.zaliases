@@ -150,7 +150,9 @@ alias gc="git record --interactive"
 alias gcn="git record --interactive --create"
 alias gs="git status && git sl"
 alias gco="git checkout --detach"
-alias gci="git switch main && git merge -"
+alias gci="git-branchless record && git-branchless submit"
+alias gitmerge="git switch main && git merge -"
+alias gm="gitmerge"
 
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
@@ -166,6 +168,7 @@ mark_sa() { for x in {'4292a424','6a99864e','dc9200be','47a4bbad','7ab777e4','49
 mark_tas() { for x in {'ee56af44','8e722ed2','f6e14874','305efeb9','2dfad839','433a6f03','4f0dd236'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
 mark_community() { for x in {'8ad3a437','efaeb395'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
 
+alias delete="~/git/neoFrogBox/delete_guid.py --guid"
 mm7() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 7 }
 mm3() { python ~/git/neoFrogBox/mark_matches.py --url "$1" --encoder "$2" --duration 3 }
 mme() { python ~/git/neoFrogBox/mark_matches.py --encoder "$1" }
