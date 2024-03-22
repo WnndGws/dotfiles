@@ -2,6 +2,8 @@
 
 ## Sourced always and first. Contain exported variables needed by other programs and scripts. Should be light weight since its run for every command
 
+export LC_ALL='en_AU.utf8'
+
 export PATH=/usr/local/bin:$HOME/.local/bin:$HOME/git/scripts/shell:$HOME/git/scripts/python:$HOME/git/fzf-scripts:$PATH
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist noma' -\""
 export BROWSER=/usr/bin/wslview

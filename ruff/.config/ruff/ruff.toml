@@ -7,7 +7,7 @@ cache-dir = "~/.cache/ruff"
 # Enumerate all fixed violations.
 show-fixes = true
 
-select = [
+lint.select = [
     "F", #Pyflakes
     "E", #Error
     "W", #Warning
@@ -67,9 +67,9 @@ select = [
 ]
 
 # Never enforce `E501` (line length violations).
-ignore = ["E501", "D211", "D213", "COM812", "ISC001", "CPY001"]
+lint.ignore = ["E501", "D211", "D213", "COM812", "ISC001", "CPY001"]
 
-unfixable = [
+lint.unfixable = [
     "E", #Error
     "C90", #mccabe
     "N", #pep8-naming
@@ -115,6 +115,6 @@ unfixable = [
     "RUF", #Ruff-specific
 ]
 
-[pydocstyle]
+[lint.pydocstyle]
 convention = "google"  # Accepts: "google", "numpy", or "pep257".
 

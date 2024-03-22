@@ -149,10 +149,11 @@ alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .git
 alias gc="git record --interactive"
 alias gcn="git record --interactive --create"
 alias gs="git status && git sl"
-alias gco="git checkout --detach"
-alias gci="git-branchless record && git-branchless submit"
-alias gitmerge="git switch main && git merge -"
-alias gm="gitmerge"
+alias gcon="git checkout --detach"
+alias gcom="git checkout main"
+alias gco="git sw -i"
+gci() { git record --create "$1" && git sync }
+alias gpr="git sync && git rebase -i main && gh pr create"
 
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
@@ -191,7 +192,6 @@ alias fe="find_encoder"
 find_matches() { python ~/git/neoFrogBox/check_FBC.py --find-matches "$1" }
 alias fm="find_matches"
 find_matches_guid() { python ~/git/neoFrogBox/check_FBC.py --find-matches-by-guid "$1" }
-alias fg="find_matches_guid"
 find_guid_by_encoder() { python ~/git/neoFrogBox/check_FBC.py --find-guid-by-encoder "$1" }
 alias fge="find_guid_by_encoder"
 games() { python Freshdesk/check_for_games.py --ticket "$1" }
@@ -294,7 +294,7 @@ alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
 
-python_check() { doq -f "$1" --format=google -w ; ruff format --preview "$1" ; echo "\n\n" && ruff check --preview --fix "$1" ; echo "\n\n" && mypy --install-types "$1" && git add --patch --verbose "$1" && cz}
+python_check() { ruff format --preview "$1" ; echo "\n\n" && ruff check --preview --fix "$1" ; echo "\n\n" && vulture "$1" ; echo "\n\n" && mypy --install-types "$1" ; code2flow --no-grouping --no-trimming --quiet --output "$1".png "$1" && rm "$1".gv }
 alias pc='python_check'
 
 #Reset BSPWM workspace bindings to cerrect ones
