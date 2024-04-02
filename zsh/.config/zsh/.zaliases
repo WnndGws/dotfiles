@@ -159,8 +159,8 @@ alias gpr="git sync && git rebase -i main && gh pr create"
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
-alias neo='cd ~/git/neoFrogBox/ && pipenv shell'
-alias util='cd ~/git/frogbox-utility-scripts && pipenv shell'
+alias neo='cd ~/git/neoFrogBox/ && source $(dirname $(pipenv run which python))/activate'
+alias util='cd ~/git/frogbox-utility-scripts && source $(dirname $(pipenv run which python))/activate'
 mark_qld() { for x in {'ac1ec2e3','656d4cd6','b35195e0','c82df18d','ee3bc54d','fb224250','9cbb9b8a','cbbbfae7','8a2e4918','eb147ec1','d6cc47e0','ac44fbd7'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
 mark_nsw() { for x in {'5b4cd7a2','3114b420','d25e581b','06c4ac94','17845c76','45451f6f','94999734','bf06c886','a7636229','e5555a3a','6075811b','7e11d803'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
 mark_vic() { for x in {'5f1e40ed','6ccb4c35','335d4987','1edd6f48','eacb0500','24eefb85','fc6a1883','5c366e13','e845178a','d649784b','858c8a79','28e8919e'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
@@ -295,9 +295,8 @@ alias play_DCAU="playlistplay ~/wynZFS/Media/WatchOrders/DCAU.order"
 #Use to play .order files so can watch overlapping shows in correct order. Searches and plays 1st line in a file. If multiples found presents them. Offers choice whether want to move played file to bottom
 #Relies on custom 'lsgrep' function
 
-alias generate_badges='python generate_gitlab_badges.py ; git log --format=%as | xargs -I{} anybadge --label "last commit" --overwrite --file "last_commit.svg" --value {} ; gron Pipfile.lock | rg --pcre2 "meta.requires.python_version" | rg --only-matching "\d\.\d+" | xargs -I{} anybadge --label "python version" --value {} --overwrite --file "python_version.svg"'
+alias generate_badges='python generate_gitlab_badges.py ; git log -1 --format=%as | xargs -I{} anybadge --label "last commit" --overwrite --file "last_commit.svg" --value {} ; gron Pipfile.lock | rg --pcre2 "meta.requires.python_version" | rg --only-matching "\d\.\d+" | xargs -I{} anybadge --label "python version" --value {} --overwrite --file "python_version.svg" --color="steelblue"'
 python_check() { ruff format "$1" ; echo "\n\n" && ruff check --fix "$1" ; echo "\n\n" && vulture "$1" ; echo "\n\n" && mypy --install-types "$1" ; code2flow --no-grouping --no-trimming --quiet --output files/"${1:3}".png "$1" && rm files/"${1:3}".gv ; bandit "$1" ; generate_badges }
-git log --format=%as | xargs -I{} anybadge --label "last commit" --overwrite --file "last_commit.svg" --value {} }
 alias pt='pytest --cov --cov-report term --cov-report json --showlocals --no-cov-on-fail --exitfirst'
 alias pct='pt && python_check'
 alias pc=python_check
