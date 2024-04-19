@@ -152,13 +152,15 @@ alias gs="git sl && git status"
 alias gcon="git checkout --detach"
 alias gcom="git checkout main"
 alias gco="git sw -i"
-gci() { git record --create "$1" && git sync }
-alias gpr="git sync && git rebase -i main && gh pr create"
+gci() { git checkout -b "$1" }
+alias gpr="git sync && git rebase -i main && gh pr create && git checkout main && gh pr merge"
+alias gmr="git sync && git rebase -i main && glab mr create && git checkout main && glab mr merge"
 
 #Make webms from videos
 alias gif_make='gifmaker make_gif'
 
 #Health Check for encoders at work
+alias graphics="python upload_graphics.py"
 alias neo='cd ~/git/neoFrogBox/ && source $(dirname $(pipenv run which python))/activate'
 alias util='cd ~/git/frogbox-utility-scripts && source $(dirname $(pipenv run which python))/activate'
 mark_qld() { for x in {'ac1ec2e3','656d4cd6','b35195e0','c82df18d','ee3bc54d','fb224250','9cbb9b8a','cbbbfae7','8a2e4918','eb147ec1','d6cc47e0','ac44fbd7'}; do python ~/git/neoFrogBox/get_phq_for_season.py --grade "$x"; done }
