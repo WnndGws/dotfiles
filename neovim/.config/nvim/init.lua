@@ -19,5 +19,4 @@ load("config.nvim_settings")
 --- Theme ---
 -------------
 -- provided by ../plugins/theme.lua
-vim.opt.termguicolors = true
 vim.cmd.colorscheme("tokyonight")

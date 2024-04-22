@@ -4,7 +4,7 @@ local Plugin = { "stevearc/conform.nvim" }
 
 Plugin.lazy = true
 Plugin.cmd = { "ConformInfo" }
-Plugin.event = { "BufWritePre" }
+Plugin.event = { "BufWritePre", "BufReadPre", "BufNewFile" }
 
 Plugin.config = function()
 	local conform = require("conform")
@@ -13,24 +13,28 @@ Plugin.config = function()
 		formatters_by_ft = {
 			["*"] = { "trim_newlines", "trim_whitespace" },
 			awk = { "awk" },
-			css = { "rustywind", "stylelint" },
-			html = { "htmlbeautifier" },
-			javascript = { "ast-grep" },
-			json = { "fixjson" },
+			css = { "rustywind", "stylelint", "prettier" },
+			html = { "htmlbeautifier", "prettier" },
+			javascript = { "ast-grep", "prettier" },
+			json = { "fixjson", "prettier" },
 			lua = { "stylua" },
-			markdown = { "markdown-toc", "mdformat" },
-			python = { "isort", "ruff_format", "ruff_fix", "ast-grep" },
+			markdown = { "markdown-toc", "mdformat", "prettier" },
+			python = { "ast-grep", "isort", "ruff_format", "ruff_fix" },
 			rust = { "ast-grep" },
 			sh = { "beautysh", "shellcheck", "shellharden" },
-			tex = { "bibtex-tidy", "latexindent" },
-			typescript = { "ast-grep" },
+			bib = { "bibtex-tidy" },
+			tex = { "latexindent" },
+			typescript = { "ast-grep", "prettier" },
 		},
 		-- Set up format-on-save
-		format_on_save = { timeout_ms = 500, lsp_fallback = true },
+		format_on_save = { timeout_ms = 500, lsp_fallback = true, async = false },
 		-- Customize formatters
 		formatters = {
 			shfmt = {
 				prepend_args = { "-i", "2" },
+			},
+			prettier = {
+				tabWidth = 4,
 			},
 		},
 	})

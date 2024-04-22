@@ -1,14 +1,20 @@
 ---------------------
 --- COLOUR SCHEME ---
 ---------------------
-local Plugin = {"folke/tokyonight.nvim"}
+local Plugin = { "folke/tokyonight.nvim" }
 
-Plugin.opts = {
-    transparent = true,
-    styles = {
-      sidebars = "transparent",
-      floats = "transparent",
-    },
-  }
+Plugin.lazy = false
+Plugin.priority = 1000
+Plugin.config = function()
+	local tokyo = require("tokyonight")
+	tokyo.setup({
+		transparent = true,
+		style = "storm",
+		styles = {
+			sidebars = "transparent",
+			floats = "transparent",
+		},
+	})
+end
 
 return Plugin

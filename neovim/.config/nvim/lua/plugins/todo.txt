@@ -1,2 +1,0 @@
-* Linting using nvim-lint
-* Finish autocomplete using LSP

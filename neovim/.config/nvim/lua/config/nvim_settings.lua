@@ -45,6 +45,7 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
+opt.softtabstop = 4
 opt.termguicolors = true -- True color support
 if not vim.g.vscode then
 	opt.timeoutlen = 300 -- Lower than default (1000) to quickly trigger which-key

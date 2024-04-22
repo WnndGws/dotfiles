@@ -8,22 +8,24 @@ Plugin.dependencies = {
 	{ "hrsh7th/cmp-nvim-lsp" },
 
 	-- Snippets
-	{ "L3MON4D3/LuaSnip" },
+	{ "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
 	{ "rafamadriz/friendly-snippets" },
 }
 
 Plugin.event = "InsertEnter"
 
 function Plugin.config()
-	vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
+
+	require("luasnip.loaders.from_vscode").lazy_load()
 
 	local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 	-- See :help cmp-config
 	cmp.setup({
+		preselect = "item",
+		completion = { completeopt = "menu,menuone,noinsert" },
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
