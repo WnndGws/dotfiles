@@ -12,12 +12,21 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Save and commit
 vim.keymap.set("n", "gc", function()
-	vim.cmd("write")
 	require("tinygit").smartCommit()
 end)
 vim.keymap.set("n", "gp", function()
 	require("tinygit").push()
 end)
+
+vim.keymap.set("n", "<leader>w", function()
+	vim.cmd("write")
+	require("tinygit").smartCommit()
+end, { desc = "Write and commit file" })
+
+vim.keymap.set("n", "ZZ", function()
+	vim.cmd("write")
+	require("tinygit").smartCommit()
+end, { desc = "Write and commit file" })
 
 ----------------------
 --- Plugin Specific---
