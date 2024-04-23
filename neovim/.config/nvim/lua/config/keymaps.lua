@@ -11,7 +11,8 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Save and commit
-keymap.set("n", "<leader>ww", ":w | Git add . | Git commit<CR> | :q", { desc = "Write and commit a file" })
+keymap.set("n", "<leader>ww", ":write | Git add . | Git commit<CR>", { desc = "Write and commit a file" })
+keymap.set("n", "<leader>wc", ":write", { desc = "Write and commit a file" })
 
 ----------------------
 --- Plugin Specific---
