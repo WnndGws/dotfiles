@@ -26,6 +26,7 @@ end, { desc = "Write and commit file" })
 vim.keymap.set("n", "ZZ", function()
 	vim.cmd("write")
 	require("tinygit").smartCommit()
+	vim.cmd("quit")
 end, { desc = "Write and commit file" })
 
 ----------------------
