@@ -1,6 +1,8 @@
 ----------------
 --- LAZY VIM ---
 ----------------
+vim.g.mapleader = ","
+
 local load = function(mod)
 	package.loaded[mod] = nil
 	require(mod)
