@@ -2,13 +2,12 @@ local Plugin = { "hrsh7th/nvim-cmp" }
 
 Plugin.dependencies = {
 	-- Sources
-	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 
 	-- Snippets
-	{ "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
+	{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
 	{ "rafamadriz/friendly-snippets" },
 }
 
@@ -34,7 +33,6 @@ function Plugin.config()
 		sources = {
 			{ name = "path" },
 			{ name = "nvim_lsp" },
-			{ name = "buffer", keyword_length = 3 },
 			{ name = "luasnip", keyword_length = 2 },
 		},
 		window = {
