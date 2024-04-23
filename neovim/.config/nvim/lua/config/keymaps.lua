@@ -10,6 +10,11 @@ local keymap = vim.keymap
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
+-- Save and commit
+keymap.set("n", "<leader>ww", ":w | Neogit commit<CR>", { desc = "Save and commit" })
+keymap.set("n", "ZZ", ":w | Neogit commit | :q<CR>", { desc = "Save and commit" })
+keymap.set("n", "<leader>wc", ":w", { desc = "Save file" })
+
 ----------------------
 --- Plugin Specific---
 ----------------------
