@@ -15,6 +15,7 @@ Plugin.config = function()
 			floats = "transparent",
 		},
 	})
+	vim.cmd("colorscheme tokyonight")
 end
 
 return Plugin

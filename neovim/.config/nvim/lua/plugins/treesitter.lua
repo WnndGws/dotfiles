@@ -73,7 +73,6 @@ Plugin.opts = {
 		"xml",
 		"yaml",
 		"bibtex",
-		"dosini",
 		"json5",
 		"latex",
 		"ninja",
