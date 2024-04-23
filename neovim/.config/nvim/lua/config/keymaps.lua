@@ -12,6 +12,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Save and commit
 vim.keymap.set("n", "gc", function()
+	vim.cmd("write")
 	require("tinygit").smartCommit()
 end)
 vim.keymap.set("n", "gp", function()
