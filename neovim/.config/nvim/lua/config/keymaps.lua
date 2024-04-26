@@ -54,6 +54,9 @@ keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Previe
 --- "mark delete all"
 keymap.set("n", "<leader>dam", "<cmd>delm! | delm A-Z0-9<CR>", { desc = "Clear all marks" })
 
+-- Treesitter
+--- Syntax highlighting and movements
+
 -- Tree
 --- Better file exploring
 keymap.set("n", "<leader>ef", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
