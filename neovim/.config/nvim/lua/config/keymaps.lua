@@ -56,6 +56,7 @@ keymap.set("n", "<leader>dam", "<cmd>delm! | delm A-Z0-9<CR>", { desc = "Clear a
 
 -- Treesitter
 --- Syntax highlighting and movements
+--- NB! Set in each treesitter file
 
 -- Tree
 --- Better file exploring
