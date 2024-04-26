@@ -46,6 +46,10 @@ Plugin.config = function()
 		"--builtin=rare,clear,informal,code,names,en-GB_to_en-US",
 	}
 
+	linters.mypy.args = {
+		"--ignore-missing-imports",
+	}
+
 	linters.shellcheck.args = {
 		"--shell=bash", -- force to work with zsh
 		"--format=json",

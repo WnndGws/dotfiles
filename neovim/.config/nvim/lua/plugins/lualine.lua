@@ -86,6 +86,10 @@ Plugin.config = function()
 			return highlight.component_format_highlight(hl[diag.severity])
 				.. icons[diag.severity]
 				.. " "
+				.. utils.stl_escape(diag.source)
+				.. "("
+				.. utils.stl_escape(diag.code)
+				.. "): "
 				.. utils.stl_escape(message)
 		else
 			return ""
