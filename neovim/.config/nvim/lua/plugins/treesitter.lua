@@ -1,7 +1,7 @@
 local Plugin = { "nvim-treesitter/nvim-treesitter" }
 
 Plugin.build = ":TSUpdate"
-Plugin.event = { "VeryLazy" }
+Plugin.event = { "BufReadPre", "BufNewFile" }
 Plugin.init = function(plugin)
 	-- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
 	-- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
@@ -12,6 +12,7 @@ Plugin.init = function(plugin)
 	require("nvim-treesitter.query_predicates")
 end
 Plugin.dependencies = {
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		config = function()
