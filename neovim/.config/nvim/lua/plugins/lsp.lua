@@ -83,9 +83,11 @@ Plugin.config = function()
 	})
 
 	-------------------------------
-	--- Python via pikaur(ruff) ---
+	--- Python via pikaur(ruff,pylyzer) ---
 	-------------------------------
-	lspconfig.ruff.setup({ capabilities = lsp_capabilities })
+	lspconfig.ruff.setup({ capabilities = lsp_capabilities }) -- For linting/errors
+	lspconfig.pylyzer.setup({ capabilities = lsp_capabilities }) -- For static type checking
+	lspconfig.jedi_language_server.setup({ capabilities = lsp_capabilities }) -- For static type checking
 
 	------------------------------------
 	--- Javascript via pikaur(biome) ---

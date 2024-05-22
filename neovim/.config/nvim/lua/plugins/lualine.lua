@@ -80,6 +80,10 @@ Plugin.config = function()
 			local hl = { self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
 			local length_max = 75
 			local message = diag.message
+			local code = diag.code
+			if code == nil then
+				code = ""
+			end
 			if #message > length_max then
 				message = string.sub(diag.message, 1, length_max) .. "…"
 			end
@@ -88,7 +92,7 @@ Plugin.config = function()
 				.. " "
 				.. utils.stl_escape(diag.source)
 				.. "("
-				.. utils.stl_escape(diag.code)
+				.. utils.stl_escape(code)
 				.. "): "
 				.. utils.stl_escape(message)
 		else

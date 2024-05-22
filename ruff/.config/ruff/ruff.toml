@@ -25,7 +25,6 @@ lint.select = [
     "B", #flake8-bugbear
     "A", #flake8-builtins
     "COM", #flake8-commas
-    "CPY", #flake8-copyright
     "C4", #flake8-comprehensions
     "DTZ", #flake8-datetimez
     "T10", #flake8-debugger
@@ -67,7 +66,7 @@ lint.select = [
 ]
 
 # Never enforce `E501` (line length violations).
-lint.ignore = ["E501", "D211", "D213", "COM812", "ISC001", "CPY001"]
+lint.ignore = ["E501", "D211", "D213", "COM812", "ISC001"]
 
 lint.unfixable = [
     "E", #Error
@@ -82,7 +81,6 @@ lint.unfixable = [
     "FBT", #flake8-boolean-trap
     "B", #flake8-bugbear
     "A", #flake8-builtins
-    "CPY", #flake8-copyright
     "C4", #flake8-comprehensions
     "DTZ", #flake8-datetimez
     "T10", #flake8-debugger
@@ -117,4 +115,3 @@ lint.unfixable = [
 
 [lint.pydocstyle]
 convention = "google"  # Accepts: "google", "numpy", or "pep257".
-

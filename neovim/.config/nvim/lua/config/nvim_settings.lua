@@ -47,7 +47,7 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
-opt.iskeyword = "a-z,-" -- Sets word boundaries to anything not in this comma separated list
+opt.iskeyword = "A-Z,a-z,-,48-57,_" -- Sets word boundaries to anything not in this comma separated list, numbers must refer to ASCII Table
 opt.laststatus = 3 -- global statusline
 opt.list = true -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
@@ -81,7 +81,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+opt.wrap = true -- Enable line wrap
 
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true

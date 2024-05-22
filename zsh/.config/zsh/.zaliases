@@ -2,6 +2,8 @@
 # >>>>> ALIASES <<<<< #
 #. ------------------ #
 
+alias vzal='nvim ~/.config/zsh/.zaliases'
+
 zmodload -F zsh/system p:sysparams # Load the sysparams table.
 zmodload -F zsh/terminfo b:echoti  # Load the echoti builtin.
 
@@ -256,10 +258,13 @@ alias mpv576='mpv --ytdl-format="bestvideo[height<=?576]+bestaudio/best"'
 #alias nb='curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r && termdown -T "Giving syncthing a chance" --no-figlet 25s && echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki && curl -X POST -H "X-API-KEY: AaFGZRHx5xNEMWnucpaKrVwRDMLqUETE" http://localhost:8384/rest/db/scan\?folder=o2cyp-wcn4r'
 alias nb='echo -e "\033]0;Newsboat\007" && newsboat && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
+#tmux in one command
+tm() { tmux attach -t "$1" || tmux new -s "$1" }
+
 #Taskell with icon
 alias tasks='echo -e "\033]0;taskell\007" && cd ~/work-sync && taskell && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
-alias todo='rm -rf /tmp/today.txt; echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && echo "Counting FreshDesk tickets..." && python ~/git/Freshdesk/count_fd_tickets.py >> /tmp/today.txt && echo "\n" >> /tmp/today.txt && cat /tmp/today.txt | clip.exe && echo "Copied to Clipboard"'
+alias todo='cd ~/git/scripts/ && . /home/wynand/.local/share/virtualenvs/scripts-i4Ak1lIf/bin/activate && rm -rf /tmp/today.txt; echo "\n" >> /tmp/today.txt && date +"## %a %Y-%m-%d" >> /tmp/today.txt && echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt &&  echo "Adding Yesterdays unfinished tasks..." && rg "\[ \]" ~/todo.md >> /tmp/today.txt ; sort --unique /tmp/today.txt ; sed -i "s/\[\ \]/\[x\]\ \:arrow_down\:/" ~/todo.md ; cat /tmp/today.txt >> ~/todo.md && deactivate && cd ~ && nvim ~/todo.md'
 
 #Neofetch
 alias nf="neofetch"
