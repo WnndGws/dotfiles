@@ -6,7 +6,7 @@ local Plugins = {
 	{ "christoomey/vim-tmux-navigator" },
 	{ "luckasRanarison/tailwind-tools.nvim" },
 	{ "richardbizik/nvim-toc" },
-	{ "lervag/wiki.vim" },
+	{ "aserebryakov/vim-todo-lists" },
 }
 
 return Plugins
