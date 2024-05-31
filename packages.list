@@ -1,0 +1,3787 @@
+Name            : abseil-cpp
+Version         : 20240116.2-1
+Description     : Collection of C++ library code designed to augment the C++ standard library
+Architecture    : x86_64
+--
+Name            : acl
+Version         : 2.3.2-1
+Description     : Access control list utilities, libraries and headers
+Architecture    : x86_64
+--
+Name            : acorn
+Version         : 1:8.11.0-1
+Description     : A tiny, fast JavaScript parser, written completely in JavaScript.
+Architecture    : any
+--
+Name            : alex
+Version         : 3.2.7.4-2
+Description     : Lexical analyser generator for Haskell
+Architecture    : x86_64
+--
+Name            : alsa-card-profiles
+Version         : 1:1.0.6-1
+Description     : Low-latency audio/video router and processor - ALSA card profiles
+Architecture    : x86_64
+--
+Name            : alsa-lib
+Version         : 1.2.11-1
+Description     : An alternative implementation of Linux sound support
+Architecture    : x86_64
+--
+Name            : alsa-topology-conf
+Version         : 1.2.5.1-3
+Description     : ALSA topology configuration files
+Architecture    : any
+--
+Name            : alsa-ucm-conf
+Version         : 1.2.11-1
+Description     : ALSA Use Case Manager configuration (and topologies)
+Architecture    : any
+--
+Name            : aom
+Version         : 3.9.0-1
+Description     : Alliance for Open Media video codec
+Architecture    : x86_64
+--
+Name            : archlinux-keyring
+Version         : 20240429-1
+Description     : Arch Linux PGP keyring
+Architecture    : any
+--
+Name            : argon2
+Version         : 20190702-5
+Description     : A password-hashing function (reference C implementation)
+Architecture    : x86_64
+--
+Name            : ast-grep-bin
+Version         : 0.20.5-1
+Description     : A fast and easy tool for code searching, linting, rewriting at large scale
+Architecture    : x86_64
+--
+Name            : attr
+Version         : 2.5.2-1
+Description     : Extended attribute support library for ACL support
+Architecture    : x86_64
+--
+Name            : atuin
+Version         : 18.2.0-2
+Description     : Magical shell history
+Architecture    : x86_64
+--
+Name            : audit
+Version         : 4.0.1-3
+Description     : Userspace components of the audit framework
+Architecture    : x86_64
+--
+Name            : autoconf
+Version         : 2.72-1
+Description     : A GNU tool for automatically configuring source code
+Architecture    : any
+--
+Name            : automake
+Version         : 1.16.5-2
+Description     : A GNU tool for automatically creating Makefiles
+Architecture    : any
+--
+Name            : avahi
+Version         : 1:0.8+r194+g3f79789-2
+Description     : Service Discovery for Linux using mDNS/DNS-SD (compatible with Bonjour)
+Architecture    : x86_64
+--
+Name            : aws-cli-v2
+Version         : 2.15.51-1
+Description     : Unified command line interface for Amazon Web Services (version 2)
+Architecture    : any
+--
+Name            : bandit
+Version         : 1.7.7-2
+Description     : Python security linter from OpenStack Security
+Architecture    : any
+--
+Name            : base
+Version         : 3-2
+Description     : Minimal package set to define a basic Arch Linux installation
+Architecture    : any
+--
+Name            : base-devel
+Version         : 1-1
+Description     : Basic tools to build Arch Linux packages
+Architecture    : any
+--
+Name            : bash
+Version         : 5.2.026-2
+Description     : The GNU Bourne Again shell
+Architecture    : x86_64
+--
+Name            : bash-language-server
+Version         : 5.3.3-1
+Description     : Bash language server implementation based on Tree Sitter and its grammar for Bash
+Architecture    : any
+--
+Name            : bat
+Version         : 0.24.0-2
+Description     : Cat clone with syntax highlighting and git integration
+Architecture    : x86_64
+--
+Name            : bat-extras
+Version         : 2024.02.12-1
+Description     : Bash scripts that integrate bat with various command line tools
+Architecture    : any
+--
+Name            : beautysh
+Version         : 6.2.1-1
+Description     : A Bash beautifier for the masses
+Architecture    : any
+--
+Name            : biber
+Version         : 1:2.19-2
+Description     : A Unicode-capable BibTeX replacement for biblatex users
+Architecture    : any
+--
+Name            : binutils
+Version         : 2.42+r91+g6224493e457-1
+Description     : A set of programs to assemble and manipulate binary and object files
+Architecture    : x86_64
+--
+Name            : biome-bin
+Version         : 1.7.3-1
+Description     : A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP.
+Architecture    : x86_64
+--
+Name            : bison
+Version         : 3.8.2-6
+Description     : The GNU general-purpose parser generator
+Architecture    : x86_64
+--
+Name            : bluez-libs
+Version         : 5.75-1
+Description     : Deprecated libraries for the bluetooth protocol stack
+Architecture    : x86_64
+--
+Name            : brotli
+Version         : 1.1.0-2
+Description     : Generic-purpose lossless compression algorithm
+Architecture    : x86_64
+--
+Name            : bzip2
+Version         : 1.0.8-6
+Description     : A high-quality data compression program
+Architecture    : x86_64
+--
+Name            : c-ares
+Version         : 1.28.1-1
+Description     : A C library for asynchronous DNS requests
+Architecture    : x86_64
+--
+Name            : ca-certificates
+Version         : 20220905-1
+Description     : Common CA certificates (default providers)
+Architecture    : any
+--
+Name            : ca-certificates-mozilla
+Version         : 3.100-1
+Description     : Mozilla's set of trusted CA certificates
+Architecture    : x86_64
+--
+Name            : ca-certificates-utils
+Version         : 20220905-1
+Description     : Common CA certificates (utilities)
+Architecture    : any
+--
+Name            : cairo
+Version         : 1.18.0-2
+Description     : 2D graphics library with support for multiple output devices
+Architecture    : x86_64
+--
+Name            : cbfmt-bin
+Version         : 0.2.0-0
+Description     : A tool to format codeblocks inside markdown and org documents.
+Architecture    : x86_64
+--
+Name            : codespell
+Version         : 2.2.6-2
+Description     : check code for common misspellings
+Architecture    : any
+--
+Name            : coreutils
+Version         : 9.5-1
+Description     : The basic file, shell and text manipulation utilities of the GNU operating system
+Architecture    : x86_64
+--
+Name            : cryptsetup
+Version         : 2.7.2-1
+Description     : Userspace setup tool for transparent encryption of block devices using dm-crypt
+Architecture    : x86_64
+--
+Name            : cssmodules-language-server
+Version         : 1.3.2-1
+Description     : Language server for CSS modules.
+Architecture    : any
+--
+Name            : curl
+Version         : 8.7.1-6
+Description     : command line tool and library for transferring data with URLs
+Architecture    : x86_64
+--
+Name            : datamash
+Version         : 1.8-1
+Description     : Performs basic numeric, textual and statistical operations on input textual data files
+Architecture    : x86_64
+--
+Name            : dateutils
+Version         : 0.4.11-3
+Description     : nifty command line date and time utilities; fast date calculations and conversion in the shell
+Architecture    : x86_64
+--
+Name            : dav1d
+Version         : 1.4.1-1
+Description     : AV1 cross-platform decoder focused on speed and correctness
+Architecture    : x86_64
+--
+Name            : db5.3
+Version         : 5.3.28-5
+Description     : The Berkeley DB embedded database system v5.3
+Architecture    : x86_64
+--
+Name            : dbus
+Version         : 1.14.10-2
+Description     : Freedesktop.org message bus system
+Architecture    : x86_64
+--
+Name            : dbus-broker
+Version         : 36-2
+Description     : Linux D-Bus Message Broker
+Architecture    : x86_64
+--
+Name            : dbus-broker-units
+Version         : 36-2
+Description     : Linux D-Bus Message Broker - Service units
+Architecture    : x86_64
+--
+Name            : debugedit
+Version         : 5.0-6
+Description     : Tool to mangle source locations in .debug files
+Architecture    : x86_64
+--
+Name            : default-cursors
+Version         : 2-1
+Description     : Default cursor set
+Architecture    : any
+--
+Name            : desktop-file-utils
+Version         : 0.27-1
+Description     : Command line utilities for working with desktop entries
+Architecture    : x86_64
+--
+Name            : device-mapper
+Version         : 2.03.23-3
+Description     : Device mapper userspace library and tools
+Architecture    : x86_64
+--
+Name            : difftastic
+Version         : 0.58.0-1
+Description     : An experimental diff tool that compares files based on their syntax
+Architecture    : x86_64
+--
+Name            : diffutils
+Version         : 3.10-1
+Description     : Utility programs used for creating patch files
+Architecture    : x86_64
+--
+Name            : downgrade
+Version         : 11.3.0-1
+Description     : Bash script for downgrading one or more packages to a version in your cache or the A.L.A.
+Architecture    : any
+--
+Name            : e2fsprogs
+Version         : 1.47.0-2
+Description     : Ext2/3/4 filesystem utilities
+Architecture    : x86_64
+--
+Name            : entr
+Version         : 5.5-1
+Description     : Run arbitrary commands when files change
+Architecture    : x86_64
+--
+Name            : eslint
+Version         : 9.2.0-1
+Description     : An AST-based pattern checker for JavaScript
+Architecture    : any
+--
+Name            : expac
+Version         : 10-10
+Description     : alpm data (pacman database) extraction utility
+Architecture    : x86_64
+--
+Name            : expat
+Version         : 2.6.2-1
+Description     : An XML parser library
+Architecture    : x86_64
+--
+Name            : eza
+Version         : 0.18.15-1
+Description     : A modern replacement for ls (community fork of exa)
+Architecture    : x86_64
+--
+Name            : fakeroot
+Version         : 1.34-1
+Description     : Tool for simulating superuser privileges
+Architecture    : x86_64
+--
+Name            : fasd
+Version         : 1.0.2-1
+Description     : Command-line productivity booster, offers quick access to files and directories
+Architecture    : any
+--
+Name            : fd
+Version         : 10.1.0-1
+Description     : Simple, fast and user-friendly alternative to find
+Architecture    : x86_64
+--
+Name            : ffmpeg
+Version         : 2:6.1.1-7
+Description     : Complete solution to record, convert and stream audio and video
+Architecture    : x86_64
+--
+Name            : fftw
+Version         : 3.3.10-7
+Description     : A library for computing the discrete Fourier transform (DFT)
+Architecture    : x86_64
+--
+Name            : file
+Version         : 5.45-1
+Description     : File type identification utility
+Architecture    : x86_64
+--
+Name            : filesystem
+Version         : 2024.04.07-1
+Description     : Base Arch Linux files
+Architecture    : any
+--
+Name            : find-the-command
+Version         : 2.0.1-1
+Description     : Advanced command-not-found hook for bash, fish and zsh using the power of pacman
+Architecture    : any
+--
+Name            : findutils
+Version         : 4.9.0-3
+Description     : GNU utilities to locate files
+Architecture    : x86_64
+--
+Name            : fjira-bin
+Version         : 1.3.2-1
+Description     : Fjira - Fuzzy finder and TUI application for Jira.
+Architecture    : x86_64
+--
+Name            : flac
+Version         : 1.4.3-1
+Description     : Free Lossless Audio Codec
+Architecture    : x86_64
+--
+Name            : flex
+Version         : 2.6.4-5
+Description     : A tool for generating text-scanning programs
+Architecture    : x86_64
+--
+Name            : fontconfig
+Version         : 2:2.15.0-2
+Description     : Library for configuring and customizing font access
+Architecture    : x86_64
+--
+Name            : freetype2
+Version         : 2.13.2-1
+Description     : Font rasterization library
+Architecture    : x86_64
+--
+Name            : fribidi
+Version         : 1.0.14-1
+Description     : A Free Implementation of the Unicode Bidirectional Algorithm
+Architecture    : x86_64
+--
+Name            : fuse-common
+Version         : 3.16.2-1
+Description     : Common files for fuse2/3 packages
+Architecture    : x86_64
+--
+Name            : fuse3
+Version         : 3.16.2-1
+Description     : Interface for userspace programs to export a filesystem to the Linux kernel
+Architecture    : x86_64
+--
+Name            : fzf
+Version         : 0.52.0-1
+Description     : Command-line fuzzy finder
+Architecture    : x86_64
+--
+Name            : fzf-tab-git
+Version         : r238.c2b4aa5-1
+Description     : Replace zsh's default completion selection menu with fzf (git version)
+Architecture    : any
+--
+Name            : gawk
+Version         : 5.3.0-1
+Description     : GNU version of awk
+Architecture    : x86_64
+--
+Name            : gc
+Version         : 8.2.6-1
+Description     : A garbage collector for C and C++
+Architecture    : x86_64
+--
+Name            : gcc
+Version         : 14.1.1+r1+g43b730b9134-1
+Description     : The GNU Compiler Collection - C and C++ frontends
+Architecture    : x86_64
+--
+Name            : gcc-libs
+Version         : 14.1.1+r1+g43b730b9134-1
+Description     : Runtime libraries shipped by GCC
+Architecture    : x86_64
+--
+Name            : gd
+Version         : 2.3.3-7
+Description     : Library for the dynamic creation of images by programmers
+Architecture    : x86_64
+--
+Name            : gdbm
+Version         : 1.23-2
+Description     : GNU database library
+Architecture    : x86_64
+--
+Name            : gdk-pixbuf2
+Version         : 2.42.12-1
+Description     : An image loading library
+Architecture    : x86_64
+--
+Name            : gettext
+Version         : 0.22.5-1
+Description     : GNU internationalization library
+Architecture    : x86_64
+--
+Name            : ghc-libs
+Version         : 9.2.8-1
+Description     : The Glasgow Haskell Compiler - Dynamic Libraries
+Architecture    : x86_64
+--
+Name            : ghostscript
+Version         : 10.03.0-2
+Description     : An interpreter for the PostScript language
+Architecture    : x86_64
+--
+Name            : giflib
+Version         : 5.2.2-1
+Description     : Library for reading and writing gif images
+Architecture    : x86_64
+--
+Name            : git
+Version         : 2.45.1-1
+Description     : the fast distributed version control system
+Architecture    : x86_64
+--
+Name            : git-branchless
+Version         : 0.8.0-2
+Description     : High-velocity monorepo-scale workflow for Git
+Architecture    : x86_64
+--
+Name            : git-crypt
+Version         : 0.7.0-2
+Description     : Transparent file encryption in Git
+Architecture    : x86_64
+--
+Name            : github-cli
+Version         : 2.49.2-1
+Description     : The GitHub CLI
+Architecture    : x86_64
+--
+Name            : glab
+Version         : 1.40.0-1
+Description     : Cli tool to help work seamlessly with GitLab from the command line
+Architecture    : x86_64
+--
+Name            : glib2
+Version         : 2.80.2-2
+Description     : Low level core library
+Architecture    : x86_64
+--
+Name            : glibc
+Version         : 2.39+r52+gf8e4623421-1
+Description     : GNU C Library
+Architecture    : x86_64
+--
+Name            : glslang
+Version         : 14.1.0-1
+Description     : OpenGL and OpenGL ES shader front end and validator
+Architecture    : x86_64
+--
+Name            : gmp
+Version         : 6.3.0-2
+Description     : A free library for arbitrary precision arithmetic
+Architecture    : x86_64
+--
+Name            : gnupg
+Version         : 2.4.5-1
+Description     : Complete and free implementation of the OpenPGP standard
+Architecture    : x86_64
+--
+Name            : gnutls
+Version         : 3.8.5-1
+Description     : A library which provides a secure layer over a reliable transport layer
+Architecture    : x86_64
+--
+Name            : go
+Version         : 2:1.22.3-1
+Description     : Core compiler tools for the Go programming language
+Architecture    : x86_64
+--
+Name            : gperftools
+Version         : 2.15-1
+Description     : Fast, multi-threaded malloc and nifty performance analysis tools
+Architecture    : x86_64
+--
+Name            : gpgme
+Version         : 1.23.2-4
+Description     : A C wrapper library for GnuPG
+Architecture    : x86_64
+--
+Name            : gpm
+Version         : 1.20.7.r38.ge82d1a6-5
+Description     : A mouse server for the console and xterm
+Architecture    : x86_64
+--
+Name            : grafana-bin
+Version         : 10.4.1-1
+Description     : Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB - binary version
+Architecture    : x86_64
+--
+Name            : graphite
+Version         : 1:1.3.14-3
+Description     : reimplementation of the SIL Graphite text processing engine
+Architecture    : x86_64
+--
+Name            : graphviz
+Version         : 11.0.0-1
+Description     : Graph visualization software
+Architecture    : x86_64
+--
+Name            : grep
+Version         : 3.11-1
+Description     : A string search utility
+Architecture    : x86_64
+--
+Name            : groff
+Version         : 1.23.0-5
+Description     : GNU troff text-formatting system
+Architecture    : x86_64
+--
+Name            : gron
+Version         : 0.7.1-2
+Description     : Makes JSON greppable
+Architecture    : x86_64
+--
+Name            : gsfonts
+Version         : 20200910-3
+Description     : (URW)++ base 35 font set
+Architecture    : any
+--
+Name            : gsm
+Version         : 1.0.22-1
+Description     : Shared libraries for GSM 06.10 lossy speech compression
+Architecture    : x86_64
+--
+Name            : gts
+Version         : 0.7.6.121130-2
+Description     : Provides useful functions to deal with 3D surfaces meshed with interconnected triangles
+Architecture    : x86_64
+--
+Name            : guile
+Version         : 3.0.9-1
+Description     : Portable, embeddable Scheme implementation written in C
+Architecture    : x86_64
+--
+Name            : gzip
+Version         : 1.13-2
+Description     : GNU compression utility
+Architecture    : x86_64
+--
+Name            : harfbuzz
+Version         : 8.4.0-2
+Description     : OpenType text shaping engine
+Architecture    : x86_64
+--
+Name            : harfbuzz-icu
+Version         : 8.4.0-2
+Description     : OpenType text shaping engine - ICU integration
+Architecture    : x86_64
+--
+Name            : haskell-aeson
+Version         : 2.1.2.1-45
+Description     : A JSON parsing and encoding library optimized for ease of use and high performance
+Architecture    : x86_64
+--
+Name            : haskell-assoc
+Version         : 1.0.2-262
+Description     : swap and assoc: Symmetric and Semigroupy Bifunctors
+Architecture    : x86_64
+--
+Name            : haskell-attoparsec
+Version         : 0.14.4-74
+Description     : Fast combinator parsing for bytestrings and text
+Architecture    : x86_64
+--
+Name            : haskell-base-compat
+Version         : 0.12.2-2
+Description     : A compatibility layer for base
+Architecture    : x86_64
+--
+Name            : haskell-base-compat-batteries
+Version         : 0.12.2-83
+Description     : base-compat with extra batteries
+Architecture    : x86_64
+--
+Name            : haskell-base-orphans
+Version         : 0.8.8.2-13
+Description     : Backwards-compatible orphan instances for base
+Architecture    : x86_64
+--
+Name            : haskell-bifunctors
+Version         : 5.6-73
+Description     : Bifunctors
+Architecture    : x86_64
+--
+Name            : haskell-comonad
+Version         : 5.0.8-257
+Description     : Comonads
+Architecture    : x86_64
+--
+Name            : haskell-contravariant
+Version         : 1.5.5-4
+Description     : Contravariant functors
+Architecture    : x86_64
+--
+Name            : haskell-data-array-byte
+Version         : 0.1.0.1-55
+Description     : Compatibility layer for Data.Array.Byte
+Architecture    : x86_64
+--
+Name            : haskell-data-fix
+Version         : 0.3.2-102
+Description     : Fixpoint data types
+Architecture    : x86_64
+--
+Name            : haskell-diff
+Version         : 0.4.1-75
+Description     : O(ND) diff algorithm in haskell
+Architecture    : x86_64
+--
+Name            : haskell-distributive
+Version         : 0.6.2.1-209
+Description     : Distributive functors -- Dual to Traversable
+Architecture    : x86_64
+--
+Name            : haskell-dlist
+Version         : 1.0-241
+Description     : Differences lists
+Architecture    : x86_64
+--
+Name            : haskell-erf
+Version         : 2.0.0.0-25
+Description     : The error function, erf, and related functions.
+Architecture    : x86_64
+--
+Name            : haskell-fgl
+Version         : 5.8.2.0-8
+Description     : Martin Erwig's Functional Graph Library
+Architecture    : x86_64
+--
+Name            : haskell-foldable1-classes-compat
+Version         : 0.1-73
+Description     : Compatibility package for the Foldable1 and Bifoldable1 type classes
+Architecture    : x86_64
+--
+Name            : haskell-generically
+Version         : 0.1.1-2
+Description     : Generically newtype to use with DerivingVia
+Architecture    : x86_64
+--
+Name            : haskell-ghc-bignum-orphans
+Version         : 0.1.1-2
+Description     : Backwards-compatible orphan instances for ghc-bignum
+Architecture    : x86_64
+--
+Name            : haskell-hashable
+Version         : 1.4.3.0-46
+Description     : A class for types that can be converted to a hash value
+Architecture    : x86_64
+--
+Name            : haskell-indexed-traversable
+Version         : 0.1.3-65
+Description     : FunctorWithIndex, FoldableWithIndex, TraversableWithIndex
+Architecture    : x86_64
+--
+Name            : haskell-indexed-traversable-instances
+Version         : 0.1.1.2-42
+Description     : More instances of FunctorWithIndex, FoldableWithIndex, TraversableWithIndex
+Architecture    : x86_64
+--
+Name            : haskell-integer-logarithms
+Version         : 1.0.3.1-7
+Description     : Integer logarithms
+Architecture    : x86_64
+--
+Name            : haskell-onetuple
+Version         : 0.3.1-75
+Description     : Singleton Tuple
+Architecture    : x86_64
+--
+Name            : haskell-primitive
+Version         : 0.7.4.0-111
+Description     : Wrappers for primitive operations
+Architecture    : x86_64
+--
+Name            : haskell-quickcheck
+Version         : 2.14.3-64
+Description     : Automatic testing of Haskell programs
+Architecture    : x86_64
+--
+Name            : haskell-random
+Version         : 1.2.1.2-8
+Description     : Pseudo-random number generation
+Architecture    : x86_64
+--
+Name            : haskell-regex-base
+Version         : 0.94.0.2-3
+Description     : Common "Text.Regex.*" API for Regex matching
+Architecture    : x86_64
+--
+Name            : haskell-regex-tdfa
+Version         : 1.3.2.2-42
+Description     : Pure Haskell Tagged DFA Backend for Text.Regex (regex-base)
+Architecture    : x86_64
+--
+Name            : haskell-scientific
+Version         : 0.3.7.0-113
+Description     : Numbers represented using scientific notation
+Architecture    : x86_64
+--
+Name            : haskell-semialign
+Version         : 1.2.0.1-158
+Description     : Align and Zip type-classes from the common Semialign ancestor.
+Architecture    : x86_64
+--
+Name            : haskell-semigroupoids
+Version         : 5.3.7-140
+Description     : Semigroupoids: Category sans id
+Architecture    : x86_64
+--
+Name            : haskell-splitmix
+Version         : 0.1.0.5-22
+Description     : Fast Splittable PRNG
+Architecture    : x86_64
+--
+Name            : haskell-statevar
+Version         : 1.2.2-3
+Description     : State variables
+Architecture    : x86_64
+--
+Name            : haskell-strict
+Version         : 0.4.0.1-236
+Description     : Strict data types and String IO
+Architecture    : x86_64
+--
+Name            : haskell-tagged
+Version         : 0.8.8-2
+Description     : Haskell 98 phantom types to avoid unsafely passing dummy arguments
+Architecture    : x86_64
+--
+Name            : haskell-text-short
+Version         : 0.1.5-79
+Description     : Memory-efficient representation of Unicode text strings
+Architecture    : x86_64
+--
+Name            : haskell-th-abstraction
+Version         : 0.4.5.0-2
+Description     : Nicer interface for reified information about data types
+Architecture    : x86_64
+--
+Name            : haskell-these
+Version         : 1.1.1.1-263
+Description     : An either-or-both data type
+Architecture    : x86_64
+--
+Name            : haskell-time-compat
+Version         : 1.9.6.1-97
+Description     : Compatibility package for time
+Architecture    : x86_64
+--
+Name            : haskell-transformers-compat
+Version         : 0.7.2-2
+Description     : A small compatibility shim exposing the new types from transformers 0.3 to older Haskell platforms.
+Architecture    : x86_64
+--
+Name            : haskell-unordered-containers
+Version         : 0.2.20-16
+Description     : Efficient hashing-based container types
+Architecture    : x86_64
+--
+Name            : haskell-uuid-types
+Version         : 1.0.5.1-16
+Description     : Type definitions for Universally Unique Identifiers
+Architecture    : x86_64
+--
+Name            : haskell-vector
+Version         : 0.13.1.0-31
+Description     : Efficient Arrays
+Architecture    : x86_64
+--
+Name            : haskell-vector-stream
+Version         : 0.1.0.1-2
+Description     : Efficient Streams
+Architecture    : x86_64
+--
+Name            : haskell-witherable
+Version         : 0.4.2-99
+Description     : filterable traversable
+Architecture    : x86_64
+--
+Name            : hicolor-icon-theme
+Version         : 0.17-3
+Description     : Freedesktop.org Hicolor icon theme
+Architecture    : any
+--
+Name            : hidapi
+Version         : 0.14.0-2
+Description     : Simple library for communicating with USB and Bluetooth HID devices
+Architecture    : x86_64
+--
+Name            : highway
+Version         : 1.1.0-1
+Description     : A C++ library that provides portable SIMD/vector intrinsics
+Architecture    : x86_64
+--
+Name            : http-parser
+Version         : 2.9.4-2
+Description     : Parser for HTTP Request/Response written in C
+Architecture    : x86_64
+--
+Name            : hwdata
+Version         : 0.382-1
+Description     : hardware identification databases
+Architecture    : any
+--
+Name            : iana-etc
+Version         : 20240412-1
+Description     : /etc/protocols and /etc/services provided by IANA
+Architecture    : any
+--
+Name            : icu
+Version         : 74.2-2
+Description     : International Components for Unicode library
+Architecture    : x86_64
+--
+Name            : ijs
+Version         : 0.35-6
+Description     : a library which implements a protocol for transmission of raster page images
+Architecture    : x86_64
+--
+Name            : imagemagick
+Version         : 7.1.1.32-1
+Description     : An image viewing/manipulation program
+Architecture    : x86_64
+--
+Name            : imath
+Version         : 3.1.11-2
+Description     : A C++ and python library of 2D and 3D vector, matrix, and math operations for computer graphics
+Architecture    : x86_64
+--
+Name            : iproute2
+Version         : 6.9.0-1
+Description     : IP Routing Utilities
+Architecture    : x86_64
+--
+Name            : iptables
+Version         : 1:1.8.10-1
+Description     : Linux kernel packet control tool (using legacy interface)
+Architecture    : x86_64
+--
+Name            : iputils
+Version         : 20240117-1
+Description     : Network monitoring tools, including ping
+Architecture    : x86_64
+--
+Name            : ipython
+Version         : 8.24.0-1
+Description     : Enhanced Interactive Python shell
+Architecture    : any
+--
+Name            : jansson
+Version         : 2.14-4
+Description     : C library for encoding, decoding and manipulating JSON data
+Architecture    : x86_64
+--
+Name            : jbig2dec
+Version         : 0.20-1
+Description     : Decoder implementation of the JBIG2 image compression format
+Architecture    : x86_64
+--
+Name            : jbigkit
+Version         : 2.1-8
+Description     : Data compression library/utilities for bi-level high-resolution images
+Architecture    : x86_64
+--
+Name            : jedi-language-server
+Version         : 0.41.3-2
+Description     : Language server for Jedi
+Architecture    : any
+--
+Name            : jq
+Version         : 1.7.1-1
+Description     : Command-line JSON processor
+Architecture    : x86_64
+--
+Name            : json-c
+Version         : 0.17-1
+Description     : A JSON implementation in C
+Architecture    : x86_64
+--
+Name            : kbd
+Version         : 2.6.4-1
+Description     : Keytable files and keyboard utilities
+Architecture    : x86_64
+--
+Name            : keyutils
+Version         : 1.6.3-2
+Description     : Linux Key Management Utilities
+Architecture    : x86_64
+--
+Name            : kmod
+Version         : 32-1
+Description     : Linux kernel module management tools and library
+Architecture    : x86_64
+--
+Name            : krb5
+Version         : 1.21.2-2
+Description     : The Kerberos network authentication system
+Architecture    : x86_64
+--
+Name            : l-smash
+Version         : 2.14.5-3
+Description     : MP4 muxer and other tools
+Architecture    : x86_64
+--
+Name            : lame
+Version         : 3.100-4
+Description     : A high quality MPEG Audio Layer III (MP3) encoder
+Architecture    : x86_64
+--
+Name            : lcms2
+Version         : 2.16-1
+Description     : Small-footprint color management engine, version 2
+Architecture    : x86_64
+--
+Name            : less
+Version         : 1:643-2
+Description     : A terminal based program for viewing text files
+Architecture    : x86_64
+--
+Name            : libarchive
+Version         : 3.7.4-1
+Description     : Multi-format archive and compression library
+Architecture    : x86_64
+--
+Name            : libass
+Version         : 0.17.1-4
+Description     : A portable library for SSA/ASS subtitles rendering
+Architecture    : x86_64
+--
+Name            : libassuan
+Version         : 2.5.7-2
+Description     : IPC library used by some GnuPG related software
+Architecture    : x86_64
+--
+Name            : libasyncns
+Version         : 1:0.8+r3+g68cd5af-2
+Description     : A C library for executing name service queries asynchronously
+Architecture    : x86_64
+--
+Name            : libavc1394
+Version         : 0.5.4-6
+Description     : Library to control A/V devices using the 1394 TA AV/C commands
+Architecture    : x86_64
+--
+Name            : libavif
+Version         : 1.0.4-3
+Description     : Library for encoding and decoding .avif files
+Architecture    : x86_64
+--
+Name            : libbluray
+Version         : 1.3.4-1
+Description     : Library to access Blu-Ray disks for video playback
+Architecture    : x86_64
+--
+Name            : libbpf
+Version         : 1.3.0-1
+Description     : Library for loading eBPF programs and reading and manipulating eBPF objects from user-space
+Architecture    : x86_64
+--
+Name            : libbs2b
+Version         : 3.1.0-8
+Description     : Bauer stereophonic-to-binaural DSP effect library
+Architecture    : x86_64
+--
+Name            : libcamera
+Version         : 0.2.0-1
+Description     : A complex camera support library for Linux, Android, and ChromeOS
+Architecture    : x86_64
+--
+Name            : libcamera-ipa
+Version         : 0.2.0-1
+Description     : A complex camera support library for Linux, Android, and ChromeOS - signed IPA
+Architecture    : x86_64
+--
+Name            : libcap
+Version         : 2.69-4
+Description     : POSIX 1003.1e capabilities
+Architecture    : x86_64
+--
+Name            : libcap-ng
+Version         : 0.8.5-2
+Description     : A library for Linux that makes using posix capabilities easy
+Architecture    : x86_64
+--
+Name            : libcdio
+Version         : 2.1.0-3
+Description     : GNU Compact Disc Input and Control Library
+Architecture    : x86_64
+--
+Name            : libcdio-paranoia
+Version         : 10.2+2.0.2-1
+Description     : Compact Disc Digital Audio (CDDA) extraction tool using libcdio for CDROM access
+Architecture    : x86_64
+--
+Name            : libcups
+Version         : 1:2.4.8-1
+Description     : OpenPrinting CUPS - client libraries and headers
+Architecture    : x86_64
+--
+Name            : libdaemon
+Version         : 0.14-5
+Description     : Lightweight C library that eases the writing of UNIX daemons
+Architecture    : x86_64
+--
+Name            : libdatrie
+Version         : 0.2.13-4
+Description     : Double-array trie library
+Architecture    : x86_64
+--
+Name            : libde265
+Version         : 1.0.15-1
+Description     : Open h.265 video codec implementation
+Architecture    : x86_64
+--
+Name            : libdeflate
+Version         : 1.20-2
+Description     : Heavily optimized library for DEFLATE/zlib/gzip compression and decompression
+Architecture    : x86_64
+--
+Name            : libdovi
+Version         : 3.3.0-2
+Description     : Library to read and write Dolby Vision metadata
+Architecture    : x86_64
+--
+Name            : libdrm
+Version         : 2.4.120-1
+Description     : Userspace interface to kernel DRM services
+Architecture    : x86_64
+--
+Name            : libdvdnav
+Version         : 6.1.1-2
+Description     : Library to navigate DVD video disks
+Architecture    : x86_64
+--
+Name            : libdvdread
+Version         : 6.1.3-2
+Description     : Library for reading DVD video disks
+Architecture    : x86_64
+--
+Name            : libedit
+Version         : 20230828_3.1-1
+Description     : Command line editor library providing generic line editing, history, and tokenization functions
+Architecture    : x86_64
+--
+Name            : libelf
+Version         : 0.191-3
+Description     : Handle ELF object files and DWARF debugging information (libraries)
+Architecture    : x86_64
+--
+Name            : libevent
+Version         : 2.1.12-4
+Description     : Event notification library
+Architecture    : x86_64
+--
+Name            : libfdk-aac
+Version         : 2.0.3-1
+Description     : Fraunhofer FDK AAC codec library
+Architecture    : x86_64
+--
+Name            : libffi
+Version         : 3.4.6-1
+Description     : Portable foreign function interface library
+Architecture    : x86_64
+--
+Name            : libfreeaptx
+Version         : 0.1.1-1
+Description     : Open Source aptX codec library
+Architecture    : x86_64
+--
+Name            : libgcrypt
+Version         : 1.10.3-1
+Description     : General purpose cryptographic library based on the code from GnuPG
+Architecture    : x86_64
+--
+Name            : libgit2
+Version         : 1:1.8.0-2
+Description     : A linkable library for Git
+Architecture    : x86_64
+--
+Name            : libglvnd
+Version         : 1.7.0-1
+Description     : The GL Vendor-Neutral Dispatch library
+Architecture    : x86_64
+--
+Name            : libgpg-error
+Version         : 1.49-1
+Description     : Support library for libgcrypt
+Architecture    : x86_64
+--
+Name            : libheif
+Version         : 1.17.6-5
+Description     : An HEIF and AVIF file format decoder and encoder
+Architecture    : x86_64
+--
+Name            : libice
+Version         : 1.1.1-2
+Description     : X11 Inter-Client Exchange library
+Architecture    : x86_64
+--
+Name            : libidn
+Version         : 1.42-1
+Description     : Implementation of the Stringprep, Punycode and IDNA specifications
+Architecture    : x86_64
+--
+Name            : libidn2
+Version         : 2.3.7-1
+Description     : Free software implementation of IDNA2008, Punycode and TR46
+Architecture    : x86_64
+--
+Name            : libiec61883
+Version         : 1.2.0-7
+Description     : A higher level API for streaming DV, MPEG-2 and audio over Linux IEEE 1394
+Architecture    : x86_64
+--
+Name            : libisl
+Version         : 0.26-2
+Description     : Library for manipulating sets and relations of integer points bounded by linear constraints
+Architecture    : x86_64
+--
+Name            : libjpeg-turbo
+Version         : 3.0.2-2
+Description     : JPEG image codec with accelerated baseline compression and decompression
+Architecture    : x86_64
+--
+Name            : libjxl
+Version         : 0.10.2-1
+Description     : JPEG XL image format reference implementation
+Architecture    : x86_64
+--
+Name            : libksba
+Version         : 1.6.6-1
+Description     : Library for working with X.509 certificates, CMS data and related objects
+Architecture    : x86_64
+--
+Name            : liblc3
+Version         : 1.1.1-1
+Description     : Low Complexity Communication Codec library and tools
+Architecture    : x86_64
+--
+Name            : libldac
+Version         : 2.0.2.3-1
+Description     : LDAC Bluetooth encoder library
+Architecture    : x86_64
+--
+Name            : libldap
+Version         : 2.6.7-2
+Description     : Lightweight Directory Access Protocol (LDAP) client libraries
+Architecture    : x86_64
+--
+Name            : liblqr
+Version         : 0.4.2-3
+Description     : A seam-carving C/C++ library called Liquid Rescale
+Architecture    : x86_64
+--
+Name            : libluv
+Version         : 1.48.0_2-1
+Description     : Bare libuv bindings for lua
+Architecture    : x86_64
+--
+Name            : libmnl
+Version         : 1.0.5-2
+Description     : Minimalistic user-space library oriented to Netlink developers.
+Architecture    : x86_64
+--
+Name            : libmodplug
+Version         : 0.8.9.0-5
+Description     : A MOD playing library
+Architecture    : x86_64
+--
+Name            : libmpc
+Version         : 1.3.1-1
+Description     : Library for the arithmetic of complex numbers with arbitrarily high precision
+Architecture    : x86_64
+--
+Name            : libmysofa
+Version         : 1.3.2-1
+Description     : C library to read HRTFs if they are stored in the AES69-2015 SOFA format
+Architecture    : x86_64
+--
+Name            : libnetfilter_conntrack
+Version         : 1.0.9-2
+Description     : Library providing an API to the in-kernel connection tracking state table
+Architecture    : x86_64
+--
+Name            : libnfnetlink
+Version         : 1.0.2-2
+Description     : Low-level library for netfilter related kernel/userspace communication
+Architecture    : x86_64
+--
+Name            : libnftnl
+Version         : 1.2.6-1
+Description     : Netfilter library providing interface to the nf_tables subsystem
+Architecture    : x86_64
+--
+Name            : libnghttp2
+Version         : 1.62.0-1
+Description     : Framing layer of HTTP/2 is implemented as a reusable C library
+Architecture    : x86_64
+--
+Name            : libnghttp3
+Version         : 1.3.0-1
+Description     : HTTP/3 library written in C
+Architecture    : x86_64
+--
+Name            : libngtcp2
+Version         : 1.5.0-1
+Description     : Implementation of IETF QUIC protocol
+Architecture    : x86_64
+--
+Name            : libnl
+Version         : 3.9.0-1
+Description     : Library for applications dealing with netlink sockets
+Architecture    : x86_64
+--
+Name            : libnsl
+Version         : 2.0.1-1
+Description     : Public client interface library for NIS(YP)
+Architecture    : x86_64
+--
+Name            : libogg
+Version         : 1.3.5-1
+Description     : Ogg bitstream and framing library
+Architecture    : x86_64
+--
+Name            : libomxil-bellagio
+Version         : 0.9.3-4
+Description     : An opensource implementation of the OpenMAX Integration Layer API
+Architecture    : x86_64
+--
+Name            : libopenmpt
+Version         : 0.7.7-1
+Description     : A library to render tracker music to a PCM audio stream
+Architecture    : x86_64
+--
+Name            : libp11-kit
+Version         : 0.25.3-1
+Description     : Loads and enumerates PKCS#11 modules (library)
+Architecture    : x86_64
+--
+Name            : libpaper
+Version         : 2.2.5-1
+Description     : Library for handling paper characteristics
+Architecture    : x86_64
+--
+Name            : libpcap
+Version         : 1.10.4-1
+Description     : A system-independent interface for user-level packet capture
+Architecture    : x86_64
+--
+Name            : libpciaccess
+Version         : 0.18.1-2
+Description     : X11 PCI access library
+Architecture    : x86_64
+--
+Name            : libpipeline
+Version         : 1.5.7-2
+Description     : a C library for manipulating pipelines of subprocesses in a flexible and convenient way
+Architecture    : x86_64
+--
+Name            : libpipewire
+Version         : 1:1.0.6-1
+Description     : Low-latency audio/video router and processor - client library
+Architecture    : x86_64
+--
+Name            : libplacebo
+Version         : 6.338.2-6
+Description     : Reusable library for GPU-accelerated video/image rendering primitives
+Architecture    : x86_64
+--
+Name            : libpng
+Version         : 1.6.43-1
+Description     : A collection of routines used to create PNG format graphics files
+Architecture    : x86_64
+--
+Name            : libpsl
+Version         : 0.21.5-2
+Description     : Public Suffix List library
+Architecture    : x86_64
+--
+Name            : libpulse
+Version         : 17.0-3
+Description     : A featureful, general-purpose sound server (client library)
+Architecture    : x86_64
+--
+Name            : libraqm
+Version         : 0.10.1-1
+Description     : A library that encapsulates the logic for complex text layout
+Architecture    : x86_64
+--
+Name            : libraw1394
+Version         : 2.1.2-3
+Description     : Provides an API to the Linux IEEE1394 (FireWire) driver
+Architecture    : x86_64
+--
+Name            : librsvg
+Version         : 2:2.58.0-1
+Description     : SVG rendering library
+Architecture    : x86_64
+--
+Name            : libsamplerate
+Version         : 0.2.2-2
+Description     : An audio sample rate conversion library
+Architecture    : x86_64
+--
+Name            : libsasl
+Version         : 2.1.28-4
+Description     : Cyrus Simple Authentication Service Layer (SASL) library
+Architecture    : x86_64
+--
+Name            : libseccomp
+Version         : 2.5.5-3
+Description     : Enhanced seccomp library
+Architecture    : x86_64
+--
+Name            : libsecret
+Version         : 0.21.4-1
+Description     : Library for storing and retrieving passwords and other secrets
+Architecture    : x86_64
+--
+Name            : libsixel
+Version         : 1.10.3-5
+Description     : Provides a codec for DEC SIXEL graphics and some converter programs
+Architecture    : x86_64
+--
+Name            : libsm
+Version         : 1.2.4-1
+Description     : X11 Session Management library
+Architecture    : x86_64
+--
+Name            : libsndfile
+Version         : 1.2.2-2
+Description     : A C library for reading and writing files containing sampled audio data
+Architecture    : x86_64
+--
+Name            : libsoxr
+Version         : 0.1.3-3
+Description     : The SoX Resampler library that aims to give fast and high quality results for any constant resampling ratio
+Architecture    : x86_64
+--
+Name            : libssh
+Version         : 0.10.6-2
+Description     : Library for accessing ssh client services through C libraries
+Architecture    : x86_64
+--
+Name            : libssh2
+Version         : 1.11.0-1
+Description     : A library implementing the SSH2 protocol as defined by Internet Drafts
+Architecture    : x86_64
+--
+Name            : libsysprof-capture
+Version         : 46.0-3
+Description     : Kernel based performance profiler - capture library
+Architecture    : x86_64
+--
+Name            : libtasn1
+Version         : 4.19.0-1
+Description     : The ASN.1 library used in GNUTLS
+Architecture    : x86_64
+--
+Name            : libtermkey
+Version         : 0.22-3
+Description     : Library for easy processing of keyboard entry from terminal-based programs
+Architecture    : x86_64
+--
+Name            : libthai
+Version         : 0.1.29-3
+Description     : Thai language support library
+Architecture    : x86_64
+--
+Name            : libtheora
+Version         : 1.1.1-6
+Description     : Standard encoder and decoder library for the Theora video compression format
+Architecture    : x86_64
+--
+Name            : libtiff
+Version         : 4.6.0-5
+Description     : Library for manipulation of TIFF images
+Architecture    : x86_64
+--
+Name            : libtirpc
+Version         : 1.3.4-1
+Description     : Transport Independent RPC library (SunRPC replacement)
+Architecture    : x86_64
+--
+Name            : libtool
+Version         : 2.5.0+1+g38c166c8-1
+Description     : A generic library support script
+Architecture    : x86_64
+--
+Name            : libunibreak
+Version         : 6.1-1
+Description     : An implementation of the line breaking algorithm as described in Unicode 5.2.0 Standard Annex 14, Revision 24
+Architecture    : x86_64
+--
+Name            : libunistring
+Version         : 1.2-1
+Description     : Library for manipulating Unicode strings and C strings
+Architecture    : x86_64
+--
+Name            : libunwind
+Version         : 1.8.1-3
+Description     : Determine and manipulate the call-chain of a program
+Architecture    : x86_64
+--
+Name            : libusb
+Version         : 1.0.27-1
+Description     : Library that provides generic access to USB devices
+Architecture    : x86_64
+--
+Name            : libutempter
+Version         : 1.2.1-4
+Description     : Interface for terminal emulators such as screen and xterm to record user sessions to utmp and wtmp files
+Architecture    : x86_64
+--
+Name            : libuv
+Version         : 1.48.0-2
+Description     : Multi-platform support library with a focus on asynchronous I/O
+Architecture    : x86_64
+--
+Name            : libva
+Version         : 2.21.0-1
+Description     : Video Acceleration (VA) API for Linux
+Architecture    : x86_64
+--
+Name            : libvdpau
+Version         : 1.5-2
+Description     : Nvidia VDPAU library
+Architecture    : x86_64
+--
+Name            : libverto
+Version         : 0.3.2-5
+Description     : Main event loop abstraction library
+Architecture    : x86_64
+--
+Name            : libvorbis
+Version         : 1.3.7-3
+Description     : Reference implementation of the Ogg Vorbis audio format
+Architecture    : x86_64
+--
+Name            : libvpl
+Version         : 2.11.0-1
+Description     : Intel Video Processing Library
+Architecture    : x86_64
+--
+Name            : libvpx
+Version         : 1.14.0-1
+Description     : VP8 and VP9 codec
+Architecture    : x86_64
+--
+Name            : libvterm
+Version         : 0.3.3-1
+Description     : Abstract library implementation of a VT220/xterm/ECMA-48 terminal emulator
+Architecture    : x86_64
+--
+Name            : libwebp
+Version         : 1.4.0-1
+Description     : WebP library and conversion tools
+Architecture    : x86_64
+--
+Name            : libwireplumber
+Version         : 0.5.2-1
+Description     : Session / policy manager implementation for PipeWire - client library
+Architecture    : x86_64
+--
+Name            : libx11
+Version         : 1.8.9-1
+Description     : X11 client-side library
+Architecture    : x86_64
+--
+Name            : libxau
+Version         : 1.0.11-2
+Description     : X11 authorisation library
+Architecture    : x86_64
+--
+Name            : libxcb
+Version         : 1.17.0-1
+Description     : X11 client-side library
+Architecture    : x86_64
+--
+Name            : libxcrypt
+Version         : 4.4.36-1
+Description     : Modern library for one-way hashing of passwords
+Architecture    : x86_64
+--
+Name            : libxcursor
+Version         : 1.2.2-1
+Description     : X cursor management library
+Architecture    : x86_64
+--
+Name            : libxdmcp
+Version         : 1.1.5-1
+Description     : X11 Display Manager Control Protocol library
+Architecture    : x86_64
+--
+Name            : libxext
+Version         : 1.3.6-1
+Description     : X11 miscellaneous extensions library
+Architecture    : x86_64
+--
+Name            : libxfixes
+Version         : 6.0.1-1
+Description     : X11 miscellaneous 'fixes' extension library
+Architecture    : x86_64
+--
+Name            : libxft
+Version         : 2.3.8-1
+Description     : FreeType-based font drawing library for X
+Architecture    : x86_64
+--
+Name            : libxkbcommon
+Version         : 1.7.0-2
+Description     : Keymap handling library for toolkits and window systems
+Architecture    : x86_64
+--
+Name            : libxml2
+Version         : 2.12.6-2
+Description     : XML C parser and toolkit
+Architecture    : x86_64
+--
+Name            : libxmu
+Version         : 1.2.1-1
+Description     : X11 miscellaneous micro-utility library
+Architecture    : x86_64
+--
+Name            : libxpm
+Version         : 3.5.17-1
+Description     : X11 pixmap library
+Architecture    : x86_64
+--
+Name            : libxpresent
+Version         : 1.0.1-1
+Description     : X Present Extension library
+Architecture    : x86_64
+--
+Name            : libxrandr
+Version         : 1.5.4-1
+Description     : X11 RandR extension library
+Architecture    : x86_64
+--
+Name            : libxrender
+Version         : 0.9.11-1
+Description     : X Rendering Extension client library
+Architecture    : x86_64
+--
+Name            : libxshmfence
+Version         : 1.3.2-1
+Description     : a library that exposes a event API on top of Linux futexes
+Architecture    : x86_64
+--
+Name            : libxslt
+Version         : 1.1.39-2
+Description     : XML stylesheet transformation library
+Architecture    : x86_64
+--
+Name            : libxss
+Version         : 1.2.4-1
+Description     : X11 Screen Saver extension library
+Architecture    : x86_64
+--
+Name            : libxt
+Version         : 1.3.0-1
+Description     : X11 toolkit intrinsics library
+Architecture    : x86_64
+--
+Name            : libxv
+Version         : 1.0.12-1
+Description     : X11 Video extension library
+Architecture    : x86_64
+--
+Name            : libxxf86vm
+Version         : 1.1.5-1
+Description     : X11 XFree86 video mode extension library
+Architecture    : x86_64
+--
+Name            : libyaml
+Version         : 0.2.5-2
+Description     : YAML 1.1 library
+Architecture    : x86_64
+--
+Name            : libyuv
+Version         : r2426+464c51a0-1
+Description     : Library for YUV scaling
+Architecture    : x86_64
+--
+Name            : licenses
+Version         : 20240206-1
+Description     : A set of common license files
+Architecture    : any
+--
+Name            : lilv
+Version         : 0.24.24-2
+Description     : A C library interface to the LV2 plug-in standard
+Architecture    : x86_64
+--
+Name            : linux-api-headers
+Version         : 6.8-1
+Description     : Kernel headers sanitized for use in userspace
+Architecture    : x86_64
+--
+Name            : llvm-libs
+Version         : 17.0.6-4
+Description     : LLVM runtime libraries
+Architecture    : x86_64
+--
+Name            : lm_sensors
+Version         : 1:3.6.0.r41.g31d1f125-2
+Description     : Collection of user space tools for general SMBus access and hardware monitoring
+Architecture    : x86_64
+--
+Name            : lua
+Version         : 5.4.6-3
+Description     : Powerful lightweight programming language designed for extending applications
+Architecture    : x86_64
+--
+Name            : lua-argparse
+Version         : 0.7.1-1
+Description     : Feature-rich command line parser for Lua 5.4
+Architecture    : any
+--
+Name            : lua-filesystem
+Version         : 1.8.0-4
+Description     : File System Library for the Lua Programming Language
+Architecture    : x86_64
+--
+Name            : lua-language-server
+Version         : 3.9.1-1
+Description     : Lua Language Server coded by Lua
+Architecture    : x86_64
+--
+Name            : luacheck
+Version         : 1.1.2-1
+Description     : A tool for linting and static analysis of Lua code
+Architecture    : any
+--
+Name            : luajit
+Version         : 2.1.1713773202-1
+Description     : Just-in-time compiler and drop-in replacement for Lua 5.1
+Architecture    : x86_64
+--
+Name            : luarocks
+Version         : 3.11.0-1
+Description     : Deployment and management system for Lua modules
+Architecture    : any
+--
+Name            : lv2
+Version         : 1.18.10-1
+Description     : Plugin standard for audio systems
+Architecture    : x86_64
+--
+Name            : lynx
+Version         : 2.9.1-1
+Description     : A text browser for the World Wide Web
+Architecture    : x86_64
+--
+Name            : lz4
+Version         : 1:1.9.4-3
+Description     : Extremely fast compression algorithm
+Architecture    : x86_64
+--
+Name            : lzo
+Version         : 2.10-5
+Description     : Portable lossless data compression library
+Architecture    : x86_64
+--
+Name            : m4
+Version         : 1.4.19-3
+Description     : The GNU macro processor
+Architecture    : x86_64
+--
+Name            : mailcap
+Version         : 2.1.54-1
+Description     : Helper application and MIME type associations for file types
+Architecture    : any
+--
+Name            : make
+Version         : 4.4.1-2
+Description     : GNU make utility to maintain groups of programs
+Architecture    : x86_64
+--
+Name            : man-db
+Version         : 2.12.1-1
+Description     : A utility for reading man pages
+Architecture    : x86_64
+--
+Name            : man-pages
+Version         : 6.7-1
+Description     : Linux man pages
+Architecture    : any
+--
+Name            : markdownlint-cli2
+Version         : 0.13.0-1
+Description     : Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library
+Architecture    : any
+--
+Name            : marksman-bin
+Version         : 2023_12_09-1
+Description     : Markdown LSP server providing completion, cross-references, diagnostics, and more
+Architecture    : x86_64
+--
+Name            : mdformat
+Version         : 0.7.17-3
+Description     : CommonMark compliant Markdown formatter
+Architecture    : any
+--
+Name            : mesa
+Version         : 1:24.0.7-3
+Description     : Open-source OpenGL drivers
+Architecture    : x86_64
+--
+Name            : mlocate
+Version         : 0.26.git.20170220-7
+Description     : Merging locate/updatedb implementation
+Architecture    : x86_64
+--
+Name            : mpdecimal
+Version         : 4.0.0-2
+Description     : Package for correctly-rounded arbitrary precision decimal floating point arithmetic
+Architecture    : x86_64
+--
+Name            : mpfr
+Version         : 4.2.1-3
+Description     : Multiple-precision floating-point library
+Architecture    : x86_64
+--
+Name            : mpg123
+Version         : 1.32.6-1
+Description     : Console based real time MPEG Audio Player for Layer 1, 2 and 3
+Architecture    : x86_64
+--
+Name            : mpv
+Version         : 1:0.38.0-2
+Description     : a free, open source, and cross-platform media player
+Architecture    : x86_64
+--
+Name            : msgpack-c
+Version         : 5.0.0-2
+Description     : An efficient object serialization library
+Architecture    : x86_64
+--
+Name            : mujs
+Version         : 1.3.4-1
+Description     : An embeddable Javascript interpreter in C
+Architecture    : x86_64
+--
+Name            : mypy
+Version         : 1.10.0-2
+Description     : Optional static typing for Python 2 and 3 (PEP484)
+Architecture    : any
+--
+Name            : nano
+Version         : 8.0-1
+Description     : Pico editor clone with enhancements
+Architecture    : x86_64
+--
+Name            : ncdu
+Version         : 2.4-1
+Description     : Disk usage analyzer with an ncurses interface
+Architecture    : x86_64
+--
+Name            : ncurses
+Version         : 6.4_20230520-3
+Description     : System V Release 4.0 curses emulation library
+Architecture    : x86_64
+--
+Name            : neovim
+Version         : 0.9.5-6
+Description     : Fork of Vim aiming to improve user experience, plugins, and GUIs
+Architecture    : x86_64
+--
+Name            : net-tools
+Version         : 2.10-2
+Description     : Configuration tools for Linux networking
+Architecture    : x86_64
+--
+Name            : netpbm
+Version         : 10.86.41-1
+Description     : A toolkit for manipulation of graphic images
+Architecture    : x86_64
+--
+Name            : nettle
+Version         : 3.9.1-1
+Description     : A low-level cryptographic library
+Architecture    : x86_64
+--
+Name            : node-gyp
+Version         : 10.1.0-2
+Description     : Node.js native addon build tool
+Architecture    : any
+--
+Name            : nodejs
+Version         : 22.0.0-1
+Description     : Evented I/O for V8 javascript
+Architecture    : x86_64
+--
+Name            : nodejs-commitizen
+Version         : 4.3.0-1
+Description     : Git plugin to help you write consistent commit messages
+Architecture    : any
+--
+Name            : nodejs-cz-conventional-changelog
+Version         : 3.3.0-2
+Description     : Commitizen plugin for conventional changelogs commit messages
+Architecture    : any
+--
+Name            : nodejs-cz-emoji
+Version         : 1.3.1-2
+Description     : Commitizen plugin to use gitmojis in your commits
+Architecture    : any
+--
+Name            : nodejs-jsonlint
+Version         : 1.6.3-5
+Description     : Validate JSON
+Architecture    : any
+--
+Name            : nodejs-nopt
+Version         : 7.2.0-1
+Description     : Node/npm Option Parsing library
+Architecture    : any
+--
+Name            : npm
+Version         : 10.8.0-1
+Description     : A package manager for JavaScript
+Architecture    : any
+--
+Name            : npth
+Version         : 1.7-1
+Description     : The new GNU portable threads library
+Architecture    : x86_64
+--
+Name            : numactl
+Version         : 2.0.18-1
+Description     : Simple NUMA policy support
+Architecture    : x86_64
+--
+Name            : ocl-icd
+Version         : 2.3.2-1
+Description     : OpenCL ICD Bindings
+Architecture    : x86_64
+--
+Name            : oniguruma
+Version         : 6.9.9-1
+Description     : a regular expressions library
+Architecture    : x86_64
+--
+Name            : openal
+Version         : 1.23.1-1
+Description     : Cross-platform 3D audio library, software implementation
+Architecture    : x86_64
+--
+Name            : opencore-amr
+Version         : 0.1.6-1
+Description     : Open source implementation of the Adaptive Multi Rate (AMR) speech codec
+Architecture    : x86_64
+--
+Name            : openexr
+Version         : 3.2.4-1
+Description     : A high dynamic-range image file format library
+Architecture    : x86_64
+--
+Name            : openjpeg2
+Version         : 2.5.2-1
+Description     : An open source JPEG 2000 codec, version 2.5.2
+Architecture    : x86_64
+--
+Name            : openssh
+Version         : 9.7p1-2
+Description     : SSH protocol implementation for remote login, command execution and file transfer
+Architecture    : x86_64
+--
+Name            : openssl
+Version         : 3.3.0-1
+Description     : The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
+Architecture    : x86_64
+--
+Name            : opus
+Version         : 1.5.2-1
+Description     : Totally open, royalty-free, highly versatile audio codec
+Architecture    : x86_64
+--
+Name            : p11-kit
+Version         : 0.25.3-1
+Description     : Loads and enumerates PKCS#11 modules
+Architecture    : x86_64
+--
+Name            : p7zip
+Version         : 1:17.05-2
+Description     : Command-line file archiver with high compression ratio
+Architecture    : x86_64
+--
+Name            : pacman
+Version         : 6.1.0-3
+Description     : A library-based package manager with dependency support
+Architecture    : x86_64
+--
+Name            : pacman-contrib
+Version         : 1.10.6-1
+Description     : Contributed scripts and tools for pacman systems
+Architecture    : x86_64
+--
+Name            : pacman-mirrorlist
+Version         : 20231001-1
+Description     : Arch Linux mirror list for use by pacman
+Architecture    : any
+--
+Name            : pacutils
+Version         : 0.14.0-1
+Description     : Helper tools for libalpm
+Architecture    : x86_64
+--
+Name            : pam
+Version         : 1.6.1-2
+Description     : PAM (Pluggable Authentication Modules) library
+Architecture    : x86_64
+--
+Name            : pambase
+Version         : 20230918-1
+Description     : Base PAM configuration for services
+Architecture    : any
+--
+Name            : pandoc-bin
+Version         : 3.1.13-1
+Description     : Pandoc - executable only, without 750MB Haskell depends/makedepends
+Architecture    : x86_64
+--
+Name            : pandoc-eisvogel-template-git
+Version         : 1:2.4.2.r286.20231125.cd58c39-1
+Description     : The 'eisvogel' LaTeX-template for pandoc. A clean pandoc LaTeX template to convert your markdown files to PDF or LaTeX. It is designed for lecture notes and exercises with a focus on computer
+                  science. The template is compatible with pandoc 2.
+--
+Name            : pango
+Version         : 1:1.52.2-1
+Description     : A library for layout and rendering of text
+Architecture    : x86_64
+--
+Name            : parallel
+Version         : 20240322-1
+Description     : A shell tool for executing jobs in parallel
+Architecture    : any
+--
+Name            : patch
+Version         : 2.7.6-10
+Description     : A utility to apply patch files to original sources
+Architecture    : x86_64
+--
+Name            : patchutils
+Version         : 0.4.2-2
+Description     : A small collection of programs that operate on patch files
+Architecture    : x86_64
+--
+Name            : pciutils
+Version         : 3.12.0-1
+Description     : PCI bus configuration space access library and tools
+Architecture    : x86_64
+--
+Name            : pcre2
+Version         : 10.43-4
+Description     : A library that implements Perl 5-style regular expressions. 2nd version
+Architecture    : x86_64
+--
+Name            : perl
+Version         : 5.38.2-1
+Description     : A highly capable, feature-rich programming language
+Architecture    : x86_64
+--
+Name            : perl-alien-build
+Version         : 2.80-2
+Description     : Build external dependencies for use in CPAN
+Architecture    : any
+--
+Name            : perl-alien-libxml2
+Version         : 0.19-2
+Description     : Install the C libxml2 library on your system
+Architecture    : any
+--
+Name            : perl-archive-zip
+Version         : 1.68-8
+Description     : Provide a perl interface to ZIP archive files
+Architecture    : any
+--
+Name            : perl-autovivification
+Version         : 0.18-9
+Description     : Lexically disable autovivification.
+Architecture    : x86_64
+--
+Name            : perl-b-hooks-endofscope
+Version         : 0.28-1
+Description     : Execute code after a scope finished compilation
+Architecture    : any
+--
+Name            : perl-business-isbn
+Version         : 3.009-1
+Description     : Perl package to work with International Standard Book Numbers
+Architecture    : any
+--
+Name            : perl-business-isbn-data
+Version         : 20240206.001-1
+Description     : Data pack for Business::ISBN
+Architecture    : any
+--
+Name            : perl-business-ismn
+Version         : 1.204-1
+Description     : Perl package to work with International Standard Music Numbers
+Architecture    : any
+--
+Name            : perl-business-issn
+Version         : 1.005-2
+Description     : Perl package to work with International Standard Serial Numbers
+Architecture    : any
+--
+Name            : perl-capture-tiny
+Version         : 0.48-7
+Description     : Capture STDOUT and STDERR from Perl, XS or external programs
+Architecture    : any
+--
+Name            : perl-class-accessor
+Version         : 0.51-3
+Description     : Automated accessor generation
+Architecture    : any
+--
+Name            : perl-class-data-inheritable
+Version         : 0.09-4
+Description     : Inheritable, overridable class data
+Architecture    : x86_64
+--
+Name            : perl-class-inspector
+Version         : 1.36-6
+Description     : Get information about a class and its structure
+Architecture    : any
+--
+Name            : perl-class-load
+Version         : 0.25-3
+Description     : a working (require 'Class::Name') and more
+Architecture    : any
+URL             : https://search.cpan.org/dist/Class-Load
+Licenses        : PerlArtistic  GPL
+--
+Name            : perl-class-singleton
+Version         : 1.6-2
+Description     : Implementation of a singleton class
+Architecture    : any
+--
+Name            : perl-clone
+Version         : 0.46-2
+Description     : Recursive copy of nested objects.
+Architecture    : x86_64
+--
+Name            : perl-data-compare
+Version         : 1.29-2
+Description     : compare perl data structures
+Architecture    : any
+--
+Name            : perl-data-dump
+Version         : 1.25-4
+Description     : Pretty printing of data structures
+Architecture    : any
+--
+Name            : perl-data-optlist
+Version         : 0.114-2
+Description     : Parse and validate simple name/value option pairs
+Architecture    : any
+--
+Name            : perl-data-uniqid
+Version         : 0.12-11
+Description     : Perl extension for simple generation of unique IDs
+Architecture    : any
+--
+Name            : perl-datetime
+Version         : 1.65-1
+Description     : A complete, easy to use date and time object
+Architecture    : x86_64
+--
+Name            : perl-datetime-calendar-julian
+Version         : 0.107-2
+Description     : Perl module for Dates in the Julian calendar
+Architecture    : any
+--
+Name            : perl-datetime-format-builder
+Version         : 1:0.83-4
+Description     : Create DateTime parser classes and objects
+Architecture    : x86_64
+--
+Name            : perl-datetime-format-strptime
+Version         : 1.79-2
+Description     : Parse and Format DateTimes using Strptime
+Architecture    : any
+--
+Name            : perl-datetime-locale
+Version         : 1.42-1
+Description     : Localization support for DateTime.pm
+Architecture    : any
+--
+Name            : perl-datetime-timezone
+Version         : 2.62-1
+Description     : Time zone object base class and factory
+Architecture    : any
+--
+Name            : perl-devel-stacktrace
+Version         : 2.04-3
+Description     : An object representing a stack trace
+Architecture    : any
+--
+Name            : perl-dist-checkconflicts
+Version         : 0.11-9
+Description     : Declare version conflicts for your dist
+Architecture    : any
+--
+Name            : perl-encode-locale
+Version         : 1.05-11
+Description     : Determine the locale encoding
+Architecture    : any
+--
+Name            : perl-error
+Version         : 0.17029-5
+Description     : Perl/CPAN Error module - Error/exception handling in an OO-ish way
+Architecture    : any
+--
+Name            : perl-eval-closure
+Version         : 0.14-9
+Description     : safely and cleanly create closures via string eval
+Architecture    : any
+--
+Name            : perl-exception-class
+Version         : 1.45-3
+Description     : A module that allows you to declare real exception classes in Perl
+Architecture    : any
+--
+Name            : perl-exporter-tiny
+Version         : 1.006002-2
+Description     : an exporter with the features of Sub::Exporter but only core dependencies
+Architecture    : any
+--
+Name            : perl-ffi-checklib
+Version         : 0.31-3
+Description     : Check that a library is available for FFI
+Architecture    : any
+--
+Name            : perl-file-chdir
+Version         : 0.1011-5
+Description     : a more sensible way to change directories
+Architecture    : any
+--
+Name            : perl-file-find-rule
+Version         : 0.34-10
+Description     : Alternative interface to File::Find
+Architecture    : any
+--
+Name            : perl-file-listing
+Version         : 6.16-2
+Description     : parse directory listing
+Architecture    : any
+--
+Name            : perl-file-sharedir
+Version         : 1.118-3
+Description     : Locate per-dist and per-module shared files
+Architecture    : any
+--
+Name            : perl-file-sharedir-install
+Version         : 0.14-2
+Description     : File::ShareDir::Install - Install read-only data files from a distribution
+Architecture    : any
+--
+Name            : perl-file-slurp-tiny
+Version         : 0.004-9
+Description     : A simple, sane and efficient file slurper
+Architecture    : any
+--
+Name            : perl-file-slurper
+Version         : 0.014-2
+Description     : A simple, sane and efficient module to slurp a file
+Architecture    : any
+--
+Name            : perl-file-which
+Version         : 1.27-3
+Description     : Portable implementation of which
+Architecture    : any
+--
+Name            : perl-html-parser
+Version         : 3.82-1
+Description     : Perl HTML parser class
+Architecture    : x86_64
+--
+Name            : perl-html-tagset
+Version         : 3.20-14
+Description     : Data tables useful in parsing HTML
+Architecture    : any
+--
+Name            : perl-http-cookiejar
+Version         : 0.014-1
+Description     : A minimalist HTTP user agent cookie jar
+Architecture    : any
+--
+Name            : perl-http-cookies
+Version         : 6.11-1
+Description     : HTTP cookie jars
+Architecture    : any
+--
+Name            : perl-http-daemon
+Version         : 6.16-2
+Description     : Simple http server class
+Architecture    : any
+--
+Name            : perl-http-date
+Version         : 6.06-1
+Description     : Date conversion routines
+Architecture    : any
+--
+Name            : perl-http-message
+Version         : 6.45-1
+Description     : HTTP style messages
+Architecture    : any
+--
+Name            : perl-http-negotiate
+Version         : 6.01-12
+Description     : Choose a variant to serve
+Architecture    : any
+--
+Name            : perl-io-html
+Version         : 1.004-4
+Description     : Open an HTML file with automatic charset detection
+Architecture    : any
+--
+Name            : perl-io-socket-ssl
+Version         : 2.085-1
+Description     : Nearly transparent SSL encapsulation for IO::Socket::INET
+Architecture    : any
+--
+Name            : perl-io-string
+Version         : 1.08-12
+Description     : IO::File interface for in-core strings
+Architecture    : x86_64
+--
+Name            : perl-ipc-run3
+Version         : 0.049-1
+Description     : run a subprocess with input/ouput redirection
+Architecture    : any
+--
+Name            : perl-libwww
+Version         : 6.72-1
+Description     : The World-Wide Web library for Perl
+Architecture    : any
+--
+Name            : perl-lingua-translit
+Version         : 0.29-2
+Description     : Transliteration of text between writing systems
+Architecture    : any
+--
+Name            : perl-list-allutils
+Version         : 0.19-2
+Description     : Perl package that combines List::Util and List::MoreUtils in one bite-sized package
+Architecture    : any
+--
+Name            : perl-list-moreutils
+Version         : 0.430-4
+Description     : Provide the stuff missing in List::Util
+Architecture    : any
+--
+Name            : perl-list-moreutils-xs
+Version         : 0.430-4
+Description     : Provide the stuff missing in List::Util
+Architecture    : x86_64
+--
+Name            : perl-list-someutils
+Version         : 0.59-2
+Description     : Perl package that combines List::Util and List::MoreUtils in one bite-sized package
+Architecture    : any
+--
+Name            : perl-list-utilsby
+Version         : 0.12-2
+Description     : Higher-order list utility functions
+Architecture    : any
+--
+Name            : perl-log-log4perl
+Version         : 1.57-2
+Description     : Log4j implementation for Perl
+Architecture    : any
+--
+Name            : perl-lwp-mediatypes
+Version         : 6.04-4
+Description     : Guess the media type of a file or a URL
+Architecture    : any
+--
+Name            : perl-lwp-protocol-https
+Version         : 6.11-1
+Description     : Provide https support for LWP::UserAgent
+Architecture    : any
+--
+Name            : perl-mailtools
+Version         : 2.21-7
+Description     : Various e-mail related modules
+Architecture    : any
+--
+Name            : perl-math-round
+Version         : 0.07-5
+Description     : Perl extension for rounding numbers
+Architecture    : any
+--
+Name            : perl-mime-charset
+Version         : 1.013.1-2
+Description     : Charset Information for MIME
+Architecture    : any
+--
+Name            : perl-module-implementation
+Version         : 0.09-9
+Description     : Loads one of several alternate underlying implementations for a module
+Architecture    : any
+--
+Name            : perl-module-runtime
+Version         : 0.016-3
+Description     : runtime module handling
+Architecture    : any
+--
+Name            : perl-mozilla-ca
+Version         : 20240313-1
+Description     : Mozilla's CA cert bundle in PEM format (using system CA store)
+Architecture    : any
+--
+Name            : perl-mro-compat
+Version         : 0.15-2
+Description     : mro::* interface compatibility for Perls < 5.9.5
+Architecture    : any
+--
+Name            : perl-namespace-autoclean
+Version         : 0.29-5
+Description     : Keep imports out of your namespace
+Architecture    : any
+--
+Name            : perl-namespace-clean
+Version         : 0.27-9
+Description     : Keep imports and functions out of your namespace
+Architecture    : any
+--
+Name            : perl-net-http
+Version         : 6.23-2
+Description     : Low-level HTTP connection (client)
+Architecture    : any
+--
+Name            : perl-net-ssleay
+Version         : 1.94-1
+Description     : Perl bindings for OpenSSL and LibreSSL
+Architecture    : x86_64
+--
+Name            : perl-number-compare
+Version         : 0.03-13
+Description     : numeric comparisons for human file sizes
+Architecture    : any
+--
+Name            : perl-package-deprecationmanager
+Version         : 0.18-2
+Description     : Manage deprecation warnings for your distribution
+Architecture    : any
+--
+Name            : perl-package-stash
+Version         : 0.40-3
+Description     : Routines for manipulating stashes
+Architecture    : any
+--
+Name            : perl-package-stash-xs
+Version         : 0.30-2
+Description     : Faster and more correct implementation of the Package::Stash API
+Architecture    : x86_64
+--
+Name            : perl-par
+Version         : 1.020-1
+Description     : Perl Archive Toolkit
+Architecture    : any
+--
+Name            : perl-par-dist
+Version         : 0.52-2
+Description     : Perl bindings to create and manipulate PAR distributions
+Architecture    : any
+--
+Name            : perl-params-util
+Version         : 1.102-4
+Description     : Simple, compact and correct param-checking functions
+Architecture    : x86_64
+--
+Name            : perl-params-validate
+Version         : 1.31-2
+Description     : Validate sub params against a spec
+Architecture    : x86_64
+--
+Name            : perl-params-validationcompiler
+Version         : 0.31-2
+Description     : Build an optimized subroutine parameter validator once, use it forever
+Architecture    : any
+--
+Name            : perl-parse-recdescent
+Version         : 1.967015-3
+Description     : Recursive descent parser generator
+Architecture    : any
+--
+Name            : perl-path-tiny
+Version         : 0.144-2
+Description     : File path utility
+Architecture    : any
+--
+Name            : perl-perlio-utf8-strict
+Version         : 0.010-2
+Description     : Fast and correct UTF-8 PerlIO
+Architecture    : x86_64
+--
+Name            : perl-regexp-common
+Version         : 2017060201-6
+Description     : Commonly requested regular expressions
+Architecture    : any
+--
+Name            : perl-role-tiny
+Version         : 2.002004-4
+Description     : Roles. Like a nouvelle cuisine portion size slice of Moose.
+Architecture    : any
+--
+Name            : perl-sort-key
+Version         : 1.33-12
+Description     : Sort::Key - the fastest way to sort anything in Perl
+Architecture    : x86_64
+--
+Name            : perl-specio
+Version         : 0.48-1
+Description     : Type constraints and coercions for Perl
+Architecture    : any
+--
+Name            : perl-sub-exporter
+Version         : 0.991-1
+Description     : A sophisticated exporter for custom-built routines
+Architecture    : any
+--
+Name            : perl-sub-exporter-progressive
+Version         : 0.001013-9
+Description     : Only use Sub::Exporter if you need it
+Architecture    : any
+--
+Name            : perl-sub-identify
+Version         : 0.14-11
+Description     : Retrieve names of code references
+Architecture    : x86_64
+--
+Name            : perl-sub-install
+Version         : 0.928-9
+Description     : Install subroutines into packages easily
+Architecture    : any
+--
+Name            : perl-test-fatal
+Version         : 0.017-2
+Description     : Incredibly simple helpers for testing code with exceptions
+Architecture    : any
+--
+Name            : perl-text-bibtex
+Version         : 0.89-2
+Description     : Perl interface to read and parse BibTeX files
+Architecture    : x86_64
+--
+Name            : perl-text-csv
+Version         : 2.04-1
+Description     : comma-separated values manipulator
+Architecture    : any
+--
+Name            : perl-text-glob
+Version         : 0.11-10
+Description     : match globbing patterns against text
+Architecture    : any
+--
+Name            : perl-text-roman
+Version         : 3.5-10
+Description     : Allows conversion between Roman and Arabic algarisms
+Architecture    : any
+--
+Name            : perl-tie-cycle
+Version         : 1.227-2
+Description     : Cycle through a list of values via a scalar
+Architecture    : any
+--
+Name            : perl-timedate
+Version         : 2.33-5
+Description     : Date formating subroutines
+Architecture    : any
+--
+Name            : perl-try-tiny
+Version         : 0.31-3
+Description     : Minimal try/catch with proper localization of $@
+Architecture    : any
+--
+Name            : perl-unicode-linebreak
+Version         : 2019.001-6
+Description     : UAX #14 Unicode Line Breaking Algorithm
+Architecture    : x86_64
+--
+Name            : perl-uri
+Version         : 5.21-1
+Description     : Uniform Resource Identifiers (absolute and relative)
+Architecture    : any
+--
+Name            : perl-variable-magic
+Version         : 0.64-1
+Description     : Associate user-defined magic to variables from Perl.
+Architecture    : x86_64
+--
+Name            : perl-www-robotrules
+Version         : 6.02-12
+Description     : Database of robots.txt-derived permissions
+Architecture    : any
+--
+Name            : perl-xml-libxml
+Version         : 2.0209-1
+Description     : Interface to the libxml library
+Architecture    : x86_64
+--
+Name            : perl-xml-libxml-simple
+Version         : 1.01-2
+Description     : An analogue of XML::Simple using libxml
+Architecture    : any
+--
+Name            : perl-xml-libxslt
+Version         : 2.002001-2
+Description     : Interface to the gnome libxslt library
+Architecture    : x86_64
+--
+Name            : perl-xml-namespacesupport
+Version         : 1.12-5
+Description     : Generic namespace helpers (ported from SAX2)
+Architecture    : any
+URL             : https://search.cpan.org/dist/XML-NamespaceSupport
+Licenses        : GPL
+Groups          : None
+Provides        : None
+--
+Name            : perl-xml-sax
+Version         : 1.02-2
+Description     : Simple API for XML
+Architecture    : any
+--
+Name            : perl-xml-sax-base
+Version         : 1.09-5
+Description     : Base class SAX Drivers and Filters
+Architecture    : any
+--
+Name            : perl-xml-writer
+Version         : 0.900-2
+Description     : Module for writing XML documents
+Architecture    : any
+--
+Name            : pikaur
+Version         : 1.20-1
+Description     : AUR helper which asks all questions before installing/building. Inspired by pacaur, yaourt and yay.
+Architecture    : any
+--
+Name            : pinentry
+Version         : 1.3.0-1
+Description     : Collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol
+Architecture    : x86_64
+--
+Name            : pipewire
+Version         : 1:1.0.6-1
+Description     : Low-latency audio/video router and processor
+Architecture    : x86_64
+--
+Name            : pipewire-audio
+Version         : 1:1.0.6-1
+Description     : Low-latency audio/video router and processor - Audio support
+Architecture    : x86_64
+--
+Name            : pipewire-jack
+Version         : 1:1.0.6-1
+Description     : Low-latency audio/video router and processor - JACK replacement
+Architecture    : x86_64
+--
+Name            : pipewire-session-manager
+Version         : 1:1.0.6-1
+Description     : Session manager for PipeWire (default provider)
+Architecture    : x86_64
+--
+Name            : pixman
+Version         : 0.43.4-1
+Description     : The pixel-manipulation library for X and cairo
+Architecture    : x86_64
+--
+Name            : pkgconf
+Version         : 2.1.1-1
+Description     : Package compiler and linker metadata toolkit
+Architecture    : x86_64
+--
+Name            : pnpm
+Version         : 9.1.1-1
+Description     : Fast, disk space efficient package manager
+Architecture    : any
+--
+Name            : poppler-data
+Version         : 0.4.12-1
+Description     : Encoding data for the poppler PDF rendering library
+Architecture    : any
+--
+Name            : popt
+Version         : 1.19-1
+Description     : A commandline option parser
+Architecture    : x86_64
+--
+Name            : portaudio
+Version         : 1:19.7.0-2
+Description     : A free, cross-platform, open source, audio I/O library.
+Architecture    : x86_64
+--
+Name            : prettier
+Version         : 3.2.5-1
+Description     : An opinionated code formatter
+Architecture    : any
+--
+Name            : procps-ng
+Version         : 4.0.4-3
+Description     : Utilities for monitoring your system and its processes
+Architecture    : x86_64
+--
+Name            : proselint
+Version         : 0.14.0-1
+Description     : A linter for prose
+Architecture    : any
+--
+Name            : psmisc
+Version         : 23.7-1
+Description     : Miscellaneous procfs tools
+Architecture    : x86_64
+--
+Name            : pyalpm
+Version         : 0.10.9-2
+Description     : Python 3 bindings for libalpm
+Architecture    : x86_64
+--
+Name            : pyenv
+Version         : 1:2.4.1-1
+Description     : Easily switch between multiple versions of Python
+Architecture    : any
+--
+Name            : pylyzer-bin
+Version         : 0.0.54-1
+Description     : A fast static code analyzer & language server for Python
+Architecture    : x86_64
+--
+Name            : python
+Version         : 3.12.3-1
+Description     : The Python programming language
+Architecture    : x86_64
+--
+Name            : python-appdirs
+Version         : 1.4.4-10
+Description     : A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir".
+Architecture    : any
+--
+Name            : python-argcomplete
+Version         : 3.1.1-3
+Description     : Easy, extensible command line tab completion of arguments for your Python script
+Architecture    : any
+--
+Name            : python-asttokens
+Version         : 2.4.1-2
+Description     : Get the currently executing AST node of a frame, and other information
+Architecture    : any
+--
+Name            : python-attrs
+Version         : 23.2.0-3
+Description     : Attributes without boilerplate.
+Architecture    : any
+--
+Name            : python-autocommand
+Version         : 2.2.2-6
+Description     : A library to create a command-line program from a function
+Architecture    : any
+--
+Name            : python-awscrt
+Version         : 0.19.19-2
+Description     : A common runtime for AWS Python projects
+Architecture    : x86_64
+--
+Name            : python-bdfr
+Version         : 2.6.2-1
+Description     : Bulk downloader for Reddit
+Architecture    : any
+--
+Name            : python-beautifulsoup4
+Version         : 4.12.3-2
+Description     : A Python HTML/XML parser designed for quick turnaround projects like screen-scraping
+Architecture    : any
+--
+Name            : python-black
+Version         : 24.3.0-3
+Description     : Uncompromising Python code formatter
+Architecture    : any
+--
+Name            : python-cattrs
+Version         : 23.2.3-3
+Description     : Complex custom class converters for attrs
+Architecture    : any
+--
+Name            : python-certifi
+Version         : 2024.02.02-2
+Description     : Python package for providing Mozilla's CA Bundle (using system CA store)
+Architecture    : any
+--
+Name            : python-cffi
+Version         : 1.16.0-2
+Description     : Foreign Function Interface for Python calling C code
+Architecture    : x86_64
+--
+Name            : python-chardet
+Version         : 5.2.0-2
+Description     : Python3 module for character encoding auto-detection
+Architecture    : any
+--
+Name            : python-charset-normalizer
+Version         : 3.3.2-2
+Description     : Encoding and language detection alternative to chardet
+Architecture    : any
+--
+Name            : python-click
+Version         : 8.1.7-3
+Description     : Simple wrapper around optparse for powerful command line utilities
+Architecture    : any
+--
+Name            : python-colorama
+Version         : 0.4.6-3
+Description     : Python API for cross-platform colored terminal text.
+Architecture    : any
+--
+Name            : python-cryptography
+Version         : 42.0.6-1
+Description     : A package designed to expose cryptographic recipes and primitives to Python developers
+Architecture    : x86_64
+--
+Name            : python-dateutil
+Version         : 2.9.0-5
+Description     : Provides powerful extensions to the standard datetime module
+Architecture    : any
+--
+Name            : python-decorator
+Version         : 5.1.1-4
+Description     : Python Decorator module
+Architecture    : any
+--
+Name            : python-dict2xml
+Version         : 1.7.5-2
+Description     : Small utility to convert a python dictionary into an XML string
+Architecture    : any
+--
+Name            : python-distlib
+Version         : 0.3.8-2
+Description     : Low-level functions that relate to packaging and distribution of Python software
+Architecture    : any
+--
+Name            : python-distro
+Version         : 1.9.0-2
+Description     : Linux OS platform information API
+Architecture    : any
+--
+Name            : python-docstring-to-markdown
+Version         : 0.15-2
+Description     : On the fly conversion of Python docstrings to markdown
+Architecture    : any
+--
+Name            : python-docutils
+Version         : 1:0.21.2-1
+Description     : Set of tools for processing plaintext docs into formats such as HTML, XML, or LaTeX
+Architecture    : any
+--
+Name            : python-executing
+Version         : 2.0.0-3
+Description     : Get the currently executing AST node of a frame, and other information
+Architecture    : any
+--
+Name            : python-fastjsonschema
+Version         : 2.19.1-3
+Description     : Fast JSON schema validator for Python
+Architecture    : any
+--
+Name            : python-filelock
+Version         : 3.13.3-2
+Description     : A platform independent file lock
+Architecture    : any
+--
+Name            : python-gitdb
+Version         : 1:4.0.11-3
+Description     : A pure-Python git object database
+Architecture    : any
+--
+Name            : python-gitpython
+Version         : 3.1.42-4
+Description     : A python library used to interact with Git repositories
+Architecture    : any
+--
+Name            : python-greenlet
+Version         : 3.0.3-2
+Description     : Lightweight in-process concurrent programming
+Architecture    : x86_64
+--
+Name            : python-idna
+Version         : 3.6-2
+Description     : Internationalized Domain Names in Applications (IDNA)
+Architecture    : any
+URL             : https://github.com/kjd/idna
+Licenses        : BSD
+--
+Name            : python-inflect
+Version         : 7.2.1-2
+Description     : Correctly generate plurals, singular nouns, ordinals, indefinite articles
+Architecture    : any
+--
+Name            : python-isort
+Version         : 5.13.2-3
+Description     : A Python utility / library to sort Python imports
+Architecture    : any
+--
+Name            : python-jaraco.context
+Version         : 4.3.0-4
+Description     : Context managers by jaraco
+Architecture    : any
+--
+Name            : python-jaraco.functools
+Version         : 4.0.1-1
+Description     : Functools like those found in stdlib
+Architecture    : any
+--
+Name            : python-jaraco.text
+Version         : 3.12.0-3
+Description     : Module for text manipulation
+Architecture    : any
+--
+Name            : python-jedi
+Version         : 0.19.1-2
+Description     : Awesome autocompletion for python
+Architecture    : any
+--
+Name            : python-jmespath
+Version         : 1.0.1-3
+Description     : A query language for JSON
+Architecture    : any
+--
+Name            : python-libcst
+Version         : 0.4.9-5
+Description     : A concrete syntax tree parser and serializer library for Python that preserves many aspects of Python's abstract syntax tree
+Architecture    : x86_64
+--
+Name            : python-lsprotocol
+Version         : 2023.0.1-2
+Description     : Python types for Language Server Protocol
+Architecture    : any
+--
+Name            : python-markdown-it-py
+Version         : 3.0.0-2
+Description     : Python port of markdown-it. Markdown parsing, done right!
+Architecture    : any
+--
+Name            : python-matplotlib-inline
+Version         : 0.1.7-1
+Description     : Inline Matplotlib backend for Jupyter
+Architecture    : any
+--
+Name            : python-mdurl
+Version         : 0.1.2-5
+Description     : URL utilities for markdown-it
+Architecture    : any
+--
+Name            : python-more-itertools
+Version         : 10.2.0-2
+Description     : More routines for operating on iterables, beyond itertools
+Architecture    : any
+--
+Name            : python-moreorless
+Version         : 0.4.0-7
+Description     : Python diff wrapper
+Architecture    : any
+--
+Name            : python-mpv
+Version         : 1.0.6-1
+Description     : Python interface to the awesome mpv media player
+Architecture    : any
+--
+Name            : python-msgpack
+Version         : 1.0.5-2
+Description     : MessagePack serializer implementation for Python
+Architecture    : x86_64
+--
+Name            : python-mypy_extensions
+Version         : 1.0.0-4
+Description     : Experimental type system extensions for programs checked with the mypy typechecker
+Architecture    : any
+--
+Name            : python-ordered-set
+Version         : 4.1.0-5
+Description     : A MutableSet that remembers its order, so that every entry has an index
+Architecture    : any
+--
+Name            : python-packaging
+Version         : 23.2-3
+Description     : Core utilities for Python packages
+Architecture    : any
+--
+Name            : python-parso
+Version         : 1:0.8.4-2
+Description     : Python parser that supports error recovery and round-trip parsing for different Python versions
+Architecture    : any
+--
+Name            : python-pathspec
+Version         : 0.12.1-2
+Description     : Utility library for gitignore style pattern matching of file paths
+Architecture    : any
+--
+Name            : python-pbr
+Version         : 6.0.0-4
+Description     : Python Build Reasonableness
+Architecture    : any
+--
+Name            : python-pexpect
+Version         : 4.9.0-2
+Description     : For controlling and automating applications
+Architecture    : any
+--
+Name            : python-pip
+Version         : 24.0-2
+Description     : The PyPA recommended tool for installing Python packages
+Architecture    : any
+--
+Name            : python-pipenv
+Version         : 2023.12.1-2
+Description     : Sacred Marriage of Pipfile, Pip, & Virtualenv.
+Architecture    : any
+--
+Name            : python-platformdirs
+Version         : 4.2.0-3
+Description     : A library to determine platform-specific system directories
+Architecture    : any
+--
+Name            : python-praw
+Version         : 7.7.1-3
+Description     : Python Reddit API Wrapper that allows for simple access to Reddit's API
+Architecture    : any
+--
+Name            : python-prawcore
+Version         : 2.4.0-2
+Description     : Low-level communication layer for PRAW 4+.
+Architecture    : any
+--
+Name            : python-prompt_toolkit
+Version         : 3.0.43-2
+Description     : Library for building powerful interactive command lines in Python
+Architecture    : any
+--
+Name            : python-psutil
+Version         : 5.9.8-4
+Description     : A cross-platform process and system utilities module for Python
+Architecture    : x86_64
+--
+Name            : python-ptyprocess
+Version         : 0.7.0-6
+Description     : Run a subprocess in a pseudo terminal
+Architecture    : any
+--
+Name            : python-pure-eval
+Version         : 0.2.2-4
+Description     : Safely evaluate AST nodes without side effects
+Architecture    : any
+--
+Name            : python-pycparser
+Version         : 2.22-2
+Description     : C parser and AST generator written in Python
+Architecture    : any
+--
+Name            : python-pydocstyle
+Version         : 6.3.0-4
+Description     : Docstring style checker
+Architecture    : any
+--
+Name            : python-pygls
+Version         : 1.3.1-2
+Description     : Pythonic generic implementation of the Language Server Protocol
+Architecture    : any
+--
+Name            : python-pygments
+Version         : 2.17.2-3
+Description     : Python syntax highlighter
+Architecture    : any
+--
+Name            : python-pynvim
+Version         : 0.5.0-3
+Description     : Python client for Neovim
+Architecture    : any
+--
+Name            : python-requests
+Version         : 2.31.0-3
+Description     : Python HTTP for Humans
+Architecture    : any
+--
+Name            : python-rich
+Version         : 13.7.1-2
+Description     : Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal
+Architecture    : any
+--
+Name            : python-ruamel-yaml
+Version         : 0.18.6-2
+Description     : YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order
+Architecture    : any
+--
+Name            : python-ruamel.yaml.clib
+Version         : 0.2.8-2
+Description     : C version of reader, parser and emitter for ruamel.yaml derived from libyaml
+Architecture    : x86_64
+--
+Name            : python-setuptools
+Version         : 1:69.0.3-6
+Description     : Easily download, build, install, upgrade, and uninstall Python packages
+Architecture    : any
+--
+Name            : python-six
+Version         : 1.16.0-9
+Description     : Python 2 and 3 compatibility utilities
+Architecture    : any
+--
+Name            : python-smmap
+Version         : 1:5.0.1-2
+Description     : A pure git implementation of a sliding window memory map manager
+Architecture    : any
+--
+Name            : python-snowballstemmer
+Version         : 2.2.0-6
+Description     : Snowball stemming library collection for Python
+Architecture    : any
+--
+Name            : python-soupsieve
+Version         : 2.5-3
+Description     : A CSS4 selector implementation for Beautiful Soup
+Architecture    : any
+--
+Name            : python-stack-data
+Version         : 0.6.3-2
+Description     : Extract data from python stack frames and tracebacks for informative displays
+Architecture    : any
+--
+Name            : python-stdlibs
+Version         : 2022.10.9-3
+Description     : Simple list of top-level packages in Python's stdlib
+Architecture    : any
+--
+Name            : python-stevedore
+Version         : 5.2.0-2
+Description     : Manage dynamic plugins for Python applications
+Architecture    : any
+--
+Name            : python-toml
+Version         : 0.10.2-10
+Description     : A Python library for parsing and creating TOML
+Architecture    : any
+--
+Name            : python-tomli
+Version         : 2.0.1-4
+Description     : A lil' TOML parser
+Architecture    : any
+--
+Name            : python-tomlkit
+Version         : 0.12.5-1
+Description     : Style-preserving TOML library for Python
+Architecture    : any
+--
+Name            : python-trailrunner
+Version         : 1.4.0-3
+Description     : Walk paths and run things
+Architecture    : any
+--
+Name            : python-traitlets
+Version         : 5.14.3-2
+Description     : A configuration system for Python applications
+Architecture    : any
+--
+Name            : python-trove-classifiers
+Version         : 2024.4.10-1
+Description     : Canonical source for classifiers on PyPI (pypi.org)
+Architecture    : any
+--
+Name            : python-typeguard
+Version         : 4.2.1-2
+Description     : Run-time type checker for Python
+Architecture    : any
+--
+Name            : python-types-pygments
+Version         : 2.17.0.20240106-1
+Description     : Typing stubs for Pygments
+Architecture    : any
+--
+Name            : python-typing_extensions
+Version         : 4.11.0-1
+Description     : Backported and Experimental Type Hints for Python 3.8+
+Architecture    : any
+--
+Name            : python-typing_inspect
+Version         : 0.9.0-3
+Description     : Runtime inspection utilities for Python typing module
+Architecture    : any
+--
+Name            : python-uc-micro-py
+Version         : 1.0.3-2
+Description     : Micro subset of unicode data files for linkify-it-py projects
+Architecture    : any
+--
+Name            : python-update-checker
+Version         : 0.18.0-7
+Description     : A python module that will check for package updates
+Architecture    : any
+--
+Name            : python-urllib3
+Version         : 1.26.18-3
+Description     : HTTP library with thread-safe connection pooling and file post support
+Architecture    : any
+--
+Name            : python-validate-pyproject
+Version         : 0.16-1
+Description     : Validation library and CLI tool for checking on 'pyproject.toml' files using JSON Schema
+Architecture    : any
+--
+Name            : python-virtualenv
+Version         : 20.25.0-3
+Description     : Virtual Python Environment builder
+Architecture    : any
+--
+Name            : python-virtualenv-clone
+Version         : 0.5.7-5
+Description     : A script for cloning a non-relocatable virtualenv.
+Architecture    : any
+--
+Name            : python-wcwidth
+Version         : 0.2.13-2
+Description     : Python library that measures the width of unicode strings rendered to a terminal
+Architecture    : any
+--
+Name            : python-websocket-client
+Version         : 1.8.0-1
+Description     : WebSocket client library for Python
+Architecture    : any
+--
+Name            : python-wheel
+Version         : 0.43.0-4
+Description     : A built-package format for Python
+Architecture    : any
+--
+Name            : python-xmltodict
+Version         : 0.13.0-4
+Description     : Python module that makes working with XML feel like working with JSON
+Architecture    : any
+--
+Name            : python-yaml
+Version         : 6.0.1-3
+Description     : Python bindings for YAML, using fast libYAML library
+Architecture    : x86_64
+--
+Name            : rav1e
+Version         : 0.7.1-1
+Description     : An AV1 encoder focused on speed and safety
+Architecture    : x86_64
+--
+Name            : readline
+Version         : 8.2.010-1
+Description     : GNU readline library
+Architecture    : x86_64
+--
+Name            : rebuild-detector
+Version         : 4.4.3-2
+Description     : Detects which packages need to be rebuilt
+Architecture    : any
+--
+Name            : ripgrep
+Version         : 14.1.0-1
+Description     : A search tool that combines the usability of ag with the raw speed of grep
+Architecture    : x86_64
+--
+Name            : rsync
+Version         : 3.3.0-2
+Description     : A fast and versatile file copying tool for remote and local files
+Architecture    : x86_64
+--
+Name            : rubberband
+Version         : 3.3.0-1
+Description     : Time-stretching and pitch-shifting audio library and utility
+Architecture    : x86_64
+--
+Name            : ruff
+Version         : 0.4.4-1
+Description     : An extremely fast Python linter, written in Rust
+Architecture    : x86_64
+--
+Name            : ruff-lsp
+Version         : 0.0.53-3
+Description     : Language Server Protocol implementation for Ruff
+Architecture    : any
+--
+Name            : rust
+Version         : 1:1.78.0-1
+Description     : Systems programming language focused on safety, speed and concurrency
+Architecture    : x86_64
+--
+Name            : rustywind
+Version         : 0.21.0-1
+Description     : CLI for organizing Tailwind CSS classes
+Architecture    : any
+--
+Name            : sbc
+Version         : 2.0-1
+Description     : Bluetooth Subband Codec (SBC) library
+Architecture    : x86_64
+--
+Name            : sd
+Version         : 1.0.0-1
+Description     : Intuitive find & replace
+Architecture    : x86_64
+--
+Name            : sdl2
+Version         : 2.30.3-1
+Description     : A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard (Version 2)
+Architecture    : x86_64
+--
+Name            : sed
+Version         : 4.9-3
+Description     : GNU stream editor
+Architecture    : x86_64
+--
+Name            : semver
+Version         : 7.6.2-1
+Description     : The semantic version parser used by npm
+Architecture    : any
+--
+Name            : serd
+Version         : 0.32.2-1
+Description     : Lightweight C library for RDF syntax supporting reading/ writing Turtle and NTriples
+Architecture    : x86_64
+--
+Name            : shaderc
+Version         : 2024.0-1
+Description     : Collection of tools, libraries and tests for shader compilation
+Architecture    : x86_64
+--
+Name            : shadow
+Version         : 4.15.1-2
+Description     : Password and account management tool suite with support for shadow files and PAM
+Architecture    : x86_64
+--
+Name            : shared-mime-info
+Version         : 2.4-1
+Description     : Freedesktop.org Shared MIME Info
+Architecture    : x86_64
+--
+Name            : shellcheck
+Version         : 0.10.0-4
+Description     : Shell script analysis tool
+Architecture    : x86_64
+--
+Name            : shellharden
+Version         : 4.3.1-2
+Description     : Bash linter and syntax highlighter
+Architecture    : x86_64
+--
+Name            : shfmt
+Version         : 3.7.0-1
+Description     : Format shell programs
+Architecture    : x86_64
+--
+Name            : sleepcount
+Version         : 0.1.2-2
+Description     : just as a simple 'sleep' CLI util but with countdown option and HH:MM:SS target time
+Architecture    : any
+--
+Name            : snappy
+Version         : 1.1.10-1
+Description     : A fast compressor/decompressor library
+Architecture    : x86_64
+--
+Name            : sord
+Version         : 0.16.16-1
+Description     : A lightweight C library for storing RDF data in memory
+Architecture    : x86_64
+--
+Name            : speex
+Version         : 1.2.1-1
+Description     : A free codec for free speech
+Architecture    : x86_64
+--
+Name            : speexdsp
+Version         : 1.2.1-1
+Description     : DSP library derived from Speex
+Architecture    : x86_64
+--
+Name            : spirv-tools
+Version         : 2024.1-1
+Description     : API and commands for processing SPIR-V modules
+Architecture    : x86_64
+--
+Name            : sqlite
+Version         : 3.45.3-1
+Description     : A C library that implements an SQL database engine
+Architecture    : x86_64
+--
+Name            : sratom
+Version         : 0.6.16-1
+Description     : An LV2 Atom RDF serialisation library
+Architecture    : x86_64
+--
+Name            : srt
+Version         : 1.5.3-1
+Description     : Secure Reliable Transport library
+Architecture    : x86_64
+--
+Name            : sshfs
+Version         : 3.7.3-1
+Description     : FUSE client based on the SSH File Transfer Protocol
+Architecture    : x86_64
+--
+Name            : sshuttle
+Version         : 1.1.2-2
+Description     : Transparent proxy server that forwards all TCP packets over ssh
+Architecture    : any
+--
+Name            : starship
+Version         : 1.19.0-1
+Description     : The cross-shell prompt for astronauts
+Architecture    : x86_64
+--
+Name            : stow
+Version         : 2.4.0-1
+Description     : Manage installation of multiple softwares in the same directory tree
+Architecture    : any
+--
+Name            : stylelint
+Version         : 16.5.0-1
+Description     : Mighty, modern CSS linter
+Architecture    : any
+--
+Name            : stylua
+Version         : 0.20.0-3
+Description     : Code formatter for Lua
+Architecture    : x86_64
+--
+Name            : sudo
+Version         : 1.9.15.p5-1
+Description     : Give certain users the ability to run some commands as root
+Architecture    : x86_64
+--
+Name            : svt-av1
+Version         : 2.0.0-1
+Description     : Scalable Video Technology AV1 encoder and decoder
+Architecture    : x86_64
+--
+Name            : systemd
+Version         : 255.6-1
+Description     : system and service manager
+Architecture    : x86_64
+--
+Name            : systemd-libs
+Version         : 255.6-1
+Description     : systemd client libraries
+Architecture    : x86_64
+--
+Name            : systemd-sysvcompat
+Version         : 255.6-1
+Description     : sysvinit compat for systemd
+Architecture    : x86_64
+--
+Name            : tailwindcss-language-server
+Version         : 0.0.16-1
+Description     : Tailwind CSS Language Server
+Architecture    : any
+--
+Name            : tar
+Version         : 1.35-2
+Description     : Utility used to store, backup, and transport files
+Architecture    : x86_64
+--
+Name            : tealdeer
+Version         : 1.6.1-1
+Description     : A fast tldr client in Rust
+Architecture    : x86_64
+--
+Name            : tectonic-git
+Version         : 1:0.0.2.r1356.a451f970-1
+Description     : Modernized, complete, self-contained TeX/LaTeX engine, powered by XeTeX and TeXLive
+Architecture    : x86_64
+--
+Name            : texinfo
+Version         : 7.1-2
+Description     : GNU documentation system for on-line information and printed output
+Architecture    : x86_64
+--
+Name            : texlab-bin
+Version         : 5.14.1-1
+Description     : A cross-platform implementation of the Language Server Protocol for LaTeX
+Architecture    : x86_64
+--
+Name            : tidy
+Version         : 5.8.0-2
+Description     : A tool to tidy down your HTML code to a clean style
+Architecture    : x86_64
+--
+Name            : tmux
+Version         : 3.4-7
+Description     : Terminal multiplexer
+Architecture    : x86_64
+--
+Name            : tmux-plugin-manager
+Version         : 3.1.0-1
+Description     : tpm - Tmux Plugin Manager
+Architecture    : any
+--
+Name            : tpm2-tss
+Version         : 4.0.1-1
+Description     : Implementation of the TCG Trusted Platform Module 2.0 Software Stack (TSS2)
+Architecture    : x86_64
+--
+Name            : tree-sitter-bash
+Version         : 0.21.0-2
+Description     : Bash grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : tree-sitter-c
+Version         : 0.21.1-1
+Description     : C grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : tree-sitter-cli
+Version         : 0.22.6-1
+Description     : CLI tool for developing, testing, and using Tree-sitter parsers
+Architecture    : x86_64
+--
+Name            : tree-sitter-git
+Version         : 0.22.5.r3.g3ab3b055-1
+Description     : An incremental parsing system for programming tools
+Architecture    : x86_64
+--
+Name            : tree-sitter-lua
+Version         : 0.1.0-2
+Description     : Lua grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : tree-sitter-markdown
+Version         : 0.2.3-2
+Description     : Markdown grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : tree-sitter-python
+Version         : 0.21.0-2
+Description     : Python grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : tree-sitter-query
+Version         : 0.3.0-1
+Description     : TS query grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : tree-sitter-vimdoc
+Version         : 2.5.1-2
+Description     : Vim help file grammar for tree-sitter
+Architecture    : x86_64
+--
+Name            : ttf-cascadia-code-nerd
+Version         : 3.2.1-2
+Description     : Patched font Cascadia Code (Caskaydia) from nerd fonts library
+Architecture    : any
+--
+Name            : ttf-lato
+Version         : 2.015-4
+Description     : A sanserif typeface family bearing the Polish name of "Summer"
+Architecture    : any
+--
+Name            : ttf-roboto-mono-nerd
+Version         : 3.2.1-2
+Description     : Patched font Roboto Mono from nerd fonts library
+Architecture    : any
+--
+Name            : ttf-roboto-slab
+Version         : 3:2.002-2
+Description     : Roboto Slab is a slab serif addition to the Roboto type family.
+Architecture    : any
+--
+Name            : ttf-roboto-slab-variable
+Version         : 2.002-2
+Description     : Roboto Slab is a slab serif addition to the Roboto type family.
+Architecture    : any
+--
+Name            : typescript
+Version         : 5.4.5-1
+Description     : JavaScript with syntax for types
+Architecture    : any
+--
+Name            : tzdata
+Version         : 2024a-2
+Description     : Sources for time zone and daylight saving time data
+Architecture    : x86_64
+--
+Name            : uchardet
+Version         : 0.0.8-2
+Description     : Encoding detector library ported from Mozilla
+Architecture    : x86_64
+--
+Name            : ufmt
+Version         : 2.1.0-2
+Description     : Safe, atomic formatting with black and µsort
+Architecture    : any
+--
+Name            : unibilium
+Version         : 2.1.1-2
+Description     : A terminfo parsing library
+Architecture    : x86_64
+--
+Name            : unzip
+Version         : 6.0-20
+Description     : For extracting and viewing files in .zip archives
+Architecture    : x86_64
+--
+Name            : usort
+Version         : 1.0.4-4
+Description     : Safe, minimal import sorting for Python projects
+Architecture    : any
+--
+Name            : util-linux
+Version         : 2.40.1-1
+Description     : Miscellaneous system utilities for Linux
+Architecture    : x86_64
+--
+Name            : util-linux-libs
+Version         : 2.40.1-1
+Description     : util-linux runtime libraries
+Architecture    : x86_64
+--
+Name            : v4l-utils
+Version         : 1.26.1-1
+Description     : Userspace tools and conversion library for Video 4 Linux
+Architecture    : x86_64
+--
+Name            : vapoursynth
+Version         : R66-2
+Description     : A video processing framework with the future in mind
+Architecture    : x86_64
+--
+Name            : vid.stab
+Version         : 1.1.1-1
+Description     : Video stabilization library
+Architecture    : x86_64
+--
+Name            : vim
+Version         : 9.1.0408-1
+Description     : Vi Improved, a highly configurable, improved version of the vi text editor
+Architecture    : x86_64
+--
+Name            : vim-runtime
+Version         : 9.1.0408-1
+Description     : Vi Improved, a highly configurable, improved version of the vi text editor (shared runtime)
+Architecture    : x86_64
+--
+Name            : vmaf
+Version         : 3.0.0-1
+Description     : Perceptual video quality assessment algorithm based on multi-method fusion
+Architecture    : x86_64
+--
+Name            : vscode-css-languageserver
+Version         : 1.89.0-1
+Description     : CSS/LESS/SCSS language server
+Architecture    : any
+--
+Name            : vscode-html-languageserver
+Version         : 1.89.0-1
+Description     : HTML language server
+Architecture    : any
+--
+Name            : vscode-json-languageserver
+Version         : 1.89.0-1
+Description     : JSON language server
+Architecture    : any
+--
+Name            : vulkan-icd-loader
+Version         : 1.3.279-1
+Description     : Vulkan Installable Client Driver (ICD) Loader
+Architecture    : x86_64
+--
+Name            : vulture
+Version         : 2.11-3
+Description     : Finds dead code in Python projects
+Architecture    : any
+--
+Name            : wayland
+Version         : 1.22.0-1
+Description     : A computer display server protocol
+Architecture    : x86_64
+--
+Name            : webrtc-audio-processing-1
+Version         : 1.3-2
+Description     : AudioProcessing library based on Google's implementation of WebRTC
+Architecture    : x86_64
+--
+Name            : wget
+Version         : 1.24.5-2
+Description     : Network utility to retrieve files from the Web
+Architecture    : x86_64
+--
+Name            : which
+Version         : 2.21-6
+Description     : A utility to show the full path of commands
+Architecture    : x86_64
+--
+Name            : wireplumber
+Version         : 0.5.2-1
+Description     : Session / policy manager implementation for PipeWire
+Architecture    : x86_64
+--
+Name            : x264
+Version         : 3:0.164.r3108.31e19f9-1
+Description     : Open Source H264/AVC video encoder
+Architecture    : x86_64
+--
+Name            : x265
+Version         : 3.5-3
+Description     : Open Source H265/HEVC video encoder
+Architecture    : x86_64
+--
+Name            : xcb-proto
+Version         : 1.17.0-2
+Description     : XML-XCB protocol descriptions
+Architecture    : any
+--
+Name            : xclip
+Version         : 0.13-5
+Description     : Command line interface to the X11 clipboard
+Architecture    : x86_64
+--
+Name            : xkeyboard-config
+Version         : 2.41-1
+Description     : X keyboard configuration files
+Architecture    : any
+--
+Name            : xorgproto
+Version         : 2024.1-2
+Description     : combined X.Org X11 Protocol headers
+Architecture    : any
+--
+Name            : xvidcore
+Version         : 1.3.7-2
+Description     : XviD is an open source MPEG-4 video codec
+Architecture    : x86_64
+--
+Name            : xxhash
+Version         : 0.8.2-1
+Description     : Extremely fast non-cryptographic hash algorithm
+Architecture    : x86_64
+--
+Name            : xz
+Version         : 5.6.1-3
+Description     : Library and command line tools for XZ and LZMA compressed files
+Architecture    : x86_64
+--
+Name            : yamllint
+Version         : 1.33.0-2
+Description     : Linter for YAML files
+Architecture    : any
+--
+Name            : yarn
+Version         : 1.22.22-1
+Description     : Fast, reliable, and secure dependency management
+Architecture    : any
+--
+Name            : yq
+Version         : 3.4.3-1
+Description     : Command-line YAML, XML, TOML processor - jq wrapper for YAML/XML/TOML documents
+Architecture    : any
+--
+Name            : yt-dlp
+Version         : 2024.04.09-2
+Description     : A youtube-dl fork with additional features and fixes
+Architecture    : any
+--
+Name            : zimg
+Version         : 3.0.5-1
+Description     : Scaling, colorspace conversion, and dithering library
+Architecture    : x86_64
+--
+Name            : zip
+Version         : 3.0-11
+Description     : Compressor/archiver for creating and modifying zipfiles
+Architecture    : x86_64
+--
+Name            : zix
+Version         : 0.4.2-2
+Description     : A lightweight C99 portability and data structure library
+Architecture    : x86_64
+--
+Name            : zlib
+Version         : 1:1.3.1-2
+Description     : Compression library implementing the deflate compression method found in gzip and PKZIP
+Architecture    : x86_64
+--
+Name            : zsh
+Version         : 5.9-5
+Description     : A very advanced and programmable command interpreter (shell) for UNIX
+Architecture    : x86_64
+--
+Name            : zsh-autosuggestions
+Version         : 0.7.0-2
+Description     : Fish-like autosuggestions for zsh
+Architecture    : any
+--
+Name            : zsh-history-substring-search
+Version         : 1.1.0-1
+Description     : ZSH port of Fish history search (up arrow)
+Architecture    : any
+--
+Name            : zsh-syntax-highlighting
+Version         : 0.8.0-1
+Description     : Fish shell like syntax highlighting for Zsh
+Architecture    : any
+--
+Name            : zsh-vi-mode
+Version         : 0.11.0-1
+Description     : A better and friendly vi(vim) mode plugin for ZSH
+Architecture    : any
+--
+Name            : zsh-you-should-use
+Version         : 1.7.3-1
+Description     : ZSH plugin that reminds you to use existing aliases for commands you just typed
+Architecture    : any
+--
+Name            : zstd
+Version         : 1.5.5-1
+Description     : Zstandard - Fast real-time compression algorithm
+Architecture    : x86_64
