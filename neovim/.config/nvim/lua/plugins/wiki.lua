@@ -1,10 +1,17 @@
-local Plugin = { "gbprod/yanky.nvim" }
+local Plugin = { "lervag/wiki.vim" }
+Plugin.lazy = false
 
-Plugin.event = "VeryLazy"
+Plugin.config = function ()
+    local wiki = require("wiki.vim")
+    wiki.setup({
+        options = { wiki_templates = "[{'match_re': '2024', 'source_filename': '/home/wynand/git/wiki/templates/daily.md'},]"}})
+end
+
 Plugin.init = function ()
     vim.g.wiki_mappings_prefix = "<leader>x"
     vim.g.wiki_mappings_use_defaults = "none"
 end
+
 Plugin.keys = {
     { "<leader>xi", "<cmd>WikiIndex<cr>", desc="Open wiki index"},
     { "<leader>xo", "<cmd>WikiOpen<cr>", desc="Open wiki file"},
