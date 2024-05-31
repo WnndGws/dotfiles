@@ -2,6 +2,18 @@
 local is_wsl = vim.fn.has("wsl") == 1
 -- local is_mac = vim.fn.has("macunix") == 1
 -- local is_linux = not is_wsl and not is_mac
+-------------------------------------------
+--- Use tmux-rename upon launching nvim ---
+-------------------------------------------
+local uv = vim.loop
+
+vim.api.nvim_create_autocmd('VimEnter', {
+	callback = function()
+		if vim.env.TMUX_PLUGIN_MANAGER_PATH then
+			uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py', {})
+		end
+	end,
+})
 
 ----------------------------
 --- Fix Clipboard in WSL ---
@@ -33,6 +45,7 @@ end
 ------------------------
 vim.g.autoformat = true -- Enable autoformat
 vim.g.nofoldenable = true -- Disable folding
+vim.g.wiki_root = "~/git/FrogBox-Wiki/"
 
 local opt = vim.opt
 
