@@ -2,7 +2,7 @@ local Plugin = { "lervag/wiki.vim" }
 Plugin.lazy = false
 
 Plugin.config = function ()
-    local wiki = require("wiki.vim")
+    local wiki = require("wiki")
     wiki.setup({
         options = { wiki_templates = "[{'match_re': '2024', 'source_filename': '/home/wynand/git/wiki/templates/daily.md'},]"}})
 end
