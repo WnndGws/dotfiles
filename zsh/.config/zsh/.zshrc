@@ -2,7 +2,7 @@
 #.zshenv: Sourced always and first. Contain exported variables needed by other programs and scripts. Should be light weight since its run for every command
 #export ZDOTDIR=$HOME/.config/zsh in /etc/zsh/zshenv
 #.zshrc: Sourced for interactive shell. Put anything that makes typing in commands easier and nicer looking
-#.zlogin: sourced at login but after zshrc, whether interactive or not. 
+#.zlogin: sourced at login but after zshrc, whether interactive or not.
 #.zaliases: sourced inside .zshrc. Gives all my interactive shell aliases
 #
 ###---------------------------------------------------###
@@ -10,6 +10,11 @@
 ###---------------------------------------------------###
 #If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+HISTFILE="$XDG_STATE_HOME"/zsh/history
+# Completion files: Use XDG dirs
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 
 #Use starship
 eval "$(starship init zsh)"
@@ -30,7 +35,6 @@ fpath=(~/.config/zsh/completions $fpath)
 ###--------------###
 ###--- History---###
 ###--------------###
-HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=100000
 SAVEHIST=100000
 #Write the history file in the ":start:elapsed;command" format
