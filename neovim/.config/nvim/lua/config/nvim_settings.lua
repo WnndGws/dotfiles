@@ -45,7 +45,6 @@ end
 ------------------------
 vim.g.autoformat = true -- Enable autoformat
 vim.g.nofoldenable = true -- Disable folding
-vim.g.wiki_root = "~/git/FrogBox-Wiki/"
 
 local opt = vim.opt
 

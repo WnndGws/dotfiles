@@ -1,15 +1,32 @@
 local Plugin = { "lervag/wiki.vim" }
 Plugin.lazy = false
+Plugin.priority = 950
 
-Plugin.config = function ()
-    local wiki = require("wiki")
-    wiki.setup({
-        options = { wiki_templates = "[{'match_re': '2024', 'source_filename': '/home/wynand/git/wiki/templates/daily.md'},]"}})
-end
-
-Plugin.init = function ()
+Plugin.init = function()
+    vim.g.wiki_root = "~/git/wiki/"
     vim.g.wiki_mappings_prefix = "<leader>x"
     vim.g.wiki_mappings_use_defaults = "none"
+    vim.g.wiki_toc_depth = 4
+    vim.g.wiki_link_schemes = {
+        jira = {
+            resolver = function(url)
+                return {
+                    scheme = "https",
+                    stripped = "frogco.atlassian.net/browse/" .. url.stripped,
+                    url = "https://frogco.atlassian.net/browse/" .. url.stripped,
+                }
+            end,
+        },
+        file = {
+            handler = vim.fn["personal#wiki#file_handler"],
+        },
+    }
+    vim.g.wiki_templates = {
+        {
+            match_re = "\\d\\d\\d\\d-\\d\\d-\\d\\d",
+            source_filename = "/home/wynand/git/wiki/templates/daily.md"
+        },
+    }
 end
 
 Plugin.keys = {
