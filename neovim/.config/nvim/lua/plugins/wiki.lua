@@ -17,9 +17,6 @@ Plugin.init = function()
                 }
             end,
         },
-        file = {
-            handler = vim.fn["personal#wiki#file_handler"],
-        },
     }
     vim.g.wiki_templates = {
         {
