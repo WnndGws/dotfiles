@@ -27,7 +27,7 @@ Plugin.opts = function()
 	return opts
 end
 Plugin.keys = {
-	{ "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+	{ "<leader>at", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
 }
 
 return Plugin
