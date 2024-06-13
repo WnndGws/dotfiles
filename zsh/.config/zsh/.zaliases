@@ -3,8 +3,8 @@
 #. ------------------ #
 
 alias vzal='nvim ~/.config/zsh/.zaliases'
-alias vw='nvim +WikiIndex'
-alias vj='nvim +WikiJournal'
+alias ww='nvim +WikiIndex'
+alias wj='nvim +WikiJournal'
 
 zmodload -F zsh/system p:sysparams # Load the sysparams table.
 zmodload -F zsh/terminfo b:echoti  # Load the echoti builtin.
@@ -267,6 +267,7 @@ tm() { tmux attach -t "$1" || tmux new -s "$1" }
 alias tasks='echo -e "\033]0;taskell\007" && cd ~/work-sync && taskell && echo -e "\033]0;Alacritty\007" && /bin/rm -rf ~/Downloads ~/.wget-hsts ~/.pki'
 
 alias todo='cd ~/git/scripts/ && . /home/wynand/.local/share/virtualenvs/scripts-i4Ak1lIf/bin/activate && rm -rf /tmp/today.txt; echo "\n" >> /tmp/today.txt && date +"## %a %Y-%m-%d" >> /tmp/today.txt && echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt &&  echo "Adding Yesterdays unfinished tasks..." && rg "\[ \]" ~/todo.md >> /tmp/today.txt ; sort --unique /tmp/today.txt ; sed -i "s/\[\ \]/\[x\]\ \:arrow_down\:/" ~/todo.md ; cat /tmp/today.txt >> ~/todo.md && deactivate && cd ~ && nvim ~/todo.md'
+alias today='cd ~/git/scripts/ && . /home/wynand/.local/share/virtualenvs/scripts-i4Ak1lIf/bin/activate && rm -rf /tmp/today.txt; echo "\n" >> /tmp/today.txt && date +"## %a %Y-%m-%d" >> /tmp/today.txt && echo "Checking calendar..." && python ~/git/scripts/python/todo_check >> /tmp/today.txt && cat /tmp/today.txt | wl-copy && echo "Text copied to clipboard"'
 
 #Neofetch
 alias nf="neofetch"

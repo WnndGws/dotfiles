@@ -104,7 +104,6 @@ Plugin.opts = function()
 
 	local capitalized_boolean = augend.constant.new({
 		elements = {
-
 			"True",
 			"False",
 		},

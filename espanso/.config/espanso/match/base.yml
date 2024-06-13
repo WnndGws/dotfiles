@@ -2,6 +2,9 @@
 # Original file: default.yml
 
 matches:
+  - trigger: "fbx"
+    replace: "FBX-"
+
   - trigger: "eml"
     replace: "wynandgouwswg@gmail.com"
 
