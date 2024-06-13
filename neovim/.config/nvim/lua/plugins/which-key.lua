@@ -9,6 +9,7 @@ Plugin.opts = {
 		["<leader><tab>"] = { name = "+tabs" },
 		["<leader>a"] = { name = "+aerial" },
 		["<leader>b"] = { name = "+buffer" },
+		["<leader>g"] = { name = "+git/fugitive" },
 		["<leader>f"] = { name = "+file/find" },
 		["<leader>e"] = { name = "+tree" },
 		["<leader>q"] = { name = "+quit/session" },
