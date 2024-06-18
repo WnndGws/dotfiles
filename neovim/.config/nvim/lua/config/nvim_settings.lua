@@ -46,8 +46,10 @@ end
 vim.g.autoformat = true -- Enable autoformat
 vim.g.nofoldenable = true -- Disable folding
 
+
 local opt = vim.opt
 
+opt.clipboard = "unnamedplus"
 opt.autowrite = true -- Enable auto-write
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 0 -- Hide nothing

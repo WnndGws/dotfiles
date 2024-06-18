@@ -3,8 +3,7 @@
 #. ------------------ #
 
 alias vzal='nvim ~/.config/zsh/.zaliases'
-alias ww='nvim +WikiIndex'
-alias wj='nvim +WikiJournal'
+alias ww='cd ~/git/wiki && nvim +WikiIndex'
 
 zmodload -F zsh/system p:sysparams # Load the sysparams table.
 zmodload -F zsh/terminfo b:echoti  # Load the echoti builtin.

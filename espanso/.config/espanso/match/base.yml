@@ -2,6 +2,10 @@
 # Original file: default.yml
 
 matches:
+  - trigger: fd
+    replace: FreshDesk
+    word: true
+
   - trigger: "fbx"
     replace: "FBX-"
 
