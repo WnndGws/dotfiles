@@ -7,17 +7,11 @@ Plugin.init = function()
     vim.g.wiki_mappings_prefix = "<leader>x"
     vim.g.wiki_mappings_use_defaults = "none"
     vim.g.wiki_toc_depth = 4
-    vim.g.wiki_link_schemes = {
-        jira = {
-            resolver = function(url)
-                return {
-                    scheme = "https",
-                    stripped = "frogco.atlassian.net/browse/" .. url.stripped,
-                    url = "https://frogco.atlassian.net/browse/" .. url.stripped,
-                }
-            end,
-        },
+    vim.g.wiki_link_creation = {
+        md = { url_transform = "wiki#url#utils#url_encode(x)" },
+        pdf = { url_transform = "wiki#url#utils#url_encode(x)" },
     }
+    vim.g.wiki_export = { ext = "html", link_ext_replace = "true", output = ".site"}
     vim.g.wiki_templates = {
         {
             match_re = "\\d\\d\\d\\d-\\d\\d-\\d\\d",

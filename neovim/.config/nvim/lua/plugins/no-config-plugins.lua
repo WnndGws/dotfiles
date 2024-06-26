@@ -6,6 +6,7 @@ local Plugins = {
 	{ "luckasRanarison/tailwind-tools.nvim" },
 	{ "richardbizik/nvim-toc" },
 	{ "aserebryakov/vim-todo-lists" },
+    { "dhruvasagar/vim-table-mode" },
 }
 
 return Plugins

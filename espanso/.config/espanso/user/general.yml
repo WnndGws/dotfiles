@@ -1,7 +1,0 @@
-name: general
-parent: default
-
-matches:
-  # Simple text replacement
-  - trigger: "krwg"
-    replace: "Kind regards,\nWynand Gouws"

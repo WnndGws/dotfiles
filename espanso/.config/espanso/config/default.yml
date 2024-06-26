@@ -11,11 +11,11 @@
 toggle_key: RIGHT_CTRL
 search_trigger: OFF
 
-backend: Inject
+backend: inject
 
 # Number of ms between text injections
-inject_delay: 2
-key_delay: 2
+# inject_delay: 1
+# key_delay: 1
 
 # Set clipboard configuration for when force_clipboard
 paste_shortcut: CTRL+SHIFT+V

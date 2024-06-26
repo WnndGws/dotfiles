@@ -11,7 +11,7 @@
 #If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-HISTFILE="$XDG_STATE_HOME"/zsh/history
+HISTFILE="$XDG_CACHE_HOME"/zsh/history
 # Completion files: Use XDG dirs
 [ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache

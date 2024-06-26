@@ -8,7 +8,7 @@ local user = {}
 
 Plugin.cmd = { "LspInfo", "LspInstall", "LspUnInstall" }
 Plugin.event = { "BufReadPre", "BufNewFile" }
-Plugin.dependencies = { { "hrsh7th/cmp-nvim-lsp" } }
+Plugin.dependencies = { { "hrsh7th/cmp-nvim-lsp", "HallerPatrick/py_lsp.nvim" } }
 
 Plugin.init = function()
 	local sign = function(opts)
@@ -44,7 +44,9 @@ end
 Plugin.config = function()
 	-- This is where all the LSP shenanigans will live
 	local lspconfig = require("lspconfig")
-	local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local py_lsp = require("py_lsp")
+    local nvim_lsp_configs = require("lspconfig.configs")
 
 	-------------------------------------------
 	--- Lua via pikaur(lua-language-server) ---
@@ -59,8 +61,7 @@ Plugin.config = function()
 
 			client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
 				runtime = {
-					-- Tell the language server which version of Lua you're using
-					-- (most likely LuaJIT in the case of Neovim)
+					-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 					version = "LuaJIT",
 				},
 				-- Make the server aware of Neovim runtime files
@@ -86,8 +87,8 @@ Plugin.config = function()
 	--- Python via pikaur(ruff,pylyzer) ---
 	-------------------------------
 	lspconfig.ruff.setup({ capabilities = lsp_capabilities }) -- For linting/errors
-	lspconfig.pylyzer.setup({ capabilities = lsp_capabilities }) -- For static type checking
-	lspconfig.jedi_language_server.setup({ capabilities = lsp_capabilities }) -- For static type checking
+	-- lspconfig.pylyzer.setup({ capabilities = lsp_capabilities }) -- For static type checking
+	lspconfig.jedi_language_server.setup({ { init_options = { codeAction = { nameExtractVariable = "jls_extract_var", nameExtractFunction = "jls_extract_def", }, completion = { disableSnippets = false, resolveEagerly = false, ignorePatterns = {}, }, diagnostics = { enable = true, didOpen = true, didChange = true, didSave = true, }, hover = { enable = true, disable = { class = { all = false, names = {}, fullNames = {} }, ["function"] = { all = false, names = {}, fullNames = {} }, instance = { all = false, names = {}, fullNames = {} }, keyword = { all = false, names = {}, fullNames = {} }, module = { all = false, names = {}, fullNames = {} }, param = { all = false, names = {}, fullNames = {} }, path = { all = false, names = {}, fullNames = {} }, property = { all = false, names = {}, fullNames = {} }, statement = { all = false, names = {}, fullNames = {} }, }, }, jediSettings = { autoImportModules = {}, caseInsensitiveCompletion = true, debug = false, }, markupKindPreferred = "markdown", workspace = { extraPaths = {}, symbols = { ignoreFolders = { ".nox", ".tox", ".venv", "pycache_", "venv" }, maxSymbols = 20, }, }, websocket = true }, }, capabilities = lsp_capabilities }) -- For static type checking
 
 	------------------------------------
 	--- Javascript via pikaur(biome) ---

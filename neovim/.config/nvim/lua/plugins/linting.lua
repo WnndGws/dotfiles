@@ -33,19 +33,6 @@ Plugin.config = function()
 		end,
 	})
 
-	-- use for codespell for all except bib and css
-	for ft, _ in pairs(lint.linters_by_ft) do
-		if ft ~= "bib" and ft ~= "css" then
-			table.insert(lint.linters_by_ft[ft], "codespell")
-		end
-	end
-
-	linters.codespell.args = {
-		"--ignore-words",
-		linterConfig .. "/codespell-ignore.txt",
-		"--builtin=rare,clear,informal,code,names,en-GB_to_en-US",
-	}
-
 	linters.mypy.args = {
 		"--ignore-missing-imports",
 	}

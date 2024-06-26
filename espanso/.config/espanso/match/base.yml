@@ -2,6 +2,10 @@
 # Original file: default.yml
 
 matches:
+  - trigger: mlive
+    replace: MLive
+    word: true
+
   - trigger: fd
     replace: FreshDesk
     word: true
