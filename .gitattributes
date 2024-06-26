@@ -11,5 +11,6 @@ espanso/.config/espanso/default.yml filter=git-crypt diff=git-crypt
 git/** filter=git-crypt diff=git-crypt
 zsh/.config/zsh/.zshenv filter=git-crypt diff=git-crypt
 npm/.config/npm/npmrc filter=git-crypt diff=git-crypt
+espanso/.config/espanso/match/base.yml filter=git-crypt diff=git-crypt
 
 .gitattributes !filter !diff
