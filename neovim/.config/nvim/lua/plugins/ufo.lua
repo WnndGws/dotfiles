@@ -25,6 +25,7 @@ Plugin.init = function()
 			-- them to 99.
 			vim.opt.foldlevel = 99
 			vim.opt.foldlevelstart = 1
+            vim.opt.foldnestmax = 2
 		end
 
 Plugin.opts = {
