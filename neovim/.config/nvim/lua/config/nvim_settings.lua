@@ -2,6 +2,11 @@
 local is_wsl = vim.fn.has("wsl") == 1
 -- local is_mac = vim.fn.has("macunix") == 1
 -- local is_linux = not is_wsl and not is_mac
+---------------
+--- Colours ---
+---------------
+vim.api.nvim_set_hl(0, "Folded", { bg="NONE", underline=true })
+
 -------------------------------------------
 --- Use tmux-rename upon launching nvim ---
 -------------------------------------------
@@ -49,6 +54,7 @@ vim.g.nofoldenable = false -- Enable folding
 
 local opt = vim.opt
 
+opt.foldnestmax = 2 -- Only fold the top layer
 opt.clipboard = "unnamedplus"
 opt.autowrite = true -- Enable auto-write
 opt.completeopt = "menu,menuone,noselect"

@@ -16374,10 +16374,6 @@ matches:
     replace: does
     propagate_case: true
     word: true
-  - trigger: doesnt
-    replace: doesn't
-    propagate_case: true
-    word: true
   - trigger: doign
     replace: doing
     propagate_case: true

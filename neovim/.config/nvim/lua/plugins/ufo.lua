@@ -24,7 +24,7 @@ Plugin.init = function()
 			-- Consequently, the vim-internal fold levels need to be disabled by setting
 			-- them to 99.
 			vim.opt.foldlevel = 99
-			vim.opt.foldlevelstart = 99
+			vim.opt.foldlevelstart = 1
 		end
 
 Plugin.opts = {
@@ -45,7 +45,7 @@ Plugin.opts = {
 			fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 				local hlgroup = "NonText"
 				local newVirtText = {}
-				local suffix = "   " .. tostring(endLnum - lnum)
+                local suffix = (' 󰁂 %d '):format(endLnum - lnum)
 				local sufWidth = vim.fn.strdisplaywidth(suffix)
 				local targetWidth = width - sufWidth
 				local curWidth = 0
