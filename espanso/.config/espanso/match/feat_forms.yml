@@ -1,0 +1,31 @@
+matches:
+  - trigger: ",bug"
+    form: |
+      [ [[product]] ][Bug][[title]]
+
+      Version number: [[version]]
+
+      ## **Observed Behavior**
+      When I [[oa]], [[oo]]
+
+      ## **Expected Behavior**
+      When I [[ea]], [[eo]]
+
+      ## **Steps to Reproduce**
+      [[steps]]
+
+      ## **Screenshots and Videos**
+      /expand
+    form_fields:
+      product:
+        type: list
+        values:
+          - FBXGO
+          - Lilypad
+      steps:
+        multiline: true
+        default: |
+          *
+          *
+          *
+          *

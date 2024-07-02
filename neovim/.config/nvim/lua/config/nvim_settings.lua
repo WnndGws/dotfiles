@@ -44,7 +44,7 @@ end
 --- General Settings ---
 ------------------------
 vim.g.autoformat = true -- Enable autoformat
-vim.g.nofoldenable = true -- Disable folding
+vim.g.nofoldenable = false -- Enable folding
 
 
 local opt = vim.opt
@@ -102,4 +102,4 @@ if vim.fn.has("nvim-0.10") == 1 then
 end
 
 -- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
+vim.treesitter.language.register('markdown', 'vimwiki', 'wiki')

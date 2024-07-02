@@ -1271,10 +1271,6 @@ matches:
     replace: "aren't"
     propagate_case: true
     word: true
-  - trigger: "cant"
-    replace: "can't"
-    propagate_case: true
-    word: true
   - trigger: "cause"
     replace: "'cause"
     propagate_case: true
@@ -1297,10 +1293,6 @@ matches:
     word: true
   - trigger: "dasnt"
     replace: "dasn't"
-    propagate_case: true
-    word: true
-  - trigger: "didnt"
-    replace: "didn't"
     propagate_case: true
     word: true
   - trigger: "doesnt"
@@ -1657,10 +1649,6 @@ matches:
     word: true
   - trigger: "willnt"
     replace: "willn't"
-    propagate_case: true
-    word: true
-  - trigger: "wont"
-    replace: "won't"
     propagate_case: true
     word: true
   - trigger: "wouldve"
@@ -35432,10 +35420,6 @@ matches:
     word: true
   - trigger: yuou
     replace: you
-    propagate_case: true
-    word: true
-  - trigger: youre
-    replace: you're
     propagate_case: true
     word: true
   - trigger: younge

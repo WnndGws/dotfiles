@@ -5,7 +5,6 @@ local Plugins = {
 	{ "christoomey/vim-tmux-navigator" },
 	{ "luckasRanarison/tailwind-tools.nvim" },
 	{ "richardbizik/nvim-toc" },
-	{ "aserebryakov/vim-todo-lists" },
     { "dhruvasagar/vim-table-mode" },
 }
 
