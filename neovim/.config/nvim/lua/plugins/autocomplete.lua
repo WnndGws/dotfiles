@@ -32,6 +32,7 @@ function Plugin.config()
 			end,
 		},
 		sources = {
+			{ name = "mkdnflow" },
 			{ name = "path" },
 			{ name = "buffer" },
 			{ name = "nvim_lsp" },
@@ -45,6 +46,7 @@ function Plugin.config()
 			fields = { "menu", "abbr", "kind" },
 			format = function(entry, item)
 				local menu_icon = {
+					mkdnflow = "m",
 					nvim_lsp = "λ",
 					luasnip = "⋗",
 					buffer = "Ω",

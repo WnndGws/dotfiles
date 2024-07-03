@@ -22,7 +22,67 @@ matches:
         values:
           - FBXGO
           - Lilypad
+          - Graphics
       steps:
+        multiline: true
+        default: |
+          *
+          *
+          *
+          *
+
+  - trigger: ",feat"
+    form: |
+      [ [[product]] ][Feat Request] - [[action]][[component]]
+
+      **Problem**
+      [[situation]]
+
+      [[impact]]
+
+      [[problem]]
+
+      **Steps to Reproduce**
+      [[steps]]
+
+      **_Possible_ solution**
+      [[solution]]
+
+      **Rabbit Holes**
+      [[rabbit]]
+    form_fields:
+      action:
+        default: Specific action
+      component:
+        default: Specific component
+      product:
+        type: list
+        values:
+          - FBXGO
+          - Lilypad
+          - Graphics
+      situation:
+        default: When....[specific situation]
+        multiline: true
+
+      impact:
+        default: This happens....[negative impact]
+        multiline: true
+
+      problem:
+        default: This is a problem because....[for user or company]
+        multiline: true
+
+      solution:
+        default: Proposed best way to solve
+        multiline: true
+
+      rabbit:
+        default: Gotcha's to look out for
+        multiline: true
+
+      steps:
+        default: Specific Steps
         multiline: true
         default: |
           *

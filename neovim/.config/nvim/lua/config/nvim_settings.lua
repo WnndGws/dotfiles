@@ -51,6 +51,7 @@ end
 vim.g.autoformat = true -- Enable autoformat
 vim.g.nofoldenable = false -- Enable folding
 
+vim.wo.conceallevel = 2
 
 local opt = vim.opt
 
