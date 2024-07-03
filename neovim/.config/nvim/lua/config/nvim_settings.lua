@@ -52,6 +52,8 @@ vim.g.autoformat = true -- Enable autoformat
 
 vim.g.nofoldenable = false -- Enable folding
 vim.g.foldmethod = "syntax" -- folds defined by syntax highlighting
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.foldnestmax = 2 -- Only fold the top layer
 vim.wo.conceallevel = 2
 
