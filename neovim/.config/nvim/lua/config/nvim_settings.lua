@@ -49,13 +49,14 @@ end
 --- General Settings ---
 ------------------------
 vim.g.autoformat = true -- Enable autoformat
-vim.g.nofoldenable = false -- Enable folding
 
+vim.g.nofoldenable = false -- Enable folding
+vim.g.foldmethod = "syntax" -- folds defined by syntax highlighting
+vim.opt.foldnestmax = 2 -- Only fold the top layer
 vim.wo.conceallevel = 2
 
 local opt = vim.opt
 
-opt.foldnestmax = 2 -- Only fold the top layer
 opt.clipboard = "unnamedplus"
 opt.autowrite = true -- Enable auto-write
 opt.completeopt = "menu,menuone,noselect"
