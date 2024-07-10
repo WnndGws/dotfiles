@@ -7,6 +7,10 @@ local keymap = vim.keymap
 -------------------
 --- General Keys ---
 -------------------
+---resize splits
+keymap.set("n", "H", ":vertical resize +5<CR>", { desc = "Resize vertical splits LARGER" })
+keymap.set("n", "L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
+
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
@@ -44,10 +48,6 @@ end, { desc = "Incriment using Dial" })
 keymap.set("v", "<leader>--", function()
 	require("dial.map").manipulate("decrement", "visual")
 end, { desc = "Decriment using Dial" })
-
--- MarkdownPreview
---- Leader + "markdown" + "preview"
-keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Preview Markdown" })
 
 -- Marks
 --- Better usage of inbuild loaction marking

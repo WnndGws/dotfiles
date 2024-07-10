@@ -22246,10 +22246,6 @@ matches:
     replace: is
     propagate_case: true
     word: true
-  - trigger: isnt
-    replace: isn't
-    propagate_case: true
-    word: true
   - trigger: ipsirato
     replace: ispirato
     propagate_case: true

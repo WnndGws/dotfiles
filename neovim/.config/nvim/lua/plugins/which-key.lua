@@ -14,11 +14,9 @@ Plugin.opts = {
 		["<leader>f"] = { name = "+file/find" },
 		["<leader>e"] = { name = "+tree" },
 		["<leader>q"] = { name = "+quit/session" },
-		["<leader>s"] = { name = "+wiki search" },
 		["<leader>t"] = { name = "+tablemode" },
 		["<leader>u"] = { name = "+treesitter" },
 		["<leader>w"] = { name = "+write" },
-		["<leader>x"] = { name = "+wiki" },
 		["["] = { name = "+prev" },
 		["]"] = { name = "+next" },
 		["g"] = { name = "+goto" },
@@ -29,7 +27,9 @@ Plugin.opts = {
 Plugin.config = function(_, opts)
 	local wk = require("which-key")
 	wk.setup(opts)
-	wk.register(opts.defaults)
+    wk.register({
+        opts.defaults,
+    })
 end
 
 return Plugin

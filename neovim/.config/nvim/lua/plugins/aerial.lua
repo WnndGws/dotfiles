@@ -34,6 +34,8 @@ Plugin.opts = function()
 end
 Plugin.keys = {
 	{ "<leader>at", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
+	{ "J", "<cmd>AerialNext<cr>", desc = "Aerial Next" },
+	{ "K", "<cmd>AerialPrev<cr>", desc = "Aerial Previous" },
 }
 
 return Plugin

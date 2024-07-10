@@ -7,6 +7,21 @@ Plugin.dependencies = {
 Plugin.config = function()
 	local mkdn = require("mkdnflow")
 	mkdn.setup({
+        modules = {
+            bib = true,
+            buffers = true,
+            conceal = true,
+            cursor = true,
+            folds = false,
+            foldtext = true,
+            links = true,
+            lists = true,
+            maps = true,
+            paths = true,
+            tables = true,
+            yaml = true,
+            cmp = true,
+        },
         perspective = {
             priority = 'current',
             fallback = 'current',
@@ -25,21 +40,35 @@ Plugin.config = function()
             transform_explicit = function(text)
                 text = text:gsub(" ", "-")
                 text = text:lower()
-                text = os.date('%Y-%m-%d_')..text
+                -- text = os.date('%Y-%m-%d_')..text
                 return(text)
             end,
             create_on_follow_failure = true
         },
         new_file_template = {
             use_template = true,
-            placeholders = {
-                before = {
-                    title = "link_title",
-                    date = "os_date"
-                },
-                after = {}
-            },
-            template = "# {{ title }}"
+            template = [[
+---
+Title: {{ title }}
+Date Created: {{ date }}
+Filename: {{ filename }}
+Tags: ["", "", ""]
+bib: /home/wynand/git/wiki/references.bib
+---
+
+<!-- toc -->]],
+                placeholders = {
+                    before = {
+                        date = function()
+                            return os.date("%A, %B %d %Y") -- Wednesday, March 1, 2023
+                        end
+                    },
+                    after = {
+                        filename = function()
+                            return vim.api.nvim_buf_get_name(0)
+                        end
+                    }
+                }
         },
 	})
 end

@@ -7,7 +7,7 @@ Plugin.dependencies = {
 
 Plugin.config = function()
     local md = require('render-markdown')
-    md.setup({file_types = { 'markdown'}, headings = { '# ', '## ', '### ', '#### ', '##### ', '###### ' },
+    md.setup({file_types = { 'markdown'}, headings = {'󰬺 ', '󰬻 ', '󰬼 ', '󰬽 ', '󰬾 ', '󰬿 '},
     highlights = {
         heading = {
             -- Background of heading line
