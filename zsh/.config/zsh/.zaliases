@@ -3,7 +3,7 @@
 #. ------------------ #
 
 alias vzal='nvim ~/.config/zsh/.zaliases'
-alias ww='cd ~/git/wiki && nvim +NvimTreeOpen index.md'
+alias ww='cd ~/git/wiki && nvim -O index.md transient/todo.md'
 
 zmodload -F zsh/system p:sysparams # Load the sysparams table.
 zmodload -F zsh/terminfo b:echoti  # Load the echoti builtin.
@@ -394,6 +394,9 @@ alias c='fasd_cd -d -i'
 alias zsh_time='time "zsh -i -c exit"'
 alias zt='zsh_time'
 
+#Use yarn XDG
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+
 #Youtube fzf types
 alias ytr='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=relevance --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
 alias ytn='ytfzf --preview-side=right -t --formats --loop --force-youtube --pages=5 --sort-by=upload_date --type=all --url-handler="$HOME/git/scripts/shell/rofi_openwith"'
@@ -401,4 +404,5 @@ alias ytp='ytfzf --preview-side=right -t --formats --loop --force-youtube --page
 alias ytc='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --type=channel --submenu-opts="--loop --formats --sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith"'
 alias ytpl='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --type=playlist --submenu-opts="--loop --formats --sort --force-youtube --show-thumbnails --preview-side=right --pages=5 --url-handler=$HOME/git/scripts/shell/rofi_openwith"'
 
-alias wifisettings='sudo nvim /etc/systemd/network/10-wlan0.network'
+#Use XDG wget
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'

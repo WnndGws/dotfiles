@@ -6,10 +6,10 @@ Plugin.dependencies = {
 	{ "hrsh7th/cmp-buffer" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-cmdline" },
 
 	-- Snippets
-	{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-	{ "rafamadriz/friendly-snippets" },
+	{ "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp", dependencies= { "rafamadriz/friendly-snippets"}},
 }
 
 Plugin.event = "InsertEnter"
@@ -19,6 +19,7 @@ function Plugin.config()
 	local luasnip = require("luasnip")
 
 	require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").load({paths = "/home/wynand/.config/nvim/lua/snippets/"})
 
 	local select_opts = { behavior = cmp.SelectBehavior.Select }
 

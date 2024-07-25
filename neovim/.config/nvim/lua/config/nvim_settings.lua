@@ -2,16 +2,18 @@
 local is_wsl = vim.fn.has("wsl") == 1
 -- local is_mac = vim.fn.has("macunix") == 1
 -- local is_linux = not is_wsl and not is_mac
+
 ---------------
 --- Colours ---
 ---------------
 vim.api.nvim_set_hl(0, "Folded", { bg="NONE", underline=true })
 
--------------------------------------------
---- Use tmux-rename upon launching nvim ---
--------------------------------------------
+-------------------
+--- Autocommands---
+-------------------
 local uv = vim.loop
 
+--- Use tmux-rename upon launching nvim ---
 vim.api.nvim_create_autocmd('VimEnter', {
 	callback = function()
 		if vim.env.TMUX_PLUGIN_MANAGER_PATH then
@@ -19,6 +21,12 @@ vim.api.nvim_create_autocmd('VimEnter', {
 		end
 	end,
 })
+
+--- Write md buffers as you leave them
+vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
+-- Use the following if your buffer is set to become hidden
+vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
+
 
 ----------------------------
 --- Fix Clipboard in WSL ---

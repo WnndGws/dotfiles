@@ -1,0 +1,67 @@
+{
+  "hardware": {
+    "prefix": "tag1",
+    "body": ["hardware"],
+    "description": "Add tag"
+  },
+  "investigation": {
+    "prefix": "tag2",
+    "body": ["investigation"],
+    "description": "Add tag"
+  },
+  "jira": {
+    "prefix": "tag3",
+    "body": ["jira"],
+    "description": "Add tag"
+  },
+  "cookie": {
+    "prefix": "tag4",
+    "body": ["cookie"],
+    "description": "Add tag"
+  },
+  "renee": {
+    "prefix": "tag5",
+    "body": ["renee"],
+    "description": "Add tag"
+  },
+  "zac": {
+    "prefix": "tag6",
+    "body": ["zac"],
+    "description": "Add tag"
+  },
+  "computer-vision": {
+    "prefix": "tag7",
+    "body": ["computer-vision"],
+    "description": "Add tag"
+  },
+  "data": {
+    "prefix": "tag8",
+    "body": ["data"],
+    "description": "Add tag"
+  },
+  "knowledge": {
+    "prefix": "tag9",
+    "body": ["knowledge"],
+    "description": "Add tag"
+  },
+  "software": {
+    "prefix": "tag10",
+    "body": ["software"],
+    "description": "Add tag"
+  },
+  "testing": {
+    "prefix": "tag11",
+    "body": ["testing"],
+    "description": "Add tag"
+  },
+  "PlayHQ": {
+    "prefix": "tag12",
+    "body": ["PlayHQ"],
+    "description": "Add tag"
+  },
+  "CA": {
+    "prefix": "tag13",
+    "body": ["CA"],
+    "description": "Add tag"
+  }
+}
