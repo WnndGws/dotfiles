@@ -78,7 +78,7 @@ Tags: ["", "", ""]
 bib: /home/wynand/git/wiki/references.bib
 ---
 
-<!-- toc -->]],
+]],
         },
         to_do = {
             symbols = {' ', '-', 'X'},

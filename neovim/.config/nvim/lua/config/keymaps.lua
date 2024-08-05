@@ -16,12 +16,15 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Save and commit
 keymap.set("n", "<leader>ww", ":write | Git add . | Git commit<CR>", { desc = "Write and commit a file" })
-keymap.set("n", "<leader>wc", ":write", { desc = "Write and commit a file" })
+keymap.set("n", "<leader>wc", ":write<CR>", { desc = "Write without commiting a file" })
+
+-- My fake Kanban
+-- Delete into register j, paste register j
+keymap.set("n", "<leader>kn", ":exe 'delete j' | exe search('#') | exe 'put j'<CR>", { desc = "Move to next heading" })
 
 ----------------------
 --- Plugin Specific---
 ----------------------
-
 -- Aerial
 --- Jump between buffers
 --- Leader + "aerial" + "next/previous"
@@ -99,11 +102,14 @@ keymap.set("n", "<leader>wg", "<cmd>GistCreateFromFile<cr>", { desc = "Saves the
 -- FoldCycle
 --- Shortcuts for folding
 keymap.set('n', 'zo',
+  function() return require('fold-cycle').open_all() end,
+  {silent = true, desc = 'Fold-cycle: open folds'})
+keymap.set('n', 'zO',
   function() return require('fold-cycle').open() end,
   {silent = true, desc = 'Fold-cycle: open folds'})
-keymap.set('n', 'zc',
+keymap.set('n', 'zC',
   function() return require('fold-cycle').close() end,
   {silent = true, desc = 'Fold-cycle: close folds'})
-keymap.set('n', 'zC',
+keymap.set('n', 'zc',
   function() return require('fold-cycle').close_all() end,
   {remap = true, silent = true, desc = 'Fold-cycle: close all folds'})

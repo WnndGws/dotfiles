@@ -10,6 +10,7 @@ Plugin.opts = {
       { "<leader>e", group = "tree" },
       { "<leader>f", group = "find-something" },
       { "<leader>g", group = "git" },
+      { "<leader>k", group = "kanban" },
       { "<leader>l", group = "list-things" },
       { "<leader>q", group = "quit-session" },
       { "<leader>s", group = "spell-corrections" },
