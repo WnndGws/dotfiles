@@ -37,7 +37,7 @@ return {
                     -- Try to match the filetype by default, or use 'plain'
                     format = '',
                     -- Path to global bibliographies (placed outside of the project)
-                    global_files = {"/home/wynand/git/wiki/references.bib"},
+                    global_files = {"/home/wynand/git/wiki-mdbook/src/references.bib"},
                     -- Define the search keys to use in the picker
                     search_keys = { 'author', 'year', 'title' },
                     -- Template for the formatted citation
@@ -60,7 +60,7 @@ return {
                             -- ["<CR>"] = bibtex_actions.key_append('%s'), -- format is determined by filetype if the user has not set it explictly
                             -- ["<C-e>"] = bibtex_actions.entry_append,
                             -- ["<C-c>"] = bibtex_actions.citation_append('{{author}} ({{year}}), {{title}}.'),
-                            ["<CR>"] = bibtex_actions.citation_append('"{{title}}", _{{organization}}_, {{url}} {{note}}'), -- IEEE format for webpage
+                        ["<CR>"] = bibtex_actions.key_append('(@@%s)'), -- IEEE format for webpage
                         }
                     },
                 },

@@ -92,6 +92,7 @@ keymap.set("n", "<leader>sc", "<cmd>Telescope spell_suggest<cr>", { desc = "List
 --- Generic Telescope
 keymap.set("n", "<leader>tc", "<cmd>TextCaseOpenTelescopeQuickChange<cr>", { desc = "Change the case of the word under the cursor" })
 keymap.set("n", "<leader>tr", "<cmd>Telescope bibtex<cr>", { desc = "Select and insert a bibtex reference" })
+keymap.set("i", "@@", "<c-o><cmd>Telescope bibtex<cr>", { desc = "Select and insert a bibtex reference" })
 keymap.set("n", "<leader>tf", "<cmd>Telescope foldmarkers<cr>", { desc = "Select vim folds" })
 keymap.set("n", "<leader>tl", "<cmd>Telescope lazy<cr>", { desc = "Use Telescope with Lazy" })
 
