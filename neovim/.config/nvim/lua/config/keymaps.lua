@@ -78,6 +78,8 @@ keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse fi
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 
 -- Telescope
+-- Templates
+keymap.set("n", "<leader>b", "<cmd>Telescope find_template type=insert filter_ft=false<cr>", { desc = "Insert a template" })
 --- FZF
 keymap.set("n", "<leader>ff", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 keymap.set("n", "<leader>fg", "<cmd>Telescope search_dir_picker<cr>", { desc = "Find string in cwd" })

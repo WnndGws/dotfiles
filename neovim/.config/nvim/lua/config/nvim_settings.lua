@@ -27,6 +27,8 @@ vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set aw
 -- Use the following if your buffer is set to become hidden
 vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
 
+-- Run all commands in interactive so that I can use ZSH aliases etc
+vim.api.nvim_create_autocmd("VimEnter", {pattern = "*", command = "let &shell='/bin/zsh -i'"})
 
 ----------------------------
 --- Fix Clipboard in WSL ---
@@ -99,13 +101,15 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
-opt.spelllang = { "en-AU" }
+opt.enc="utf-8"
+opt.spell=false
+opt.spelllang = { "en_au" }
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.softtabstop = 4
-opt.termguicolors = true -- True color support
+opt.termguicolors = true -- True colour support
 if not vim.g.vscode then
 	opt.timeoutlen = 300 -- Lower than default (1000) to quickly trigger which-key
 end

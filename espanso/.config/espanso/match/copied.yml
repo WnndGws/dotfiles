@@ -857,11 +857,6 @@ matches:
     propagate_case: true
     word: true
 
-  - trigger: "noone'"
-    replace: "noöne"
-    propagate_case: true
-    word: true
-
   - trigger: "numero"
     replace: "número"
     propagate_case: true
@@ -1537,10 +1532,6 @@ matches:
     word: true
   - trigger: "twere"
     replace: "'twere"
-    propagate_case: true
-    word: true
-  - trigger: "wasnt"
-    replace: "wasn't"
     propagate_case: true
     word: true
   - trigger: "wed"
@@ -24751,7 +24742,7 @@ matches:
     propagate_case: true
     word: true
   - trigger: noone
-    replace: no_one
+    replace: no one
     propagate_case: true
     word: true
   - trigger: nomencalture
@@ -25336,10 +25327,6 @@ matches:
     word: true
   - trigger: omniverously
     replace: omnivorously
-    propagate_case: true
-    word: true
-  - trigger: noone
-    replace: one
     propagate_case: true
     word: true
   - trigger: nly

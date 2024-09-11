@@ -9,6 +9,7 @@ return {
         "gbirke/telescope-foldmarkers.nvim",
         "smilovanovic/telescope-search-dir-picker.nvim",
         "tsakirist/telescope-lazy.nvim",
+        "nvimdev/template.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -72,5 +73,6 @@ return {
 		telescope.load_extension("foldmarkers")
 		telescope.load_extension("search_dir_picker")
 		telescope.load_extension("lazy")
+        telescope.load_extension("find_template")
 	end,
 }

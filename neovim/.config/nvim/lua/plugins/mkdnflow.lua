@@ -75,7 +75,7 @@ Title: {{ title }}
 Date Created: {{ date }}
 Filename: {{ filename }}
 Tags: ["", "", ""]
-bib: /home/wynand/git/wiki/references.bib
+bib: /home/wynand/git/wiki-mdbook/src/references.bib"
 ---
 
 ]],

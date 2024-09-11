@@ -3,7 +3,11 @@
 #. ------------------ #
 
 alias vzal='nvim ~/.config/zsh/.zaliases'
-alias ww='cd ~/git/wiki && nvim -O index.md transient/todo.md'
+alias ww='cd ~/git/wiki-mdbook/ && ./create_summary.sh && vim src/SUMMARY.md'
+mt() { ~/git/wiki-mdbook/create_ticket.sh "$1" }
+rt() { ~/git/wiki-mdbook/rename_ticket.sh "$1" "$2" }
+
+cric() {rm video.mp4 ; rm mpv-shot*.jpg ; yt-dlp --format 232 --output video.mp4 -N 24 "$1" && mpv video.mp4}
 
 zmodload -F zsh/system p:sysparams # Load the sysparams table.
 zmodload -F zsh/terminfo b:echoti  # Load the echoti builtin.
@@ -101,9 +105,6 @@ alias cl='echo "Use tectonic to compile and tllocalmgr to install from CTAN\n\nR
 #Confirm before overwriting something
 alias cp="cp -i"
 alias mv="mv -i"
-
-#Freshdesk
-alias mt="python ~/git/Freshdesk/list_my_tickets.py"
 
 #Outputs system stats
 alias cpu="ps axch -o cmd,%cpu --sort=-%cpu | head"
@@ -313,6 +314,8 @@ alias pc=python_check
 #Reset BSPWM workspace bindings to cerrect ones
 alias resetbspwmworkspaces='"$HOME/git/scripts/shell/bspwm_output_desktops_to_sxhkd.sh" && killall sxhkd && sxhkd & disown'
 
+#Always use ripgrep with these flags
+alias rg='rg --hidden -i --multiline'
 
 #Sometimes Capslock loses its escape-ability
 alias resetcaps='xmodmap -e "clear lock"; xmodmap -e "keycode 66 = Escape"; xmodmap -e "clear shift"; xmodmap -e "keycode 62 = Meta_L"; xmodmap -pke > ~/.Xmodmap'
@@ -406,3 +409,6 @@ alias ytpl='ytfzf --preview-side=right -t --force-youtube --sort-by=relevance --
 
 #Use XDG wget
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+#Use my local relay
+alias wormhole='wormhole --transit-helper "tcp:wynand.gouws.com.au:9090"'
