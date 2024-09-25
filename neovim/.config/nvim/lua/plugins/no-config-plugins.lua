@@ -1,7 +1,7 @@
 local Plugins = {
 	{ "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 	{ "terryma/vim-expand-region" },
-	{ "machakann/vim-sandwich" },
+	{ "tpope/vim-surround" },
 	{ "christoomey/vim-tmux-navigator" },
 	{ "luckasRanarison/tailwind-tools.nvim" },
 	{ "richardbizik/nvim-toc" },

@@ -1072,11 +1072,6 @@ matches:
     propagate_case: true
     word: true
 
-  - trigger: "resume"
-    replace: "resumé"
-    propagate_case: true
-    word: true
-
   - trigger: "residuum"
     replace: "residuüm"
     propagate_case: true
