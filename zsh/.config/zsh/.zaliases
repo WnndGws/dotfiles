@@ -3,11 +3,13 @@
 #. ------------------ #
 
 alias vzal='nvim ~/.config/zsh/.zaliases'
-alias ww='cd ~/git/personal/wiki-docusaurus/ && ./create_toc.sh && ./create_confluence.sh && cd ~/git/personal/wiki-docusaurus/docs && nvim +NvimTreeOpen && cd ..'
+#alias ww='cd ~/git/personal/wiki-docusaurus/ && ./create_toc.sh && ./create_confluence.sh && cd ~/git/personal/wiki-docusaurus/docs && nvim +NvimTreeOpen && cd ..'
+alias ww='cd /home/wynand/git/personal/obsidiosaurus/vault/docs/ && nvim +NvimTreeOpen && cd ..'
 alias get_freshdesk='cd ~/git/personal/wiki-docusaurus/static/freshdesk/ && python ~/git/personal/freshdesk/save_ticket_as_markdown.py && cd ~'
 alias gfd=get_freshdesk
-mt() { ~/git/wiki-mdbook/create_ticket.sh "$1" }
-rt() { ~/git/wiki-mdbook/rename_ticket.sh "$1" "$2" }
+
+alias test_stream='ffmpeg -re -f lavfi -i "sine=frequency=300:sample_rate=48000" -f lavfi -i "testsrc=r=25:size=1280x720" -c:v libx264 -preset veryfast -pix_fmt yuv420p -r 25 -b:v 2000k -c:a aac -b:a 128k -x264-params keyint=100:scenecut=0 -f flv rtmp://sk-83A6D7F5.frogbox.tv/live/83A6D7F5'
+alias test_blue_stream='ffmpeg -re -f lavfi -i "sine=frequency=300:sample_rate=48000" -f lavfi -i "color=c=0x000FFF:size=1280x720" -c:v libx264 -preset veryfast -pix_fmt yuv420p -r 25 -b:v 2000k -c:a aac -b:a 128k -x264-params keyint=100:scenecut=0 -f flv rtmp://sk-83A6D7F5.frogbox.tv/live/83A6D7F5'
 
 cric() {rm video.mp4 ; rm mpv-shot*.jpg ; yt-dlp --format 232 --output video.mp4 -N 24 "$1" && mpv video.mp4}
 

@@ -1,91 +1,66 @@
 matches:
   - trigger: ",bug"
-    form: |
-      [ [[product]] ][Bug][[title]]
+    replace: |
+      product - Bug - title
 
-      Version number: [[version]]
+      WG Assesment:
+      * Reach: 1 - <10% of customers impacted
+      * Reach: 3 - ~50% of customers impacted
+      * Reach: 5 - 100% of customers impacted
+      * Impact: 5 - Complete outage or service unavailable.
+      * Impact: 4 - A serious, consistent error that affects a major function with no workaround
+      * Impact: 3 - A serious, intermittent error that affects a major function with no workaround
+      * Impact: 2 - A consistent or intermittent error that affects a major function with a workaround
+      * Impact: 1 - A consistent or intermittent error that affects a non-major function
+
+      Version number:
+      OS:
+      Browser:
 
       ## **Observed Behavior**
-      When I [[oa]], [[oo]]
+      When I
 
       ## **Expected Behavior**
-      When I [[ea]], [[eo]]
+      When I
 
       ## **Steps to Reproduce**
-      [[steps]]
+      - [ ]
 
       ## **Screenshots and Videos**
-      /expand
-    form_fields:
-      product:
-        type: list
-        values:
-          - FBXGO
-          - Lilypad
-          - Graphics
-      steps:
-        multiline: true
-        default: |
-          *
-          *
-          *
-          *
 
   - trigger: ",feat"
-    form: |
-      [ [[product]] ][Feat Request] - [[action]][[component]]
+    replace: |
+      product - Feat Request - Action on Component
 
       **Problem**
-      [[situation]]
+      situation
 
-      [[impact]]
+      impact
 
-      [[problem]]
+      problemforcompany
 
       **Steps to Reproduce**
-      [[steps]]
+      - [ ]
 
       **_Possible_ solution**
-      [[solution]]
+      solution
 
       **Rabbit Holes**
-      [[rabbit]]
-    form_fields:
-      action:
-        default: Specific action
-      component:
-        default: Specific component
-      product:
-        type: list
-        values:
-          - FBXGO
-          - Lilypad
-          - Graphics
-      situation:
-        default: When....[specific situation]
-        multiline: true
+      holes
 
-      impact:
-        default: This happens....[negative impact]
-        multiline: true
+  - trigger: ",test"
+    replace: |
+      * product - Test - feature
 
-      problem:
-        default: This is a problem because....[for user or company]
-        multiline: true
+      Version number:
+      OS:
+      Browser:
+      Test number:
 
-      solution:
-        default: Proposed best way to solve
-        multiline: true
+      ## **Test Results**
+      PASSED:
+      FAILED:
+      WARN:
+      INFO:
 
-      rabbit:
-        default: Gotcha's to look out for
-        multiline: true
-
-      steps:
-        default: Specific Steps
-        multiline: true
-        default: |
-          *
-          *
-          *
-          *
+      ## **Screenshots and Videos**

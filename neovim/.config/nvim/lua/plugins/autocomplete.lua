@@ -33,10 +33,10 @@ function Plugin.config()
 			end,
 		},
 		sources = {
-			{ name = "path" },
-			{ name = "buffer" },
-			{ name = "nvim_lsp" },
-			{ name = "luasnip", keyword_length = 2 },
+			{ name = "path", keyword_length = 1 },
+			{ name = "buffer", keyword_length = 1 },
+			{ name = "nvim_lsp", keyword_length = 1 },
+			{ name = "luasnip", keyword_length = 1 },
 		},
 		window = {
 			completion = cmp.config.window.bordered(),
@@ -69,7 +69,8 @@ function Plugin.config()
 
 			["<C-e>"] = cmp.mapping.abort(),
 			["<C-y>"] = cmp.mapping.confirm({ select = true }),
-			["<CR>"] = cmp.mapping.confirm({ select = false }),
+            -- Just a random combo i mapped to my keyboard
+			["<C-Y>"] = cmp.mapping.confirm({ select = false }),
 
 			["<C-f>"] = cmp.mapping(function(fallback)
 				if luasnip.jumpable(1) then

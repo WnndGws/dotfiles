@@ -1,10 +1,5 @@
 local Plugin = { "Rawnly/gist.nvim" }
 
-Plugin.dependencies = {
-	-- Sources
-	{ "samjwill/nvim-unception", init = function() vim.g.unception_block_while_host_edits = true end },
-}
-
 Plugin.event = "VeryLazy"
 Plugin.cmd = { "GistCreate", "GistCreateFromFile", "GistsList" }
 Plugin.keys = {

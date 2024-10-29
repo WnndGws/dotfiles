@@ -14,8 +14,8 @@ search_trigger: OFF
 backend: inject
 
 # Number of ms between text injections
-inject_delay: 5
-key_delay: 5
+# inject_delay: 5
+# key_delay: 5
 
 # Set clipboard configuration for when force_clipboard
 # paste_shortcut: CTRL+SHIFT+V

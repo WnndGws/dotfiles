@@ -757,11 +757,6 @@ matches:
     propagate_case: true
     word: true
 
-  - trigger: "mate"
-    replace: "maté"
-    propagate_case: true
-    word: true
-
   - trigger: "materiel"
     replace: "matériel"
     propagate_case: true
@@ -1084,11 +1079,6 @@ matches:
 
   - trigger: "risque"
     replace: "risqué"
-    propagate_case: true
-    word: true
-
-  - trigger: "role"
-    replace: "rôle"
     propagate_case: true
     word: true
 
@@ -34773,7 +34763,7 @@ matches:
     propagate_case: true
     word: true
   - trigger: wanna
-    replace: want_to
+    replace: want to
     propagate_case: true
     word: true
   - trigger: wnated

@@ -11,6 +11,7 @@ local Plugins = {
     { "AllenDang/nvim-expand-expr" },
     { "axieax/urlview.nvim" },
     {'jghauser/fold-cycle.nvim'},
+    {'mireq/large_file'},
 }
 
 return Plugins
