@@ -11,9 +11,8 @@
 * "plumbum" for shell commands
 * "questionary" for user prompts
 * "tanacity" for retries
-* "ultrajson" for json
+* orjson
 * anybadge
-* click
 * configparser
 * humanise
 * loguru
@@ -23,4 +22,13 @@
 * schedule
 * thefuzz
 * tinydb
+* typer
+* uv
+* pydantic
+* robyn
+* ruff
+* pyright
+* pyo3
+* maturin
+* py-spy
 """
