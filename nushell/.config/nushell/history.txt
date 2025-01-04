@@ -109,3 +109,13 @@ git commit -m "Nushell, nu start"
 nv .git/config
 git remote add upstream git@github.com:WnndGws/dotfiles.git
 gs
+git add .
+git commit -m "Nushell, nu start"
+git push
+nv nushell/.config/nushell/login.nu
+stow --restow --target="/home/wynand" ./*
+stow --restow --target="/home/wynand" ./nushell/
+stow --restow --target="/home/wynand" ./nushell
+stow --restow --target="/home/wynand" nushell
+git add .
+gs
