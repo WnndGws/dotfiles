@@ -1,0 +1,32 @@
+[init]
+	defaultBranch = main
+
+[user]
+	name = Wynand Gouws
+	email = wynand@archbeast
+
+[pull]
+	rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[advice]
+	addIgnoredFile = false
+
+[core]
+    pager = delta
+    blame = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+    line-numbers = true
+    side-by-side = true
+
+
+[merge]
+    conflictstyle = zdiff3

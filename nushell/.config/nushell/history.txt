@@ -1,0 +1,106 @@
+rm -r ~/.config/nushell/
+stow --restow --target="/home/wynand" shell/
+stow --restow --adopt --target="/home/wynand" shell/
+ll ~/.config/
+ls -la ~/.config/
+ls -la shell/.config/nushell/
+cd shell/.config/nushell/
+ls -la
+mkdir plugins
+cd plugins/
+starship 
+starship init nu
+starship init nu > starship.nu
+starship init nu | starship.nu
+starship init nu
+vim starship.nu
+..
+stow --restow --target="/home/wynand" shell/
+ll
+gs
+git add .
+git commit -m "add nushell"
+gs
+vim .gitignore
+gs
+git add .
+vim .gitignore
+gs
+git add .
+gs
+vim .gitignore
+gs
+git add .
+git commit -m "dont worry about history"
+gs
+vim .gitignore
+gs
+git push
+mm gpg
+gpg --list-secret-keys --keyid-format=long
+~
+gpg --full-generate-key
+nv ~/.gnupg/common.conf
+nv ~/.gnupg/gpg-agent.conf
+gpg-connect-agent reloadagent /bye
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-format=long
+gpg --export-secret-keys --armor 0FA756497E1FEF612AE4DB81DDD025AF115D8347 > secret_key.asc
+nv ~/.gnupg/gpg-agent.conf
+nv ~/.config/nushell/env.nu
+cd ~/git/dotfiles/
+git checkout -b fresh_start
+ll
+~
+md new_dots
+mkdir new_dots
+cd new_dots/
+mkdir nushell
+mkdir nushell/.config
+cp ~/.config/nushell/ nushell/.config/
+cp -r ~/.config/nushell/ nushell/.config/
+ls -la nushell/.config/nushell/
+cp -rL ~/.config/nushell/ nushell/.config/
+cp (realpath ~/.config/nushell/) nushell/.config/
+cp -r (realpath ~/.config/nushell/) nushell/.config/
+ls -la nushell/.config/nushell/
+rm -r nushell/.config/nushell/
+cp -r (realpath ~/.config/nushell/) nushell/.config/
+ls -la nushell/.config/nushell/
+rm -r nushell/.config/nushell/
+cp -r (realpath ~/.config/nushell/*) nushell/.config/nushell/
+mkdir nushell/.config/nushell
+cp -r (realpath ~/.config/nushell/*) nushell/.config/nushell/
+ls -la nushell/.config/nushell/
+cp -r (path expand ~/.config/nushell/*) nushell/.config/nushell/
+rm -rf ./*
+ls -la
+rm -rf ./.*
+ll
+cp -r ~/new_dots/* .
+ls -la
+stow --restow --target="/home/wynand" ./*
+gh
+git init
+gpg --list-secret-keys --keyid-format=long
+git-branchless init
+git-crypt
+git-crypt init
+gpg --list-secret-keys --keyid-format=long
+git-crypt add-gpg-user 0FA756497E1FEF612AE4DB81DDD025AF115D8347
+gs
+ls -la alacritty/.config/alacritty/
+nv alacritty/.config/alacritty/alacritty.toml
+nv alacritty/.config/alacritty/alacritty.yml
+nv alacritty/.config/alacritty/alacritty.toml
+trufflehog
+git-crypt status
+nv .gitattributes
+git-crypt status
+gs
+git add .
+rm -rf tmux/.config/tmux/plugins/tmux-fzf-url/.git/
+git add .
+gs
+git-crypt status
+bat .git-crypt/keys/default/0/0FA756497E1FEF612AE4DB81DDD025AF115D8347.gpg

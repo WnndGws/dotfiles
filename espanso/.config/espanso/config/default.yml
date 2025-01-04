@@ -1,0 +1,26 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+# Dont restart with every alt press
+toggle_key: RIGHT_CTRL
+search_trigger: OFF
+
+backend: inject
+
+# Number of ms between text injections
+# inject_delay: 5
+# key_delay: 5
+
+# Set clipboard configuration for when force_clipboard
+# paste_shortcut: CTRL+SHIFT+V
+# pre_paste_delay: 100
+# post_paste_delay: 50
+
+undo_backspace: false
+preserve_clipboard: false
