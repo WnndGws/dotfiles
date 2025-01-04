@@ -104,3 +104,8 @@ git add .
 gs
 git-crypt status
 bat .git-crypt/keys/default/0/0FA756497E1FEF612AE4DB81DDD025AF115D8347.gpg
+git add .
+git commit -m "Nushell, nu start"
+nv .git/config
+git remote add upstream git@github.com:WnndGws/dotfiles.git
+gs
