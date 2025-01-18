@@ -4,4 +4,4 @@ if not ("SSH_AUTH_SOCK" in $env) {
 }
 
 # Set SSH_AUTH_SOCK environment variable
-let-env SSH_AUTH_SOCK = ($env.XDG_RUNTIME_DIR | path join "ssh-agent.socket")
+$env.SSH_AUTH_SOCK = ($env.XDG_RUNTIME_DIR | path join "ssh-agent.socket")
