@@ -1,7 +1,7 @@
 -- Some OS detectors
 local is_wsl = vim.fn.has("wsl") == 1
--- local is_mac = vim.fn.has("macunix") == 1
--- local is_linux = not is_wsl and not is_mac
+local is_mac = vim.fn.has("macunix") == 1
+local is_linux = not is_wsl and not is_mac
 
 ---------------
 --- Colours ---
@@ -53,6 +53,18 @@ if not vim.env.SSH_TTY then
 			cache_enabled = 0,
 		}
 	end
+    if is_linux then
+        vim.g.clipboard = {
+            copy = {
+                ["+"] = "wl-copy --trim-newline",
+                ["*"] = "wl-copy --trim-newline",
+            },
+            paste = {
+                ["+"] = "wl-paste --no-newline",
+                ["*"] = "wl-paste --no-newline",
+            },
+        }
+    end
 end
 
 ------------------------

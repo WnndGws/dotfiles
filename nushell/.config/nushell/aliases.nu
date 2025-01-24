@@ -10,8 +10,8 @@ alias ad = archdate
 alias paorph = pacman --query --unrequired --deps --quiet
 alias po = paorph
 def porm [] { pacman --query --unrequired --deps --quiet | xargs -I() pikaur -R --noconfirm (); pacman --query --unrequired --deps --quiet | xargs -I() pikaur -R --noconfirm (); pacman --query --unrequired --deps --quiet | xargs -I() pikaur -R --noconfirm () }
-def p [package] { ~/git/personal/fzf-scripts/pkgsearch ($package) }
-alias pare = ~/git/personal/fzf-scripts/pkgrm -s
+def p [package] { ~/git/fzf-scripts/pkgsearch ($package) }
+alias pare = ~/git/fzf-scripts/pkgrm -s
 alias pin = pikaur -S --noconfirm
 alias pir = pikaur -S --rebuild
 

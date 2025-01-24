@@ -12,7 +12,19 @@
 #              --- aliases.nu
 #
 
+#. ------------------ #
+# >>>>> PLUGINS <<<<< #
+#. ------------------ #
 # Use starship prompt
 source "~/.config/nushell/plugins/starship.nu"
+
+#. ------------------ #
+# >>>>> GENERAL <<<<< #
+#. ------------------ #
 # Source aliases
 source "~/.config/nushell/aliases.nu"
+
+# Use carapace for completions
+source ~/.cache/carapace/init.nu
+
+use '/home/wynand/.config/broot/launcher/nushell/br' *
