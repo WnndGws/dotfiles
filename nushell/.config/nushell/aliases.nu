@@ -20,6 +20,8 @@ alias pir = pikaur -S --rebuild
 #. --------------- #
 alias nv = nvim
 alias sv = sudo nvim
+alias md = mkdir -v
+alias cx = chmod +x
 
 #List all including hidden
 alias ll = ls -la
