@@ -22,7 +22,6 @@ export-env { load-env {
 
 export-env { load-env {
     CARGO_HOME: ($env.XDG_DATA_HOME | path join "cargo")
-    GNUPGHOME: ($env.XDG_DATA_HOME | path join "gnupg")
     GOPATH: ($env.XDG_DATA_HOME | path join "go")
     GRIPHOME: ($env.XDG_CONFIG_HOME | path join "grip")
     GTK2_RC_FILES: ($env.XDG_CONFIG_HOME | path join "gtk-2.0" "gtkrc")

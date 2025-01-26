@@ -103,7 +103,6 @@ Plugin.config = function()
 	local lualine = require("lualine")
 	lualine.setup({
 		options = {
-			theme = "tokyonight",
 			globalstatus = true,
 			icons_enabled = true,
 			component_separators = { left = "", right = "" },

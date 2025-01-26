@@ -27,8 +27,8 @@ vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set aw
 -- Use the following if your buffer is set to become hidden
 vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
 
--- Run all commands in interactive so that I can use ZSH aliases etc
-vim.api.nvim_create_autocmd("VimEnter", {pattern = "*", command = "let &shell='/bin/zsh -i'"})
+-- Run all commands in interactive so that I can use bash
+vim.api.nvim_create_autocmd("VimEnter", {pattern = "*", command = "let &shell='/bin/bash -i'"})
 
 ----------------------------
 --- Fix Clipboard in WSL ---
