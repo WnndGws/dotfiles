@@ -23,6 +23,8 @@ alias sv = sudo nvim
 alias md = mkdir -v
 alias cx = chmod +x
 
+alias hl = hyprland
+
 #List all including hidden
 alias ll = ls -la
 alias lt = eza --color always --color-scale all --tree --level=5
@@ -62,8 +64,15 @@ alias udm = udiskie-mount -a
 def udum [] { for folder in [/run/media/wynand/*] { udiskie-umount --detach $folder } }
 
 #Quick opening files with vim using my own script
-alias v = vimfind
-alias c = fasd_cd -d -i
+def nvimf (file: string) {
+    try {
+        nvim (zoxide query -l | each { |item| fd -t f $file $item | first | str trim })
+    } catch {
+        echo "File not found: " $file
+    }
+}
+alias n = nvimf
+alias c = z
 
 #Use XDG wget
 alias wget = wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"

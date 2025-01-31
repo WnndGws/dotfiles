@@ -27,4 +27,7 @@ source "~/.config/nushell/aliases.nu"
 # Use carapace for completions
 source ~/.cache/carapace/init.nu
 
+# Source zoxide
+source ~/.config/nushell/plugins/zoxide.nu
+
 use '/home/wynand/.config/broot/launcher/nushell/br' *

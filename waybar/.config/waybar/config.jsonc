@@ -36,11 +36,28 @@
         "modules-center": [
             "cpu",
             "memory",
-            "network"
+            "network",
+            "battery"
         ],
         "modules-right": [
             "clock"
         ],
+        "battery": {
+            "bat": "BAT0",
+            "interval": 60,
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{capacity}% {icon} ({time}) ||",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+        },
         "memory": {
             "interval": 30,
             "format": "|| RAM: {used:0.1f}G/{total:0.1f}G"
