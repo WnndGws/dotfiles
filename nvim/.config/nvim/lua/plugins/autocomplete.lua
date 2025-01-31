@@ -70,7 +70,8 @@ function Plugin.config()
 			["<C-e>"] = cmp.mapping.abort(),
 			["<C-y>"] = cmp.mapping.confirm({ select = true }),
             -- Just a random combo i mapped to my keyboard
-			["<C-Y>"] = cmp.mapping.confirm({ select = false }),
+			-- ["<C-Y>"] = cmp.mapping.confirm({ select = false }),
+			["'"] = cmp.mapping.confirm({ select = false }),
 
 			["<C-f>"] = cmp.mapping(function(fallback)
 				if luasnip.jumpable(1) then

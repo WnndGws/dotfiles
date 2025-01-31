@@ -76,3 +76,6 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 # Use SSH for GPG (trim needed to remove newline)
 $env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket | str trim)
+
+# Use zoxide for quick nav
+zoxide init nushell | save -f ~/.config/nushell/plugins/zoxide.nu
