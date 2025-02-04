@@ -34,11 +34,39 @@ window#waybar {
   color: #61afef;
 }
 
-#cpu {
+/* It works top to bottom and sticks with the last found one */
+
+#custom-todo,
+#network {
   border-bottom: 3px solid #5c6370;
-  margin: 0 3px;
-  padding: 0 9px;
 }
+
+#battery.red,
+#memory.red,
+#cpu.red {
+  border-bottom: 3px solid #e06c75;
+}
+
+#battery.orange,
+#memory.orange,
+#cpu.orange {
+  border-bottom: 3px solid #d19a66;
+}
+
+#battery.yellow,
+#memory.yellow,
 #cpu.yellow {
   border-bottom: 3px solid #e5c07b;
+}
+
+#battery.charging,
+#battery.green {
+  border-bottom: 3px solid #98c379;
+}
+
+#memory,
+#cpu {
+  border-bottom: 3px solid #98c379;
+  margin: 0 3px;
+  padding: 0 9px;
 }
