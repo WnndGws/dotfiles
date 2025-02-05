@@ -60,6 +60,7 @@ window#waybar {
 }
 
 #battery.charging,
+#battery.plugged,
 #battery.green {
   border-bottom: 3px solid #98c379;
 }
