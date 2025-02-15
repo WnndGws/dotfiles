@@ -81,6 +81,6 @@ alias wget = wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
 # >>>>> Git <<<<< #
 #. -------------- #
 
-# I make use of git-branchless and git-crypt
+# I make use of git-crypt
 # Show status
-def gs [] { git sl ; git status }
+def gs [] { git status }

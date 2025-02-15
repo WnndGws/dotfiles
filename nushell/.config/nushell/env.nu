@@ -22,6 +22,7 @@ export-env { load-env {
 
 export-env { load-env {
     CARGO_HOME: ($env.XDG_DATA_HOME | path join "cargo")
+    GNUPGHOME: ($env.XDG_CONFIG_HOME | path join "gnupg")
     GOPATH: ($env.XDG_DATA_HOME | path join "go")
     GRIPHOME: ($env.XDG_CONFIG_HOME | path join "grip")
     GTK2_RC_FILES: ($env.XDG_CONFIG_HOME | path join "gtk-2.0" "gtkrc")
@@ -74,8 +75,20 @@ $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
-# Use SSH for GPG (trim needed to remove newline)
-$env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket | str trim)
-
 # Use zoxide for quick nav
 zoxide init nushell | save -f ~/.config/nushell/plugins/zoxide.nu
+
+# Set SSH Stuff
+## Launch gpg-agent if it hasnt already
+if not (gpgconf --list-dirs agent-ssh-socket | path exists) {
+  gpgconf --launch gpg-agent
+}
+
+## Attach the SSH-agent to gpg-agent
+if not ("SSH_AUTH_SOCK" in $env) {
+    $env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket)
+}
+
+
+$env.GPG_TTY = (tty | str trim)
+gpg-connect-agent updatestartuptty /bye | ignore

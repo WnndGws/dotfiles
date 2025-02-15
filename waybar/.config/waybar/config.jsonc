@@ -42,6 +42,8 @@
             "custom/spacer",
             "battery",
             "custom/spacer",
+            "backlight",
+            "custom/spacer",
             "custom/todo",
         ],
         "modules-right": [],
@@ -49,7 +51,19 @@
             "format": " || "
         },
         "custom/todo": {
-            "format": "backlight, bluetooth,on-click,weather,updates,volume,next-event"
+            "format": "bluetooth,on-click,weather,updates,volume,next-event"
+        },
+        "backlight": {
+            "device": "intel_backlight",
+            "format": "{icon}  {percent}%",
+            "states": {
+                "light": 51,
+                "dark": 0
+            },
+            "format-icons": [
+                "",
+                "",
+            ]
         },
         "battery": {
             "bat": "BAT0",
