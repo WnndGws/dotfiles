@@ -20,6 +20,8 @@
   border-radius: 2;
   font-family: FontAwesome;
   font-size: 18;
+  /* margin: 0 3px; */
+  /* padding: 0 9px; */
 }
 
 window#waybar {
@@ -37,6 +39,7 @@ window#waybar {
 /* It works top to bottom and sticks with the last found one */
 
 #custom-todo,
+#backlight.light,
 #network {
   border-bottom: 3px solid #5c6370;
 }
@@ -68,6 +71,8 @@ window#waybar {
 #memory,
 #cpu {
   border-bottom: 3px solid #98c379;
-  margin: 0 3px;
-  padding: 0 9px;
+}
+
+#backlight.dark {
+  border-bottom: 3px solid #4b5263;
 }
