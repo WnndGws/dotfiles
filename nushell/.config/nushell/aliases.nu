@@ -86,7 +86,5 @@ alias wget = wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
 # I make use of git-crypt
 # Show status
 def gs [] { git status }
-# Add showing diffs
-def ga [] { git add -p }
-# Commit
-def gc [] { git commit -p }
+# Add showing diffs, commit, and push
+def ga [] { git add -p ; git commit -p ; git push }
