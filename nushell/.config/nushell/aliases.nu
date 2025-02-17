@@ -25,6 +25,8 @@ alias cx = chmod +x
 
 alias hl = hyprland
 
+def minecraft [] { cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC -d "/home/wynand/.local/share/multimc" -l "Sanitarium" -s "192.168.0.98" }
+
 #List all including hidden
 alias ll = ls -la
 alias lt = eza --color always --color-scale all --tree --level=5
