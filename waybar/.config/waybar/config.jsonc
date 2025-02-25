@@ -44,6 +44,8 @@
             "custom/spacer",
             "backlight",
             "custom/spacer",
+            "wireplumber",
+            "custom/spacer",
             "custom/todo",
         ],
         "modules-right": [],
@@ -51,7 +53,15 @@
             "format": " || "
         },
         "custom/todo": {
-            "format": "bluetooth,on-click,weather,updates,volume,next-event"
+            "format": "bluetooth,on-click,weather,updates,next-event"
+        },
+        "wireplumber": {
+            "format": "{icon}  {volume}%",
+            "format-muted": "󰝟",
+            "format-icons": [
+                "󰖀",
+                "󰕾"
+            ],
         },
         "backlight": {
             "device": "intel_backlight",
@@ -63,7 +73,7 @@
             "format-icons": [
                 "",
                 "",
-            ]
+            ],
         },
         "battery": {
             "bat": "BAT0",
