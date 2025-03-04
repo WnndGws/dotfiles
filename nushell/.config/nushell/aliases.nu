@@ -79,6 +79,8 @@ alias c = z
 #Use XDG wget
 alias wget = wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
 
+def ww [] { cd ~/git/git-wiki/ ; nvim +NvimTreeOpen }
+
 #. -------------- #
 # >>>>> Git <<<<< #
 #. -------------- #

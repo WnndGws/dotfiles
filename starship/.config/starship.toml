@@ -39,15 +39,9 @@ format = " [$user]($style)"
 [hostname]
 disabled = false
 ssh_only = false
+ssh_symbol = ' via SSH 🌐'
 style = "yellow bold"
-format = "[ on ](grey)[$hostname]($style)"
-
-[custom.ssh]
-when = 'test -n "$SSH_CLIENT"'
-format = "(red)[ via ](grey)[$symbol $output]($style)"
-symbol = "🌐"
-command = "echo 'SSH'"
-style = "red"
+format = "[$ssh_symbol](red bold)[ on ](grey)[$hostname]($style)"
 
 [directory]
 disabled = false
@@ -56,7 +50,7 @@ truncate_to_repo = true
 fish_style_pwd_dir_length = 1
 style = "cyan bold"
 read_only_style = "(red)READONLY"
-format = "[ in ](grey)[$path ]($style)[$lock_symbol]($lock_style)"
+format = "[ in ](grey)[$path]($style)[ $lock_symbol]($lock_style)"
 
 [cmd_duration]
 min_time = 2_000

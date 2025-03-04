@@ -53,11 +53,11 @@
             "format": " || "
         },
         "custom/todo": {
-            "format": "bluetooth,on-click,weather,updates,next-event"
+            "format": "bluetooth,on-click,weather,updates,next-event,temp"
         },
         "wireplumber": {
-            "format": "{icon}  {volume}%",
-            "format-muted": "󰝟",
+            "format": "{icon}   {volume}%",
+            "format-muted": "󰝟  Mute",
             "format-icons": [
                 "󰖀",
                 "󰕾"

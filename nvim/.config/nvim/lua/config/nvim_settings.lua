@@ -60,8 +60,8 @@ if not vim.env.SSH_TTY then
                 ["*"] = "wl-copy --trim-newline",
             },
             paste = {
-                ["+"] = "wl-paste --no-newline",
-                ["*"] = "wl-paste --no-newline",
+                ["+"] = "wl-paste",
+                ["*"] = "wl-paste",
             },
         }
     end
