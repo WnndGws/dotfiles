@@ -40,6 +40,7 @@ window#waybar {
 
 #custom-todo,
 #backlight.light,
+#wireplumber.muted,
 #network {
   border-bottom: 3px solid #5c6370;
 }
@@ -62,6 +63,7 @@ window#waybar {
   border-bottom: 3px solid #e5c07b;
 }
 
+#wireplumber,
 #battery.charging,
 #battery.plugged,
 #battery.green {
