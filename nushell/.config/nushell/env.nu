@@ -72,6 +72,10 @@ $env.config.rm.always_trash = true
 
 # Use carapace for completion
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+$env.CARAPACE_MATCH = 1 # case insensitive
+$env.CARAPACE_TOOLTIP = 1 # enable tooltips
+$env.CARAPACE_NOSPACE = '*' # enable tooltips
+$env.CARAPACE_UNFILTERED = 'true' # enable tooltips
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 

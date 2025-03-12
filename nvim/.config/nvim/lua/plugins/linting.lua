@@ -33,6 +33,10 @@ Plugin.config = function()
 		end,
 	})
 
+	linters.stylelint.args = {
+		"--config=/home/wynand/.config/stylelint/stylelintrc.json",
+	}
+
 	linters.mypy.args = {
 		"--ignore-missing-imports",
 	}

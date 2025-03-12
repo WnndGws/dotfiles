@@ -23,6 +23,8 @@ alias sv = sudo nvim
 alias md = mkdir -v
 alias cx = chmod +x
 
+alias ref = nvim "/home/wynand/git/git-wiki/references.bib"
+
 alias hl = hyprland
 
 def minecraft [] { cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC -d "/home/wynand/.local/share/multimc" -l "Sanitarium" -s "192.168.0.98" }

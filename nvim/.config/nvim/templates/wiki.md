@@ -5,4 +5,10 @@ date: {{_date_}}
 public: true
 ---
 
-{{_cursor_}}
+# Title: {{_cursor_}}
+
+## Status: Draft
+
+##
+
+## References

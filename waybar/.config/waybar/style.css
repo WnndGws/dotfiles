@@ -29,9 +29,15 @@ window#waybar {
   color: #abb2bf;
 }
 
+#workspaces button.urgent {
+  color: #5c6370;
+  background: #e06c75;
+}
+
 #workspaces button {
   color: #5c6370;
 }
+
 #workspaces button.active {
   color: #61afef;
 }
