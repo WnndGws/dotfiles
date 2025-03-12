@@ -4,3 +4,5 @@
 secret/* filter=git-crypt diff=git-crypt
 
 gnupg/** filter=git-crypt diff=git-crypt
+
+urls filter=git-crypt diff=git-crypt
