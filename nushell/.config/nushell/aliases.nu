@@ -22,6 +22,7 @@ alias nv = nvim
 alias sv = sudo nvim
 alias md = mkdir -v
 alias cx = chmod +x
+alias rga = rg -i --hidden
 
 alias ref = nvim "/home/wynand/git/git-wiki/references.bib"
 
@@ -36,9 +37,6 @@ alias lta = eza --all --color always --color-scale all --tree --level=5
 
 #Uses myman script
 alias mm = wyman
-
-#tmux in one command
-def tm [name] { try {tmux attach -t ($name)} catch {tmux new -s ($name)} }
 
 #Shortcut for pipenv
 alias pes = pipenv shell
@@ -68,14 +66,6 @@ alias udm = udiskie-mount -a
 def udum [] { for folder in [/run/media/wynand/*] { udiskie-umount --detach $folder } }
 
 #Quick opening files with vim using my own script
-def nvimf (file: string) {
-    try {
-        nvim (zoxide query -l | each { |item| fd -t f $file $item | first | str trim })
-    } catch {
-        echo "File not found: " $file
-    }
-}
-alias n = nvimf
 alias c = z
 
 #Use XDG wget

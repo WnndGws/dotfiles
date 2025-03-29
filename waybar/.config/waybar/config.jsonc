@@ -39,9 +39,13 @@
         "modules-center": [
             "cpu",
             "custom/spacer",
+            "temperature",
+            "custom/spacer",
             "memory",
             "custom/spacer",
             "network",
+            "custom/spacer",
+            "network#speed",
             "custom/spacer",
             "battery",
             "custom/spacer",
@@ -56,7 +60,12 @@
             "format": " || "
         },
         "custom/todo": {
-            "format": "bluetooth,on-click,weather,updates,next-event,temp"
+            "format": "bluetooth,on-click,weather,updates,next-event,dl speed"
+        },
+        "temperature": {
+            "thermal-zone": 0, // Use 1st core as exemplar
+            "critical-threshold": 60,
+            "format": "  {temperatureC}°C"
         },
         "wireplumber": {
             "format": "{icon}   {volume}%",
@@ -118,6 +127,11 @@
                 "orange": 75,
                 "red": 90
             }
+        },
+        "network#speed": {
+            "interface": "wlan0",
+            "format": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
+            "interval": 2
         },
         "network": {
             "interface": "wlan0",

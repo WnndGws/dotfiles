@@ -10,6 +10,20 @@
 #   |
 #
 
+# Use hooks to run ls after cd. All cd does is basically change the env PWD
+# upsert is like a find/replace?
+$env.config = ($env.config | upsert hooks.env_change.PWD {|config|
+    let val = ($config | get -i hooks.env_change.PWD)
+
+    if $val == null {
+        $val | append {|before, after| ls -a ($after) }
+    } else {
+        [
+            {|before, after| ls -a ($after) }
+        ]
+    }
+})
+
 # Set XDG user dirs
 export-env { load-env {
     XDG_DATA_HOME: ($env.HOME | path join ".local" "share")

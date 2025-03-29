@@ -53,6 +53,7 @@ window#waybar {
 
 #battery.red,
 #memory.red,
+#temperature.critical,
 #cpu.red {
   border-bottom: 3px solid #e06c75;
 }
@@ -72,6 +73,7 @@ window#waybar {
 #wireplumber,
 #battery.charging,
 #battery.plugged,
+#temperature,
 #battery.green {
   border-bottom: 3px solid #98c379;
 }
