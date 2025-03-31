@@ -21,11 +21,3 @@
 #      ||
 #      \/
 # $ZDOTDIR/zshrc     ->    Used for INTERACTIVE SHELL launch settings for specific user
-
-
-### --------------------- ###
-### --- SSH/GPG STUFF --- ###
-### --------------------- ###
-
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye

@@ -210,3 +210,67 @@ source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Source this in your ~/.zshrc
 autoload -U add-zsh-hook
 zmodload zsh/datetime 2>/dev/null
+
+
+### --------------------- ###
+### --- SSH/GPG STUFF --- ###
+### --------------------- ###
+
+# TTY is a zsh global var, not exported
+export GPG_TTY="${TTY:-$(tty)}"
+
+# Set the default paths to gpg-agent files.
+_gpg_agent_conf="${GNUPGHOME:-$HOME/.gnupg}/gpg-agent.conf"
+
+# use custom env var _GPG_AGENT_SOCK to remember socket location
+if [[ -z $_GPG_AGENT_SOCK ]]; then
+    export _GPG_AGENT_SOCK=$(gpgconf --list-dirs agent-socket)
+fi
+
+# launch gpg-agent manually, in case it's used as agent for SSH
+if [[ ! -S $_GPG_AGENT_SOCK ]]; then
+    gpgconf --launch gpg-agent 2>/dev/null
+fi
+
+# Attach the SSH-agent to gpg-agent
+unset SSH_AGENT_PID 2>/dev/null
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    if [[ -z $_GPG_AGENT_SSH_SOCK ]]; then
+        export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    else
+        export SSH_AUTH_SOCK="$_GPG_AGENT_SSH_SOCK"
+    fi
+fi
+
+# Updates the gpg-agent TTY before every command since there's no way to detect this info in the ssh-agent protocol
+function _gpg-agent-update-tty {
+    gpg-connect-agent UPDATESTARTUPTTY /bye &>/dev/null
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _gpg-agent-update-tty
+
+if [[ -n $SSH_TTY ]]; then
+  # Force use ncurses-based prompt inside SSH
+  export PINENTRY_USER_DATA="USE_CURSES=1"
+
+  # Remove socket file for next gpg-agent remote forwarding
+  # in case that `StreamLocalBindUnlink yes` is not set in sshd_config
+  if [[ $SHLVL == 1 ]]; then
+    function _gpg-agent-clean-socket {
+      if [[ -z $_GPG_AGENT_SOCK ]]; then
+        export _GPG_AGENT_SOCK=$(gpgconf --list-dirs agent-socket)
+      fi
+
+      if [[ -S $_GPG_AGENT_SOCK ]]; then
+        gpgconf --kill gpg-agent 2>/dev/null
+        command rm -f "$_GPG_AGENT_SOCK" 2>/dev/null
+      fi
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook zshexit _gpg-agent-clean-socket
+  fi
+fi
+
+# Clean up.
+unset _gpg_agent_conf
