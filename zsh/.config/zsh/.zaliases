@@ -43,8 +43,10 @@ alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 #Use a nicer du
 alias du="/usr/bin/ncdu --color dark -rr -x"
 
-#Create a gitignore file
+#Git Stuff
+##Create a gitignore file
 alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
+alias gs="git diff && git status"
 
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
