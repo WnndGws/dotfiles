@@ -53,6 +53,8 @@
             "custom/spacer",
             "wireplumber",
             "custom/spacer",
+            "custom/updates",
+            "custom/spacer",
             "custom/todo",
         ],
         "modules-right": [],
@@ -60,7 +62,13 @@
             "format": " || "
         },
         "custom/todo": {
-            "format": "bluetooth,on-click,weather,updates,next-event,dl speed"
+            "format": "bluetooth,on-click,weather,next-event"
+        },
+        "custom/updates": {
+            "format": "{0}",
+            "return-type": "json",
+            "exec-if": "which waybar-updates",
+            "exec": "waybar-updates --format '{aur}   {pacman}' --cycles 3600 2> /dev/null"
         },
         "temperature": {
             "thermal-zone": 0, // Use 1st core as exemplar

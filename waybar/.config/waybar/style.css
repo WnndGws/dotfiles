@@ -47,10 +47,12 @@ window#waybar {
 #custom-todo,
 #backlight.light,
 #wireplumber.muted,
+#custom-updates,
 #network {
   border-bottom: 3px solid #5c6370;
 }
 
+#custom-updates.pending-updates,
 #battery.red,
 #memory.red,
 #temperature.critical,
