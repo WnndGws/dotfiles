@@ -11,9 +11,18 @@ mkfifo "$BAR_FIFO"
 killall -9 waybar-updates
 
 # Send info to the FIFO
-waybar-updates --format '{aur}  {pacman}' --interval 3600 2> /dev/null > /tmp/waybar-updates &
+while true; do
+    waybar-updates --format '{aur}   {pacman}' --once > /tmp/waybar-updates
+
+    #PAC_KERNAL=$(file /boot/vmlinuz-linux | rg --pcre2 --only-matching "(?<=version ).*? ")
+    #RUNNING_KERNAL=$(uname -r)
+
+    #[ $PAC_KERNAL = $RUNNING_KERNAL ]
+
+    sleep 3600
+done &
 
 # Output the FIFO
 while read -r line; do
     printf "%s\n" "$line"
-done < /tmp/waybar-updates
+done < "$BAR_FIFO"

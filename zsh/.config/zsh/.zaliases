@@ -12,14 +12,14 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && killall -9 waybar && waybar & disown'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock
 alias paorph='pacman --query --unrequired --deps --quiet'
 alias po=paorph
 alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}'
-alias pare='$HOME/git/fzf-scripts/pkgrm -s'
+alias pare='$HOME/git/scripts/fpikrm -s'
 alias pin='pikaur -S --noconfirm'
 alias pq='pikaur -Qi | rg -B3 -A3'
 alias pir='pikaur -S --rebuild'
@@ -123,7 +123,12 @@ alias minecraft='cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC
 entrwatch() { exa "$1" | entr /_ }
 
 #Pacman Stuff
-p() { $HOME/git/fzf-scripts/pkgsearch "$1" }
+p() { $HOME/git/scripts/fpikaur "$1" }
 
 #Udiskie
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
+
+# FZF stuff
+c() { . $HOME/git/scripts/fcd "$1" }
+v() { . $HOME/git/scripts/fv "$1" }
+va() { . $HOME/git/scripts/fva "$1" }

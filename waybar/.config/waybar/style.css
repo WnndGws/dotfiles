@@ -18,7 +18,7 @@
 * {
   border: none;
   border-radius: 2;
-  font-family: CaskaydiaMonoNerdFont;
+  font-family: "CaskaydiaCove Nerd Font Propo";
   font-size: 16;
   /* margin: 0 3px; */
   /* padding: 0 9px; */
@@ -47,15 +47,19 @@ window#waybar {
 #custom-todo,
 #backlight.light,
 #wireplumber.muted,
+#custom-netspeed,
 #custom-updates,
 #network {
   border-bottom: 3px solid #5c6370;
 }
 
 #custom-updates.pending-updates,
+#custom-vpn.disconnected,
 #battery.red,
 #memory.red,
 #temperature.critical,
+#custom-netspeed.down,
+#custom-netspeed.up,
 #cpu.red {
   border-bottom: 3px solid #e06c75;
 }
@@ -73,6 +77,7 @@ window#waybar {
 }
 
 #wireplumber,
+#custom-vpn.connected,
 #battery.charging,
 #battery.plugged,
 #temperature,

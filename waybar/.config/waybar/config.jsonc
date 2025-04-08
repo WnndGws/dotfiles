@@ -11,8 +11,13 @@
             "hyprland/window"
         ],
         "modules-right": [
-            "clock"
+            "custom/spacer",
+            "clock",
+            "custom/spacer"
         ],
+        "custom/spacer": {
+            "format": " || "
+        },
         "clock": {
             "format": "{:%a, %d. %b  %H:%M}"
         },
@@ -43,6 +48,7 @@
             "custom/spacer",
             "memory",
             "custom/spacer",
+            "custom/vpn",
             "network",
             "custom/spacer",
             "custom/netspeed",
@@ -70,16 +76,13 @@
             "exec-if": "which waybar-updates",
             "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh",
             "format-icons": {
-                "updated": " ",
+                "updated": "0  0",
             }
-        },
-        "custom/netspeed": {
-            "exec": "$XDG_CONFIG_HOME/waybar/netspeed -s"
         },
         "temperature": {
             "thermal-zone": 0, // Use 1st core as exemplar
             "critical-threshold": 60,
-            "format": " {temperatureC}°C"
+            "format": " {temperatureC}°C"
         },
         "wireplumber": {
             "format": "{icon} {volume}%",
@@ -153,6 +156,23 @@
             "tooltip-format-ethernet": "{ifname} ",
             "tooltip-format-disconnected": "Disconnected",
             "max-length": 50
-        }
+        },
+        "custom/vpn": {
+            "format": "{icon}",
+            "return-type": "json",
+            "exec": "mullvad status --json listen | jq --unbuffered --compact-output '.text = .state | .class = .state | .alt = .state'",
+            "format-icons": {
+                "connected": "\uf023",
+                "disconnected": ""
+            }
+        },
+        "custom/netspeed": {
+            "exec": "$XDG_CONFIG_HOME/waybar/network_speed.sh",
+            "return-type": "json",
+            "format": "{icon}{text}",
+            "format-icons": {
+                "Mi": "+"
+            }
+        },
     }
 ]
