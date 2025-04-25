@@ -5,13 +5,12 @@ local Plugins = {
 	{ "christoomey/vim-tmux-navigator" },
 	{ "luckasRanarison/tailwind-tools.nvim" },
 	{ "richardbizik/nvim-toc" },
-    { "monaqa/dial.nvim" },
-    { "LunarVim/bigfile.nvim" },
-    { "johmsalas/text-case.nvim" },
-    { "AllenDang/nvim-expand-expr" },
-    { "axieax/urlview.nvim" },
-    {'jghauser/fold-cycle.nvim'},
-    {'mireq/large_file'},
+	{ "LunarVim/bigfile.nvim" },
+	{ "johmsalas/text-case.nvim" },
+	{ "AllenDang/nvim-expand-expr" },
+	{ "axieax/urlview.nvim" },
+	{ "jghauser/fold-cycle.nvim" },
+	{ "mireq/large_file" },
 }
 
 return Plugins

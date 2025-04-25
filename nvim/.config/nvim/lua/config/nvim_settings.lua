@@ -6,7 +6,7 @@ local is_linux = not is_wsl and not is_mac
 ---------------
 --- Colours ---
 ---------------
-vim.api.nvim_set_hl(0, "Folded", { bg="NONE", underline=true })
+vim.api.nvim_set_hl(0, "Folded", { bg = "NONE", underline = true })
 
 -------------------
 --- Autocommands---
@@ -14,21 +14,21 @@ vim.api.nvim_set_hl(0, "Folded", { bg="NONE", underline=true })
 local uv = vim.loop
 
 --- Use tmux-rename upon launching nvim ---
-vim.api.nvim_create_autocmd('VimEnter', {
+vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		if vim.env.TMUX_PLUGIN_MANAGER_PATH then
-			uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. '/tmux-window-name/scripts/rename_session_windows.py', {})
+			uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. "/tmux-window-name/scripts/rename_session_windows.py", {})
 		end
 	end,
 })
 
 --- Write md buffers as you leave them
-vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
+vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
 -- Use the following if your buffer is set to become hidden
-vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})
+vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "silent! wall" })
 
 -- Run all commands in interactive so that I can use bash
-vim.api.nvim_create_autocmd("VimEnter", {pattern = "*", command = "let &shell='/bin/bash -i'"})
+vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "let &shell='/bin/bash -i'" })
 
 ----------------------------
 --- Fix Clipboard in WSL ---
@@ -53,18 +53,18 @@ if not vim.env.SSH_TTY then
 			cache_enabled = 0,
 		}
 	end
-    if is_linux then
-        vim.g.clipboard = {
-            copy = {
-                ["+"] = "wl-copy --trim-newline",
-                ["*"] = "wl-copy --trim-newline",
-            },
-            paste = {
-                ["+"] = "wl-paste",
-                ["*"] = "wl-paste",
-            },
-        }
-    end
+	if is_linux then
+		vim.g.clipboard = {
+			copy = {
+				["+"] = "wl-copy --trim-newline",
+				["*"] = "wl-copy --trim-newline",
+			},
+			paste = {
+				["+"] = "wl-paste",
+				["*"] = "wl-paste",
+			},
+		}
+	end
 end
 
 ------------------------
@@ -113,8 +113,8 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
-opt.enc="utf-8"
-opt.spell=false
+opt.enc = "utf-8"
+opt.spell = false
 opt.spelllang = { "en_au" }
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
@@ -138,4 +138,4 @@ if vim.fn.has("nvim-0.10") == 1 then
 end
 
 -- Fix markdown indentation settings
-vim.treesitter.language.register('markdown', 'vimwiki', 'wiki')
+vim.treesitter.language.register("markdown", "vimwiki", "wiki")

@@ -11,20 +11,6 @@ Plugin.config = function()
 	conform.setup({
 		-- Define your formatters
 		formatters_by_ft = {
-			["*"] = { "trim_newlines", "trim_whitespace" },
-			awk = { "awk" },
-			css = { "rustywind", "stylelint", "prettier" },
-			html = { "prettier" },
-			javascript = { "ast-grep", "prettier" },
-			json = { "fixjson", "prettier" },
-			lua = { "stylua" },
-			markdown = { "prettier", "markdownlint-cli2" },
-			python = { "ast-grep", "ruff_format", "ruff_fix", "mypy" },
-			rust = { "ast-grep" },
-			sh = { "beautysh", "shellcheck", "shellharden" },
-			bib = { "bibtex-tidy" },
-			tex = { "latexindent" },
-			typescript = { "ast-grep", "prettier" },
 		},
 		-- Set up format-on-save
 		format_on_save = { timeout_ms = 500, lsp_fallback = true, async = false },
