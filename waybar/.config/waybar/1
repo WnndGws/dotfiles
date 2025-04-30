@@ -1,0 +1,4 @@
+error: package '/dev/null' was not found
+error: package '/dev/null' was not found
+warning: '/dev/null' is a file, you might want to use -p/--file.
+warning: '/dev/null' is a file, you might want to use -p/--file.

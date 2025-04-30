@@ -9,6 +9,7 @@ while true; do
 
     # Set to 100 if charging (denoted by +ve) or to percentage (denoted by -ve)
     [[ $BAT -gt 0 ]] && BAT=100 || BAT=${BAT:1}
+    [[ $BAT -lt 50 ]] && BAT=50
 
     brightnessctl set "$BAT"%
 

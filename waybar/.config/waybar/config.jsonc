@@ -11,12 +11,18 @@
             "hyprland/window"
         ],
         "modules-right": [
+            "custom/nextevent",
             "custom/spacer",
             "clock",
             "custom/spacer"
         ],
         "custom/spacer": {
             "format": " || "
+        },
+        "custom/nextevent": {
+            "format": "{text}",
+            "return-type": "json",
+            "exec": "$XDG_CONFIG_HOME/waybar/next_event.sh"
         },
         "clock": {
             "format": "{:%a, %d. %b  %H:%M}"
@@ -54,6 +60,7 @@
             "custom/netspeed",
             "custom/spacer",
             "battery",
+            "battery#2",
             "custom/spacer",
             "backlight",
             "custom/spacer",
@@ -71,13 +78,9 @@
             "format": "bluetooth,on-click,weather,next-event,kernel"
         },
         "custom/updates": {
-            "format": "{icon}{text}",
+            "format": "{text}",
             "return-type": "json",
-            "exec-if": "which waybar-updates",
-            "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh",
-            "format-icons": {
-                "updated": "0  0",
-            }
+            "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh"
         },
         "temperature": {
             "thermal-zone": 0, // Use 1st core as exemplar
@@ -106,6 +109,29 @@
         },
         "battery": {
             "bat": "BAT0",
+            "interval": 10,
+            "format-time": "{H:02}:{m} left",
+            /* battery triggers BELOW, unlike others */
+            "states": {
+                "green": 101,
+                "yellow": 90,
+                "orange": 50,
+                "red": 20
+            },
+            "format-charging": "󰂄 {capacity}% ({time})",
+            "format-full": "󰂄 {capacity}% (Charged)",
+            "format-plugged": "󰂄 {capacity}% (Charged)",
+            "format": "{icon} {capacity}% ({time})",
+            "format-icons": [
+                "󰁺",
+                "󰁼",
+                "󰁾",
+                "󰂁",
+                "󰁹"
+            ]
+        },
+        "battery#2": {
+            "bat": "BAT1",
             "interval": 10,
             "format-time": "{H:02}:{m} left",
             /* battery triggers BELOW, unlike others */

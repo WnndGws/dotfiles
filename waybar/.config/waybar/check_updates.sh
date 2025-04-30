@@ -1,28 +1,35 @@
 #!/usr/bin/zsh
 ### Creates a FIFO for recording updates so it refreshes when i manually update
 
-BAR_FIFO='/tmp/waybar-updates'
+#BAR_FIFO='/tmp/waybar-updates'
 
 # If an old FIFO exists, remove it and create a new one
-[ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
-mkfifo "$BAR_FIFO"
+#[ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
+#mkfifo "$BAR_FIFO"
 
-# Kill any running waybar-update process
-killall -9 waybar-updates
+# Check if another instance of this script is running
+pidof -o %PPID -x "$0" >/dev/null && echo "ERROR: Script $0 already running" && exit 1
 
+printf '{"text": "Checking updates..."}' | jq --unbuffered --compact-output .
 # Send info to the FIFO
-while true; do
-    waybar-updates --format '{aur}   {pacman}' --once > /tmp/waybar-updates
+#while true; do
+PACMAN_CHECK=$(pacman -Qqu | wc -l || echo "0")
+AUR_CHECK=$(pikaur -Qqu | wc -l || echo "0")
 
-    #PAC_KERNAL=$(file /boot/vmlinuz-linux | rg --pcre2 --only-matching "(?<=version ).*? ")
-    #RUNNING_KERNAL=$(uname -r)
+(( AUR_FINAL = AUR_CHECK - PACMAN_CHECK ))
+(( PACMAN_FINAL = PACMAN_CHECK - AUR_FINAL ))
 
-    #[ $PAC_KERNAL = $RUNNING_KERNAL ]
+printf "$PACMAN_FINAL  $AUR_FINAL\n" | jq --unbuffered --compact-output -R 'split("\n") | {text: .[0]}'
 
-    sleep 3600
-done &
+#PAC_KERNAL=$(file /boot/vmlinuz-linux | rg --pcre2 --only-matching "(?<=version ).*? ")
+#RUNNING_KERNAL=$(uname -r)
+
+#[ $PAC_KERNAL = $RUNNING_KERNAL ]
+
+#sleep 3600
+#done
 
 # Output the FIFO
-while read -r line; do
-    printf "%s\n" "$line"
-done < "$BAR_FIFO"
+#while read -r line; do
+#printf "%s\n" "$line"
+#done < "$BAR_FIFO"

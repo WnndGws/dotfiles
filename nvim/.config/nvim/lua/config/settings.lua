@@ -1,86 +1,9 @@
--- Some OS detectors
-local is_wsl = vim.fn.has("wsl") == 1
-local is_mac = vim.fn.has("macunix") == 1
-local is_linux = not is_wsl and not is_mac
-
----------------
---- Colours ---
----------------
-vim.api.nvim_set_hl(0, "Folded", { bg = "NONE", underline = true })
-
--------------------
---- Autocommands---
--------------------
-local uv = vim.loop
-
---- Use tmux-rename upon launching nvim ---
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if vim.env.TMUX_PLUGIN_MANAGER_PATH then
-			uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. "/tmux-window-name/scripts/rename_session_windows.py", {})
-		end
-	end,
-})
-
---- Write md buffers as you leave them
-vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
--- Use the following if your buffer is set to become hidden
-vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "silent! wall" })
-
--- Run all commands in interactive so that I can use bash
-vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "let &shell='/bin/bash -i'" })
-
-----------------------------
---- Fix Clipboard in WSL ---
-----------------------------
-if not vim.env.SSH_TTY then
-	-- only set clipboard if not in ssh, to make sure the OSC 52
-	-- integration works automatically. Requires Neovim >= 0.10.0
-	-- WSL Clipboard support
-	if is_wsl then
-		-- This is NeoVim's recommended way to solve clipboard sharing if you use WSL
-		-- See: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
-		vim.g.clipboard = {
-			name = "WslClipboard",
-			copy = {
-				["+"] = "clip.exe",
-				["*"] = "clip.exe",
-			},
-			paste = {
-				["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-				["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-			},
-			cache_enabled = 0,
-		}
-	end
-	if is_linux then
-		vim.g.clipboard = {
-			copy = {
-				["+"] = "wl-copy --trim-newline",
-				["*"] = "wl-copy --trim-newline",
-			},
-			paste = {
-				["+"] = "wl-paste",
-				["*"] = "wl-paste",
-			},
-		}
-	end
-end
+-- ~/nvim/lua/config.lua
 
 ------------------------
 --- General Settings ---
 ------------------------
-vim.g.autoformat = true -- Enable autoformat
-
-vim.opt.foldcolumn = "2"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = require("modules.foldtext")
-vim.wo.conceallevel = 2
-
+local global = vim.g
 local opt = vim.opt
 
 opt.clipboard = "unnamedplus"
@@ -114,7 +37,7 @@ opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift t
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.enc = "utf-8"
-opt.spell = false
+opt.spell = true
 opt.spelllang = { "en_au" }
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
@@ -136,6 +59,3 @@ opt.wrap = true -- Enable line wrap
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
 end
-
--- Fix markdown indentation settings
-vim.treesitter.language.register("markdown", "vimwiki", "wiki")

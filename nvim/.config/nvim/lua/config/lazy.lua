@@ -1,8 +1,4 @@
-----------------
---- LAZY VIM ---
-----------------
--- .config/nvim/lua/config/lazy.lua
-
+-- ~/nvim/lua/lazy.lua
 local lazy = {}
 
 -- Install Lazy if it doesn’t exist
@@ -38,4 +34,4 @@ end
 lazy.path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- Creates and sets ~/.local/nvim/lazy/lazy.nvim
 lazy.opts = {}
 
-lazy.setup({ { import = "plugins" }, {import = "plugins.languages"}, {import="plugins.qol"} })
+lazy.setup({ { import = "plugins" }})
