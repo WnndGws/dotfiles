@@ -78,6 +78,7 @@
             "format": "bluetooth,on-click,weather,next-event,kernel"
         },
         "custom/updates": {
+            //"format": "Fix script"
             "format": "{text}",
             "return-type": "json",
             "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh"

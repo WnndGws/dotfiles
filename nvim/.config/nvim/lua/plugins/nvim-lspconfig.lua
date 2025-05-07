@@ -27,6 +27,8 @@ Plugin.init = function()
 		},
 	})
 
+	vim.lsp.buf.format({ async = true })
+
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =

@@ -13,7 +13,7 @@ return {
 				javascript = { "biome", "prettier", "rustywind" },
 				typescript = { "biome", "rustywind" },
 				markdown = { "cbfmt", "doctoc", "markdownlint-cli2", "mdslw", "prettier" },
-				python = { "docformatter", "ruff" },
+				python = { "docformatter", "ruff_format" },
 				angular = { "prettier", "rustywind" },
 				css = { "prettier", "rustywind" },
 				html = { "prettier", "prettydiff", "rustywind" },

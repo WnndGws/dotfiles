@@ -13,8 +13,8 @@ pidof -o %PPID -x "$0" >/dev/null && echo "ERROR: Script $0 already running" && 
 printf '{"text": "Checking updates..."}' | jq --unbuffered --compact-output .
 # Send info to the FIFO
 #while true; do
-PACMAN_CHECK=$(pacman -Qqu | wc -l || echo "0")
-AUR_CHECK=$(pikaur -Qqu | wc -l || echo "0")
+PACMAN_CHECK=$(checkupdates | wc -l || echo "0")
+AUR_CHECK=$(checkupdates-with-aur| wc -l || echo "0")
 
 (( AUR_FINAL = AUR_CHECK - PACMAN_CHECK ))
 (( PACMAN_FINAL = PACMAN_CHECK - AUR_FINAL ))
