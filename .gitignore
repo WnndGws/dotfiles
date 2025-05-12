@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vim,tex,linux,latex,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,tex,linux,latex,python
 
+nushell/.config/nushell/history.txt
+nvim/.config/nvim/lazy-lock.json
+*.zcompdump
+
 ### GPG Stuff
 DIR.txt
 *.rev
