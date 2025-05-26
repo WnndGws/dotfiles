@@ -8,6 +8,7 @@ local opt = vim.opt
 
 opt.clipboard = "unnamedplus"
 opt.autowrite = true -- Enable auto-write
+opt.autoread = true -- Read file after external changes
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 0 -- Hide nothing
 opt.confirm = true -- Confirm to save changes before exiting modified buffer

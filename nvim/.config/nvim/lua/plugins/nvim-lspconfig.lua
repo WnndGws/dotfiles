@@ -141,9 +141,6 @@ Plugin.config = function()
 	-- pir digestif-git
 	vim.lsp.enable("digestif")
 
-	-- pir harper
-	vim.lsp.enable("harper_ls")
-
 	-- pir ltex-ls-plus-bin
 	vim.lsp.enable("ltex_plus")
 

@@ -23,7 +23,7 @@ alias rdl=remove_database_lock
 alias paorph='pacman --query --unrequired --deps --quiet'
 alias po=paorph
 alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}'
-alias pare='$HOME/git/scripts/fpikrm -s'
+alias pare='$HOME/git/scripts/fuzzy/fpikrm -s'
 alias pin='pikaur -S --noconfirm'
 alias pq='pikaur -Qi | rg -B3 -A3'
 alias pir='pikaur -S --rebuild'
@@ -53,9 +53,9 @@ alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .git
 alias gs="git diff && git status"
 
 #Interactive awk,sed,rg
-alias iawk='$HOME/git/fzf-scripts/fzrepl -c awk'
-alias ised='$HOME/git/fzf-scripts/fzrepl -c sed'
-alias irg='$HOME/git/fzf-scripts/fzrg'
+alias iawk='$HOME/git/fzf-scripts/fuzzy/fzrepl -c awk'
+alias ised='$HOME/git/fzf-scripts/fuzzy/fzrepl -c sed'
+alias irg='$HOME/git/fzf-scripts/fuzzy/fzrg'
 
 #Get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -127,12 +127,12 @@ alias minecraft='cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC
 entrwatch() { exa "$1" | entr /_ }
 
 #Pacman Stuff
-p() { $HOME/git/scripts/fpikaur "$1" }
+alias p='$HOME/git/scripts/fuzzy/fpikaur'
 
 #Udiskie
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
 
 # FZF stuff
-c() { . $HOME/git/scripts/fcd "$1" }
-v() { . $HOME/git/scripts/fv "$1" }
-va() { . $HOME/git/scripts/fva "$1" }
+c() { . $HOME/git/scripts/fuzzy/fcd "$1" }
+v() { . $HOME/git/scripts/fuzzy/fv "$1" }
+va() { . $HOME/git/scripts/fuzzy/fva "$1" }
