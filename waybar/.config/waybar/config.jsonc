@@ -1,7 +1,10 @@
 [
     {
         "name": "top-bar-main",
-        "output": ["DP-2", "eDP-1"],
+        "output": [
+            "DP-2",
+            "eDP-1"
+        ],
         "layer": "top",
         "position": "top",
         "height": 40,
@@ -32,6 +35,79 @@
         "hyprland/workspaces": {
             // Use `hyprctl clients` to get the info needed
             // NOTE: Case sensitive but can use regex
+            "persistent-workspaces": {
+                "DP-2": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "HDMI-A-1": [
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "DP-3": [
+                    5,
+                    6
+                ]
+            },
+            "format": "{icon}:{windows}",
+            "format-window-separator": " ",
+            "window-rewrite-default": "",
+            "window-rewrite": {
+                "class<firefox>": "", // Windows whose classes are "firefox"
+                "class<Signal>": "󰭹",
+                "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+                "alacritty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+            },
+        }
+    },
+    {
+        "name": "top-bar-secondary",
+        "output": [
+            "HDMI-A-1",
+            "DP-3"
+        ],
+        "layer": "top",
+        "position": "top",
+        "height": 40,
+        "spacing": 5,
+        "modules-left": [
+            "hyprland/workspaces",
+        ],
+        "modules-center": [
+            "hyprland/window"
+        ],
+        "modules-right": [],
+        "custom/spacer": {
+            "format": " || "
+        },
+        "clock": {
+            "format": "{:%a, %d. %b  %H:%M}"
+        },
+        "hyprland/workspaces": {
+            // Use `hyprctl clients` to get the info needed
+            // NOTE: Case sensitive but can use regex
+            "persistent-workspaces": {
+                "DP-2": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "HDMI-A-1": [
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "DP-3": [
+                    5,
+                    6
+                ]
+            },
             "format": "{icon}:{windows}",
             "format-window-separator": " ",
             "window-rewrite-default": "",

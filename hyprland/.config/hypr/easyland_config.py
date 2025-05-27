@@ -13,6 +13,7 @@ listeners = {
 
 def init():
     set_monitors()
+    set_workspaces()
 
 
 ###############################################################################
@@ -92,3 +93,18 @@ def set_monitors():
     else:
         command.exec('hyprctl keyword monitor "eDP-1,preferred,auto,1"')
         # command.exec("brightnessctl -s set 0")
+
+
+def set_workspaces():
+    logger.info("Setting monitors")
+    if hostname == "arch-beast":
+        command.exec('hyprctl keyword workspace "1, monitor:DP-2"')
+        command.exec('hyprctl keyword workspace "2, monitor:DP-2"')
+        command.exec('hyprctl keyword workspace "3, monitor:DP-2"')
+        command.exec('hyprctl keyword workspace "4, monitor:DP-2"')
+        command.exec('hyprctl keyword workspace "5, monitor:DP-3"')
+        command.exec('hyprctl keyword workspace "6, monitor:DP-3"')
+        command.exec('hyprctl keyword workspace "7, monitor:HDMI-A-1"')
+        command.exec('hyprctl keyword workspace "8, monitor:HDMI-A-1"')
+        command.exec('hyprctl keyword workspace "9, monitor:HDMI-A-1"')
+        command.exec('hyprctl keyword workspace "10, monitor:HDMI-A-1"')

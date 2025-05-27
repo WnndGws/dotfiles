@@ -1,4 +1,4 @@
-#files: 1114	version: 5.9
+#files: 1099	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -83,7 +83,6 @@ _comps=(
 'avdmanager' '_avdmanager'
 'awk' '_awk'
 'b2sum' '_md5sum'
-'bacon' '_bacon'
 'barbican' '_openstack'
 'base32' '_base64'
 'base64' '_base64'
@@ -132,7 +131,6 @@ _comps=(
 'bttrack' '_bittorrent'
 'buildhash' '_ispell'
 'builtin' '_builtin'
-'buku' '_buku'
 'bundle' '_bundle'
 'bunzip2' '_bzip2'
 'burst' '_mh'
@@ -299,7 +297,6 @@ _comps=(
 'dmidecode' '_dmidecode'
 'doas' '_doas'
 'docpad' '_docpad'
-'dog' '_dog'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
 'dotnet' '_dotnet'
@@ -479,7 +476,6 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
-'gh' '_gh'
 'ghc' '_ghc'
 'ghci' '_ghc'
 'ghc-pkg' '_ghc'
@@ -728,7 +724,6 @@ _comps=(
 'killall5' '_killall'
 'kioclient' '_kfmclient'
 'kitchen' '_kitchen'
-'kitty' '_kitty'
 'knife' '_knife'
 'knock' '_knock'
 'konqueror' '_webbrowser'
@@ -835,7 +830,6 @@ _comps=(
 'mencal' '_mencal'
 'mere' '_mere'
 'merge' '_rcs'
-'meson' '_meson'
 'metaflac' '_flac'
 'mformat' '_mtools'
 'mgv' '_pspdf'
@@ -937,13 +931,11 @@ _comps=(
 'neutron' '_openstack'
 'new' '_mh'
 'newgrp' '_groups'
-'newsboat' '_newsboat'
 'next' '_mh'
 'nft' '_nftables'
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
-'ninja' '_ninja'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1083,8 +1075,6 @@ _comps=(
 'pmpath' '_perl_modules'
 'pmvers' '_perl_modules'
 'podgrep' '_perl_modules'
-'podman' '_podman'
-'podman-remote' '_podman-remote'
 'podpath' '_perl_modules'
 'podtoc' '_perl_modules'
 'poff' '_pon'
@@ -1257,8 +1247,6 @@ _comps=(
 'seaf-cli' '_seafile'
 'sed' '_sed'
 'senlin' '_openstack'
-'sensors' '_sensors'
-'sensors-detect' '_sensors-detect'
 'seq' '_seq'
 'serialver' '_java'
 'service' '_service'
@@ -1366,8 +1354,6 @@ _comps=(
 'svnliteadmin' '_subversion'
 'swaks' '_swaks'
 'swanctl' '_swanctl'
-'sway' '_sway'
-'swaymsg' '_swaymsg'
 'swift' '_swift'
 'swiftc' '_swift'
 'sync' '_nothing'
@@ -1407,7 +1393,6 @@ _comps=(
 'tee' '_tee'
 'telnet' '_telnet'
 'tex' '_tex'
-'texdoc' '_texdoc'
 'tex-fmt' '_tex-fmt'
 'texi2any' '_texinfo'
 'texi2dvi' '_texinfo'
@@ -1970,48 +1955,45 @@ bindkey '^[~' _bash_complete-word
 
 autoload -Uz _afew _alacritty _android _archlinux-java _arch-rebuild-order \
             _artisan _atach _aur _aur_local_packages _aur_packages \
-            _aur_repositories _avdmanager _bacon _bat _bitcoin-cli \
-            _bluetoothctl _bootctl _bower _buku _bundle \
-            _busctl _bwrap _cap _cargo _cask \
-            _ccache _cf _checkupdates _choc _chromium \
-            _clang-check _clang-format _clang-tidy _cmake _coffee \
-            _conan _concourse _console _coredumpctl _cppcheck \
-            _curl _dad _dart _delta _dget \
-            _dhcpcd _diana _direnv _docpad _dog \
-            _dotnet _drush _ecdsautil _emacs _emacsclient \
-            _emulator _envdir _exportfs _eza _fab \
-            _fail2ban-client _fd _ffind _fleetctl _flutter \
-            _fvm _fwupdmgr _gas _gh _ghc \
-            _gist _git _git-flow _git-pulls _git-revise \
-            _git-wtf _glances _golang _google _gpgconf \
-            _grpcurl _gtk-launch _hello _hledger _homestead \
-            _hostnamectl _httpie _hyprctl _hyprpm _ibus \
-            _include-what-you-use _insmod _inxi _jmeter _jmeter-plugins \
-            _jonas _journalctl _jrnl _kak _kernel-install \
-            _kitchen _kitty _knife _language_codes _libinput \
+            _aur_repositories _avdmanager _bat _bitcoin-cli _bluetoothctl \
+            _bootctl _bower _bundle _busctl _bwrap \
+            _cap _cargo _cask _ccache _cf \
+            _checkupdates _choc _chromium _clang-check _clang-format \
+            _clang-tidy _cmake _coffee _conan _concourse \
+            _console _coredumpctl _cppcheck _curl _dad \
+            _dart _delta _dget _dhcpcd _diana \
+            _direnv _docpad _dotnet _drush _ecdsautil \
+            _emacs _emacsclient _emulator _envdir _exportfs \
+            _eza _fab _fail2ban-client _fd _ffind \
+            _fleetctl _flutter _fvm _fwupdmgr _gas \
+            _ghc _gist _git _git-flow _git-pulls \
+            _git-revise _git-wtf _glances _golang _google \
+            _gpgconf _grpcurl _gtk-launch _hello _hledger \
+            _homestead _hostnamectl _httpie _hyprctl _hyprpm \
+            _ibus _include-what-you-use _insmod _inxi _jmeter \
+            _jmeter-plugins _jonas _journalctl _jrnl _kak \
+            _kernel-install _kitchen _knife _language_codes _libinput \
             _lilypond _localectl _loginctl _lsmod _lunchy \
-            _machinectl _mc _meson _middleman _mina \
-            _mix _mkcert _mkinitcpio _mssh _mullvad \
-            _mussh _mvn _nano _nanoc _neofetch \
-            _networkctl _networkQuality _newsboat _nftables _ninja \
-            _node _nvm _oomctl _openssl _openvpn3 \
-            _optirun _paccache _pacdiff _paclist _paclog-pkglist \
-            _pacman _pacscripts _pacsearch _pacsort _pactree \
-            _parallel _patool _periscope _pgsql_utils _phing \
-            _pikaur _pip _pixz _pkcon _play \
-            _playerctl _pm2 _podman _podman-remote _port \
+            _machinectl _mc _middleman _mina _mix \
+            _mkcert _mkinitcpio _mssh _mullvad _mussh \
+            _mvn _nano _nanoc _neofetch _networkctl \
+            _networkQuality _nftables _node _nvm _oomctl \
+            _openssl _openvpn3 _optirun _paccache _pacdiff \
+            _paclist _paclog-pkglist _pacman _pacscripts _pacsearch \
+            _pacsort _pactree _parallel _patool _periscope \
+            _pgsql_utils _phing _pikaur _pip _pixz \
+            _pkcon _play _playerctl _pm2 _port \
             _protoc _pulseaudio _pygmentize _qmk _rails \
             _ralio _rankmirrors _redis-cli _resolvectl _rfkill \
             _rg _rkt _rmlint _rmmod _rslsync \
             _rspec _rsvm _rubocop _ruff _run0 \
             _sbt _scala _screencapture _scrub _sdd \
             _sd_hosts_or_user_at_host _sdkmanager _sd_machines _sd_outputmodes _sd_unit_files \
-            _sensors _sensors-detect _setcap _setup.py _sfdx \
-            _shellcheck _showoff _srm _stack _starship \
-            _subliminal _supervisorctl _svm _sway _swaymsg \
-            _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
-            _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles _teamocil \
-            _texdoc _tex-fmt _tgrep _thor _timedatectl \
+            _setcap _setup.py _sfdx _shellcheck _showoff \
+            _srm _stack _starship _subliminal _supervisorctl \
+            _svm _systemctl _systemd _systemd-analyze _systemd-delta \
+            _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles \
+            _teamocil _tex-fmt _tgrep _thor _timedatectl \
             _tldr _tmuxinator _tox _tsc _ts-node \
             _udevadm _udiskie _udiskie-canonical_paths _udiskie-mount _udiskie-umount \
             _udisks2 _udisksctl _ufw _updpkgsums _upower \
