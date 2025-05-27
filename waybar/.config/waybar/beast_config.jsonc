@@ -120,6 +120,11 @@
         }
     },
     {
+        "name": "bottom-bar-main",
+        "output": [
+            "DP-2",
+            "eDP-1"
+        ],
         "layer": "top",
         "position": "bottom",
         "height": 40,
@@ -251,10 +256,9 @@
             }
         },
         "network": {
-            "interface": "wlan0",
             "format": "{ifname}",
             "format-wifi": "  {essid} ({signalStrength}%)",
-            "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+            "format-ethernet": " {ipaddr}",
             "format-disconnected": "", //An empty format will hide the module.
             "tooltip-format": "{ifname} via {gwaddr} 󰊗",
             "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -277,6 +281,40 @@
             "format": "{icon}{text}",
             "format-icons": {
                 "Mi": "+"
+            }
+        },
+    },
+    {
+        "name": "bottom-bar-secondary",
+        "output": [
+            "HDMI-A-1",
+            "DP-3"
+        ],
+        "layer": "top",
+        "position": "bottom",
+        "height": 40,
+        "spacing": 5,
+        "modules-left": [],
+        "modules-center": [
+            "cpu",
+        ],
+        "modules-right": [],
+        "custom/spacer": {
+            "format": " || "
+        },
+        "custom/updates": {
+            //"format": "Fix script"
+            "format": "{text}",
+            "return-type": "json",
+            "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh"
+        },
+        "cpu": {
+            "format": " {usage:2}%",
+            "interval": 2,
+            "states": {
+                "yellow": 50,
+                "orange": 75,
+                "red": 90
             }
         },
     }
