@@ -142,13 +142,6 @@
             "custom/spacer",
             "custom/netspeed",
             "custom/spacer",
-            "battery",
-            "battery#2",
-            "custom/spacer",
-            "backlight",
-            "custom/spacer",
-            "wireplumber",
-            "custom/spacer",
             "custom/updates",
             "custom/spacer",
             "custom/todo",
@@ -161,7 +154,6 @@
             "format": "bluetooth,on-click,weather,next-event,kernel"
         },
         "custom/updates": {
-            //"format": "Fix script"
             "format": "{text}",
             "return-type": "json",
             "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh"
@@ -178,64 +170,6 @@
                 "󰖀",
                 "󰕾"
             ],
-        },
-        "backlight": {
-            "device": "intel_backlight",
-            "format": "{icon} {percent}%",
-            "states": {
-                "light": 51,
-                "dark": 0
-            },
-            "format-icons": [
-                "",
-                "",
-            ],
-        },
-        "battery": {
-            "bat": "BAT0",
-            "interval": 10,
-            "format-time": "{H:02}:{m} left",
-            /* battery triggers BELOW, unlike others */
-            "states": {
-                "green": 101,
-                "yellow": 90,
-                "orange": 50,
-                "red": 20
-            },
-            "format-charging": "󰂄 {capacity}% ({time})",
-            "format-full": "󰂄 {capacity}% (Charged)",
-            "format-plugged": "󰂄 {capacity}% (Charged)",
-            "format": "{icon} {capacity}% ({time})",
-            "format-icons": [
-                "󰁺",
-                "󰁼",
-                "󰁾",
-                "󰂁",
-                "󰁹"
-            ]
-        },
-        "battery#2": {
-            "bat": "BAT1",
-            "interval": 10,
-            "format-time": "{H:02}:{m} left",
-            /* battery triggers BELOW, unlike others */
-            "states": {
-                "green": 101,
-                "yellow": 90,
-                "orange": 50,
-                "red": 20
-            },
-            "format-charging": "󰂄 {capacity}% ({time})",
-            "format-full": "󰂄 {capacity}% (Charged)",
-            "format-plugged": "󰂄 {capacity}% (Charged)",
-            "format": "{icon} {capacity}% ({time})",
-            "format-icons": [
-                "󰁺",
-                "󰁼",
-                "󰁾",
-                "󰂁",
-                "󰁹"
-            ]
         },
         "memory": {
             "interval": 30,
@@ -301,12 +235,6 @@
         "modules-right": [],
         "custom/spacer": {
             "format": " || "
-        },
-        "custom/updates": {
-            //"format": "Fix script"
-            "format": "{text}",
-            "return-type": "json",
-            "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh"
         },
         "cpu": {
             "format": " {usage:2}%",

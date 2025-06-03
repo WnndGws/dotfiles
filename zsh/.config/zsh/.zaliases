@@ -16,7 +16,7 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && killall -9 waybar && waybar & disown'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && printf "{\"text\": \"0  0\"}\n" | jq -cs ".[]" > /tmp/waybar-updates'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock

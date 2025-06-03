@@ -112,6 +112,10 @@ def set_workspaces():
 def run_waybar():
     logger.info("Setting monitors")
     if hostname == "arch-beast":
-        command.exec("waybar --config ~/.config/waybar/beast_config.jsonc")
+        command.exec(
+            "pkill waybar || true && waybar --config ~/.config/waybar/beast_config.jsonc"
+        )
     else:
-        command.exec("waybar --config ~/.config/waybar/laptop_config.jsonc")
+        command.exec(
+            "pkill waybar || true && waybar --config ~/.config/waybar/laptop_config.jsonc"
+        )
