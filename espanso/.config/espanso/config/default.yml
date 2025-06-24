@@ -3,24 +3,20 @@
 # This is the default configuration file, change it as you like it
 # You can refer to the official documentation:
 # https://espanso.org/docs/
-
-# Matches are the substitution rules, when you type the "trigger" string
-# it gets replaced by the "replace" string.
-
-# Dont restart with every alt press
-toggle_key: RIGHT_CTRL
+#
+# Defines the key that disables/enables espanso when double pressed.
+toggle_key: OFF
+# Trigger used to show the Search UI.
 search_trigger: OFF
-
+# Hotkey used to show the Search UI.
+search_shortcut: OFF
+# The mechanism used to perform the injection.
 backend: inject
-
-# Number of ms between text injections
-# inject_delay: 5
-# key_delay: 5
-
-# Set clipboard configuration for when force_clipboard
-# paste_shortcut: CTRL+SHIFT+V
-# pre_paste_delay: 100
-# post_paste_delay: 50
-
-undo_backspace: false
-preserve_clipboard: false
+# When enabled, espanso automatically "reverts" an expansion if the user presses the Backspace key afterwards. This is not available on some platform/configurations.
+undo_backspace: true
+# If true, Espanso will attempt to preserve the previous clipboard content after an expansion has taken place.
+preserve_clipboard: true
+# Number of milliseconds between text injection events. Increase if the target application is missing some characters.
+# inject_delay: 0.5
+# Number of milliseconds between key injection events. Increase if the target application is missing some key events.
+# key_delay: 0.5

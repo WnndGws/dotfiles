@@ -23,14 +23,14 @@ def init():
 ###############################################################################
 
 
-# def idle_config():
-# return [
-# [150, ["brightnessctl -s set 0"], ["brightnessctl -r"]],
-# [600, ["pidof hyprlock || hyprlock"]],
-# [720, ["hyprctl dispatch dpms off"], ["hyprctl dispatch dpms on"]],
-# ]
-#
-#
+def idle_config():
+    return [
+        [600, ["brightnessctl -s set 10"], ["brightnessctl -r"]],
+        [900, ["hyprctl dispatch dpms off"], ["hyprctl dispatch dpms on"]],
+        [1200, ["pidof hyprlock || hyprlock"], ["hyprctl dispatch dpms on"]],
+    ]
+
+
 # ###############################################################################
 # # Handler of Hyprland IPC events
 # # List of events: https://wiki.hyprland.org/IPC/
@@ -113,9 +113,11 @@ def run_waybar():
     logger.info("Setting monitors")
     if hostname == "arch-beast":
         command.exec(
-            "pkill waybar || true && waybar --config ~/.config/waybar/beast_config.jsonc"
+            "pkill waybar || true && waybar --config ~/.config/waybar/beast_config.jsonc",
+            background=True,
         )
     else:
         command.exec(
-            "pkill waybar || true && waybar --config ~/.config/waybar/laptop_config.jsonc"
+            "pkill waybar || true && waybar --config ~/.config/waybar/laptop_config.jsonc",
+            background=True,
         )
