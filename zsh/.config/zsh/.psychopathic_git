@@ -1,0 +1,232 @@
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit
+  fi
+
+#compdef gt
+###-begin-gt-completions-###
+#
+# yargs command completion script
+#
+# Installation: gt completion >> ~/.zshrc
+#    or gt completion >> ~/.zprofile on OSX.
+#
+#_gt_yargs_completions()
+#{
+  #local reply
+  #local si=$IFS
+  #IFS=$'
+#' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
+  #IFS=$si
+  #_describe 'values' reply
+#}
+#compdef _gt_yargs_completions gt
+###-end-gt-completions-###
+
+# gh completions
+fpath=($HOME/.zsh/completions $fpath)
+autoload -Uz compinit
+compinit
+
+# Determine defaultBranch once per repo, store it if not set
+get_default_branch() {
+  local branch
+  branch=$(git config --get bakert.defaultBranch 2>/dev/null)
+
+  if [[ -z "$branch" ]]; then
+    branch=$(git remote show origin 2>/dev/null | awk '/HEAD branch/ {print $NF}')
+    branch=${branch:-master}
+
+    git config --local bakert.defaultBranch "$branch"
+    echo "Set bakert.defaultBranch to '$branch' in local git config" >&2
+  fi
+
+  echo "$branch"
+}
+
+# Perform an operation that might fail if the current branch is implicated in a way that won't fail
+# Leaves you on default branch after if your current branch ceased to exist.
+with_default_branch() {
+  local current_branch=$(git rev-parse --abbrev-ref HEAD)
+  local default_branch=$(get_default_branch)
+
+  if [[ "$current_branch" != "$default_branch" ]]; then
+    git switch "$default_branch"
+  fi
+
+  "$@"
+
+  if [[ "$current_branch" != "$default_branch" ]] && git show-ref --verify --quiet "refs/heads/$current_branch"; then
+    git switch "$current_branch"
+  fi
+}
+
+## Functions not aliases to allow completions
+ga()    { git add "$@"; }; compdef _git ga=git-add
+gaa()   { git add . "$@"; }; compdef _git gaa=git-add
+# Equivlent to `git add !$`
+gal() {
+  emulate -L zsh
+  setopt noglob
+
+  local cmd last
+  cmd=$(fc -ln -1) || return 1
+  local -a words
+  words=(${(z)cmd})
+  (( ${#words} )) || { echo "No history."; return 1; }
+
+  last=${words[-1]}
+  last=${(Q)last}       # remove surrounding quotes if any
+
+  # Expand ~ / ~user without enabling globbing
+  if [[ $last == "~"* ]]; then
+    last=${~last}
+  fi
+
+  [[ -n $last ]] || { echo "No last arg."; return 1; }
+  git add -- "$last"
+}; compdef _git gal=git-add
+gap()   { git add -p "$@"; }; compdef _git gap=git-add
+gb()    { git branch "$@"; }; compdef _git gb=git-branch
+gbd()   { with_default_branch git branch -D "$@"; }; compdef _git gbd=git-branch
+gbl()   { git blame "$@"; }; compdef _git gbl=git-blame
+gc()    { git commit "$@"; }; compdef _git gc=git-commit
+gca()   { git commit --amend "$@"; }; compdef _git gca=git-commit
+gcae()  { git commit --amend --no-edit "$@"; }; compdef _git gcae=git-commit
+gcan()  { git commit --amend -n "$@"; }; compdef _git gcan=git-commit
+gcane() { git commit --amend -n --no-edit "$@"; }; compdef _git gcane=git-commit
+gclb()  { gpru && gded }; compdef _git gclb=git-branch
+gclfd() { git clean -fd "$@" }; compdef _git gclfd=git-clean
+gcp()   { git cherry-pick "$@" }; compdef _git gcp=git-cherry-pick
+gcpa()  { git cherry-pick --abort "$@" }; compdef _git gcpa=git-cherry-pick
+gcpc()  { git cherry-pick --continue "$@" }; compdef _git gcpa=git-cherry-pick
+glc()   { git clone "$@"; }; compdef _git glc=git-clone
+gcm()   { git commit -m "$@"; }; compdef _git gcm=git-commit
+gcn()   { git commit -n "$@"; }; compdef _git gcn=git-commit
+gco()   { git checkout "$@"; }; compdef _git gco=git-checkout
+gd()    { git diff "$@"; }; compdef _git gd=git-diff
+gdc()   { git diff --cached "$@"; }; compdef _git gdc=git-diff
+gdd()   { git diff $(get_default_branch) "$@"; }; compdef _git gdd=git-diff
+# Delete all local branches that don't have changes not already in default branch
+gded() {
+  local default_branch=$(get_default_branch)
+  for branch in $(git for-each-ref --format='%(refname:short)' refs/heads/); do
+    if [[ "$branch" != "$default_branch" ]]; then
+      local count=$(git rev-list --count "$branch" --not "$default_branch")
+      if [[ "$count" -eq 0 ]]; then
+        echo "Deleting branch: $branch"
+        git branch -D "$branch"
+      fi
+    fi
+  done
+}
+gfo()   { git fetch origin $(get_default_branch):$(get_default_branch) "$@"; }; compdef _git gfo=git-fetch
+# Make a gist, guessing exactly what you want a gist of based on state of repo
+gg() {
+local target=$1
+  local desc=""
+  local filename=""
+  local url=""
+
+  if [[ -z $target ]]; then
+    if [[ -n $(git status --porcelain) ]]; then
+      desc="Working copy diff"
+      filename="working.diff"
+      url=$((git diff HEAD && git ls-files --others --exclude-standard | xargs -I {} git diff /dev/null {}) | gh gist create -f "$filename" -d "$desc" - | tail -n1)
+    else
+      desc="Top commit diff (HEAD)"
+      filename="head.diff"
+      url=$(git show HEAD | gh gist create -f "$filename" -d "$desc" - | tail -n1)
+    fi
+  elif [[ $target == "develop" ]]; then
+    desc="Diff from develop"
+    filename="develop.diff"
+    url=$(git diff develop...HEAD | gh gist create -f "$filename" -d "$desc" - | tail -n1)
+  else
+	desc="Diff of $target"
+	filename="$target.diff"
+	url=$(git diff "$target...HEAD" | gh gist create -f "$filename" -d "$desc" - | tail -n1)
+  fi
+
+  echo "$url"
+  open "$url"
+}; compdef _git gg=git-show
+# Make a gist of the difference between working copy and default branch
+ggd() { gg "$(get_default_branch)"; }; compdef _git ggd=git-show
+gl()  { git log "$@"; }; compdef _git gl=git-log
+# Pretty one-liner log
+glp() {
+  local git_args=()
+  if [[ $1 =~ ^-[0-9]+$ ]] || [[ $1 =~ ^--max-count=[0-9]+$ ]] || [[ $1 =~ ^-n$ && $2 =~ ^[0-9]+$ ]]; then
+    git_args=("$@")
+  else
+    git_args=("$@")
+  fi
+  git log --pretty="tformat:$FORMAT" "${git_args[@]}" |
+  column -t -s '{' |
+  less -XRS --quit-if-one-screen
+}; compdef _git glp=git-log
+gm()   { git mv "$@"; }; compdef _git gm=git-mv
+gp()   { git pull "$@"; }; compdef _git gp=git-pull
+gpf()  { git push --force-with-lease "$@"; }; compdef _git gpf=git-push
+gpr()  { gh pr create "$@"; }; compdef _gh gpr=gh-pr
+gprb()  { gh pr create -B "$@"; }; compdef _gh gprb=gh-pr
+gprd()  { gh pr create -d "$@"; }; compdef _gh gprd=gh-pr
+gprdb() { gh pr create -d -B "$@"; }; compdef _gh gprdb=gh-pr
+# Remove local branches that aren't on remote any more
+gpru() {
+  cleanup_gone_branches() {
+    git remote update origin --prune
+    local gone_branches=$(git branch -vvv | grep gone | cut -d' ' -f3)
+    if [[ -n "$gone_branches" ]]; then
+      echo "$gone_branches" | xargs -I{} git branch -D '{}'
+    fi
+  }
+  with_default_branch cleanup_gone_branches
+}
+gpso()  { git push --set-upstream origin "${@:-$(git branch --show-current)}"; }; compdef _git gpso=git-push
+grb()   { git rebase "$@"; }; compdef _git grb=git-rebase
+grba()  { git rebase --abort "$@"; }; compdef _git grba=git-rebase
+grbc()  { git rebase --continue "$@"; }; compdef _git grbc=git-rebase
+grbd()  { git rebase $(get_default_branch) "$@"; }; compdef _git grbd=git-rebase
+grbdo() { gfo && git rebase $(get_default_branch) "$@"; }; compdef _git grbd=git-rebase
+grbi()  { git rebase -i $(get_default_branch) "$@"; }; compdef _git grbi=git-rebase
+grl()   { git reflog "$@"; }; compdef _git grl=git-reflog
+grs()   { git reset "$@"; }; compdef _git grs=git-reset
+grsh1() { git reset HEAD~1 "$@"; }; compdef _git grsh1=git-reset
+grsh2() { git reset HEAD~2 "$@"; }; compdef _git grsh2=git-reset
+grsh3() { git reset HEAD~3 "$@"; }; compdef _git grsh3=git-reset
+grsh4() { git reset HEAD~4 "$@"; }; compdef _git grsh4=git-reset
+grsh5() { git reset HEAD~5 "$@"; }; compdef _git grsh5=git-reset
+grsh6() { git reset HEAD~6 "$@"; }; compdef _git grsh6=git-reset
+grsh7() { git reset HEAD~7 "$@"; }; compdef _git grsh7=git-reset
+grsh8() { git reset HEAD~8 "$@"; }; compdef _git grsh8=git-reset
+grsh9() { git reset HEAD~8 "$@"; }; compdef _git grsh9=git-reset
+grt()   { git restore "$@"; }; compdef _git grt=git-restore
+grta()  { git restore . "$@"; }; compdef _git grt=git-restore
+grts()  { git restore --staged "$@"; }; compdef _git grt=git-restore
+grtsa() { git restore --staged . "$@"; }; compdef _git grt=git-restore
+grm()   { git rm "$@"; }; compdef _git grm=git-rm
+gs()    { git status "$@"; }; compdef _git gs=git-status
+gsh()   { git show "$@"; }; compdef _git gsh=git-show
+gshn()  { git show --name-only "$@"; }; compdef _git gsh=git-show
+gst()   { git stash "$@"; }; compdef _git gst=git-stash
+gstd()  { git stash drop "$@"; }; compdef _git gstd=git-stash
+gstl()  { git stash list "$@"; }; compdef _git gstl=git-stash
+gstp()  { git stash pop "$@"; }; compdef _git gstp=git-stash
+gsts()  { git stash show -p "$@"; }; compdef _git gsts=git-stash
+gstu()  { git stash -u "$@"; }; compdef _git gstu=git-stash
+gsw()   { git switch "$@"; }; compdef _git gsw=git-switch
+gswc()  { git switch -c "$@"; }; compdef _git gswc=git-switch
+gswcd() { git switch -c "$1" $(get_default_branch); }; compdef _git gswcd=git-switch
+gswd()  { git switch $(get_default_branch); }; compdef _git gswd=git-switch
+gswp()  { git switch - "$@"; }; compdef _git gswd=git-switch
+gtc()   { gt create "$@"; }
+gtl()   { gt log "$@"; }
+gtm()   { gt move "$@"; }
+gtr()   { gt restack "$@"; }
+gts()   { gt submit "$@"; }
+gtsy()  { gt sync "$@"; }
+gtt()   { gt track "$@"; }
+alias gwip='git add . && git commit -m "WIP" -n'

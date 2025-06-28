@@ -57,21 +57,22 @@ def on_hyprland_event(event, argument):
         # Set laptop monitor at 0x0
         command.exec('hyprctl keyword monitor "eDP-1,preferred,0x0,1"')
         # Set TV to the right
-        command.exec('hyprctl keyword monitor "HDMI-A-1,preferred,1920x0,1"')
+        command.exec('hyprctl keyword monitor "HDMI-A-2,preferred,1920x0,1"')
         # Set workspace 6 on TV
         command.exec('hyprctl keyword workspace "1, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "2, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "3, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "4, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "5, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "6, monitor:HDMI-A-1"')
+        command.exec('hyprctl keyword workspace "6, monitor:HDMI-A-2"')
         command.exec('hyprctl keyword workspace "7, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "8, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "9, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "10, monitor:eDP-1"')
+        run_waybar()
+        command.exec("pactl set-sink-volume @DEFAULT_SINK@ 100%")
+        command.exec("pactl set-sink-mute @DEFAULT_SINK@ false")
 
-
-def on_hyprland_event(event, argument):
     if event in ["monitorremoved"]:
         logger.info("Monitor removed")
         # Set laptop monitor at 0x0
@@ -87,6 +88,10 @@ def on_hyprland_event(event, argument):
         command.exec('hyprctl keyword workspace "8, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "9, monitor:eDP-1"')
         command.exec('hyprctl keyword workspace "10, monitor:eDP-1"')
+        run_waybar()
+        command.exec("pactl set-sink-volume @DEFAULT_SINK@ 50%")
+        command.exec("pactl set-sink-mute @DEFAULT_SINK@ true")
+        command.exec("mullvad reconnect")
 
 
 #

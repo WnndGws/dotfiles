@@ -13,7 +13,8 @@ Plugin.config = function()
 			untracked = { text = "┆" },
 		},
 		signcolumn = true,
-		word_diff = true,
+		word_diff = false,
+		numhl = true,
 	})
 end
 

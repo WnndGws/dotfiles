@@ -8,7 +8,7 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			python = { "bandit", "mypy", "vulture" },
+			python = { "bandit", "mypy", "vulture", "ruff" },
 			markdown = { "markdownlint-cli2" },
 			json = { "jsonlint" },
 			sh = { "shellcheck" },
