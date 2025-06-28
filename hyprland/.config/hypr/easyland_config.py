@@ -51,6 +51,44 @@ def idle_config():
 # command.exec("pkill waybar || true && waybar", background=True)
 # command.exec("pkill wpaperd || true && wpaperd -d", background=True)
 #
+def on_hyprland_event(event, argument):
+    if event in ["monitoradded"]:
+        logger.info("Monitor added")
+        # Set laptop monitor at 0x0
+        command.exec('hyprctl keyword monitor "eDP-1,preferred,0x0,1"')
+        # Set TV to the right
+        command.exec('hyprctl keyword monitor "HDMI-A-1,preferred,1920x0,1"')
+        # Set workspace 6 on TV
+        command.exec('hyprctl keyword workspace "1, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "2, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "3, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "4, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "5, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "6, monitor:HDMI-A-1"')
+        command.exec('hyprctl keyword workspace "7, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "8, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "9, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "10, monitor:eDP-1"')
+
+
+def on_hyprland_event(event, argument):
+    if event in ["monitorremoved"]:
+        logger.info("Monitor removed")
+        # Set laptop monitor at 0x0
+        command.exec('hyprctl keyword monitor "eDP-1,preferred,auto,1"')
+        # Set workspace all workspaces back on laptop
+        command.exec('hyprctl keyword workspace "1, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "2, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "3, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "4, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "5, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "6, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "7, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "8, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "9, monitor:eDP-1"')
+        command.exec('hyprctl keyword workspace "10, monitor:eDP-1"')
+
+
 #
 # ###############################################################################
 # # Handlers of Systemd logind events
