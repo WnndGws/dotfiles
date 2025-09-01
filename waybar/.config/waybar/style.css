@@ -1,0 +1,95 @@
+/* {
+ https://github.com/autom4il/dotfiles/blob/main/waybar/style.css
+  --black: #282c34;
+  --white: #abb2bf;
+  --light-red: #e06c75;
+  --dark_red: #be5046;
+  --green: #98c379;
+  --light_yellow: #e5c07b;
+  --dark_yellow: #d19a66;
+  --blue: #61afef;
+  --magenta: #c678dd;
+  --cyan: #56b6c2;
+  --dark_grey: #4b5263;
+  --light_grey: #5c6370;
+}
+*/
+
+* {
+  border: none;
+  border-radius: 2;
+  font-family: "CaskaydiaCove Nerd Font Propo";
+  font-size: 16;
+  /* margin: 0 3px; */
+  /* padding: 0 9px; */
+}
+
+window#waybar {
+  background: #282c34;
+  color: #abb2bf;
+}
+
+#workspaces button.urgent {
+  color: #5c6370;
+  background: #e06c75;
+}
+
+#workspaces button {
+  color: #5c6370;
+}
+
+#workspaces button.active {
+  color: #61afef;
+}
+
+/* It works top to bottom and sticks with the last found one */
+
+#custom-todo,
+#backlight.light,
+#wireplumber.muted,
+#custom-netspeed,
+#custom-updates,
+#network {
+  border-bottom: 3px solid #5c6370;
+}
+
+#custom-updates.pending-updates,
+#custom-vpn.disconnected,
+#battery.red,
+#memory.red,
+#temperature.critical,
+#custom-netspeed.down,
+#custom-netspeed.up,
+#cpu.red {
+  border-bottom: 3px solid #e06c75;
+}
+
+#battery.orange,
+#memory.orange,
+#cpu.orange {
+  border-bottom: 3px solid #d19a66;
+}
+
+#battery.yellow,
+#memory.yellow,
+#cpu.yellow {
+  border-bottom: 3px solid #e5c07b;
+}
+
+#wireplumber,
+#custom-vpn.connected,
+#battery.charging,
+#battery.plugged,
+#temperature,
+#battery.green {
+  border-bottom: 3px solid #98c379;
+}
+
+#memory,
+#cpu {
+  border-bottom: 3px solid #98c379;
+}
+
+#backlight.dark {
+  border-bottom: 3px solid #4b5263;
+}

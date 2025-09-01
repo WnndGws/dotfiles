@@ -1,0 +1,22 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+#
+# Defines the key that disables/enables espanso when double pressed.
+toggle_key: OFF
+# Trigger used to show the Search UI.
+search_trigger: OFF
+# Hotkey used to show the Search UI.
+search_shortcut: OFF
+# The mechanism used to perform the injection.
+backend: inject
+# When enabled, espanso automatically "reverts" an expansion if the user presses the Backspace key afterwards. This is not available on some platform/configurations.
+undo_backspace: true
+# If true, Espanso will attempt to preserve the previous clipboard content after an expansion has taken place.
+preserve_clipboard: true
+# Number of milliseconds between text injection events. Increase if the target application is missing some characters.
+# inject_delay: 0.5
+# Number of milliseconds between key injection events. Increase if the target application is missing some key events.
+# key_delay: 0.5

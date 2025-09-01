@@ -1,0 +1,160 @@
+### --------------- ###
+### --- ALIASES --- ###
+### --------------- ###
+
+# shortcut
+alias zl='zathura'
+
+#init new venv
+alias new_env='uv init && uv venv && source .venv/bin/activate'
+
+#Quick open
+alias vzal='nvim $XDG_CONFIG_HOME/zsh/.zaliases'
+alias ww='cd ~/git/git-wiki/ && nvim +NvimTreeOpen'
+
+#Lots of cd's
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+#Update commands
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && printf "{\"text\": \"0  0\"}\n" | jq -cs ".[]" > /tmp/waybar-updates && sudo pacleaner --uninstalled --number 1 --delete --no-confirm'
+alias ad=archdate
+alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
+alias rdl=remove_database_lock
+alias paorph='pacman --query --unrequired --deps --quiet'
+alias po=paorph
+alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}'
+alias pare='$HOME/git/scripts/fuzzy/fpikrm -s'
+alias pin='pikaur -S --noconfirm'
+alias pq='pikaur -Qi | rg -B3 -A3'
+alias pir='pikaur -S --rebuild'
+
+#Bat extras
+alias bm="batman"
+alias bw="batwatch"
+alias bd="batdiff"
+
+#Confirm before overwriting something
+alias cp="cp -i"
+alias mv="mv -i"
+
+#Change mode of file
+alias cx="chmod +x"
+
+
+#Always dd with same flags
+alias dd='sudo /usr/bin/dd status=progress conv=fsync'
+
+#Use a nicer du
+alias du="/usr/bin/ncdu --color dark -rr -x"
+
+#Git Stuff
+##Create a gitignore file
+alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
+#alias gs="git diff && git status"
+##Combine my common commands
+#def git_patch_and_push() {
+    #for file in "$(git diff --name-only)"; do
+        #git add -p "$file"
+    #done
+    #git commit
+    #git add .
+    #git commit -e
+    #git push
+#}
+#alias gpp=git_patch_and_push
+
+#Interactive awk,sed,rg
+alias iawk='$HOME/git/fzf-scripts/fuzzy/fzrepl -c awk'
+alias ised='$HOME/git/fzf-scripts/fuzzy/fzrepl -c sed'
+alias irg='$HOME/git/fzf-scripts/fuzzy/fzrg'
+
+#Get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+#List all including hidden
+alias lsa='exa --all --color always --color-scale all'
+
+#List all including hidden in a long list
+alias ll='exa --all --color always --color-scale all --long'
+
+#Colours in ls
+alias ls='exa --color always --color-scale all'
+
+# Show tree of folder depth 3
+alias lt='exa --color always --color-scale all --tree --level=5'
+
+# Show tree of all folders depth 3
+alias lta='exa --all --color always --color-scale all --tree --level=5'
+
+#Speed up making dirs
+alias md='/usr/bin/mkdir -p'
+
+#Uses myman script
+alias mm='wyman'
+
+#tmux in one command
+tm() { tmux attach -t "$1" || tmux new -s "$1" }
+
+#Help transition
+alias nv="nvim"
+alias sv='sudo nvim'
+
+#No VPN Steam
+alias steam="mullvad-exclude steam-native"
+alias steam-native="mullvad-exclude steam-native"
+
+#Always use ripgrep with these flags
+alias rg='rg --hidden -i --multiline'
+
+#I always use rsync with these flags
+alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
+
+#Sleepcount
+alias scc='sleepcount -c'
+
+#Systemd Stuff
+alias ss="sudo systemctl"
+alias ssdr="sudo systemctl daemon-reload"
+alias sss="sudo systemctl status"
+alias ssr="sudo systemctl restart"
+alias sse="sudo systemctl enable"
+alias ssd="sudo systemctl disable"
+
+#Use hyperfine to time commands
+alias time='hyperfine'
+
+#Udiskie
+alias udm="udiskie-mount -a"
+
+#Use yarn XDG
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+
+#Use XDG wget
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+#Minecraft
+alias minecraft='cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC -d "/home/wynand/.local/share/multimc" -l "Sanitarium" -s "192.168.0.98"'
+
+### ----------------- ###
+### --- FUNCTIONS --- ###
+### ----------------- ###
+#Watches a file, and runs that file every time it changes
+entrwatch() { exa "$1" | entr /_ }
+
+#Watches a tex file and recompiles it each change
+latexwatch() { fd --extension=tex . | entr tectonic -X compile "$1" }
+lw() { fd --extension=tex . | entr tectonic -X compile "$1" }
+
+#Pacman Stuff
+alias p='$HOME/git/scripts/fuzzy/fpikaur'
+
+#Udiskie
+udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
+
+# FZF stuff
+c() { . $HOME/git/scripts/fuzzy/fcd "$1" }
+v() { . $HOME/git/scripts/fuzzy/fv "$1" }
+va() { . $HOME/git/scripts/fuzzy/fva "$1" }

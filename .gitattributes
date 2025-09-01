@@ -1,0 +1,6 @@
+.zshenv filter=git-crypt diff=git-crypt
+urls filter=git-crypt diff=git-crypt
+**/git/config filter=git-crypt diff=git-crypt
+**/espanso/match/base.yml filter=git-crypt diff=git-crypt
+**/.config/gnupg/** filter=git-crypt diff=git-crypt
+**/.config/git-town/** filter=git-crypt diff=git-crypt
