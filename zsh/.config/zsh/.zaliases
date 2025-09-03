@@ -52,19 +52,8 @@ alias du="/usr/bin/ncdu --color dark -rr -x"
 
 #Git Stuff
 ##Create a gitignore file
-alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
-#alias gs="git diff && git status"
-##Combine my common commands
-#def git_patch_and_push() {
-    #for file in "$(git diff --name-only)"; do
-        #git add -p "$file"
-    #done
-    #git commit
-    #git add .
-    #git commit -e
-    #git push
-#}
-#alias gpp=git_patch_and_push
+alias gi="cp $HOME/git/dotfiles/git/.config/git/gitignore .gitignore"
+alias gs="git diff && git status"
 
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fuzzy/fzrepl -c awk'
