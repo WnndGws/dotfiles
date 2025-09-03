@@ -1,8 +1,12 @@
 return {
 	"OXY2DEV/markview.nvim",
-	lazy = false,
+	lazy = true,
 
 	config = {
+		experimental = {
+			check_rtp = true,
+			check_rtp_msg = false,
+		},
 		yaml = {
 			properties = {
 				["^title$"] = {
