@@ -7,15 +7,24 @@ local keymap = vim.keymap
 -------------------
 --- General Keys ---
 -------------------
----resize splits
+-- resize splits
 keymap.set("n", "H", ":vertical resize +5<CR>", { desc = "Resize vertical splits LARGER" })
 keymap.set("n", "L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
+-- help for resize
+keymap.set("n", "<leader>?H", ":vertical resize +5<CR>", { desc = "Resize vertical splits LARGER" })
+keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
 
 --move between windows
 keymap.set({ "n", "i" }, "<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
 keymap.set({ "n", "i" }, "<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
 keymap.set({ "n", "i" }, "<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
 keymap.set({ "n", "i" }, "<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
+
+-- help for move between windows
+keymap.set({ "n", "i" }, "<leader>?<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
+keymap.set({ "n", "i" }, "<leader>?<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
+keymap.set({ "n", "i" }, "<leader>?<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
+keymap.set({ "n", "i" }, "<leader>?<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
 
 -- Save and commit
 keymap.set("n", "<leader>ww", ":write | Git add . | Git commit<CR>", { desc = "Write and commit a file" })
@@ -28,6 +37,20 @@ keymap.set("n", "<leader>wc", ":write<CR>", { desc = "Write without commiting a 
 -- Dial --
 ----------
 --- Better incriment and decriment
+keymap.set("n", "+", function()
+	require("dial.map").manipulate("increment", "normal")
+end, { desc = "Incriment using Dial" })
+keymap.set("n", "<leader>?+", function()
+	require("dial.map").manipulate("increment", "normal")
+end, { desc = "Incriment using Dial" })
+
+keymap.set("n", "_", function()
+	require("dial.map").manipulate("decrement", "normal")
+end, { desc = "Decriment using Dial" })
+keymap.set("n", "<leader>?_", function()
+	require("dial.map").manipulate("decrement", "normal")
+end, { desc = "Decriment using Dial" })
+
 keymap.set("n", "<C-a>", function()
 	require("dial.map").manipulate("increment", "normal")
 end, { desc = "Incriment using Dial" })
@@ -36,19 +59,19 @@ keymap.set("n", "<C-s>", function()
 	require("dial.map").manipulate("decrement", "normal")
 end, { desc = "Decriment using Dial" })
 
-keymap.set("n", "<leader>-=", function()
+keymap.set("n", "<leader>=", function()
 	require("dial.map").manipulate("increment", "normal")
 end, { desc = "Incriment using Dial" })
 
-keymap.set("n", "<leader>--", function()
+keymap.set("n", "<leader>-", function()
 	require("dial.map").manipulate("decrement", "normal")
 end, { desc = "Decriment using Dial" })
 
-keymap.set("v", "<leader>-=", function()
+keymap.set("v", "<leader>=", function()
 	require("dial.map").manipulate("increment", "visual")
 end, { desc = "Incriment using Dial" })
 
-keymap.set("v", "<leader>--", function()
+keymap.set("v", "<leader>-", function()
 	require("dial.map").manipulate("decrement", "visual")
 end, { desc = "Decriment using Dial" })
 
@@ -56,6 +79,7 @@ end, { desc = "Decriment using Dial" })
 -- Expand --
 ------------
 keymap.set("v", "v", "<Plug>(expand_region_expand)", { desc = "Expand selection" })
+keymap.set("v", "<leader>?v", "<Plug>(expand_region_expand)", { desc = "Expand selection" })
 
 ---------
 -- Hop --
@@ -68,11 +92,14 @@ keymap.set("n", "<leader>hw", "<cmd>HopWord<cr>", { desc = "Hop in a word" })
 keymap.set({ "i", "n" }, "<C-CR>", function()
 	require("in-and-out").in_and_out()
 end, { desc = "Jump in and out of pairs" })
+keymap.set({ "i", "n" }, "<leader>?<C-CR>", function()
+	require("in-and-out").in_and_out()
+end, { desc = "Jump in and out of pairs" })
 
 ----------
 -- MdTOC--
 ----------
-keymap.set("n", "<leader>t", function()
+keymap.set("n", "<leader>tt", function()
 	require("nvim-toc").generate_md_toc("list")
 end, { desc = "Insert a TOC" })
 
@@ -80,9 +107,9 @@ end, { desc = "Insert a TOC" })
 -- Toggle Checkbox --
 ---------------------
 -- toggle checked / create checkbox if it doesn't exist
-keymap.set("n", "<leader>bt", require("markdown-togglecheck").toggle, { desc = "Toggle Checkmark" })
+keymap.set("n", "<leader>ct", require("markdown-togglecheck").toggle, { desc = "Toggle checked/unchecked" })
 -- toggle checkbox (it doesn't remember toggle state and always creates [ ])
-keymap.set("n", "<leader>bb", require("markdown-togglecheck").toggle_box, { desc = "Toggle Checkbox" })
+keymap.set("n", "<leader>cb", require("markdown-togglecheck").toggle_box, { desc = "Toggle box exists/doesnt" })
 
 -------------
 -- Outline --
@@ -150,3 +177,9 @@ keymap.set({ "n" }, "<leader>e", function()
 		nvimTree.tree.focus()
 	end
 end, { desc = "Toggle Nvim-Tree" })
+
+------------
+-- Freeze --
+------------
+keymap.set({ "n", "v" }, "<leader>fa", ":Freeze<cr>", { desc = "Freeze all" })
+keymap.set({ "n", "v" }, "<leader>fl", ":FreezeLine<cr>", { desc = "Freeze Line" })
