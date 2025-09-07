@@ -74,4 +74,4 @@ when = ''' local git_status && git_status=$(git town status --pending) && [[ -n 
 require_repo = true
 symbol = "T"
 style = "bg:yellow fg:black"
-format = '[\n$symbol($output )]($style)'
+format = '[$symbol($output )]($style)'
