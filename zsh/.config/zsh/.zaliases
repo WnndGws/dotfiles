@@ -40,6 +40,12 @@ alias bd="batdiff"
 alias cp="cp -i"
 alias mv="mv -i"
 
+#Mullvad relay toggle
+alias mrn='mullvad relay set tunnel wireguard --port=any --use-multihop=on'
+alias mrf='mullvad relay set tunnel wireguard --port=any --use-multihop=off'
+alias mcc="mullvad disconnect ; mullvad connect"
+alias mdc="mullvad disconnect"
+
 #Change mode of file
 alias cx="chmod +x"
 
@@ -97,6 +103,7 @@ alias steam-native="mullvad-exclude steam-native"
 
 #Always use ripgrep with these flags
 alias rg='rg --hidden -i --multiline'
+alias fd='fd --hidden --no-ignore'
 
 #I always use rsync with these flags
 alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
