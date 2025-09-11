@@ -21,10 +21,16 @@ while true; do
     PACMAN_CHECK=$(checkupdates | wc -l || echo "0")
     AUR_CHECK=$(checkupdates-with-aur| wc -l || echo "0")
 
+    CURRENT_KERNAL=$(pacman -Qi linux | sed -n 's/^Version\s*:\s*\([0-9.]*\).*/\1/p')
+    CURRENT_KERNAL=${CURRENT_KERNAL:0:-1}
+    RUNNING_KERNAL=$(uname -r | sed 's/-arch.*//')
+
+    [[ "$CURRENT_KERNAL" == "$RUNNING_KERNAL" ]] && ICON="󰸞" || ICON="󱈸"
+
     (( AUR_FINAL = AUR_CHECK - PACMAN_CHECK ))
     (( PACMAN_FINAL = PACMAN_CHECK - AUR_FINAL ))
 
-    printf "$PACMAN_FINAL  $AUR_FINAL\n" | jq --unbuffered --compact-output -R 'split("\n") | {text: .[0]}'
+    printf "$PACMAN_FINAL $ICON $AUR_FINAL\n" | jq --unbuffered --compact-output -R 'split("\n") | {text: .[0]}'
 
     #PAC_KERNAL=$(file /boot/vmlinuz-linux | rg --pcre2 --only-matching "(?<=version ).*? ")
     #RUNNING_KERNAL=$(uname -r)
