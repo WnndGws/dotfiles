@@ -34,13 +34,13 @@
 #Use starship
 eval "$(starship init zsh)"
 
-#Aliases
-source $XDG_CONFIG_HOME/zsh/.zaliases
-
 #Automatic tmux renaming
 tmux-window-name() {
-	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+    ("$TMUX_PLUGIN_MANAGER_PATH"/tmux-window-name/scripts/rename_session_windows.py &)
 }
+
+#Aliases
+source "$XDG_CONFIG_HOME"/zsh/.zaliases
 
 ###---------------###
 ###--- HISTORY ---###
@@ -90,38 +90,6 @@ bindkey -M vicmd " " edit-command-line
 #By default, there is a 0.4 second delay after you hit the <ESC> key and when the mode change is registered. This results in a very jarring and frustrating transition between modes. Let's reduce this delay to 0.1 seconds.
 export KEYTIMEOUT=1
 
-###--------------------###
-###--- AUTOCOMPLETE ---###
-###--------------------###
-autoload -Uz compinit
-zstyle ':completion:*' completer _expand_alias _complete _ignored
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
-fpath=("$XDG_CONFIG_HOME"/zsh/completions $fpath)
-zstyle :compinstall filename "$XDG_CONFIG_HOME"/zsh/.zshrc
-#Test if zcompdump is older than 2hr, if it is create a new one, else omit the check for new functions since we updated recently enough
-test "$(/usr/bin/find $XDG_CONFIG_HOME/zsh/.zcompdump -mmin +120)" && compinit || compinit -C
-
-#Case insensitive path-completion
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-
-#Partial completion suggestions
-zstyle ':completion:*' list-suffixes
-zstyle ':completion:*' expand prefix suffix
-
-#Double TAB gives menu
-zstyle ':completion:*' menu select
-
-#Move in menu with vim keys
-zmodload zsh/complist
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-#Completes the first in list of ambiguous completions
-setopt MENU_COMPLETE
-
 ###------------------------------###
 ###--- Sources that look nice ---###
 ###------------------------------###
@@ -138,10 +106,10 @@ eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp z
 # ------------------------------------------------------------------------------------------------ #
 # FZF Looks Good
 fzf_base="/usr/share/fzf"
-fzf_shell="${fzf_base}"
+fzf_shell="$fzf_base"
 #Auto-completion
 if [[ ! "$DISABLE_FZF_AUTO_COMPLETION" == "true" ]]; then
-     [[ $- == *i* ]] && source "${fzf_shell}/completion.zsh" 2> /dev/null
+    [[ $- == *i* ]] && source "${fzf_shell}/completion.zsh" 2> /dev/null
 fi
 ##Key bindings
 if [[ ! "$DISABLE_FZF_KEY_BINDINGS" == "true" ]]; then
@@ -274,3 +242,36 @@ fi
 
 # Clean up.
 unset _gpg_agent_conf
+
+###--------------------###
+###--- AUTOCOMPLETE ---###
+###--------------------###
+# This should be the last thing loaded in zshrc
+autoload -Uz compinit
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+#fpath=("$XDG_CONFIG_HOME"/zsh/completions "$fpath")
+zstyle :compinstall filename "$XDG_CONFIG_HOME"/zsh/.zshrc
+#Test if zcompdump is older than 2hr, if it is create a new one, else omit the check for new functions since we updated recently enough
+test "$(/usr/bin/find "$XDG_CONFIG_HOME"/zsh/.zcompdump -mmin -120)" && compinit -u -d "$XDG_CONFIG_HOME"/zsh/.zcompdump || compinit -C
+
+#Case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+#
+#Partial completion suggestions
+zstyle ':completion:*' list-suffixes
+zstyle ':completion:*' expand prefix suffix
+
+#Double TAB gives menu
+zstyle ':completion:*' menu select
+
+#Move in menu with vim keys
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+#Completes the first in list of ambiguous completions
+setopt MENU_COMPLETE

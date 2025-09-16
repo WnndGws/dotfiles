@@ -2,6 +2,9 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
+# shortcut
+alias zl='zathura'
+
 #init new venv
 alias new_env='uv init && uv venv && source .venv/bin/activate'
 
@@ -16,7 +19,7 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && printf "{\"text\": \"0  0\"}\n" | jq -cs ".[]" > /tmp/waybar-updates'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update && checkrebuild && printf "{\"text\": \"0  0\"}\n" | jq -cs ".[]" > /tmp/waybar-updates && sudo pacleaner --uninstalled --number 1 --delete --no-confirm'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock
@@ -37,6 +40,12 @@ alias bd="batdiff"
 alias cp="cp -i"
 alias mv="mv -i"
 
+#Mullvad relay toggle
+alias mrn='mullvad relay set tunnel wireguard --port=any --use-multihop=on'
+alias mrf='mullvad relay set tunnel wireguard --port=any --use-multihop=off'
+alias mcc="mullvad disconnect ; mullvad connect"
+alias mdc="mullvad disconnect"
+
 #Change mode of file
 alias cx="chmod +x"
 
@@ -49,7 +58,7 @@ alias du="/usr/bin/ncdu --color dark -rr -x"
 
 #Git Stuff
 ##Create a gitignore file
-alias gi="curl -L https://www.gitignore.io/api/vim,tex,linux,latex,python > .gitignore && echo '*.pdf' >> .gitignore"
+alias gi="cp $HOME/git/dotfiles/git/.config/git/gitignore .gitignore"
 alias gs="git diff && git status"
 
 #Interactive awk,sed,rg
@@ -88,8 +97,13 @@ tm() { tmux attach -t "$1" || tmux new -s "$1" }
 alias nv="nvim"
 alias sv='sudo nvim'
 
+#No VPN Steam
+alias steam="mullvad-exclude steam-native"
+alias steam-native="mullvad-exclude steam-native"
+
 #Always use ripgrep with these flags
 alias rg='rg --hidden -i --multiline'
+alias fd='fd --hidden --no-ignore'
 
 #I always use rsync with these flags
 alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
@@ -125,6 +139,10 @@ alias minecraft='cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC
 ### ----------------- ###
 #Watches a file, and runs that file every time it changes
 entrwatch() { exa "$1" | entr /_ }
+
+#Watches a tex file and recompiles it each change
+latexwatch() { fd --extension=tex . | entr tectonic -X compile "$1" }
+lw() { fd --extension=tex . | entr tectonic -X compile "$1" }
 
 #Pacman Stuff
 alias p='$HOME/git/scripts/fuzzy/fpikaur'
