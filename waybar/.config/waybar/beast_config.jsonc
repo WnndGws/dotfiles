@@ -51,7 +51,10 @@
                 "DP-3": [
                     5,
                     6
-                ]
+                ],
+                "HDMI-A-2": [
+                    6,
+                ],
             },
             "format": "{icon}:{windows}",
             "format-window-separator": " ",
@@ -59,6 +62,7 @@
             "window-rewrite": {
                 "class<firefox>": "", // Windows whose classes are "firefox"
                 "class<Signal>": "󰭹",
+                "class<steam>": "",
                 "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
                 "alacritty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
             },
@@ -68,6 +72,7 @@
         "name": "top-bar-secondary",
         "output": [
             "HDMI-A-1",
+            "HDMI-A-2",
             "DP-3"
         ],
         "layer": "top",
@@ -106,7 +111,10 @@
                 "DP-3": [
                     5,
                     6
-                ]
+                ],
+                "HDMI-A-2": [
+                    6,
+                ],
             },
             "format": "{icon}:{windows}",
             "format-window-separator": " ",
@@ -142,6 +150,13 @@
             "custom/spacer",
             "custom/netspeed",
             "custom/spacer",
+            "battery",
+            "battery#2",
+            "custom/spacer",
+            "backlight",
+            "custom/spacer",
+            "wireplumber",
+            "custom/spacer",
             "custom/updates",
             "custom/spacer",
             "custom/todo",
@@ -154,9 +169,10 @@
             "format": "bluetooth,on-click,weather,next-event,kernel"
         },
         "custom/updates": {
+            //"format": "Fix script"
             "format": "{text}",
             "return-type": "json",
-            "exec": "$XDG_CONFIG_HOME/waybar/check_updates.sh"
+            "exec": "$XDG_CONFIG_HOME/waybar/scripts/check_updates.sh"
         },
         "temperature": {
             "thermal-zone": 0, // Use 1st core as exemplar
@@ -170,6 +186,64 @@
                 "󰖀",
                 "󰕾"
             ],
+        },
+        "backlight": {
+            "device": "intel_backlight",
+            "format": "{icon} {percent}%",
+            "states": {
+                "light": 51,
+                "dark": 0
+            },
+            "format-icons": [
+                "",
+                "",
+            ],
+        },
+        "battery": {
+            "bat": "BAT0",
+            "interval": 10,
+            "format-time": "{H:02}:{m} left",
+            /* battery triggers BELOW, unlike others */
+            "states": {
+                "green": 101,
+                "yellow": 90,
+                "orange": 50,
+                "red": 20
+            },
+            "format-charging": "󰂄 {capacity}% ({time})",
+            "format-full": "󰂄 {capacity}% (Charged)",
+            "format-plugged": "󰂄 {capacity}% (Charged)",
+            "format": "{icon} {capacity}% ({time})",
+            "format-icons": [
+                "󰁺",
+                "󰁼",
+                "󰁾",
+                "󰂁",
+                "󰁹"
+            ]
+        },
+        "battery#2": {
+            "bat": "BAT1",
+            "interval": 10,
+            "format-time": "{H:02}:{m} left",
+            /* battery triggers BELOW, unlike others */
+            "states": {
+                "green": 101,
+                "yellow": 90,
+                "orange": 50,
+                "red": 20
+            },
+            "format-charging": "󰂄 {capacity}% ({time})",
+            "format-full": "󰂄 {capacity}% (Charged)",
+            "format-plugged": "󰂄 {capacity}% (Charged)",
+            "format": "{icon} {capacity}% ({time})",
+            "format-icons": [
+                "󰁺",
+                "󰁼",
+                "󰁾",
+                "󰂁",
+                "󰁹"
+            ]
         },
         "memory": {
             "interval": 30,
@@ -210,7 +284,7 @@
             }
         },
         "custom/netspeed": {
-            "exec": "$XDG_CONFIG_HOME/waybar/network_speed.sh",
+            "exec": "$XDG_CONFIG_HOME/waybar/scripts/aa_network_speed.sh",
             "return-type": "json",
             "format": "{icon}{text}",
             "format-icons": {
@@ -235,6 +309,12 @@
         "modules-right": [],
         "custom/spacer": {
             "format": " || "
+        },
+        "custom/updates": {
+            //"format": "Fix script"
+            "format": "{text}",
+            "return-type": "json",
+            "exec": "$XDG_CONFIG_HOME/waybar/scripts/check_updates.sh"
         },
         "cpu": {
             "format": " {usage:2}%",
