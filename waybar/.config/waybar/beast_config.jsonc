@@ -16,7 +16,7 @@
             "hyprland/window"
         ],
         "modules-right": [
-            //"custom/nextevent",
+            "custom/nextevent",
             "custom/spacer",
             "clock",
             "custom/spacer"

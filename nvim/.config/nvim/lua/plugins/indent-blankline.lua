@@ -1,4 +1,5 @@
-local Plugin = { "lukas-reineke/indent-blankline.nvim" }
+
+		local Plugin = { "lukas-reineke/indent-blankline.nvim" }
 
 Plugin.event = "VeryLazy"
 Plugin.main = "ibl"

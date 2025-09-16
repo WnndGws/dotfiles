@@ -1,7 +1,4 @@
 -- ~/nvim/lua/lazy.lua
-
-vim.g.mapleader = ","
-
 local lazy = {}
 
 -- Install Lazy if it doesn’t exist
@@ -37,4 +34,4 @@ end
 lazy.path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- Creates and sets ~/.local/nvim/lazy/lazy.nvim
 lazy.opts = {}
 
-lazy.setup({ { import = "plugins" } })
+lazy.setup({ { import = "plugins" }})

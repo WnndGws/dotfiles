@@ -19,7 +19,6 @@ $cmd_duration\
 $line_break\
 $shell\
 $jobs\
-${custom.git-town-status}\
 $character"""
 
 [shell]
@@ -66,12 +65,3 @@ always_show_remote = true
 
 [git_metrics]
 disabled = false
-
-[custom.git-town-status]
-description = "Output `git town status --pending` into my prompt"
-command = "git town status --pending"
-when = ''' local git_status && git_status=$(git town status --pending) && [[ -n "$git_status" ]] '''
-require_repo = true
-symbol = "T"
-style = "bg:yellow fg:black"
-format = '[$symbol($output )]($style)'

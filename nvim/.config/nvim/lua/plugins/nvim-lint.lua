@@ -18,7 +18,7 @@ return {
 			jinja = { "curlylint", "jinja-lsp" },
 			dotenv = { "dotenv-linter" },
 			html = { "html" },
-			lua = {},
+			lua = { "selene" },
 			markdown = { "markdownlint-cli2", "proselint", "woke" },
 			bash = { "bash", "shellcheck" },
 			sh = { "shellcheck" },

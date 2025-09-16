@@ -1,4 +1,5 @@
-return {
-	"terryma/vim-expand-region",
-	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-}
+local Plugin = { "terryma/vim-expand-region" }
+
+Plugin.event = "VeryLazy"
+
+return Plugin

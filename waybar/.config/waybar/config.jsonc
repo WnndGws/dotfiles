@@ -1,6 +1,0 @@
-// beast outputs = HDMI-A-1 (top), DP-2 (main), DP-3 (small)
-// laptop output = eDP-1 (built-in)
-[
-    {
-    },
-]

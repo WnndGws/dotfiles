@@ -1,6 +1,6 @@
 local Plugin = { "nvim-lualine/lualine.nvim" }
 
-Plugin.event = { "BufReadPost", "BufNewFile", "BufWritePre" }
+Plugin.event = "VeryLazy"
 Plugin.dependencies = { "nvim-tree/nvim-web-devicons" }
 
 Plugin.config = function()
@@ -131,10 +131,6 @@ Plugin.config = function()
 					diagnostics_message,
 					colors = { error = "#c53b53", warn = "#ffc777", info = "#7aa2f7", hint = "#737aa2" },
 				},
-				function()
-					-- invoke `progress` here.
-					return require("lsp-progress").progress()
-				end,
 			},
 			lualine_x = {},
 			lualine_y = { { "filename", file_status = true }, "filetype" },
