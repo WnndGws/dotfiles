@@ -4,7 +4,7 @@ Plugin.config = function()
 	local plugin = require("esqueleto")
 
 	plugin.setup({
-		patterns = { "LICENSE", "python", "markdown", "sh" },
+		patterns = { "LICENSE", "python", "markdown", "sh", "lua" },
 	})
 end
 

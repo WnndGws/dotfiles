@@ -15,6 +15,27 @@
       "class<steam>": "",
       "class<firefox> title<.*github.*>": "",
       "alacritty": ""
+    },
+    "persistent-workspaces": {
+      "DP-2": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "HDMI-A-1": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "DP-3": [
+        5,
+        6
+      ],
+      "HDMI-A-2": [
+        6
+      ]
     }
   },
   "custom/cpu_usage": {
@@ -35,5 +56,30 @@
       "connected": "",
       "disconnected": ""
     }
+  },
+  "custom/updates": {
+    "format": "{text}",
+    "return-type": "json",
+    "exec": "$XDG_CONFIG_HOME/waybar/scripts/check_updates.sh"
+  },
+  "cpu": {
+    "format": " {usage:2}%",
+    "interval": 2,
+    "states": {
+      "yellow": 50,
+      "orange": 75,
+      "red": 90
+    }
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
   }
 }
