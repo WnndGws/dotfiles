@@ -60,16 +60,7 @@
   "custom/updates": {
     "format": "{text}",
     "return-type": "json",
-    "exec": "$XDG_CONFIG_HOME/waybar/scripts/check_updates.sh"
-  },
-  "cpu": {
-    "format": " {usage:2}%",
-    "interval": 2,
-    "states": {
-      "yellow": 50,
-      "orange": 75,
-      "red": 90
-    }
+    "exec": "./scripts/check_updates.sh"
   },
   "network": {
     "format": "{ifname}",
