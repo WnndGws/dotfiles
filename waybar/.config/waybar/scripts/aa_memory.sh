@@ -11,8 +11,9 @@ SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_memory
  . as $raw |
  ($raw|split("+")) as $nums |
  {text: "\($nums[0])",
- class: (if $nums[-1]|tonumber <40 then "green"
- elif $nums[-1]|tonumber <65 then "orange"
+ class: (if $nums[-1]|tonumber <25 then "green"
+ elif $nums[-1]|tonumber <50 then "yellow"
+ elif $nums[-1]|tonumber <75 then "orange"
  else "red" end),
  percentage: $nums[-1]|tonumber}
 '

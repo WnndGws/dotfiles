@@ -1,4 +1,4 @@
-from easyland import logger, command
+from easyland import command, logger
 
 ###############################################################################
 # Set active listeners
@@ -57,41 +57,15 @@ def on_hyprland_event(event, argument):
         # Set laptop monitor at 0x0
         command.exec('hyprctl keyword monitor "eDP-1,preferred,0x0,1"')
         # Set TV to the right
-        command.exec('hyprctl keyword monitor "HDMI-A-2,preferred,1920x0,1"')
-        # Set workspace 6 on TV
-        command.exec('hyprctl keyword workspace "1, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "2, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "3, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "4, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "5, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "6, monitor:HDMI-A-2"')
-        command.exec('hyprctl keyword workspace "7, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "8, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "9, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "10, monitor:eDP-1"')
-        run_waybar()
         command.exec("pactl set-sink-volume @DEFAULT_SINK@ 100%")
         command.exec("pactl set-sink-mute @DEFAULT_SINK@ false")
 
     if event in ["monitorremoved"]:
         logger.info("Monitor removed")
         # Set laptop monitor at 0x0
-        command.exec('hyprctl keyword monitor "eDP-1,preferred,auto,1"')
-        # Set workspace all workspaces back on laptop
-        command.exec('hyprctl keyword workspace "1, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "2, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "3, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "4, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "5, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "6, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "7, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "8, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "9, monitor:eDP-1"')
-        command.exec('hyprctl keyword workspace "10, monitor:eDP-1"')
         run_waybar()
         command.exec("pactl set-sink-volume @DEFAULT_SINK@ 50%")
         command.exec("pactl set-sink-mute @DEFAULT_SINK@ true")
-        command.exec("mullvad reconnect")
 
 
 #
@@ -121,17 +95,28 @@ def on_hyprland_event(event, argument):
 hostname = command.get_system_hostname()
 logger.info("hostname is " + hostname)
 
+monitors_attached = command.exec(
+    "hyprctl monitors | awk -F'[ :]' '/^Monitor / {print $2}'"
+)
+monitors_attached = [monitor for monitor in monitors_attached]
+logger.info(f"number of monitors: {len(monitors_attached)}")
+
 
 def set_monitors():
     logger.info("Setting monitors")
-    if hostname == "arch-beast":
+    # just use 16 for now, need to fix to 3
+    if len(monitors_attached) == 16:
         # command.exec('hyprctl keyword monitor "eDP-1,preferred,auto,2"')
-        command.exec('hyprctl keyword monitor "DP-2,1920x1080@60, 0x0, 1"')
+        command.exec('hyprctl keyword monitor "DP-3,1920x1080@60, 0x0, 1"')
+        command.exec('hyprctl keyword monitor "DP-4,1920x1080@60, 0x-1080, 1"')
+        command.exec('hyprctl keyword monitor "eDP-1,1920x1080@60, -1920x0, 1"')
+    elif hostname == "arch-beast":
         command.exec(
-            # Uses the scaled resolution!
-            'hyprctl keyword monitor "DP-3,1920x1080@60, -720x0, 1.5, transform, 3"'
+            'hyprctl --instance 0 keyword monitor "HDMI-A-1,1920x1080@60, 0x0, 1"'
         )
-        command.exec('hyprctl keyword monitor "HDMI-A-1,1920x1080@60, 0x-1080, 1"')
+        command.exec(
+            'hyprctl --instance 0 keyword monitor "DP-2,1920x1080@60, 0x-1080, 1"'
+        )
     else:
         command.exec('hyprctl keyword monitor "eDP-1,preferred,auto,1"')
         # command.exec("brightnessctl -s set 0")
@@ -139,24 +124,13 @@ def set_monitors():
 
 def set_workspaces():
     logger.info("Setting monitors")
-    if hostname == "arch-beast":
-        command.exec('hyprctl keyword workspace "1, monitor:DP-2"')
-        command.exec('hyprctl keyword workspace "2, monitor:DP-2"')
-        command.exec('hyprctl keyword workspace "3, monitor:DP-2"')
-        command.exec('hyprctl keyword workspace "4, monitor:DP-2"')
-        command.exec('hyprctl keyword workspace "5, monitor:DP-3"')
-        command.exec('hyprctl keyword workspace "6, monitor:DP-3"')
-        command.exec('hyprctl keyword workspace "7, monitor:HDMI-A-1"')
-        command.exec('hyprctl keyword workspace "8, monitor:HDMI-A-1"')
-        command.exec('hyprctl keyword workspace "9, monitor:HDMI-A-1"')
-        command.exec('hyprctl keyword workspace "10, monitor:HDMI-A-1"')
 
 
 def run_waybar():
     logger.info("Setting monitors")
     if hostname == "arch-beast":
         command.exec(
-            "pkill waybar || true && waybar --config ~/.config/waybar/beast_config.jsonc",
+            'hyprctl --instance 0 dispatch exec "pkill waybar || true && waybar --config ~/.config/waybar/beast_config.jsonc"',
             background=True,
         )
     else:

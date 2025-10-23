@@ -61,3 +61,12 @@ opt.wrap = true -- Enable line wrap
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
 end
+
+------------------
+--- File types ---
+------------------
+vim.filetype.add({
+	extension = {
+		enc = "markdown",
+	},
+})

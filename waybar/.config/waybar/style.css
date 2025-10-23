@@ -44,52 +44,63 @@ window#waybar {
 
 /* It works top to bottom and sticks with the last found one */
 
-#custom-todo,
-#backlight.light,
+/* blue */
+#custom-weather.blue {
+  border-bottom: 3px solid #61afef;
+}
+
+/* grey */
 #wireplumber.muted,
-#custom-netspeed,
-#custom-updates,
-#network {
+#clock,
+#backlight,
+#custom-netspeed.bi,
+#custom-todo {
   border-bottom: 3px solid #5c6370;
 }
 
-#custom-updates.pending-updates,
-#custom-vpn.disconnected,
-#battery.red,
-#memory.red,
-#temperature.critical,
-#custom-netspeed.down,
-#custom-netspeed.up,
-#cpu.red {
-  border-bottom: 3px solid #e06c75;
+/* green */
+#wireplumber,
+#custom-weather.green,
+#custom-updates.green,
+#custom-vpn.connected,
+#custom-cpu_temp.green,
+#custom-mem.green,
+#custom-wifi.green,
+#custom-netspeed.Ki,
+#custom-battery.charging,
+#custom-battery.full,
+#custom-cpu_usage.green {
+  border-bottom: 3px solid #98c379;
 }
 
-#battery.orange,
-#memory.orange,
-#cpu.orange {
+/* yellow */
+#custom-cpu_temp.yellow,
+#custom-weather.yellow,
+#custom-updates.yellow,
+#custom-battery.discharging,
+#custom-mem.yellow,
+#custom-wifi.yellow,
+#custom-cpu_usage.yellow {
+  /* border-bottom: 3px solid #e5c07b; */
   border-bottom: 3px solid #d19a66;
 }
 
-#battery.yellow,
-#memory.yellow,
-#cpu.yellow {
-  border-bottom: 3px solid #e5c07b;
+/* orange */
+#custom-cpu_temp.orange,
+#custom-weather.orange,
+#custom-mem.orange,
+#custom-cpu_usage.orange {
+  border-bottom: 3px solid #d19a66;
 }
 
-#wireplumber,
-#custom-vpn.connected,
-#battery.charging,
-#battery.plugged,
-#temperature,
-#battery.green {
-  border-bottom: 3px solid #98c379;
-}
-
-#memory,
-#cpu {
-  border-bottom: 3px solid #98c379;
-}
-
-#backlight.dark {
-  border-bottom: 3px solid #4b5263;
+/* red */
+#custom-netspeed.Mi,
+#custom-weather.red,
+#custom-vpn.disconnected,
+#custom-updates.red,
+#custom-cpu_temp.red,
+#custom-mem.red,
+#custom-wifi.red,
+#custom-cpu_usage.red {
+  border-bottom: 3px solid #e06c75;
 }
