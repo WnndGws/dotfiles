@@ -11,7 +11,7 @@ else
     SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_beast_netspeed
 fi
 
-"$SLSFILE" -s | jq --unbuffered --compact-output -R '
+"$SLSFILE" -s 2> /dev/null | jq --unbuffered --compact-output -R '
   split("x")
   | [.[] | split(" ")
     | {

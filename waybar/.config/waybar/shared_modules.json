@@ -1,176 +1,184 @@
 {
-  "custom/spacer": {
-    "format": " || "
-  },
-  "clock": {
-    "format": "{:%a, %d. %b  %H:%M}"
-  },
-  "hyprland/window": {
-    "separate-outputs": true
-  },
-  "hyprland/workspaces": {
-    "format": "{icon}:{windows}",
-    "format-window-separator": " ",
-    "window-rewrite-default": "",
-    "window-rewrite": {
-      "class<firefox>": "",
-      "class<Signal>": "󰭹",
-      "class<steam>": "",
-      "class<firefox> title<.*github.*>": "",
-      "alacritty": ""
+    "custom/SIGTERM_REMINDERS": {
+        "format": {
+            "-SIGRTMIN+1": "wttr",
+            "-SIGRTMIN+2": "updates"
+        }
+    },
+    "custom/spacer": {
+        "format": " || "
+    },
+    "clock": {
+        "format": "{:%a, %d. %b  %H:%M}",
+        "signal": 1
+    },
+    "hyprland/window": {
+        "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}:{windows}",
+        "format-window-separator": " ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<firefox>": "",
+            "class<Signal>": "󰭹",
+            "class<steam>": "",
+            "class<firefox> title<.*github.*>": "",
+            "alacritty": ""
+        }
+    },
+    "custom/cpu_usage": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_cpu.sh",
+        "return-type": "json",
+        "format": "{text}"
+    },
+    "custom/cpu_temp": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_avg_temps.sh",
+        "return-type": "json",
+        "format": "{icon} {text}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "custom/mem": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_memory.sh",
+        "return-type": "json",
+        "format": "{icon} {text}",
+        "format-icons": [
+            "󱊘",
+            "󱊗",
+            "󱊖",
+            "󱊕"
+        ]
+    },
+    "custom/vpn": {
+        "format": "{icon}",
+        "return-type": "json",
+        "exec": "mullvad status --json listen | jq --unbuffered --compact-output '.text = .state | .class = .state | .alt = .state'",
+        "format-icons": {
+            "connected": "",
+            "disconnected": ""
+        }
+    },
+    "custom/wifi": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
+        "return-type": "json",
+        "format": "{icon} {text}",
+        "format-icons": {
+            "connected": [
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ],
+            "disconnected": "󰤫"
+        }
+    },
+    "custom/netspeed": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_network_speed.sh",
+        "return-type": "json",
+        "format": "{text}"
+    },
+    "custom/battery": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_battery.sh",
+        "return-type": "json",
+        "format": "{icon} {text}",
+        "format-icons": {
+            "charging": "󰂄",
+            "full": "󱟢",
+            "discharging": [
+                "󰂃",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂"
+            ]
+        }
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": [
+            "",
+            ""
+        ]
+    },
+    "custom/updates": {
+        "exec": "/home/wynand/.config/waybar/scripts/check_updates.sh",
+        "restart-interval": 3600,
+        "signal": 2,
+        "return-type": "json",
+        "format": "{text}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {percent}%"
+    },
+    "custom/weather": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_wttr.sh",
+        "restart-interval": 3600,
+        "signal": 1,
+        "return-type": "json",
+        "format": "{icon} {text}",
+        "format-icons": {
+            "Clear": "󰖙",
+            "Sunny": "󰖙",
+            "Partly cloudy": "󰖕",
+            "Cloudy": "󰖐",
+            "Overcast": "",
+            "Mist": "󰖑",
+            "Patchy rain nearby": "",
+            "Patchy rain possible": "",
+            "Patchy snow possible": "",
+            "Patchy sleet possible": "",
+            "Patchy freezing drizzle possible": "",
+            "Thundery outbreaks in nearby": "",
+            "Thundery outbreaks possible": "",
+            "Blowing snow": "",
+            "Blizzard": "",
+            "Fog": "󰖑",
+            "Freezing fog": "󰖑",
+            "Patchy light drizzle": "",
+            "Light drizzle": "",
+            "Freezing drizzle": "",
+            "Heavy freezing drizzle": "",
+            "Patchy light rain": "",
+            "Light rain": "",
+            "Moderate rain at times": "",
+            "Moderate rain": "",
+            "Heavy rain at times": "",
+            "Heavy rain": "",
+            "Light freezing rain": "",
+            "Moderate or heavy freezing rain": "",
+            "Light sleet": "",
+            "Moderate or heavy sleet": "",
+            "Patchy light snow": "",
+            "Light snow": "",
+            "Patchy moderate snow": "",
+            "Moderate snow": "",
+            "Patchy heavy snow": "",
+            "Heavy snow": "",
+            "Ice pellets": "",
+            "Light rain shower": "",
+            "Moderate or heavy rain shower": "",
+            "Torrential rain shower": "",
+            "Light sleet showers": "",
+            "Moderate or heavy sleet showers": "",
+            "Light snow showers": "",
+            "Moderate or heavy snow showers": "",
+            "Patchy light rain with thunder": "",
+            "Moderate or heavy rain in area with thunder": "",
+            "Moderate or heavy rain with thunder": "",
+            "Patchy light snow with thunder": "",
+            "Moderate or heavy snow in area with thunder": "",
+            "Moderate or heavy snow with thunder": ""
+        }
     }
-  },
-  "custom/cpu_usage": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_cpu.sh",
-    "return-type": "json",
-    "format": "{text}"
-  },
-  "custom/cpu_temp": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_avg_temps.sh",
-    "return-type": "json",
-    "format": "{icon} {text}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "custom/mem": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_memory.sh",
-    "return-type": "json",
-    "format": "{icon} {text}",
-    "format-icons": [
-      "󱊘",
-      "󱊗",
-      "󱊖",
-      "󱊕"
-    ]
-  },
-  "custom/vpn": {
-    "format": "{icon}",
-    "return-type": "json",
-    "exec": "mullvad status --json listen | jq --unbuffered --compact-output '.text = .state | .class = .state | .alt = .state'",
-    "format-icons": {
-      "connected": "",
-      "disconnected": ""
-    }
-  },
-  "custom/wifi": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
-    "return-type": "json",
-    "format": "{icon} {text}",
-    "format-icons": {
-      "connected": [
-        "󰤟",
-        "󰤢",
-        "󰤥",
-        "󰤨"
-      ],
-      "disconnected": "󰤫"
-    }
-  },
-  "custom/netspeed": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_network_speed.sh",
-    "return-type": "json",
-    "format": "{text}"
-  },
-  "custom/todo": {
-    "format": "backlight"
-  },
-  "custom/battery": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_battery.sh",
-    "return-type": "json",
-    "format": "{icon} {text}",
-    "format-icons": {
-      "charging": "󰂄",
-      "full": "󱟢",
-      "discharging": [
-        "󰂃",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂"
-      ]
-    }
-  },
-  "wireplumber": {
-    "format": "{icon} {volume}%",
-    "format-muted": " {volume}%",
-    "format-icons": [
-      "",
-      ""
-    ]
-  },
-  "custom/updates": {
-    "exec": "/home/wynand/.config/waybar/scripts/check_updates.sh",
-    "return-type": "json",
-    "format": "{text}"
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": " {percent}%"
-  },
-  "custom/weather": {
-    "exec": "/home/wynand/.config/waybar/scripts/aa_wttr.sh",
-    "return-type": "json",
-    "format": "{icon} {text}",
-    "format-icons": {
-      "Clear": "󰖙",
-      "Sunny": "󰖙",
-      "Partly cloudy": "󰖕",
-      "Cloudy": "󰖐",
-      "Overcast": "",
-      "Mist": "󰖑",
-      "Patchy rain nearby": "",
-      "Patchy rain possible": "",
-      "Patchy snow possible": "",
-      "Patchy sleet possible": "",
-      "Patchy freezing drizzle possible": "",
-      "Thundery outbreaks in nearby": "",
-      "Thundery outbreaks possible": "",
-      "Blowing snow": "",
-      "Blizzard": "",
-      "Fog": "󰖑",
-      "Freezing fog": "󰖑",
-      "Patchy light drizzle": "",
-      "Light drizzle": "",
-      "Freezing drizzle": "",
-      "Heavy freezing drizzle": "",
-      "Patchy light rain": "",
-      "Light rain": "",
-      "Moderate rain at times": "",
-      "Moderate rain": "",
-      "Heavy rain at times": "",
-      "Heavy rain": "",
-      "Light freezing rain": "",
-      "Moderate or heavy freezing rain": "",
-      "Light sleet": "",
-      "Moderate or heavy sleet": "",
-      "Patchy light snow": "",
-      "Light snow": "",
-      "Patchy moderate snow": "",
-      "Moderate snow": "",
-      "Patchy heavy snow": "",
-      "Heavy snow": "",
-      "Ice pellets": "",
-      "Light rain shower": "",
-      "Moderate or heavy rain shower": "",
-      "Torrential rain shower": "",
-      "Light sleet showers": "",
-      "Moderate or heavy sleet showers": "",
-      "Light snow showers": "",
-      "Moderate or heavy snow showers": "",
-      "Patchy light rain with thunder": "",
-      "Moderate or heavy rain in area with thunder": "",
-      "Moderate or heavy rain with thunder": "",
-      "Patchy light snow with thunder": "",
-      "Moderate or heavy snow in area with thunder": "",
-      "Moderate or heavy snow with thunder": ""
-    }
-  }
 }
