@@ -9,7 +9,7 @@ return {
 
 		lint.linters_by_ft = {
 			rust = { "snyk_iac" },
-			python = { "bandit", "dmypy", "pydocstyle", "ruff", "snyk_iac", "vulture" },
+			python = { "bandit", "pydocstyle", "ruff", "snyk_iac", "vulture" },
 			json = { "jsonlint" },
 			javascript = { "biome", "snyk_iac" },
 			typescript = { "biome", "snyk_iac" },

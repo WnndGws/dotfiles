@@ -19,7 +19,7 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && printf "{\"text\": \"0  0\"}\n" | jq -cs ".[]" > /tmp/waybar-updates && sudo pacleaner --uninstalled --number 1 --delete --no-confirm'
+alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock

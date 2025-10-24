@@ -40,8 +40,8 @@ function Plugin.config()
 		sources = {
 			{ name = "path", keyword_length = 2 },
 			{ name = "buffer", keyword_length = 2 },
-			{ name = "nvim_lsp", keyword_length = 2 },
 			{ name = "luasnip", keyword_length = 2 },
+			{ name = "nvim_lsp", keyword_length = 2 },
 		},
 		window = {
 			completion = cmp.config.window.bordered(),
