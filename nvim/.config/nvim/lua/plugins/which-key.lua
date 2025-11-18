@@ -16,7 +16,7 @@ Plugin.config = function(_, opts)
 	wk.add({
 		{ "<leader>?", group = "Help for non-leader keybinds" },
 		{ "<leader>-", group = "Dial" },
-		-- { "<leader>a", group = "Checkbox" },
+		{ "<leader>a", group = "Aerial Toggle" },
 		-- { "<leader>b", group = "Checkbox" }, ## USED FOR BUFFERS
 		{ "<leader>c", group = "Checkbox", icon = "" },
 		-- { "<leader>d", group = "Checkbox" },
@@ -28,9 +28,9 @@ Plugin.config = function(_, opts)
 		-- { "<leader>j", group = "Checkbox" },
 		-- { "<leader>k", group = "Checkbox" },
 		{ "<leader>l", group = "Linting" },
-		-- { "<leader>m", group = "Checkbox" },
+		{ "<leader>m", group = "Markdown" },
 		-- { "<leader>n", group = "Checkbox" },
-		{ "<leader>o", group = "Outline" },
+		-- { "<leader>o", group = "Outline" },
 		-- { "<leader>p", group = "Checkbox" },
 		-- { "<leader>q", group = "Checkbox" },
 		{ "<leader>r", group = "Surround" },
@@ -41,7 +41,7 @@ Plugin.config = function(_, opts)
 		{ "<leader>w", group = "Write File" },
 		-- { "<leader>x", group = "Checkbox" },
 		-- { "<leader>y", group = "Checkbox" },
-		-- { "<leader>z", group = "Checkbox" },
+		{ "<leader>z", group = "Folds" },
 	})
 	wk.setup(opts)
 end

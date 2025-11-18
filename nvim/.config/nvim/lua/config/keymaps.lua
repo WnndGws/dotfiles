@@ -114,8 +114,7 @@ keymap.set("n", "<leader>cb", require("markdown-togglecheck").toggle_box, { desc
 -------------
 -- Outline --
 -------------
-keymap.set("n", "<leader>oo", ":Outline!<cr>", { desc = "Toggle showing Outline" })
-keymap.set("n", "<leader>of", ":OutlineFollow!<cr>", { desc = "Follow outline as you work" })
+keymap.set("n", "<leader>a", ":AerialToggle! right<cr>", { desc = "Toggle showing Outline" })
 
 -------------
 -- SnipRun --
@@ -183,3 +182,16 @@ end, { desc = "Toggle Nvim-Tree" })
 ------------
 keymap.set({ "n", "v" }, "<leader>fa", ":Freeze<cr>", { desc = "Freeze all" })
 keymap.set({ "n", "v" }, "<leader>fl", ":FreezeLine<cr>", { desc = "Freeze Line" })
+
+--------------
+-- Markdown --
+--------------
+keymap.set({ "n" }, "<leader>mt", ":TOC<cr>", { desc = "Create a TOC" })
+keymap.set({ "n" }, "<leader>mpo", ":PeekOpen<cr>", { desc = "Open a web browser preview of the file" })
+keymap.set({ "n" }, "<leader>mpc", ":PeekClose<cr>", { desc = "Close Peek" })
+
+---------
+-- UFO --
+---------
+vim.keymap.set("n", "<leader>zo", require("ufo").openAllFolds, { desc = "Open all folds" })
+vim.keymap.set("n", "<leader>zc", require("ufo").closeAllFolds, { desc = "Close all folds" })
