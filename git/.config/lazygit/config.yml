@@ -282,9 +282,9 @@ customCommands:
     command: git-town append {{.Form.BranchName}}
     loadingText: Appending
     output: log
-  - key: C
+  - key: K
     context: localBranches
-    description: Git Town HaCk (creates a new branch)
+    description: Git Town hacK (creates a new branch)
     prompts:
       - type: input
         title: Enter name of new branch. Branches off of 'Main'
@@ -292,7 +292,7 @@ customCommands:
     command: git-town hack {{.Form.BranchName}}
     loadingText: Hacking
     output: log
-  - key: K
+  - key: X
     context: localBranches
     description: Git Town Delete (deletes the current feature branch and sYnc)
     command: git-town delete
