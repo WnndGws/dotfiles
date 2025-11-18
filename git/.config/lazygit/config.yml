@@ -1,3 +1,8 @@
+#
+#
+# Gui
+#
+#
 # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 gui:
   # If true, increase the height of the focused side window; creating an accordion
@@ -24,6 +29,304 @@ gui:
   # How things are filtered when typing '/'.
   # One of 'substring' (default) | 'fuzzy'
   filterMode: fuzzy
+  # Use my "colour" black
+  theme:
+    selectedLineBgColor: [black]
+#
+#
+# Git
+#
+#
 git:
   pagers:
-    - pager: delta --color-only
+    - pager: delta --color-only --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
+  # (This should really be under 'gui', not 'git')
+  parseEmoji: true
+  # displays the whole git graph by default in the commits view (equivalent to
+  # passing the `--all` argument to `git log`)
+  showWholeGraph: true
+#
+#
+# OS stuff
+#
+#
+# Periodic update checks
+update:
+  # One of: 'prompt' (default) | 'background' | 'never'
+  # Set to never since pacman handles
+  method: never
+os:
+  # Just open everything in nvim
+  edit: alacritty -e nvim -- {{filename}}
+  openDirInEditor: alacritty -e nvim -- {{dir}}
+  # Whether lazygit suspends until an edit process returns
+  editInTerminal: false
+  copyToClipboardCmd: wl-copy < {{text}}
+  readFromClipboardCmd: wl-paste
+  # A shell startup file containing shell aliases or shell functions. This will be
+  # sourced before running any shell commands, so that shell functions are
+  # available in the `:` command prompt or even in custom commands.
+  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
+  shellFunctionsFile: /etc/zsh/zshenv
+#
+#
+# Keys
+#
+#
+# Keybindings
+keybinding:
+  universal:
+    quit: q
+    quit-alt1: <c-c>
+    suspendApp: <c-z>
+    return: <esc>
+    quitWithoutChangingDirectory: Q
+    togglePanel: <tab>
+    prevItem: <up>
+    nextItem: <down>
+    prevItem-alt: k
+    nextItem-alt: j
+    prevPage: ','
+    nextPage: .
+    # These two scroll the text left or right
+    scrollLeft: H
+    scrollRight: L
+    gotoTop: g
+    gotoBottom: G
+    gotoTop-alt: <home>
+    gotoBottom-alt: <end>
+    toggleRangeSelect: v
+    rangeSelectDown: <s-down>
+    rangeSelectUp: <s-up>
+    prevBlock: <left>
+    nextBlock: <right>
+    prevBlock-alt: h
+    nextBlock-alt: l
+    nextBlock-alt2: <tab>
+    prevBlock-alt2: <backtab>
+    jumpToBlock: ['1', '2', '3', '4', '5']
+    focusMainView: '0'
+    nextMatch: n
+    prevMatch: N
+    startSearch: /
+    optionMenu: <disabled>
+    optionMenu-alt1: '?'
+    select: <space>
+    goInto: <enter>
+    confirm: <enter>
+    confirmMenu: <enter>
+    confirmSuggestion: <enter>
+    confirmInEditor: Z
+    confirmInEditor-alt: <c-s>
+    remove: d
+    new: n
+    edit: e
+    openFile: o
+    scrollUpMain: <pgup>
+    scrollDownMain: <pgdown>
+    scrollUpMain-alt1: K
+    scrollDownMain-alt1: J
+    scrollUpMain-alt2: <c-u>
+    scrollDownMain-alt2: <c-d>
+    executeShellCommand: ':'
+    createRebaseOptionsMenu: m
+    # 'Files' appended for legacy reasons
+    pushFiles: P
+    # 'Files' appended for legacy reasons
+    pullFiles: p
+    refresh: R
+    createPatchOptionsMenu: <c-p>
+    nextTab: ']'
+    prevTab: '['
+    nextScreenMode: +
+    prevScreenMode: _
+    cyclePagers: '|'
+    undo: z
+    redo: Z
+    filteringMenu: <c-s>
+    diffingMenu: W
+    diffingMenu-alt: <c-e>
+    copyToClipboard: <c-o>
+    openRecentRepos: <c-r>
+    submitEditorText: <enter>
+    extrasMenu: '@'
+    toggleWhitespaceInDiffView: <c-w>
+    increaseContextInDiffView: '}'
+    decreaseContextInDiffView: '{'
+    increaseRenameSimilarityThreshold: )
+    decreaseRenameSimilarityThreshold: (
+    openDiffTool: <c-t>
+  status:
+    checkForUpdate: u
+    recentRepos: <enter>
+    allBranchesLogGraph: a
+  files:
+    commitChanges: c
+    commitChangesWithoutHook: w
+    amendLastCommit: A
+    commitChangesWithEditor: C
+    findBaseCommitForFixup: <c-f>
+    confirmDiscard: x
+    ignoreFile: i
+    refreshFiles: r
+    stashAllChanges: s
+    viewStashOptions: S
+    toggleStagedAll: a
+    viewResetOptions: D
+    fetch: f
+    toggleTreeView: '`'
+    openMergeOptions: M
+    openStatusFilter: <c-b>
+    copyFileInfoToClipboard: y
+    collapseAll: '-'
+    expandAll: =
+  branches:
+    createPullRequest: o
+    viewPullRequestOptions: O
+    copyPullRequestURL: <c-y>
+    checkoutBranchByName: c
+    forceCheckoutBranch: F
+    checkoutPreviousBranch: '-'
+    rebaseBranch: r
+    renameBranch: R
+    mergeIntoCurrentBranch: M
+    moveCommitsToNewBranch: N
+    viewGitFlowOptions: i
+    fastForward: f
+    createTag: T
+    pushTag: P
+    setUpstream: u
+    fetchRemote: f
+    sortOrder: s
+  worktrees:
+    viewWorktreeOptions: w
+  commits:
+    squashDown: s
+    renameCommit: r
+    renameCommitWithEditor: R
+    viewResetOptions: g
+    markCommitAsFixup: f
+    createFixupCommit: F
+    squashAboveCommits: S
+    moveDownCommit: <c-j>
+    moveUpCommit: <c-k>
+    amendToCommit: A
+    resetCommitAuthor: a
+    pickCommit: p
+    revertCommit: t
+    cherryPickCopy: C
+    pasteCommits: V
+    markCommitAsBaseForRebase: B
+    tagCommit: T
+    checkoutCommit: <space>
+    resetCherryPick: <c-R>
+    copyCommitAttributeToClipboard: y
+    openLogMenu: <c-l>
+    openInBrowser: o
+    viewBisectOptions: b
+    startInteractiveRebase: i
+    selectCommitsOfCurrentBranch: '*'
+  amendAttribute:
+    resetAuthor: a
+    setAuthor: A
+    addCoAuthor: c
+  stash:
+    popStash: g
+    renameStash: r
+  commitFiles:
+    checkoutCommitFile: c
+  main:
+    toggleSelectHunk: a
+    pickBothHunks: b
+    editSelectHunk: E
+  submodules:
+    init: i
+    update: u
+    bulkMenu: b
+  commitMessage:
+    commitMenu: <c-o>
+#
+#
+# Git-Town
+customCommands:
+  - key: Y
+    context: global
+    description: Git Town sYnc
+    command: git town sync --all
+    loadingText: Syncing
+    output: log
+  - key: U
+    context: global
+    description: Git Town Undo (undo the last Git Town command)
+    command: git-town undo
+    prompts:
+      - type: confirm
+        title: Undo Last Command
+        body: Are you sure you want to Undo the last Git Town command?
+    loadingText: Undoing Git Town Command
+    output: log
+  - key: '!'
+    context: global
+    description: Git Town Repo (opens the repo link)
+    command: git-town repo
+    loadingText: Opening Repo Link
+    output: log
+  - key: a
+    context: localBranches
+    description: Git Town Append
+    prompts:
+      - type: input
+        title: Enter name of new child branch. Branches off of '{{.CheckedOutBranch.Name}}'
+        key: BranchName
+    command: git-town append {{.Form.BranchName}}
+    loadingText: Appending
+    output: log
+  - key: C
+    context: localBranches
+    description: Git Town HaCk (creates a new branch)
+    prompts:
+      - type: input
+        title: Enter name of new branch. Branches off of 'Main'
+        key: BranchName
+    command: git-town hack {{.Form.BranchName}}
+    loadingText: Hacking
+    output: log
+  - key: K
+    context: localBranches
+    description: Git Town Delete (deletes the current feature branch and sYnc)
+    command: git-town delete
+    prompts:
+      - type: confirm
+        title: Delete current feature branch
+        body: Are you sure you want to delete the current feature branch?
+    loadingText: Deleting Feature Branch
+    output: log
+  - key: p
+    context: localBranches
+    description: Git Town Propose (creates a pull request)
+    command: git-town propose
+    loadingText: Creating pull request
+    output: log
+  - key: P
+    context: localBranches
+    description: Git Town Prepend (creates a branch between the curent branch and its parent)
+    prompts:
+      - type: input
+        title: Enter name of the for child branch between '{{.CheckedOutBranch.Name}}' and its parent
+        key: BranchName
+    command: git-town prepend {{.Form.BranchName}}
+    loadingText: Prepending
+    output: log
+  - key: S
+    context: localBranches
+    description: Git Town Skip (skip branch with merge conflicts when syncing)
+    command: git-town skip
+    loadingText: Skiping
+    output: log
+  - key: G
+    context: files
+    description: Git Town GO aka:continue (continue after resolving merge conflicts)
+    command: git-town continue
+    loadingText: Continuing
+    output: log
