@@ -39,6 +39,28 @@ tmux-window-name() {
     ("$TMUX_PLUGIN_MANAGER_PATH"/tmux-window-name/scripts/rename_session_windows.py &)
 }
 
+#Adapted from https://srstevenson.com/posts/zsh-terminal-title/
+#https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+#Automatic window renaming
+autoload -Uz add-zsh-hook
+_precmd_title() {
+    # NOTE: this variable is checked on the machine you are ssh-ed into
+    if [[ -n "$SSH_CONNECTION" ]]; then
+        print -Pn "\e]0;ssh:%n@%m:%~\a"
+    else
+        print -Pn "\e]0;zsh:%~\a"
+    fi
+}
+_preexec_title() {
+    if [[ -n "$SSH_CONNECTION" ]]; then
+        print -Pn "\e]0;ssh:%n@%m:%~\a"
+    else
+        print -Pn "\e]0;zsh:%~\a"
+    fi
+}
+add-zsh-hook precmd _precmd_title
+add-zsh-hook preexec _preexec_title
+
 #Aliases
 source "$XDG_CONFIG_HOME"/zsh/.zaliases
 
@@ -154,9 +176,9 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 #glob-alias
 #https://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
 globalias() {
-   zle _expand_alias
-   zle expand-word
-   zle self-insert
+    zle _expand_alias
+    zle expand-word
+    zle self-insert
 }
 zle -N globalias
 # control-space expands all aliases, including global
@@ -219,25 +241,25 @@ autoload -Uz add-zsh-hook
 add-zsh-hook preexec _gpg-agent-update-tty
 
 if [[ -n $SSH_TTY ]]; then
-  # Force use ncurses-based prompt inside SSH
-  export PINENTRY_USER_DATA="USE_CURSES=1"
+    # Force use ncurses-based prompt inside SSH
+    export PINENTRY_USER_DATA="USE_CURSES=1"
 
-  # Remove socket file for next gpg-agent remote forwarding
-  # in case that `StreamLocalBindUnlink yes` is not set in sshd_config
-  if [[ $SHLVL == 1 ]]; then
-    function _gpg-agent-clean-socket {
-      if [[ -z $_GPG_AGENT_SOCK ]]; then
-        export _GPG_AGENT_SOCK=$(gpgconf --list-dirs agent-socket)
-      fi
+    # Remove socket file for next gpg-agent remote forwarding
+    # in case that `StreamLocalBindUnlink yes` is not set in sshd_config
+    if [[ $SHLVL == 1 ]]; then
+        function _gpg-agent-clean-socket {
+            if [[ -z $_GPG_AGENT_SOCK ]]; then
+                export _GPG_AGENT_SOCK=$(gpgconf --list-dirs agent-socket)
+            fi
 
-      if [[ -S $_GPG_AGENT_SOCK ]]; then
-        gpgconf --kill gpg-agent 2>/dev/null
-        command rm -f "$_GPG_AGENT_SOCK" 2>/dev/null
-      fi
-    }
-    autoload -Uz add-zsh-hook
-    add-zsh-hook zshexit _gpg-agent-clean-socket
-  fi
+            if [[ -S $_GPG_AGENT_SOCK ]]; then
+                gpgconf --kill gpg-agent 2>/dev/null
+                command rm -f "$_GPG_AGENT_SOCK" 2>/dev/null
+            fi
+        }
+        autoload -Uz add-zsh-hook
+        add-zsh-hook zshexit _gpg-agent-clean-socket
+    fi
 fi
 
 # Clean up.
