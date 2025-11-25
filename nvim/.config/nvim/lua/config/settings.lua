@@ -6,6 +6,9 @@
 local global = vim.g
 local opt = vim.opt
 
+opt.title = true
+opt.titlestring = "nvim:%F" -- See help:statusline for expansions
+
 opt.clipboard = "unnamedplus"
 opt.autowrite = true -- Enable auto-write
 opt.autoread = true -- Read file after external changes
