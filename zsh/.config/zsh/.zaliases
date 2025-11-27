@@ -11,6 +11,7 @@ alias new_env='uv init && uv venv && source .venv/bin/activate'
 #Quick open
 alias vzal='nvim $XDG_CONFIG_HOME/zsh/.zaliases'
 alias ww='cd ~/git/git-wiki/ && alacritty -e "lazygit" & disown && git sync && nvim +NvimTreeOpen'
+alias lg='git sync && lazygit'
 
 #Lots of cd's
 alias ...='cd ../..'
