@@ -17,6 +17,10 @@ def format_suntime:
 if . > 0 then "\(. / 60 | floor) mins longer"
 elif . < 0 then "\(-. / 60 | floor) mins shorter"
 else "No change in suntime" end;
+def superscript:
+gsub("0"; "") | gsub("1"; "₁") | gsub("2"; "₂") | gsub("3"; "₃") |
+gsub("4"; "₄") | gsub("5"; "₅") | gsub("6"; "₆") | gsub("7"; "₇") |
+gsub("8"; "₈") | gsub("9"; "₉") | gsub("\\+"; "₊") | gsub("-"; "₋");
 {
 feelslikec: .current_condition[0].FeelsLikeC,
 humidity: .current_condition[0].humidity,
@@ -31,14 +35,14 @@ tomorrow_mintempc: .weather[1].mintempC,
 tomorrow_sunrise: .weather[1].astronomy[0].sunrise,
 tomorrow_sunset: .weather[1].astronomy[0].sunset,
 weatherdesc: .current_condition[0].weatherDesc[0].value,
-maxtemp_delta: ((.weather[1].maxtempC | tonumber) - (.weather[0].maxtempC | tonumber)) | (if . > 0 then "+\(.)" else tostring end),
-feelslike_delta: ((.current_condition[0].FeelsLikeC| tonumber) - (.current_condition[0].temp_C| tonumber)) | (if . > 0 then "+\(.)" else tostring end),
-mintemp_delta: ((.weather[1].mintempC | tonumber) - (.weather[0].mintempC | tonumber)) | (if . > 0 then "+\(.)" else tostring end),
-sunrise_delta_mins: (((.weather[1].astronomy[0].sunrise | parse_time) - (.weather[0].astronomy[0].sunrise | parse_time)) / 60) | (if . > 0 then "+\(.)" else tostring end),
-sunset_delta_mins: (((.weather[1].astronomy[0].sunset | parse_time) - (.weather[0].astronomy[0].sunset | parse_time)) / 60) | (if . > 0 then "+\(.)" else tostring end),
+maxtemp_delta: ((.weather[1].maxtempC | tonumber) - (.weather[0].maxtempC | tonumber)) | (if . > 0 then "+\(.)" else tostring end) | superscript,
+feelslike_delta: ((.current_condition[0].FeelsLikeC| tonumber) - (.current_condition[0].temp_C| tonumber)) | (if . > 0 then "+\(.)" else tostring end) | superscript,
+mintemp_delta: ((.weather[1].mintempC | tonumber) - (.weather[0].mintempC | tonumber)) | (if . > 0 then "+\(.)" else tostring end) | superscript,
+sunrise_delta_mins: (((.weather[1].astronomy[0].sunrise | parse_time) - (.weather[0].astronomy[0].sunrise | parse_time)) / 60) | (if . > 0 then "+\(.)" else tostring end) | superscript,
+sunset_delta_mins: (((.weather[1].astronomy[0].sunset | parse_time) - (.weather[0].astronomy[0].sunset | parse_time)) / 60) | (if . > 0 then "+\(.)" else tostring end) | superscript,
 day_lenght_delta: (((.weather[1].astronomy[0].sunset | parse_time) - (.weather[0].astronomy[0].sunset | parse_time)) - ((.weather[1].astronomy[0].sunrise | parse_time) - (.weather[0].astronomy[0].sunrise | parse_time))) | format_suntime,
 } | {
-    text: "\(.feelslikec)[\(.feelslike_delta)]°C ( \(.humidity)%) (TMRW: \(.tomorrow_mintempc)[\(.mintemp_delta)]°C to \(.tomorrow_maxtempc)[\(.maxtemp_delta)]°C)",
+    text: "\(.feelslikec)\(.feelslike_delta)℃ ( \(.humidity)%) (tmrw: \(.tomorrow_mintempc)\(.mintemp_delta)℃ to \(.tomorrow_maxtempc)\(.maxtemp_delta)℃ )",
 alt: .weatherdesc,
 class: (
     if (.feelslikec | tonumber) < 10 then "blue"
@@ -49,3 +53,4 @@ class: (
     end
 )
 }'
+
