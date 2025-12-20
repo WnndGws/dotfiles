@@ -2,6 +2,9 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
+# pits n giggles
+alias png='cd ~/git/pits-n-giggles/ && poetry run python -m apps.launcher'
+
 # shortcut
 alias zl='zathura'
 
@@ -10,9 +13,9 @@ alias new_env='uv init && uv venv && source .venv/bin/activate'
 
 #Quick open
 alias vzal='nvim $XDG_CONFIG_HOME/zsh/.zaliases'
-alias lg='git pull && print -Pn "\e]0;lazygit:%~\a" && lazygit'
+alias lg='git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
 alias ww='cd ~/git/git-wiki/ && git sync && nvim +NvimTreeOpen'
-alias wiki-lazygit='cd ~/git/git-wiki/ && print -Pn "\e]0;lazygit:%~\a" && lazygit'
+alias wiki-lazygit='cd ~/git/git-wiki/ && git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
 alias wlg='wiki-lazygit'
 
 #Lots of cd's
@@ -135,7 +138,7 @@ alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 #Minecraft
-alias minecraft='cd /home/wynand/.local/share/multimc ; /usr/lib/multimc/MultiMC -d "/home/wynand/.local/share/multimc" -l "Sanitarium" -s "192.168.0.98"'
+alias minecraft='cd "/home/wynand/.local/share/multimc" && "/usr/lib/multimc/MultiMC" -d "/home/wynand/.local/share/multimc" -l "WynSeed" -s "192.168.0.98" -a "Wnnd"'
 
 ### ----------------- ###
 ### --- FUNCTIONS --- ###
