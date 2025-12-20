@@ -153,11 +153,16 @@ end
 -- Python --
 ------------
 vim.lsp.enable("pylsp")
-vim.lsp.config("pyrefly", {
-	-- example of how to run `uv` installed Pyrefly without adding to your path
-	cmd = { "pyrefly", "lsp" },
+vim.lsp.config("ty", {
+	settings = {
+		ty = {
+			-- ty language server settings go here
+		},
+	},
 })
-vim.lsp.enable("pyrefly")
+
+-- Required: Enable the language server
+vim.lsp.enable("ty")
 
 ----------
 -- Rust --
