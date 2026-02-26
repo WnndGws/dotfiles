@@ -65,6 +65,7 @@
     },
     "custom/wifi": {
         "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
+        "signal": 3,
         "return-type": "json",
         "format": "{icon} {text}",
         "format-icons": {
@@ -74,7 +75,8 @@
                 "󰤥",
                 "󰤨"
             ],
-            "disconnected": "󰤫"
+            "disconnected": "󰤫",
+            "ethernet": "󰈀"
         }
     },
     "custom/netspeed": {

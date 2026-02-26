@@ -14,7 +14,7 @@ return {
 				tex = { "bibtex-tidy", "tex-fmt" },
 				lua = { "stylua" },
 				markdown = { "markdownlint-cli2", "mdslw" },
-				python = { "ruff_fix", "ruff_format", "ruff_organize_imports", "pyupgrade" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 				sh = { "beautysh", "shellharden", "shellcheck" },
 				typescript = { "rustywind" },
 				yaml = { "yamlfix", "yamlfmt" },

@@ -9,7 +9,7 @@ return {
 
 		lint.linters_by_ft = {
 			rust = { "snyk_iac" },
-			python = { "bandit", "pydocstyle", "ruff", "snyk_iac", "vulture" },
+			python = { "bandit", "pydocstyle", "ruff", "snyk_iac" },
 			json = { "jsonlint" },
 			javascript = { "biome", "snyk_iac" },
 			typescript = { "biome", "snyk_iac" },
@@ -17,7 +17,7 @@ return {
 			django = { "curlylint" },
 			jinja = { "curlylint", "jinja-lsp" },
 			dotenv = { "dotenv-linter" },
-			html = { "html" },
+			html = { "tidy" },
 			lua = {},
 			markdown = { "markdownlint-cli2", "proselint", "woke" },
 			bash = { "bash", "shellcheck" },
@@ -28,6 +28,7 @@ return {
 			openapi = { "vacuum" },
 			vimscript = { "vint" },
 			yaml = { "yamllint" },
+			toml = { "tombi" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

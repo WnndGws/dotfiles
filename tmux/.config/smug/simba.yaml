@@ -1,0 +1,11 @@
+session: simba
+attach: true # Automatically attach to this session
+root: ~/git/simba/
+windows:
+  name: main
+  selected: true # Selects this window at the start of the session
+  layout: main-horizontal
+  commands: [$EDITOR app/dependencies.php]
+  panes:
+    - type: horizontal
+      commands: [nvim src/core/simba-tui.py, pwd]

@@ -43,7 +43,7 @@ Plugin.config = function()
 		diagnostics = {
 			darker = true, -- darker colors for diagnostic
 			undercurl = true, -- use undercurl instead of underline for diagnostics
-			background = true, -- use background color for virtual text
+			background = false, -- use background color for virtual text
 		},
 	})
 	vim.cmd("colorscheme onedark")

@@ -43,6 +43,7 @@ Plugin.config = function()
 		telescope.load_extension("undo"),
 		telescope.load_extension("helpgrep"),
 		telescope.load_extension("git_branch"),
+		telescope.load_extension("textcase"),
 	})
 end
 

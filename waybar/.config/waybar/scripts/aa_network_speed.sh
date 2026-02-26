@@ -5,10 +5,11 @@
 # Then i split the up and down by spaces to get the units of each
 # Units are then converted into a class to use for styling
 
-if [ "$HOST" = "arch-t470s" ]; then
-    SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_laptop_netspeed
+ROUTE="$(ip route | awk '{print $(NF-2);exit}')"
+if [ "$ROUTE" = "wlan0" ]; then
+    SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_wifi_netspeed
 else
-    SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_beast_netspeed
+    SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_ethernet_netspeed
 fi
 
 "$SLSFILE" -s 2> /dev/null | jq --unbuffered --compact-output -R '

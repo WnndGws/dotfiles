@@ -15,16 +15,16 @@ keymap.set("n", "<leader>?H", ":vertical resize +5<CR>", { desc = "Resize vertic
 keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
 
 --move between windows
-keymap.set({ "n", "i" }, "<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
-keymap.set({ "n", "i" }, "<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
-keymap.set({ "n", "i" }, "<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
-keymap.set({ "n", "i" }, "<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
+--keymap.set({ "n", "i" }, "<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
+--keymap.set({ "n", "i" }, "<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
+--keymap.set({ "n", "i" }, "<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
+--keymap.set({ "n", "i" }, "<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
 
 -- help for move between windows
-keymap.set({ "n", "i" }, "<leader>?<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
-keymap.set({ "n", "i" }, "<leader>?<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
-keymap.set({ "n", "i" }, "<leader>?<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
-keymap.set({ "n", "i" }, "<leader>?<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
+--keymap.set({ "n", "i" }, "<leader>?<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
+--keymap.set({ "n", "i" }, "<leader>?<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
+--keymap.set({ "n", "i" }, "<leader>?<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
+--keymap.set({ "n", "i" }, "<leader>?<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
 
 -- Save and commit
 keymap.set("n", "<leader>ww", ":write | Git add . | Git commit<CR>", { desc = "Write and commit a file" })
@@ -116,6 +116,46 @@ keymap.set("n", "<leader>cb", require("markdown-togglecheck").toggle_box, { desc
 -------------
 keymap.set("n", "<leader>a", ":AerialToggle! right<cr>", { desc = "Toggle showing Outline" })
 
+-----------------
+-- Change Case --
+-----------------
+keymap.set("n", "<leader>bu", function()
+	require("textcase").operator("to_upper_case")
+end, { desc = "TO UPPER CASE" })
+keymap.set("n", "<leader>bl", function()
+	require("textcase").operator("to_lower_case")
+end, { desc = "to lower case" })
+keymap.set("n", "<leader>bs", function()
+	require("textcase").operator("to_snake_case")
+end, { desc = "to_snake_case" })
+keymap.set("n", "<leader>b-", function()
+	require("textcase").operator("to_dash_case")
+end, { desc = "to-dash-case" })
+keymap.set("n", "<leader>bC", function()
+	require("textcase").operator("to_constant_case")
+end, { desc = "TO_CONSTANT_CASE" })
+keymap.set("n", "<leader>b.", function()
+	require("textcase").operator("to_dot_case")
+end, { desc = "to.dot.case" })
+keymap.set("n", "<leader>b,", function()
+	require("textcase").operator("to_comma_case")
+end, { desc = "to,comma,case" })
+keymap.set("n", "<leader>bP", function()
+	require("textcase").operator("to_phrase_case")
+end, { desc = "To phrase case" })
+keymap.set("n", "<leader>bc", function()
+	require("textcase").operator("to_camel_case")
+end, { desc = "toCamelCase" })
+keymap.set("n", "<leader>bp", function()
+	require("textcase").operator("to_pascal_case")
+end, { desc = "ToPascalCase" })
+keymap.set("n", "<leader>bt", function()
+	require("textcase").operator("to_title_case")
+end, { desc = "To Title Case" })
+keymap.set("n", "<leader>b/", function()
+	require("textcase").operator("to_path_case")
+end, { desc = "to/path/case" })
+
 -------------
 -- SnipRun --
 -------------
@@ -150,7 +190,7 @@ keymap.set({ "n" }, "<leader>tr", "<cmd>Telescope registers<cr>", { desc = "Regi
 keymap.set({ "n" }, "<leader>ts", "<cmd>Telescope spell_suggest<cr>", { desc = "Spelling suggestions" })
 keymap.set({ "n" }, "<leader>tu", "<cmd>Telescope undo<cr>", { desc = "Undo" })
 keymap.set({ "n" }, "<leader>ty", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
-
+keymap.set({ "n", "v", "x" }, "<leader>tb", "<cmd>TextCaseOpenTelescope<cr>", { desc = "Change Cases" })
 -- Submap for git stuff
 keymap.set({ "n" }, "<leader>gc", "<cmd>Telescope git_bcommits<cr>", { desc = "Git commit history" })
 keymap.set({ "n" }, "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Git branches" })

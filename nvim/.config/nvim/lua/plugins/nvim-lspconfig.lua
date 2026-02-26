@@ -29,7 +29,7 @@ Plugin.opts = function()
 		-- Be aware that you also will need to properly configure your LSP server to
 		-- provide the inlay hints.
 		inlay_hints = {
-			enabled = false,
+			enabled = true,
 			exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
 		},
 		-- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
@@ -57,7 +57,6 @@ Plugin.opts = function()
 		-- LSP Server Settings
 		---@type lspconfig.options
 		servers = {
-			systemd_ls = {},
 			marksman = {},
 			htmx = {},
 			ltex = {
@@ -104,29 +103,6 @@ Plugin.opts = function()
 				},
 				validate = true,
 			},
-			pylsp = {
-				settings = {
-					pylsp = {
-						plugins = {
-							autopep8 = false,
-							jedi_completion = {
-								include_class_objects = true,
-								include_function_objects = true,
-								fuzzy = true,
-							},
-							ruff = {
-								enabled = true, -- Enable the plugin
-								formatEnabled = true, -- Enable formatting using ruffs formatter
-								config = "/home/wynand/.config/ruff/ruff.toml", -- Custom config for ruff to use
-								extendSelect = { "I" },
-								format = { "I" },
-								unsafeFixes = true,
-							},
-							bashls = {},
-						},
-					},
-				},
-			},
 		},
 	}
 	-- you can do any additional lsp server setup here
@@ -152,26 +128,22 @@ end
 ------------
 -- Python --
 ------------
-vim.lsp.enable("pylsp")
-vim.lsp.config("ty", {
-	settings = {
-		ty = {
-			-- ty language server settings go here
-		},
-	},
-})
-
--- Required: Enable the language server
-vim.lsp.enable("ty")
+vim.lsp.enable("pyrefly")
+vim.lsp.enable("ruff")
+vim.lsp.enable("jedi_language_server")
 
 ----------
 -- Rust --
 ----------
 
+----------
+-- TOML --
+----------
+vim.lsp.enable("tombi")
+
 -------------
 -- Systemd --
 -------------
-vim.lsp.enable("systemd_ls")
 
 --------------
 -- Markdown --

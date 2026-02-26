@@ -78,7 +78,7 @@ Plugin.config = function()
 			end
 			local icons = { "", "", "", "»" }
 			local hl = { self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
-			local length_max = 75
+			local length_max = 105
 			local message = diag.message
 			local code = diag.code
 			if code == nil then

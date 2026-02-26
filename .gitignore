@@ -1,3 +1,4 @@
+tmux/.config/tmux/plugins/**
 **/.zcompdump
 nvim/.config/nvim/lazy-lock.json
 **/git-town/**

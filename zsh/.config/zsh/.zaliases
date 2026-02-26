@@ -2,8 +2,9 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
-# pits n giggles
-alias png='cd ~/git/pits-n-giggles/ && poetry run python -m apps.launcher'
+# turn on wi-fi
+alias wifi='sudo networkctl down enp0s31f6 && sudo networkctl up wlan0 && ping google.com'
+alias ethernet='sudo networkctl down wlan0 && sudo networkctl up enp0s31f6 && ping google.com'
 
 # shortcut
 alias zl='zathura'
@@ -36,6 +37,7 @@ alias pare='$HOME/git/scripts/fuzzy/fpikrm -s'
 alias pin='pikaur -S --noconfirm'
 alias pq='pikaur -Qi | rg -B3 -A3'
 alias pir='pikaur -S --rebuild'
+alias pcc='sudo rm -rf /var/cache/pacman/pkg/'
 
 #Bat extras
 alias bm="batman"
