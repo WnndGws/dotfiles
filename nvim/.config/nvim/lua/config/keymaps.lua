@@ -33,7 +33,7 @@ keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertic
 keymap.set("n", "<leader>ww", function()
 	vim.cmd("write")
 	vim.cmd("Git add %")
-	vim.cmd('Git commit -m <C-R>=strftime("%c")<C-M>')
+	vim.cmd("Git commit -m")
 end, { desc = "Write and add a file" })
 keymap.set("n", "<leader>wq", function()
 	vim.cmd("write")
