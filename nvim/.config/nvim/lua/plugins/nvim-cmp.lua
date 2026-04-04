@@ -15,6 +15,7 @@ Plugin.dependencies = {
 		build = "make install_jsregexp",
 		dependencies = { "rafamadriz/friendly-snippets" },
 	},
+	{ "honza/vim-snippets" },
 }
 
 Plugin.event = "InsertEnter"
@@ -24,7 +25,7 @@ function Plugin.config()
 	local luasnip = require("luasnip")
 
 	require("luasnip.loaders.from_vscode").lazy_load()
-	require("luasnip.loaders.from_vscode").load({ paths = "/home/wynand/.config/nvim/lua/snippets/" })
+	require("luasnip.loaders.from_snipmate").lazy_load()
 
 	local select_opts = { behavior = cmp.SelectBehavior.Select }
 

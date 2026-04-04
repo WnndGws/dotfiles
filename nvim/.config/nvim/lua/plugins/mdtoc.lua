@@ -1,3 +1,0 @@
-return {
-	"richardbizik/nvim-toc",
-}

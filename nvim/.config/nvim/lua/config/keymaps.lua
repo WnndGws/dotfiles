@@ -4,6 +4,9 @@
 vim.g.mapleader = ","
 local keymap = vim.keymap
 
+-- remap change to always go to blackhole
+keymap.set("n", "c", '"_c', { desc = "Always send 'Change' to blackhole register" })
+
 -------------------
 --- General Keys ---
 -------------------
@@ -27,12 +30,36 @@ keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertic
 --keymap.set({ "n", "i" }, "<leader>?<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
 
 -- Save and commit
-keymap.set("n", "<leader>ww", ":write | Git add . | Git commit<CR>", { desc = "Write and commit a file" })
+keymap.set("n", "<leader>ww", function()
+	vim.cmd("write")
+	vim.cmd("Git add %")
+	vim.cmd("<CR>")
+	vim.cmd("<CR>")
+	vim.cmd("<CR>")
+end, { desc = "Write and add a file" })
+keymap.set("n", "<leader>wq", function()
+	vim.cmd("write")
+	vim.cmd("AerialCloseAll")
+	vim.cmd("Git add %")
+	vim.cmd("quit")
+end, { desc = "Write and add a file then quit" })
+keymap.set("n", "<leader>qq", function()
+	vim.cmd("AerialCloseAll")
+	vim.cmd("quit!")
+end, { desc = "Just quit. No writing" })
+keymap.set("n", "<leader>gg", ":Git<CR>", { desc = "Git commands" })
 keymap.set("n", "<leader>wc", ":write<CR>", { desc = "Write without commiting a file" })
+
+-- Default to Timemachine
+keymap.set("n", "<leader>u", ":TimeMachineToggle", { desc = "Toggle Timemachine" })
 
 -----------------------
 --- Plugin Specific ---
 -----------------------
+------------
+-- Neogen --
+------------
+keymap.set("n", "<leader>ng", ":Neogen<CR>", { desc = "Create Neogen for item under cursor" })
 ----------
 -- Dial --
 ----------
@@ -81,18 +108,13 @@ end, { desc = "Decriment using Dial" })
 keymap.set("v", "v", "<Plug>(expand_region_expand)", { desc = "Expand selection" })
 keymap.set("v", "<leader>?v", "<Plug>(expand_region_expand)", { desc = "Expand selection" })
 
----------
--- Hop --
----------
-keymap.set("n", "<leader>hw", "<cmd>HopWord<cr>", { desc = "Hop in a word" })
-
 ----------------
 -- In and Out --
 ----------------
-keymap.set({ "i", "n" }, "<C-CR>", function()
+keymap.set({ "i", "n" }, "<C-n>", function()
 	require("in-and-out").in_and_out()
 end, { desc = "Jump in and out of pairs" })
-keymap.set({ "i", "n" }, "<leader>?<C-CR>", function()
+keymap.set({ "i", "n" }, "<leader>?<C-n>", function()
 	require("in-and-out").in_and_out()
 end, { desc = "Jump in and out of pairs" })
 
@@ -107,64 +129,63 @@ end, { desc = "Insert a TOC" })
 -- Toggle Checkbox --
 ---------------------
 -- toggle checked / create checkbox if it doesn't exist
-keymap.set("n", "<leader>ct", require("markdown-togglecheck").toggle, { desc = "Toggle checked/unchecked" })
+--- keymap.set("n", "<leader>xt", require("markdown-togglecheck").toggle, { desc = "Toggle checked/unchecked" })
 -- toggle checkbox (it doesn't remember toggle state and always creates [ ])
-keymap.set("n", "<leader>cb", require("markdown-togglecheck").toggle_box, { desc = "Toggle box exists/doesnt" })
+--- keymap.set("n", "<leader>xb", require("markdown-togglecheck").toggle_box, { desc = "Toggle box exists/doesnt" })
 
 -------------
 -- Outline --
 -------------
-keymap.set("n", "<leader>a", ":AerialToggle! right<cr>", { desc = "Toggle showing Outline" })
 
 -----------------
 -- Change Case --
 -----------------
-keymap.set("n", "<leader>bu", function()
+keymap.set("n", "<leader>cu", function()
 	require("textcase").operator("to_upper_case")
 end, { desc = "TO UPPER CASE" })
-keymap.set("n", "<leader>bl", function()
+keymap.set("n", "<leader>cl", function()
 	require("textcase").operator("to_lower_case")
 end, { desc = "to lower case" })
-keymap.set("n", "<leader>bs", function()
+keymap.set("n", "<leader>cs", function()
 	require("textcase").operator("to_snake_case")
 end, { desc = "to_snake_case" })
-keymap.set("n", "<leader>b-", function()
+keymap.set("n", "<leader>c-", function()
 	require("textcase").operator("to_dash_case")
 end, { desc = "to-dash-case" })
-keymap.set("n", "<leader>bC", function()
+keymap.set("n", "<leader>cC", function()
 	require("textcase").operator("to_constant_case")
 end, { desc = "TO_CONSTANT_CASE" })
-keymap.set("n", "<leader>b.", function()
+keymap.set("n", "<leader>c.", function()
 	require("textcase").operator("to_dot_case")
 end, { desc = "to.dot.case" })
-keymap.set("n", "<leader>b,", function()
+keymap.set("n", "<leader>c,", function()
 	require("textcase").operator("to_comma_case")
 end, { desc = "to,comma,case" })
-keymap.set("n", "<leader>bP", function()
+keymap.set("n", "<leader>cP", function()
 	require("textcase").operator("to_phrase_case")
 end, { desc = "To phrase case" })
-keymap.set("n", "<leader>bc", function()
+keymap.set("n", "<leader>cc", function()
 	require("textcase").operator("to_camel_case")
 end, { desc = "toCamelCase" })
-keymap.set("n", "<leader>bp", function()
+keymap.set("n", "<leader>cp", function()
 	require("textcase").operator("to_pascal_case")
 end, { desc = "ToPascalCase" })
-keymap.set("n", "<leader>bt", function()
+keymap.set("n", "<leader>ct", function()
 	require("textcase").operator("to_title_case")
 end, { desc = "To Title Case" })
-keymap.set("n", "<leader>b/", function()
+keymap.set("n", "<leader>c/", function()
 	require("textcase").operator("to_path_case")
 end, { desc = "to/path/case" })
 
 -------------
 -- SnipRun --
 -------------
-keymap.set({ "v", "n" }, "<leader>sr", "<Plug>SnipRun", { desc = "Run selected code", silent = true })
-keymap.set({ "v", "n" }, "<leader>ss", "<Plug>SnipReset", { desc = "Stop running code", silent = true })
-keymap.set({ "v", "n" }, "<leader>sc", "<Plug>SnipClose", { desc = "Close virtual text", silent = true })
+keymap.set({ "v", "n" }, "<leader>rr", "<Plug>SnipRun", { desc = "Run selected code", silent = true })
+keymap.set({ "v", "n" }, "<leader>rs", "<Plug>SnipReset", { desc = "Stop running code", silent = true })
+keymap.set({ "v", "n" }, "<leader>rc", "<Plug>SnipClose", { desc = "Close virtual text", silent = true })
 keymap.set(
 	{ "v", "n" },
-	"<leader>si",
+	"<leader>ri",
 	"<Plug>SnipInfo",
 	{ desc = "Learn about Language and Interpreter", silent = true }
 )
@@ -172,7 +193,33 @@ keymap.set(
 --------------
 -- Surround --
 --------------
---- Defined in config file, since not straight-forward
+keymap.set("n", "<leader>ss", "<Plug>(nvim-surround-insert)", {
+	desc = "Add a surrounding pair around the cursor",
+})
+keymap.set("n", "<leader>sS", "<Plug>(nvim-surround-insert-line)", {
+	desc = "Add a surrounding pair around the cursor, on new lines",
+})
+keymap.set("n", "<leader>si", "<Plug>(nvim-surround-normal)", {
+	desc = "Add a surrounding pair around a motion",
+})
+keymap.set("n", "<leader>sI", "<Plug>(nvim-surround-normal-line)", {
+	desc = "Add a surrounding pair around a motion, on new lines (normal mode)",
+})
+keymap.set("x", "<leader>ss", "<Plug>(nvim-surround-visual)", {
+	desc = "Add a surrounding pair around a visual selection",
+})
+keymap.set("x", "<leader>sS", "<Plug>(nvim-surround-visual-line)", {
+	desc = "Add a surrounding pair around a visual selection, on new lines",
+})
+keymap.set("n", "<leader>sd", "<Plug>(nvim-surround-delete)", {
+	desc = "Delete a surrounding pair",
+})
+keymap.set("n", "<leader>sc", "<Plug>(nvim-surround-change)", {
+	desc = "Change a surrounding pair",
+})
+keymap.set("n", "<leader>sC", "<Plug>(nvim-surround-change-line)", {
+	desc = "Change a surrounding pair, putting replacements on new lines",
+})
 
 ---------------
 -- Telescope --

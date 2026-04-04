@@ -13,8 +13,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
+--- Associate FileType
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.tcss", command = "set ft=css" })
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.enc", command = "set ft=markdown" })
+
 --- Write md buffers as you leave them
-vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
+vim.api.nvim_create_autocmd("FileType", { pattern = "markdown,python", command = "set awa" })
 -- Use the following if your buffer is set to become hidden
 vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "silent! wall" })
 

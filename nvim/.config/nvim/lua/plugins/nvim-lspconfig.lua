@@ -176,6 +176,8 @@ vim.lsp.enable("yamlls")
 ---------
 -- CSS --
 ---------
+vim.lsp.enable("css-lsp")
+vim.lsp.enable("cssmodules-language-server")
 vim.lsp.enable("tailwindcss")
 
 ----------

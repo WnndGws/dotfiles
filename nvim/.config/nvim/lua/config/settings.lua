@@ -77,3 +77,9 @@ vim.filetype.add({
 		enc = "markdown",
 	},
 })
+
+vim.filetype.add({
+	extension = {
+		jinja = "html",
+	},
+})

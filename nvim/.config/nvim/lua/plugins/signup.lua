@@ -34,7 +34,7 @@ Plugin.config = function()
 		debounce_time = 50,
 		dock_mode = {
 			enabled = true,
-			position = "bottom", -- "bottom", "top", or "middle"
+			position = "top", -- "bottom", "top", or "middle"
 			height = 0.5, -- If > 1: fixed height in lines, if <= 1: percentage of window height (e.g., 0.3 = 30%)
 			padding = 1, -- Padding from window edges
 			side = "right", -- "right", "left", or "center"

@@ -1,9 +1,13 @@
 return {
 	"stevearc/aerial.nvim",
-	opts = {},
-	-- Optional dependencies
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"nvim-tree/nvim-web-devicons",
+	dependencies = { "nvim-tree/nvim-web-devicons", "onsails/lspkind.nvim" },
+
+	opts = {
+		backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
+		show_guides = true,
+		open_automatic = true,
 	},
+
+	enabled = true,
+	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
 }
