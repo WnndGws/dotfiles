@@ -1,19 +1,14 @@
-local Plugin = { "wnndgws/example" }
+return {
+	"example/wnnd.nvim",
+	dependencies = { "hrsh7th/cmp-emoji" },
 
-Plugin.dependencies = { "wnndgws/second_example" }
-
-Plugin.lazy = true
-Plugin.event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" }
-
-Plugin.config = function()
-	local plugin = require("example")
-	plugin.setup({
-		option_one = "whatever",
-		longer_options = {
-			one = "yes",
-			two = "no",
+	opts = {
+		mappings = {
+			add = "gsa",
+			delete = "gsd",
 		},
-	})
-end
+	},
 
-return Plugin
+	enabled = false,
+	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
+}

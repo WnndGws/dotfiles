@@ -1,6 +1,9 @@
-
 [window]
 dynamic_title = true
+
+[window.class]
+general = "alacritty"
+instance = "alacritty"
 
 [colors]
 draw_bold_text_with_bright_colors = false
@@ -45,20 +48,20 @@ TERM = "alacritty"
 size = 12.5
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Propo"
 style = "Bold Italic"
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font Mono"
+family = "MonaspiceAr Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font Mono"
-style = "Regular"
+family = "MonaspiceAr Nerd Font Propo"
+style = "Medium"
 
 [[hints.enabled]]
 command = "xdg-open"
@@ -358,7 +361,3 @@ multiplier = 3
 
 [general]
 live_config_reload = true
-
-[window.class]
-general = "alacritty"
-instance = "alacritty"
