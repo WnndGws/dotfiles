@@ -13,6 +13,7 @@ Plugin.dependencies = {
 Plugin.config = function()
 	local telescope = require("telescope")
 	local builtin = require("telescope.builtin")
+    local bibtex_actions = require('telescope-bibtex.actions')
 
 	telescope.setup({
 		defaults = {
@@ -27,8 +28,8 @@ Plugin.config = function()
 				context = true,
 				context_fallback = true,
                 mappings = {
-          i = {
-            ["<CR>"] = bibtex_actions.key_append('%s'), -- format is determined by filetype if the user has not set it explictly
+                    i = {
+                        ["<CR>"] = bibtex_actions.key_append('%s'), -- format is determined by filetype if the user has not set it explictly
             ["<C-e>"] = bibtex_actions.entry_append,
             ["<C-c>"] = bibtex_actions.citation_append('{{author}} ({{year}}), {{title}}.'),
           }
