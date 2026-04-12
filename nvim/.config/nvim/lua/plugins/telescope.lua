@@ -13,7 +13,7 @@ Plugin.dependencies = {
 Plugin.config = function()
 	local telescope = require("telescope")
 	local builtin = require("telescope.builtin")
-    local bibtex_actions = require('telescope-bibtex.actions')
+	local bibtex_actions = require("telescope-bibtex.actions")
 
 	telescope.setup({
 		defaults = {
@@ -27,12 +27,13 @@ Plugin.config = function()
 				citation_trim_firstname = true,
 				context = true,
 				context_fallback = true,
-                mappings = {
-                    i = {
-                        ["<CR>"] = bibtex_actions.key_append('%s'), -- format is determined by filetype if the user has not set it explictly
-            ["<C-e>"] = bibtex_actions.entry_append,
-            ["<C-c>"] = bibtex_actions.citation_append('{{author}} ({{year}}), {{title}}.'),
-          }
+				mappings = {
+					i = {
+						["<CR>"] = bibtex_actions.key_append("%s"), -- format is determined by filetype if the user has not set it explictly
+						["<C-e>"] = bibtex_actions.entry_append,
+						["<C-c>"] = bibtex_actions.citation_append("{{author}} ({{year}}), {{title}}."),
+					},
+				},
 			},
 			undo = {
 				use_delta = true,
