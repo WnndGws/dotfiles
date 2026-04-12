@@ -27,14 +27,6 @@ Plugin.config = function()
 				citation_trim_firstname = true,
 				context = true,
 				context_fallback = true,
-				mappings = {
-					i = {
-						["<CR>"] = bibtex_actions.key_append("%s"), -- format is determined by filetype if the user has not set it explictly
-						["<C-u>"] = bibtex_actions.citation_append(
-							"{{author}}. {{title}}. {{url}}. Accessed {{urldate}}"
-						),
-					},
-				},
 			},
 			undo = {
 				use_delta = true,
