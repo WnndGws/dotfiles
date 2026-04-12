@@ -13,21 +13,12 @@ Plugin.dependencies = {
 Plugin.config = function()
 	local telescope = require("telescope")
 	local builtin = require("telescope.builtin")
-	local bibtex_actions = require("telescope-bibtex.actions")
 
 	telescope.setup({
 		defaults = {
 			path_display = { "smart" },
 		},
 		extensions = {
-			bibtex = {
-				global_files = { "/home/wynand/git/git-wiki/references.bib" },
-				search_keys = { "author", "year", "title" },
-				citation_format = "{{author}} ({{year}}), {{title}}.",
-				citation_trim_firstname = true,
-				context = true,
-				context_fallback = true,
-			},
 			undo = {
 				use_delta = true,
 			},
@@ -38,7 +29,6 @@ Plugin.config = function()
 				default_grep = builtin.live_grep,
 			},
 		},
-		telescope.load_extension("bibtex"),
 		telescope.load_extension("heading"),
 		telescope.load_extension("yank_history"),
 		telescope.load_extension("undo"),

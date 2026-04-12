@@ -21,7 +21,7 @@ return {
 		lazygit = { enabled = false },
 		notifier = { enabled = false },
 		notify = { enabled = false },
-		picker = { enabled = false },
+		picker = { enabled = true },
 		profiler = { enabled = false },
 		quickfile = { enabled = false },
 		rename = { enabled = false },
