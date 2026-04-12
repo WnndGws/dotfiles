@@ -4,6 +4,7 @@ return {
 	opts = {
 		global_files = { "~/git/git-wiki/references.bib" },
 		default_insert_mode = "format",
+		mappings = { ["<cr>"] = { kind = "citation_format", id = "apa7_reference" } },
 	},
 	keys = {
 		{
