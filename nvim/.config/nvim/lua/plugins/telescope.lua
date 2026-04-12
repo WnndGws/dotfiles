@@ -26,6 +26,12 @@ Plugin.config = function()
 				citation_trim_firstname = true,
 				context = true,
 				context_fallback = true,
+                mappings = {
+          i = {
+            ["<CR>"] = bibtex_actions.key_append('%s'), -- format is determined by filetype if the user has not set it explictly
+            ["<C-e>"] = bibtex_actions.entry_append,
+            ["<C-c>"] = bibtex_actions.citation_append('{{author}} ({{year}}), {{title}}.'),
+          }
 			},
 			undo = {
 				use_delta = true,
