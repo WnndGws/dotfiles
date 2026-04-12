@@ -6,7 +6,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>bc",
+			"<leader>bb",
 			function()
 				require("snacks-bibtex").bibtex()
 			end,
