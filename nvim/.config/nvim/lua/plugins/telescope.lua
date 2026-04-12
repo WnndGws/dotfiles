@@ -30,8 +30,7 @@ Plugin.config = function()
 				mappings = {
 					i = {
 						["<CR>"] = bibtex_actions.key_append("%s"), -- format is determined by filetype if the user has not set it explictly
-						["<C-e>"] = bibtex_actions.entry_append,
-						["<C-c>"] = bibtex_actions.citation_append("{{author}} ({{year}}), {{title}}."),
+						["<C-u>"] = bibtex_actions.citation_append("{{author}} ({{year}}), {{title}}."),
 					},
 				},
 			},
