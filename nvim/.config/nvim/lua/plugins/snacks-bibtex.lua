@@ -3,6 +3,7 @@ return {
 	dependencies = { "folke/snacks.nvim" },
 	opts = {
 		global_files = { "~/git/git-wiki/references.bib" },
+		default_insert_mode = "format",
 	},
 	keys = {
 		{
