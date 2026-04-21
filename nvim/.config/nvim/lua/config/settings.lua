@@ -83,3 +83,9 @@ vim.filetype.add({
 		jinja = "html",
 	},
 })
+
+vim.filetype.add({
+	extension = {
+		opml = "xml",
+	},
+})

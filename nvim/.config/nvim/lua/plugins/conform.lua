@@ -17,6 +17,7 @@ return {
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 				sh = { "beautysh", "shellharden", "shellcheck" },
 				typescript = { "rustywind" },
+				xml = { "xmlstarlet" },
 				yaml = { "yamlfix", "yamlfmt" },
 				zsh = { "beautysh", "shellharden", "shellcheck" },
 			},
