@@ -1,9 +1,7 @@
-local Plugin = { "Dan7h3x/signup.nvim" }
-
-Plugin.config = function()
-	local plugin = require("signup")
-	plugin.setup({
-		silent = true,
+return {
+    "Dan7h3x/signup.nvim",
+    branch = "main",
+ 		silent = true,
 		icons = {
 			parameter = "",
 			method = "󰡱",
@@ -18,7 +16,7 @@ Plugin.config = function()
 			default_value = "#a80888",
 			type = "#f6c177",
 		},
-		active_parameter = true, -- enable/disable active_parameter highlighting
+		active_parameter = false, -- enable/disable active_parameter highlighting
 		active_parameter_colors = {
 			bg = "#86e1fc",
 			fg = "#1a1a1a",
@@ -39,8 +37,10 @@ Plugin.config = function()
 			padding = 1, -- Padding from window edges
 			side = "right", -- "right", "left", or "center"
 			width_percentage = 30, -- Percentage of editor width (10-90%)
-		},
-	})
-end
-
-return Plugin
+   opts = {
+          -- Your configuration options here
+    },
+    config = function(_,opts)
+      require("signup").setup(opts)
+    end
+  }
