@@ -1,8 +1,8 @@
 local wyn = {
-	name = "wyn-lua",
+	name = "wyn",
 
 	state = {
-		mfact = 0.50, -- Main split ratio
+		mfact = 0.90, -- Main split ratio
 		windows = {}, -- Persistent data for windows { [win] = { is_wyn = bool, perc_size = float } }
 	},
 }

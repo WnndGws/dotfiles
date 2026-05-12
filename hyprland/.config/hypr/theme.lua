@@ -1,6 +1,8 @@
 ---------------
 ---- THEME ----
 ---------------
+require("wyn_master")
+
 hl.config({
 	general = {
 		border_size = 2,
