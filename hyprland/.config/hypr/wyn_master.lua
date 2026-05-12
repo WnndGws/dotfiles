@@ -1,14 +1,14 @@
-local master = {
-	name = "master-lua",
+local wyn = {
+	name = "wyn-lua",
 
 	-- Configuration State
 	state = {
-		mfact = 0.55, -- Master split ratio
+		mfact = 0.50, -- wyn split ratio
 		orientation = "left", -- left, right, top, bottom, center
-		center_threshold = 2, -- Slaves needed to enable center mode
+		center_threshold = 2, -- amms needed to enable center mode
 		fallback_orientation = "left", -- Orientation to use if center condition isn't met
 		resize_step = 0.05, -- Step for resizing commands
-		windows = {}, -- Persistent data for windows { [win] = { is_master = bool, perc_size = float } }
+		windows = {}, -- Persistent data for windows { [win] = { is_wyn = bool, perc_size = float } }
 	},
 }
 
@@ -31,7 +31,7 @@ local function get_focused_window(ctx)
 	return nil
 end
 
-local function recalculate_master(ctx)
+local function recalculate_wyn(ctx)
 	local targets = ctx.targets
 	local n = #targets
 	if n == 0 then
@@ -43,48 +43,48 @@ local function recalculate_master(ctx)
 	local valid_targets = {}
 	for i, win in ipairs(targets) do
 		valid_targets[win] = true
-		if not master.state.windows[win] then
+		if not wyn.state.windows[win] then
 			-- Initialize new window
-			master.state.windows[win] = {
-				is_master = false,
+			wyn.state.windows[win] = {
+				is_wyn = false,
 				perc_size = 1.0,
 			}
 		end
 	end
 
 	-- Cleanup missing windows
-	for win, data in pairs(master.state.windows) do
+	for win, data in pairs(wyn.state.windows) do
 		if not valid_targets[win] then
-			master.state.windows[win] = nil
+			wyn.state.windows[win] = nil
 		end
 	end
 
-	-- Ensure we have at least one master if we have windows
-	local has_master = false
-	for _, data in pairs(master.state.windows) do
-		if data.is_master then
-			has_master = true
+	-- Ensure we have at least one wyn if we have windows
+	local has_wyn = false
+	for _, data in pairs(wyn.state.windows) do
+		if data.is_wyn then
+			has_wyn = true
 			break
 		end
 	end
 
-	if not has_master and n > 0 then
-		master.state.windows[targets[1]].is_master = true
+	if not has_wyn and n > 0 then
+		wyn.state.windows[targets[1]].is_wyn = true
 	end
 
 	-- 2. Categorize windows
-	local masters = {}
-	local slaves = {}
+	local wyns = {}
+	local amms = {}
 	for _, win in ipairs(targets) do
-		if master.state.windows[win].is_master then
-			table.insert(masters, win)
+		if wyn.state.windows[win].is_wyn then
+			table.insert(wyns, win)
 		else
-			table.insert(slaves, win)
+			table.insert(amms, win)
 		end
 	end
 
-	local nm = #masters
-	local ns = #slaves
+	local nm = #wyns
+	local ns = #amms
 	local area = ctx.area
 
 	-- 3. Handle single window case
@@ -99,12 +99,12 @@ local function recalculate_master(ctx)
 	end
 
 	-- 4. Determine Orientation
-	local orient = master.state.orientation
+	local orient = wyn.state.orientation
 
 	-- Handle Center orientation fallback
 	if orient == "center" then
-		if ns < master.state.center_threshold then
-			orient = master.state.fallback_orientation
+		if ns < wyn.state.center_threshold then
+			orient = wyn.state.fallback_orientation
 		end
 	end
 
@@ -122,7 +122,7 @@ local function recalculate_master(ctx)
 		-- Calculate total accumulated size to normalize correctly (optional, but good for perfect precision)
 		-- Here we do linear split based on float math.
 		for i, win in ipairs(wins) do
-			local win_data = master.state.windows[win]
+			local win_data = wyn.state.windows[win]
 			local perc = win_data.perc_size or 1.0
 
 			-- Calculate desired size percentage relative to current remaining rect
@@ -167,26 +167,26 @@ local function recalculate_master(ctx)
 	local m_rect = {}
 	local s_rects = {}
 
-	-- Calculate Master Area dimensions
+	-- Calculate wyn Area dimensions
 	if orient == "left" then
-		local m_w = area.width * master.state.mfact
+		local m_w = area.width * wyn.state.mfact
 		m_rect = { x = area.x, y = area.y, width = m_w, height = area.height }
 		s_rects = { { x = area.x + m_w, y = area.y, width = area.width - m_w, height = area.height } }
 	elseif orient == "right" then
-		local m_w = area.width * master.state.mfact
+		local m_w = area.width * wyn.state.mfact
 		m_rect = { x = area.x + area.width - m_w, y = area.y, width = m_w, height = area.height }
 		s_rects = { { x = area.x, y = area.y, width = area.width - m_w, height = area.height } }
 	elseif orient == "top" then
-		local m_h = area.height * master.state.mfact
+		local m_h = area.height * wyn.state.mfact
 		m_rect = { x = area.x, y = area.y, width = area.width, height = m_h }
 		s_rects = { { x = area.x, y = area.y + m_h, width = area.width, height = area.height - m_h } }
 	elseif orient == "bottom" then
-		local m_h = area.height * master.state.mfact
+		local m_h = area.height * wyn.state.mfact
 		m_rect = { x = area.x, y = area.y + area.height - m_h, width = area.width, height = m_h }
 		s_rects = { { x = area.x, y = area.y, width = area.width, height = area.height - m_h } }
 	elseif orient == "center" then
-		-- Master is in the center
-		local m_w = area.width * master.state.mfact
+		-- wyn is in the center
+		local m_w = area.width * wyn.state.mfact
 		local side_w = (area.width - m_w) / 2
 		m_rect = { x = area.x + side_w, y = area.y, width = m_w, height = area.height }
 
@@ -196,27 +196,27 @@ local function recalculate_master(ctx)
 		}
 	end
 
-	-- Place Masters
+	-- Place wyns
 	-- If Left/Right/Center: stack vertically (true)
 	-- If Top/Bottom: stack horizontally (false)
 	local m_vertical = (orient == "left" or orient == "right" or orient == "center")
 
-	place_windows(masters, m_rect, m_vertical)
+	place_windows(wyns, m_rect, m_vertical)
 
-	-- Place Slaves
+	-- Place amms
 	-- If Left/Right: stack vertically (true)
 	-- If Top/Bottom: stack horizontally (false)
 	-- If Center: stack vertically (true) in left and right columns
 	local s_vertical = (orient == "left" or orient == "right" or orient == "center")
 
 	if orient ~= "center" then
-		place_windows(slaves, s_rects[1], s_vertical)
+		place_windows(amms, s_rects[1], s_vertical)
 	else
-		-- Distribute slaves for center layout
+		-- Distribute amms for center layout
 		-- Balance between left and right columns
 		local s_left = {}
 		local s_right = {}
-		for i, win in ipairs(slaves) do
+		for i, win in ipairs(amms) do
 			if i % 2 == 1 then
 				table.insert(s_left, win)
 			else
@@ -243,10 +243,10 @@ local function handle_layout_msg(ctx, msg)
 		or command == "orientationbottom"
 		or command == "orientationcenter"
 	then
-		master.state.orientation = command:sub(#"orientation" + 1)
+		wyn.state.orientation = command:sub(#"orientation" + 1)
 	elseif command == "orientationnext" then
 		local os = { "left", "right", "top", "bottom", "center" }
-		local current = master.state.orientation
+		local current = wyn.state.orientation
 		local idx
 		for i, v in ipairs(os) do
 			if v == current then
@@ -258,10 +258,10 @@ local function handle_layout_msg(ctx, msg)
 		if idx > #os then
 			idx = 1
 		end
-		master.state.orientation = os[idx]
+		wyn.state.orientation = os[idx]
 	elseif command == "orientationprev" then
 		local os = { "left", "right", "top", "bottom", "center" }
-		local current = master.state.orientation
+		local current = wyn.state.orientation
 		local idx
 		for i, v in ipairs(os) do
 			if v == current then
@@ -273,24 +273,24 @@ local function handle_layout_msg(ctx, msg)
 		if idx < 1 then
 			idx = #os
 		end
-		master.state.orientation = os[idx]
+		wyn.state.orientation = os[idx]
 	elseif command == "mfact" then
 		local val = tonumber(params[1])
 		if val then
-			master.state.mfact = clamp(val, 0.05, 0.95)
+			wyn.state.mfact = clamp(val, 0.05, 0.95)
 		end
-	elseif command == "addmaster" then
-		-- Find the focused window (if possible) or the first slave
+	elseif command == "addwyn" then
+		-- Find the focused window (if possible) or the first amm
 		local focused = get_focused_window(ctx)
 		local target = nil
 
-		-- Check if focused is a slave
-		if focused and not master.state.windows[focused].is_master then
+		-- Check if focused is a amm
+		if focused and not wyn.state.windows[focused].is_wyn then
 			target = focused
 		else
-			-- Fallback to first slave
+			-- Fallback to first amm
 			for _, win in ipairs(ctx.targets) do
-				if not master.state.windows[win].is_master then
+				if not wyn.state.windows[win].is_wyn then
 					target = win
 					break
 				end
@@ -298,20 +298,20 @@ local function handle_layout_msg(ctx, msg)
 		end
 
 		if target then
-			master.state.windows[target].is_master = true
+			wyn.state.windows[target].is_wyn = true
 		end
-	elseif command == "removemaster" then
-		-- Similar logic to addmaster, find master to demote
+	elseif command == "removewyn" then
+		-- Similar logic to addwyn, find wyn to demote
 		local focused = get_focused_window(ctx)
 		local target = nil
 
-		if focused and master.state.windows[focused].is_master and master.state.masters_count or 0 > 1 then
+		if focused and wyn.state.windows[focused].is_wyn and wyn.state.wyns_count or 0 > 1 then
 			target = focused
 		else
-			-- Fallback to last master
+			-- Fallback to last wyn
 			for i = #ctx.targets, 1, -1 do
 				local win = ctx.targets[i]
-				if master.state.windows[win].is_master then
+				if wyn.state.windows[win].is_wyn then
 					target = win
 					break
 				end
@@ -319,16 +319,16 @@ local function handle_layout_msg(ctx, msg)
 		end
 
 		if target then
-			-- Check if at least 2 masters to avoid leaving screen bare
+			-- Check if at least 2 wyns to avoid leaving screen bare
 			local m_count = 0
 			for _, win in ipairs(ctx.targets) do
-				if master.state.windows[win].is_master then
+				if wyn.state.windows[win].is_wyn then
 					m_count = m_count + 1
 				end
 			end
 
 			if m_count > 1 then
-				master.state.windows[target].is_master = false
+				wyn.state.windows[target].is_wyn = false
 			end
 		end
 	else
@@ -339,7 +339,7 @@ local function handle_layout_msg(ctx, msg)
 end
 
 -- Register the layout
-hl.layout.register(master.name, {
-	recalculate = recalculate_master,
+hl.layout.register(wyn.name, {
+	recalculate = recalculate_wyn,
 	layout_msg = handle_layout_msg,
 })
