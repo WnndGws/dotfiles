@@ -83,8 +83,8 @@ local function recalculate_wyn(ctx)
 		return
 	end
 
-	-- Helper to place a list of windows in a rectangle
-	local function place_windows(wins, rect, vertical)
+	-- Helper to place a list of windows in a rectangle (Horizontal split)
+	local function place_windows(wins, rect)
 		local count = #wins
 		if count == 0 then
 			return
@@ -99,23 +99,15 @@ local function recalculate_wyn(ctx)
 			if i == count then
 				win:place(current_rect)
 			else
-				local pool_size = vertical and current_rect.height or current_rect.width
+				local pool_size = current_rect.width
 				local avg_size = pool_size / count
 				local my_size = avg_size * perc
 				local ratio = my_size / pool_size
 
 				ratio = clamp(ratio, 0.05, 0.95)
 
-				local sub_rect
-				local remainder_rect
-
-				if vertical then
-					sub_rect = ctx:split(current_rect, "top", ratio)
-					remainder_rect = ctx:split(current_rect, "bottom", 1.0 - ratio)
-				else
-					sub_rect = ctx:split(current_rect, "left", ratio)
-					remainder_rect = ctx:split(current_rect, "right", 1.0 - ratio)
-				end
+				local sub_rect = ctx:split(current_rect, "left", ratio)
+				local remainder_rect = ctx:split(current_rect, "right", 1.0 - ratio)
 
 				win:place(sub_rect)
 				current_rect = remainder_rect
@@ -123,20 +115,16 @@ local function recalculate_wyn(ctx)
 		end
 	end
 
-	-- Apply Fixed Left Orientation
-	local m_rect
-	local s_rects
-
-	-- Left: Wyns take mfact on the left
+	-- Apply Fixed Left Orientation with Horizontal internal splits
 	local m_w = area.width * wyn.state.mfact
-	m_rect = { x = area.x, y = area.y, width = m_w, height = area.height }
-	s_rects = { { x = area.x + m_w, y = area.y, width = area.width - m_w, height = area.height } }
+	local m_rect = { x = area.x, y = area.y, width = m_w, height = area.height }
+	local s_rect = { x = area.x + m_w, y = area.y, width = area.width - m_w, height = area.height }
 
-	-- Stack Wyns vertically
-	place_windows(wyns, m_rect, true)
+	-- Place Wyns horizontally in the left rect
+	place_windows(wyns, m_rect)
 
-	-- Stack Amms vertically
-	place_windows(amms, s_rects[1], true)
+	-- Place Amms horizontally in the right rect
+	place_windows(amms, s_rect)
 end
 
 local function handle_layout_msg(ctx, msg)
