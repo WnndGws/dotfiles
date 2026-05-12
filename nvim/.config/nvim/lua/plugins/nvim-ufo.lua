@@ -40,7 +40,7 @@ Plugin.config = function()
 			return { "treesitter", "indent" }
 		end,
 		fold_virt_text_handler = handler,
-		close_fold_kinds_for_ft = { python = { "function_definition" }, markdown = { "section" } },
+		-- close_fold_kinds_for_ft = { python = { "function_definition" }, markdown = { "section" } },
 	})
 end
 

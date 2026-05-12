@@ -140,7 +140,7 @@ fi
 unset fzf_base fzf_shell dir fzfdirs
 
 ##use fzf everywhere
-source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 export FZF_DEFAULT_OPTS="
 --bind ctrl-d:half-page-down

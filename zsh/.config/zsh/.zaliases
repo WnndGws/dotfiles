@@ -2,8 +2,10 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
+alias ncdu='Use dua-cli instead'
+
 # turn on wi-fi
-alias wifi='sudo networkctl down enp0s31f6 && sudo networkctl up wlan0 && ping google.com'
+alias wifi='sudo networkctl down enp0s31f6 && sudo networkctl up wlan0 && iwctl station wlan0 connect SKWG-5GHz && ping google.com'
 alias ethernet='sudo networkctl down wlan0 && sudo networkctl up enp0s31f6 && ping google.com'
 
 # shortcut

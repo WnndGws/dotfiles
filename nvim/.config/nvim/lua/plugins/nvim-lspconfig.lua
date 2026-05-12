@@ -57,8 +57,6 @@ Plugin.opts = function()
 		-- LSP Server Settings
 		---@type lspconfig.options
 		servers = {
-			marksman = {},
-			htmx = {},
 			ltex = {
 				enabled = {
 					"bib",
@@ -131,6 +129,11 @@ end
 vim.lsp.enable("pyrefly")
 vim.lsp.enable("ruff")
 vim.lsp.enable("jedi_language_server")
+
+---------
+-- XML --
+---------
+vim.lsp.enable("lemminx")
 
 ----------
 -- Rust --

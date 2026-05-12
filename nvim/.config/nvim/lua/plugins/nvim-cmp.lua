@@ -39,10 +39,10 @@ function Plugin.config()
 			end,
 		},
 		sources = {
-			{ name = "path", keyword_length = 2 },
-			{ name = "buffer", keyword_length = 2 },
-			{ name = "luasnip", keyword_length = 2 },
-			{ name = "nvim_lsp", keyword_length = 2 },
+			{ name = "path", keyword_length = 0 },
+			-- { name = "buffer", keyword_length = 2 },
+			{ name = "luasnip", keyword_length = 0 },
+			{ name = "nvim_lsp", keyword_length = 0 },
 		},
 		window = {
 			completion = cmp.config.window.bordered(),
@@ -54,7 +54,7 @@ function Plugin.config()
 				local menu_icon = {
 					nvim_lsp = "λ",
 					luasnip = "⋗",
-					buffer = "Ω",
+					-- buffer = "Ω",
 					path = "🖫",
 				}
 

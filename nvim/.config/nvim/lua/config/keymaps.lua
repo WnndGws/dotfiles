@@ -241,11 +241,6 @@ keymap.set({ "n", "v", "x" }, "<leader>tb", "<cmd>TextCaseOpenTelescope<cr>", { 
 keymap.set({ "n" }, "<leader>gc", "<cmd>Telescope git_bcommits<cr>", { desc = "Git commit history" })
 keymap.set({ "n" }, "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Git branches" })
 keymap.set({ "n" }, "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
--- Submap for bibtex
-keymap.set({ "n" }, "<leader>bb", function()
-	local bibtex_actions = require("telescope-bibtex.actions")
-	bibtex_actions.citation_append("{{author}}. {{title}}. {{url}}. Accessed {{urldate}}")
-end, { desc = "Insert bibtex ref" })
 
 -----------------
 -- Timemachine --

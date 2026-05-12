@@ -8,6 +8,6 @@ return {
 		open_automatic = true,
 	},
 
-	enabled = true,
+	enabled = false,
 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
 }
