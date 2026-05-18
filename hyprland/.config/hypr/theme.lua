@@ -30,8 +30,11 @@ hl.config({
 		},
 	},
 	master = {
-		mfact = 0.7,
-		new_status = "master",
+		mfact = 0.5,
+		new_status = "slave",
 		new_on_top = true,
+	},
+	dwindle = {
+		force_split = 2, -- new is right or bottom
 	},
 })

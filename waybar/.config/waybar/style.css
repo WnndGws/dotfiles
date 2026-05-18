@@ -24,6 +24,11 @@
   /* padding: 0 9px; */
 }
 
+/* Offset 5px to put it below physical monitor blocking */
+window.DP-3#waybar.top * {
+    margin-top: 5px;
+}
+
 window#waybar {
   background: #282c34;
   color: #abb2bf;

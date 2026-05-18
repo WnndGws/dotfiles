@@ -24,7 +24,28 @@
             "class<Signal>": "󰭹",
             "class<steam>": "",
             "class<firefox> title<.*github.*>": "",
-            "alacritty": ""
+            "alacritty": "",
+            "rustdesk": "󰢹"
+        }
+    },
+    "custom/wifi": {
+        "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
+        "signal": 3,
+        "return-type": "json",
+        "format": "{icon} {text}",
+        "format-icons": {
+            "connected": [
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ],
+            "disconnected": [
+                "󰤫"
+            ],
+            "ethernet": [
+                "󰈀"
+            ]
         }
     },
     "custom/cpu_usage": {
@@ -61,22 +82,6 @@
         "format-icons": {
             "connected": "",
             "disconnected": ""
-        }
-    },
-    "custom/wifi": {
-        "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
-        "signal": 3,
-        "return-type": "json",
-        "format": "{icon} {text}",
-        "format-icons": {
-            "connected": [
-                "󰤟",
-                "󰤢",
-                "󰤥",
-                "󰤨"
-            ],
-            "disconnected": "󰤫",
-            "ethernet": "󰈀"
         }
     },
     "custom/netspeed": {
