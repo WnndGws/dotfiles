@@ -16,19 +16,6 @@ keymap.set("n", "L", ":vertical resize -5<CR>", { desc = "Resize vertical splits
 -- help for resize
 keymap.set("n", "<leader>?H", ":vertical resize +5<CR>", { desc = "Resize vertical splits LARGER" })
 keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
-
---move between windows
---keymap.set({ "n", "i" }, "<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
---keymap.set({ "n", "i" }, "<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
---keymap.set({ "n", "i" }, "<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
---keymap.set({ "n", "i" }, "<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
-
--- help for move between windows
---keymap.set({ "n", "i" }, "<leader>?<C-h>", ":wincmd h<cr>", { desc = "Move to left split" })
---keymap.set({ "n", "i" }, "<leader>?<C-j>", ":wincmd j<cr>", { desc = "Move to bottom split" })
---keymap.set({ "n", "i" }, "<leader>?<C-k>", ":wincmd k<cr>", { desc = "Move to top split" })
---keymap.set({ "n", "i" }, "<leader>?<C-l>", ":wincmd l<cr>", { desc = "Move to right split" })
-
 -- Save and commit
 keymap.set("n", "<leader>ww", function()
 	local dt = os.date("%Y%m%d_%H%M%S")
