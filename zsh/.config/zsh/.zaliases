@@ -2,11 +2,10 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
-alias ncdu='Use dua-cli instead'
+alias headphones_connect='bluetoothctl connect 00:04:32:9A:8E:96 && sleep 1 && pactl set-default-sink bluez_output.00_04_32_9A_8E_96.1'
+alias headphones_disconnect='bluetoothctl disconnect 00:04:32:9A:8E:96 && sleep 1 && pactl set-default-source alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
 
-# turn on wi-fi
-alias wifi='sudo networkctl down enp0s31f6 && sudo networkctl up wlan0 && iwctl station wlan0 connect SKWG-5GHz && ping google.com'
-alias ethernet='sudo networkctl down wlan0 && sudo networkctl up enp0s31f6 && ping google.com'
+alias ncdu='Use dua-cli instead'
 
 # shortcut
 alias zl='zathura'
@@ -62,12 +61,8 @@ alias mdc="mullvad disconnect"
 #Change mode of file
 alias cx="chmod +x"
 
-
 #Always dd with same flags
 alias dd='sudo /usr/bin/dd status=progress conv=fsync'
-
-#Use a nicer du
-alias du="/usr/bin/ncdu --color dark -rr -x"
 
 #Git Stuff
 ##Create a gitignore file
@@ -84,19 +79,19 @@ alias irg='$HOME/git/fzf-scripts/fuzzy/fzrg'
 alias jctl="journalctl -p 3 -xb"
 
 #List all including hidden
-alias lsa='exa --all --color always --color-scale all'
+alias lsa='eza --all --color always --color-scale all'
 
 #List all including hidden in a long list
-alias ll='exa --all --color always --color-scale all --long'
+alias ll='eza --all --color always --color-scale all --long'
 
 #Colours in ls
-alias ls='exa --color always --color-scale all'
+alias ls='eza --color always --color-scale all'
 
 # Show tree of folder depth 3
-alias lt='exa --color always --color-scale all --tree --level=5'
+alias lt='eza --color always --color-scale all --tree --level=5'
 
 # Show tree of all folders depth 3
-alias lta='exa --all --color always --color-scale all --tree --level=5'
+alias lta='eza --all --color always --color-scale all --tree --level=5'
 
 #Speed up making dirs
 alias md='/usr/bin/mkdir -p'
@@ -110,10 +105,6 @@ tm() { tmux attach -t "$1" || tmux new -s "$1" }
 #Help transition
 alias nv="nvim"
 alias sv='sudo nvim'
-
-#No VPN Steam
-alias steam="mullvad-exclude steam-native"
-alias steam-native="mullvad-exclude steam-native"
 
 #Always use ripgrep with these flags
 alias rg='rg --hidden -i --multiline'
@@ -152,7 +143,7 @@ alias minecraft='cd "/home/wynand/.local/share/multimc" && "/usr/lib/multimc/Mul
 ### --- FUNCTIONS --- ###
 ### ----------------- ###
 #Watches a file, and runs that file every time it changes
-entrwatch() { exa "$1" | entr /_ }
+entrwatch() { eza "$1" | entr /_ }
 
 #Watches a tex file and recompiles it each change
 latexwatch() { fd --extension=tex . | entr tectonic -X compile "$1" }

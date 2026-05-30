@@ -36,7 +36,7 @@
             "custom/mem",
             "custom/spacer",
             "custom/vpn",
-            "custom/wifi",
+            "custom/network",
             "custom/spacer",
             "custom/netspeed",
             "custom/spacer",
@@ -44,7 +44,7 @@
             "custom/spacer",
             "backlight",
             "custom/spacer",
-            "wireplumber",
+            "pulseaudio",
             "custom/spacer",
             "custom/updates"
         ]

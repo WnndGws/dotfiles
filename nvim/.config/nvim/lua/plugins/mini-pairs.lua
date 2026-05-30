@@ -14,6 +14,6 @@ return {
 		markdown = true,
 	},
 
-	enabled = true,
+	enabled = false,
 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
 }

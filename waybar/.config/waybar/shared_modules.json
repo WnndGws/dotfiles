@@ -28,9 +28,8 @@
             "rustdesk": "󰢹"
         }
     },
-    "custom/wifi": {
+    "custom/network": {
         "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
-        "signal": 3,
         "return-type": "json",
         "format": "{icon} {text}",
         "format-icons": {
@@ -109,8 +108,9 @@
             ]
         }
     },
-    "wireplumber": {
+    "pulseaudio": {
         "format": "{icon} {volume}%",
+        "format-bluetooth": "󰋋 {volume}%",
         "format-muted": " {volume}%",
         "format-icons": [
             "",

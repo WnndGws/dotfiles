@@ -55,7 +55,7 @@ window#waybar {
 }
 
 /* grey */
-#wireplumber.muted,
+#pulseaudio.muted,
 #clock,
 #backlight,
 #custom-netspeed.bi,
@@ -64,13 +64,13 @@ window#waybar {
 }
 
 /* green */
-#wireplumber,
+#pulseaudio,
 #custom-weather.green,
 #custom-updates.green,
 #custom-vpn.connected,
 #custom-cpu_temp.green,
 #custom-mem.green,
-#custom-wifi.green,
+#custom-network.green,
 #custom-netspeed.Ki,
 #custom-battery.charging,
 #custom-battery.full,
@@ -84,7 +84,7 @@ window#waybar {
 #custom-updates.yellow,
 #custom-battery.discharging,
 #custom-mem.yellow,
-#custom-wifi.yellow,
+#custom-network.yellow,
 #custom-cpu_usage.yellow {
   /* border-bottom: 3px solid #e5c07b; */
   border-bottom: 3px solid #d19a66;
@@ -105,7 +105,7 @@ window#waybar {
 #custom-updates.red,
 #custom-cpu_temp.red,
 #custom-mem.red,
-#custom-wifi.red,
+#custom-network.red,
 #custom-cpu_usage.red {
   border-bottom: 3px solid #e06c75;
 }

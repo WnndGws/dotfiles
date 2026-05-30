@@ -1,7 +1,7 @@
 return {
 	"Dan7h3x/signup.nvim",
 	branch = "main",
-	silent = true,
+	silent = false,
 	icons = {
 		parameter = "",
 		method = "󰡱",
@@ -16,7 +16,7 @@ return {
 		default_value = "#a80888",
 		type = "#f6c177",
 	},
-	active_parameter = false, -- enable/disable active_parameter highlighting
+	active_parameter = true, -- enable/disable active_parameter highlighting
 	active_parameter_colors = {
 		bg = "#86e1fc",
 		fg = "#1a1a1a",
@@ -32,7 +32,7 @@ return {
 	debounce_time = 50,
 	dock_mode = {
 		enabled = true,
-		position = "top", -- "bottom", "top", or "middle"
+		position = "middle", -- "bottom", "top", or "middle"
 		height = 0.5, -- If > 1: fixed height in lines, if <= 1: percentage of window height (e.g., 0.3 = 30%)
 		padding = 1, -- Padding from window edges
 		side = "right", -- "right", "left", or "center"

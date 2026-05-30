@@ -28,6 +28,19 @@ hl.config({
 --- PROGRAMS
 hl.bind("ALT + Return", hl.dsp.exec_cmd("alacritty"))
 hl.bind("ALT + f", hl.dsp.exec_cmd("firefox", { workspace = 10 }))
+hl.bind("ALT + F10", hl.dsp.exec_cmd("~/git/scripts/headphone_toggler.sh"))
+
+--- VOLUME
+hl.bind("ALT + XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+hl.bind("ALT + F1", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+hl.bind("ALT + XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+hl.bind("ALT + F2", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+hl.bind("ALT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+hl.bind("ALT + F3", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+hl.bind("ALT + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"))
+hl.bind("ALT + F5", hl.dsp.exec_cmd("brightnessctl set 5%-"))
+hl.bind("ALT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"))
+hl.bind("ALT + F6", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 
 --- MOVEMENT
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))

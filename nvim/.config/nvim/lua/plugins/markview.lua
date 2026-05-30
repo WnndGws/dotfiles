@@ -1,6 +1,6 @@
 return {
 	"OXY2DEV/markview.nvim",
-	lazy = true,
+	lazy = false,
 
 	config = {
 		experimental = {
@@ -9,22 +9,22 @@ return {
 		},
 		yaml = {
 			properties = {
-				["^title$"] = {
+				["^title"] = {
 					use_types = false,
 					text = "󰗴 ",
 					hl = "MarkviewIcon0",
 				},
-				["^author$"] = {
+				["^author"] = {
 					use_types = false,
 					text = " ",
 					hl = "MarkviewIcon0",
 				},
-				["^date$"] = {
+				["^date"] = {
 					use_types = false,
 					text = "󰃭 ",
 					hl = "MarkviewIcon0",
 				},
-				["^public$"] = {
+				["^public"] = {
 					use_types = false,
 					text = "󰅧 ",
 					hl = "MarkviewIcon0",
