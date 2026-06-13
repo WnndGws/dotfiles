@@ -63,6 +63,7 @@ add-zsh-hook preexec _preexec_title
 
 #Aliases
 source "$XDG_CONFIG_HOME"/zsh/.zaliases
+source "$HOME"/git/scripts/wyngit.sh
 
 ###---------------###
 ###--- HISTORY ---###
