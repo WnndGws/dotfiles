@@ -20,7 +20,7 @@ keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertic
 keymap.set("n", "<leader>ww", function()
 	vim.cmd("write")
 	vim.cmd("Git add %")
-	vim.cmd('Git commit -m "try: autosave"')
+	vim.cmd('Git commit -m "try:autosave"')
 end, { desc = "Write and add a file" })
 keymap.set("n", "<leader>we", function()
 	vim.cmd("write")
