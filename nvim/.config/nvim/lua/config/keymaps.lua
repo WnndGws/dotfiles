@@ -18,10 +18,9 @@ keymap.set("n", "<leader>?H", ":vertical resize +5<CR>", { desc = "Resize vertic
 keymap.set("n", "<leader>?L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
 -- Save and commit
 keymap.set("n", "<leader>ww", function()
-	local dt = os.date("%Y%m%d_%H%M%S")
 	vim.cmd("write")
 	vim.cmd("Git add %")
-	vim.cmd('Git commit -m "try: autosave ' .. dt .. '"')
+	vim.cmd('Git commit -m "try: autosave"')
 end, { desc = "Write and add a file" })
 keymap.set("n", "<leader>we", function()
 	vim.cmd("write")
