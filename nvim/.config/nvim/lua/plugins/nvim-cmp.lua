@@ -88,6 +88,30 @@ function Plugin.config()
 			["<C-Y>"] = cmp.mapping.confirm({ select = false }),
 			["'"] = cmp.mapping.confirm({ select = false }),
 
+			-- Use 'c' then " to wrap corrected text in the snippet
+			['"'] = cmp.mapping(function(fallback)
+				cmp.mapping.confirm({ select = false })(fallback)
+				local done_once = false
+				cmp.event:on("confirm_done", function(entry)
+					if done_once then
+						return
+					end
+					done_once = true
+					-- Schedule past the cmp confirm cycle
+					vim.schedule(function()
+						vim.paste({ vim.fn.getreg('"') }, -1)
+						-- Schedule again past the paste processing
+						vim.schedule(function()
+							vim.api.nvim_feedkeys(
+								vim.api.nvim_replace_termcodes("<Esc>2wi", true, false, true),
+								"n",
+								false
+							)
+						end)
+					end)
+				end)
+			end, { "i", "s" }),
+
 			["<C-f>"] = cmp.mapping(function(fallback)
 				if luasnip.jumpable(1) then
 					luasnip.jump(1)

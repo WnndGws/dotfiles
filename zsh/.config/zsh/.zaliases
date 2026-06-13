@@ -2,6 +2,10 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
+alias safe_shutdown="hyprshutdown --post-cmd 'shutdown -h now'"
+alias shs=safe_shutdown
+alias logout='hyprshutdown --post-cmd wayland-logout'
+
 alias headphones_connect='bluetoothctl connect 00:04:32:9A:8E:96 && sleep 1 && pactl set-default-sink bluez_output.00_04_32_9A_8E_96.1'
 alias headphones_disconnect='bluetoothctl disconnect 00:04:32:9A:8E:96 && sleep 1 && pactl set-default-source alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
 
@@ -19,7 +23,7 @@ alias se=source_env
 #Quick open
 alias vzal='nvim $XDG_CONFIG_HOME/zsh/.zaliases'
 alias lg='git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
-alias ww='cd ~/git/git-wiki/ && git sync && nvim +NvimTreeOpen'
+alias ww='cd ~/git/git-wiki/ && nvim +NvimTreeOpen'
 alias wiki-lazygit='cd ~/git/git-wiki/ && git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
 alias wlg='wiki-lazygit'
 
@@ -68,7 +72,6 @@ alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 ##Create a gitignore file
 alias gi="cp $HOME/git/dotfiles/git/.config/git/gitignore .gitignore"
 alias gs="git status"
-gh() { git hack "$1" && git-town set parent && git-town sync && git-town branch }
 
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fuzzy/fzrepl -c awk'

@@ -25,6 +25,7 @@
             "class<steam>": "",
             "class<firefox> title<.*github.*>": "",
             "alacritty": "",
+            "moonlight": "",
             "rustdesk": "󰢹"
         }
     },

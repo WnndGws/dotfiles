@@ -29,6 +29,7 @@ hl.config({
 hl.bind("ALT + Return", hl.dsp.exec_cmd("alacritty"))
 hl.bind("ALT + f", hl.dsp.exec_cmd("firefox", { workspace = 10 }))
 hl.bind("ALT + F10", hl.dsp.exec_cmd("~/git/scripts/headphone_toggler.sh"))
+hl.bind("ALT + i", hl.dsp.exec_cmd("hyprlauncher"))
 
 --- VOLUME
 hl.bind("ALT + XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
