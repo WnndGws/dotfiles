@@ -2,6 +2,8 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
+connect_wifi() { iwctl station wlan0 connect "$1" > /dev/null 2>&1 ; sleep 3 && killall waybar ; waybar -c ~/.config/waybar/laptop.json & disown}
+
 alias safe_shutdown="hyprshutdown --post-cmd 'shutdown -h now'"
 alias shs=safe_shutdown
 alias logout='hyprshutdown --post-cmd wayland-logout'
@@ -34,7 +36,7 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar'
+alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; rm -rf $HOME/.cache/pikaur/pkg ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock
