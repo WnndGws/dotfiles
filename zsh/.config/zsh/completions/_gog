@@ -1,0 +1,9 @@
+#compdef gog
+
+_gog() {
+  local -a completions
+  completions=("${(@f)$(gog __complete --cword "$((CURRENT - 1))" -- "${words[@]}")}")
+  _describe 'values' completions
+}
+
+compdef _gog gog
