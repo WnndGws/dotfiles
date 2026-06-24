@@ -63,6 +63,7 @@ add-zsh-hook preexec _preexec_title
 
 #Aliases
 source "$XDG_CONFIG_HOME"/zsh/.zaliases
+source "$HOME"/git/scripts/wyngit.sh
 
 ###---------------###
 ###--- HISTORY ---###
@@ -268,12 +269,12 @@ unset _gpg_agent_conf
 ###--------------------###
 ###--- AUTOCOMPLETE ---###
 ###--------------------###
+fpath=("$XDG_CONFIG_HOME/zsh/completions" "${fpath[@]}")
 # This should be the last thing loaded in zshrc
 autoload -Uz compinit
 zstyle ':completion:*' completer _expand_alias _complete _ignored
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-#fpath=("$XDG_CONFIG_HOME"/zsh/completions "$fpath")
 zstyle :compinstall filename "$XDG_CONFIG_HOME"/zsh/.zshrc
 #Test if zcompdump is older than 2hr, if it is create a new one, else omit the check for new functions since we updated recently enough
 test "$(/usr/bin/find "$XDG_CONFIG_HOME"/zsh/.zcompdump -mmin -120)" && compinit -u -d "$XDG_CONFIG_HOME"/zsh/.zcompdump || compinit -C
