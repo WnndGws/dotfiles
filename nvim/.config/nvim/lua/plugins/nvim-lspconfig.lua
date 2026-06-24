@@ -138,6 +138,7 @@ vim.lsp.enable("lemminx")
 ----------
 -- Rust --
 ----------
+vim.lsp.enable("rust_analyzer")
 
 ----------
 -- TOML --
