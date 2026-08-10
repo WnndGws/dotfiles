@@ -2,7 +2,8 @@
     "custom/SIGTERM_REMINDERS": {
         "format": {
             "-SIGRTMIN+1": "wttr",
-            "-SIGRTMIN+2": "updates"
+            "-SIGRTMIN+2": "updates",
+            "-SIGRTMIN+3": "wifi"
         }
     },
     "custom/spacer": {
@@ -33,6 +34,8 @@
     "custom/network": {
         "exec": "/home/wynand/.config/waybar/scripts/aa_wifi.sh",
         "return-type": "json",
+        "signal": 3,
+        "restart-interval": 43200,
         "format": "{icon} {text}",
         "format-icons": {
             "connected": [
@@ -81,12 +84,15 @@
         "return-type": "json",
         "exec": "mullvad status --json listen | jq --unbuffered --compact-output '.text = .state | .class = .state | .alt = .state'",
         "format-icons": {
+            "default": "",
             "connected": "",
             "disconnected": ""
         }
     },
     "custom/netspeed": {
         "exec": "/home/wynand/.config/waybar/scripts/aa_network_speed.sh",
+        "signal": 3,
+        "restart-interval": 43200,
         "return-type": "json",
         "format": "{text}"
     },

@@ -3,4 +3,7 @@ return {
 	config = function()
 		require("lsp-progress").setup()
 	end,
+	keys = {
+		-- No which-key needed
+	},
 }

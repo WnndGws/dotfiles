@@ -2,16 +2,16 @@
 ### --- ALIASES --- ###
 ### --------------- ###
 
-connect_wifi() { iwctl station wlan0 connect "$1" > /dev/null 2>&1 ; sleep 3 && killall waybar ; waybar -c ~/.config/waybar/laptop.json & disown}
+wifi_connect() { iwctl station wlan0 connect "$1" > /dev/null 2>&1 ; sleep 7 && pkill -SIGRTMIN+3 waybar & disown}
 
 alias safe_shutdown="hyprshutdown --post-cmd 'shutdown -h now'"
 alias shs=safe_shutdown
-alias logout='hyprshutdown --post-cmd wayland-logout'
+alias shl='hyprshutdown --post-cmd wayland-logout'
 
 alias headphones_connect='bluetoothctl connect 00:04:32:9A:8E:96 && sleep 1 && pactl set-default-sink bluez_output.00_04_32_9A_8E_96.1'
 alias headphones_disconnect='bluetoothctl disconnect 00:04:32:9A:8E:96 && sleep 1 && pactl set-default-source alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
 
-alias ncdu='Use dua-cli instead'
+alias ncdu='echo "Use dua-cli instead"'
 
 # shortcut
 alias zl='zathura'
@@ -36,7 +36,7 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; rm -rf $HOME/.cache/pikaur/pkg ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar'
+alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock

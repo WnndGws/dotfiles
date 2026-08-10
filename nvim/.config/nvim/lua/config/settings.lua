@@ -56,6 +56,8 @@ opt.termguicolors = true -- True colour support
 if not vim.g.vscode then
 	opt.timeoutlen = 300 -- Lower than default (1000) to quickly trigger which-key
 end
+opt.textwidth = 80
+opt.colorcolumn = "80"
 opt.undofile = true
 opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
 opt.undolevels = 10000
@@ -75,17 +77,8 @@ end
 vim.filetype.add({
 	extension = {
 		enc = "markdown",
-	},
-})
-
-vim.filetype.add({
-	extension = {
 		jinja = "html",
-	},
-})
-
-vim.filetype.add({
-	extension = {
 		opml = "xml",
+		tex = "tex",
 	},
 })

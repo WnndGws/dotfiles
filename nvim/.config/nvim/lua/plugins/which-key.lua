@@ -3,47 +3,32 @@ local Plugin = { "folke/which-key.nvim" }
 Plugin.event = { "BufWritePre", "BufReadPre", "BufNewFile" }
 
 Plugin.opts_extend = { "spec" }
-Plugin.opts = function()
-	local preset = "helix"
-	local triggers = {
+Plugin.opts = {
+	preset = "classic",
+	triggers = {
 		{ "<auto>", mode = "nixsotc" },
 		{ "a", mode = { "n", "v" } },
-	}
-end
-
-Plugin.config = function(_, opts)
-	local wk = require("which-key")
-	wk.add({
-		{ "<leader>?", group = "Help for non-leader keybinds" },
-		{ "<leader>-", group = "Dial" },
-		{ "<leader>a", group = "Aerial Toggle" },
-		-- { "<leader>b", group = "Checkbox" }, ## USED FOR BUFFERS
-		{ "<leader>c", group = "Change Case", icon = "" },
-		-- { "<leader>d", group = "Checkbox" },
-		{ "<leader>e", group = "Nvim-Tree" },
-		{ "<leader>f", group = "Freeze Code" },
-		{ "<leader>g", group = "Git" },
-		-- { "<leader>h", group = "Hop" },
-		-- { "<leader>i", group = "Checkbox" },
-		-- { "<leader>j", group = "Checkbox" },
-		-- { "<leader>k", group = "Checkbox" },
-		{ "<leader>l", group = "Linting" },
-		{ "<leader>m", group = "Markdown" },
-		-- { "<leader>n", group = "Checkbox" },
-		-- { "<leader>o", group = "Outline" },
-		-- { "<leader>p", group = "Checkbox" },
-		-- { "<leader>q", group = "Checkbox" },
-		{ "<leader>r", group = "SnipRun" },
-		{ "<leader>s", group = "Change Surround" },
-		{ "<leader>t", group = "Telescope" },
-		{ "<leader>u", group = "Undo" },
-		-- { "<leader>v", group = "Checkbox" },
-		{ "<leader>w", group = "Write File" },
-		{ "<leader>x", group = "Change Case", icon = "" },
-		-- { "<leader>y", group = "Checkbox" },
-		{ "<leader>z", group = "Folds" },
-	})
-	wk.setup(opts)
-end
+	},
+	plugins = {
+		marks = true, -- shows a list of your marks on ' and `
+		registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
+		-- No actual key bindings are created
+		spelling = {
+			enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+			suggestions = 5, -- how many suggestions should be shown in the list?
+		},
+		presets = {
+			operators = true, -- adds help for operators like d, y, ...
+			motions = true, -- adds help for motions
+			text_objects = true, -- help for text objects triggered after entering an operator
+			windows = true, -- default bindings on <c-w>
+			nav = true, -- misc bindings to work with windows
+			z = true, -- bindings for folds, spelling and others prefixed with z
+			g = true, -- bindings for prefixed with g
+		},
+	},
+	sort = { "order" },
+}
 
 return Plugin

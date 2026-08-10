@@ -4,11 +4,9 @@ Plugin.dependencies = {
 	"mfussenegger/nvim-treehopper",
 	"drybalka/tree-climber.nvim",
 	"nvim-treesitter/nvim-treesitter-context",
-	"OXY2DEV/markview.nvim",
 }
 
 Plugin.lazy = false
-Plugin.after = { "markview" }
 Plugin.branch = "main"
 Plugin.build = ":TSUpdate"
 

@@ -5,11 +5,16 @@
 # Then i split the up and down by spaces to get the units of each
 # Units are then converted into a class to use for styling
 
-ROUTE="$(ip route | awk '{print $(NF-2);exit}')"
+ROUTE="$(ip route | awk '{print $(NF-6);exit}')"
 if [ "$ROUTE" = "wlan0" ]; then
     SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_wifi_netspeed
 else
-    SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_ethernet_netspeed
+    ROUTE="$(ip route | awk '{print $(NF-2);exit}')"
+    if [ "$ROUTE" = "enp0s31f6" ]; then
+        SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_ethernet_netspeed
+    else
+        exit 0
+    fi
 fi
 
 "$SLSFILE" -s 2> /dev/null | jq --unbuffered --compact-output -R '

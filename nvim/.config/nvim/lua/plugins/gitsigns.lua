@@ -18,6 +18,10 @@ Plugin.config = function()
 	})
 end
 
+Plugin.keys = {
+	-- No which-key needed
+}
+
 vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#4fd6be" })
 vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#7aa2f7" })
 vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#ff757f" })

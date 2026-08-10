@@ -19,7 +19,11 @@ return {
 			dotenv = { "dotenv-linter" },
 			html = { "tidy" },
 			lua = {},
-			markdown = { "markdownlint-cli2", "proselint", "woke" },
+			markdown = {
+				"markdownlint-cli2",
+				"proselint",
+				"woke",
+			},
 			bash = { "bash", "shellcheck" },
 			sh = { "shellcheck" },
 			zsh = { "zsh", "shellcheck" },
@@ -29,6 +33,12 @@ return {
 			vimscript = { "vint" },
 			yaml = { "yamllint" },
 			toml = { "tombi" },
+		}
+
+		lint.linters["markdownlint-cli2.args"] = {
+			"--fix",
+			"--config",
+			vim.fn.expand("~/.config/nvim/markdownlint_conf.json"),
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

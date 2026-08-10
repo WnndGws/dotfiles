@@ -25,19 +25,24 @@ if [[ $ROUTE == "enp0s31f6" ]]; then
     percentage: $nums[-1]|tonumber}
     '
 
-else;
-    SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_wifi
+else
+    ROUTE="$(ip route | awk '{print $(NF-6);exit}')"
+    if [[ $ROUTE == "wlan0" ]]; then
+        SLSFILE="$XDG_CONFIG_HOME"/waybar/scripts/slstatus_wifi
 
-    "$SLSFILE" -s | jq --unbuffered --compact-output -R '
-    . as $raw |
-    ($raw|split("+")) as $nums |
-    {text: (if $nums[-1]|tonumber <1 then "Disconnected"
-    else "\($nums[0])" end),
-    class: (if $nums[-1]|tonumber <1 then "red"
-    elif $nums[-1]|tonumber <50 then "yellow"
-    else "green" end),
-    alt: (if $nums[-1]|tonumber <1 then "disconnected"
-    else "connected" end),
-    percentage: $nums[-1]|tonumber}
-    '
+        "$SLSFILE" -s | jq --unbuffered --compact-output -R '
+        . as $raw |
+        ($raw|split("+")) as $nums |
+        {text: (if $nums[-1]|tonumber <1 then "Disconnected"
+        else "\($nums[0])" end),
+        class: (if $nums[-1]|tonumber <1 then "red"
+        elif $nums[-1]|tonumber <50 then "yellow"
+        else "green" end),
+        alt: (if $nums[-1]|tonumber <1 then "disconnected"
+        else "connected" end),
+        percentage: $nums[-1]|tonumber}
+        '
+    else
+        exit 0
+    fi
 fi
