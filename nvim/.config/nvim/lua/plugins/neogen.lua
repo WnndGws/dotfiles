@@ -1,5 +1,8 @@
 return {
 	"danymat/neogen",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 	opts = {
 		snippet_engine = "luasnip",
 		languages = {

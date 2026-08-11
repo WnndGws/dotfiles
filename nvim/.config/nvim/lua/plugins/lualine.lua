@@ -1,7 +1,7 @@
 local Plugin = { "nvim-lualine/lualine.nvim" }
 
 Plugin.event = { "BufReadPost", "BufNewFile", "BufWritePre" }
-Plugin.dependencies = { "nvim-tree/nvim-web-devicons" }
+Plugin.dependencies = { "nvim-mini/mini.icons" }
 
 Plugin.config = function()
 	-- lualine require madness 🤷

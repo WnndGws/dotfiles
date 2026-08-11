@@ -7,6 +7,7 @@ Plugin.dependencies = {
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-cmdline" },
+	{ "folke/which-key.nvim" },
 
 	-- Snippets
 	{
@@ -57,7 +58,7 @@ function Plugin.config()
 				local menu_icon = {
 					nvim_lsp = "λ",
 					luasnip = "⋗",
-					-- buffer = "Ω",
+					buffer = "Ω",
 					path = "🖫",
 				}
 				local highlights_info = require("colorful-menu").cmp_highlights(entry)
@@ -112,6 +113,8 @@ function Plugin.config()
 
 				if cmp.visible() then
 					cmp.select_next_item(select_opts)
+				elseif luasnip.jumpable(1) then
+					luasnip.jump(1)
 				elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
 					fallback()
 				else
@@ -122,6 +125,8 @@ function Plugin.config()
 			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item(select_opts)
+				elseif luasnip.jumpable(-1) then
+					luasnip.jump(-1)
 				else
 					fallback()
 				end

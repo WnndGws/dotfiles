@@ -1,5 +1,8 @@
 return {
 	"johmsalas/text-case.nvim",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 	lazy = false,
 	opts = {
 		prefix = "<leader>c",

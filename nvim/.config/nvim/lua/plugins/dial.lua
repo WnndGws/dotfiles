@@ -1,5 +1,8 @@
 return {
 	"monaqa/dial.nvim",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 
 	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 
@@ -145,11 +148,19 @@ return {
 		},
 		{
 			mode = { "n" },
-			"<leader>?+",
+			"=",
 			function()
 				require("dial.map").manipulate("increment", "normal")
 			end,
 			desc = "Incriment using Dial",
+		},
+		{
+			mode = { "n" },
+			"-",
+			function()
+				require("dial.map").manipulate("decrement", "normal")
+			end,
+			desc = "Decriment using Dial",
 		},
 		{
 			mode = { "n" },
@@ -160,15 +171,7 @@ return {
 			desc = "Decriment using Dial",
 		},
 		{
-			mode = { "n" },
-			"<leader>?_",
-			function()
-				require("dial.map").manipulate("decrement", "normal")
-			end,
-			desc = "Decriment using Dial",
-		},
-		{
-			mode = { "n" },
+			mode = { "n", "v" },
 			"<C-a>",
 			function()
 				require("dial.map").manipulate("increment", "normal")
@@ -176,42 +179,10 @@ return {
 			desc = "Incriment using Dial",
 		},
 		{
-			mode = { "n" },
+			mode = { "n", "v" },
 			"<C-s>",
 			function()
 				require("dial.map").manipulate("decrement", "normal")
-			end,
-			desc = "Decriment using Dial",
-		},
-		{
-			mode = { "n" },
-			"<leader>=",
-			function()
-				require("dial.map").manipulate("increment", "normal")
-			end,
-			desc = "Incriment using Dial",
-		},
-		{
-			mode = { "n" },
-			"<leader>-",
-			function()
-				require("dial.map").manipulate("decrement", "normal")
-			end,
-			desc = "Decriment using Dial",
-		},
-		{
-			mode = { "v" },
-			"<leader>=",
-			function()
-				require("dial.map").manipulate("increment", "visual")
-			end,
-			desc = "Incriment using Dial",
-		},
-		{
-			mode = { "v" },
-			"<leader>-",
-			function()
-				require("dial.map").manipulate("decrement", "visual")
 			end,
 			desc = "Decriment using Dial",
 		},

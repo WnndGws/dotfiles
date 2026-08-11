@@ -1,19 +1,36 @@
 return {
+	"wnndgws/nvim-expand-region",
 	enabled = true,
-	"terryma/vim-expand-region",
-	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+	lazy = true,
+
 	keys = {
 		{
 			mode = { "v" },
 			"v",
-			"<Plug>(expand_region_expand)",
-			desc = "Expand selection",
+			function()
+				require("expand_region").expand()
+			end,
+			desc = "Expand region",
 		},
 		{
-			mode = { "v" },
-			"<leader>?v",
-			"<Plug>(expand_region_expand)",
-			desc = "Expand selection",
+			mode = { "n", "x" },
+			"<leader>er",
+			function()
+				require("expand_region").expand()
+			end,
+			desc = "Expand region",
+		},
+		{
+			mode = { "n", "x" },
+			"<leader>sr",
+			function()
+				require("expand_region").shrink()
+			end,
+			desc = "Shrink region",
 		},
 	},
+
+	config = function(_, opts)
+		require("expand_region").setup(opts)
+	end,
 }

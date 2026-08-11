@@ -1,6 +1,6 @@
 local Plugin = { "kevinhwang91/nvim-ufo" }
 
-Plugin.dependencies = { "kevinhwang91/promise-async" }
+Plugin.dependencies = { "kevinhwang91/promise-async", "folke/which-key.nvim" }
 
 Plugin.lazy = true
 Plugin.event = { "VeryLazy" }

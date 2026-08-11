@@ -4,7 +4,7 @@ local Plugin = { "neovim/nvim-lspconfig" }
 
 Plugin.cmd = { "LspInfo", "LspInstall", "LspUnInstall" }
 Plugin.event = { "FileWritePost", "BufReadPost", "BufWritePost", "BufNewFile" }
-Plugin.dependencies = { { "hrsh7th/cmp-nvim-lsp" } }
+Plugin.dependencies = { { "hrsh7th/cmp-nvim-lsp" }, { "folke/which-key.nvim" } }
 Plugin.version = false
 
 Plugin.opts = function()

@@ -1,5 +1,8 @@
 return {
 	"mfussenegger/nvim-lint",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 	event = {
 		"BufReadPre",
 		"BufNewFile",

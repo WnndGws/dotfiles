@@ -1,6 +1,12 @@
 return {
+
 	"MeanderingProgrammer/render-markdown.nvim",
-	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
+
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-mini/mini.icons",
+		"folke/which-key.nvim",
+	},
 	ft = { "markdown", "tex" },
 	opts = {
 		completions = {
@@ -410,21 +416,9 @@ return {
 		},
 	},
 
-	keys = {
-		{
-			mode = { "n" },
-			"<leader>aa",
-			":AerialToggle<CR>",
-			desc = "Toggle Aerial open or closed",
-		},
-	},
+	keys = {},
 
 	config = function(_, opts)
 		require("render-markdown").setup(opts)
-
-		local wk = require("which-key")
-		wk.add({
-			{ "<leader>a", group = "Aerial", icon = "󰠿" },
-		})
 	end,
 }

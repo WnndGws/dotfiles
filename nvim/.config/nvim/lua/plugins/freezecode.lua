@@ -1,5 +1,8 @@
 return {
 	"charm-and-friends/freeze.nvim",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 	keys = {
 		{
 			mode = { "n", "v" },

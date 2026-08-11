@@ -1,5 +1,8 @@
 return {
 	"ysmb-wtsg/in-and-out.nvim",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 	keys = {
 		{
 			"<C-CR>",

@@ -1,5 +1,8 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = {
+		"folke/which-key.nvim",
+	},
 	priority = 1000,
 	lazy = false,
 	opts = {
@@ -376,13 +379,6 @@ return {
 			end,
 			desc = "Spelling",
 		},
-		{
-			"<leader>t",
-			function()
-				Snacks.picker.treesitter()
-			end,
-			desc = "Treesitter Help",
-		},
 	},
 	init = function()
 		local wk = require("which-key")
@@ -390,7 +386,7 @@ return {
 			{ "<leader>g", group = "Git", icon = "󰠿" },
 			{ "<leader>s", group = "Snacks", icon = "󰠿" },
 			{ "<leader>l", group = "LSP Help", icon = "󰠿" },
-			{ "<leader>r", group = "Spelling", icon = "󰠿" },
+			{ "<leader>r", group = "Spelling", icon = "󰓆" },
 			{ "<leader>u", group = "Toggle Snacks", icon = "󰠿" },
 		})
 		vim.api.nvim_create_autocmd("User", {
