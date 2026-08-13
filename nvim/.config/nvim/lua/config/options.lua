@@ -1,14 +1,69 @@
--- ~/nvim/lua/config.lua
-
-------------------------
---- General Settings ---
-------------------------
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+---------------------
+--- Lazy Settings ---
+---------------------
 local global = vim.g
 local opt = vim.opt
 
+-- This file is automatically loaded by plugins.core
+global.mapleader = ","
+global.maplocalleader = "\\"
+
+-- LazyVim auto format
+global.autoformat = true
+
+-- Snacks animations
+-- Set to `false` to globally disable all snacks animations
+global.snacks_animate = false
+
+-- LazyVim picker to use.
+-- Can be one of: telescope, fzf
+-- Leave it to "auto" to automatically use the picker
+-- enabled with `:LazyExtras`
+global.lazyvim_picker = "auto"
+
+-- LazyVim completion engine to use.
+-- Can be one of: nvim-cmp, blink.cmp
+-- Leave it to "auto" to automatically use the completion engine
+-- enabled with `:LazyExtras`
+global.lazyvim_cmp = "nvim-cmp"
+
+-- if the completion engine supports the AI source,
+-- use that instead of inline suggestions
+global.ai_cmp = false
+
+-- LazyVim root dir detection
+-- Each entry can be:
+-- * the name of a detector function like `lsp` or `cwd`
+-- * a pattern or array of patterns like `.git` or `lua`.
+-- * a function with signature `function(buf) -> string|string[]`
+global.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+
+-- Optionally setup the terminal to use
+-- This sets `vim.o.shell` and does some additional configuration for:
+-- * pwsh
+-- * powershell
+-- LazyVim.terminal.setup("zsh")
+
+-- Set LSP servers to be ignored when used with `util.root.detectors.lsp`
+-- for detecting the LSP root
+global.root_lsp_ignore = { "copilot" }
+
+-- Hide deprecation warnings
+global.deprecation_warnings = false
+
+-- Show the current document symbols location from Trouble in lualine
+-- You can disable this for a buffer by setting `vim.b.trouble_lualine = false`
+global.trouble_lualine = true
+
+-- Not using npm for packages
+global.loaded_perl_provider = 0
+------------------------
+--- General Settings ---
+------------------------
 opt.title = true
 opt.titlestring = "nvim:%F" -- See help:statusline for expansions
-
 opt.clipboard = "unnamedplus"
 opt.autowrite = true -- Enable auto-write
 opt.autoread = true -- Read file after external changes

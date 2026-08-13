@@ -383,11 +383,16 @@ return {
 	init = function()
 		local wk = require("which-key")
 		wk.add({
-			{ "<leader>g", group = "Git", icon = "󰠿" },
-			{ "<leader>s", group = "Snacks", icon = "󰠿" },
-			{ "<leader>l", group = "LSP Help", icon = "󰠿" },
+			{ "<leader>g", group = "Git", icon = "" },
+			{ "<leader>s", group = "Snacks", icon = "󱐟" },
+			{ "<leader>l", group = "LSP Help", icon = "" },
 			{ "<leader>r", group = "Spelling", icon = "󰓆" },
-			{ "<leader>u", group = "Toggle Snacks", icon = "󰠿" },
+			{ "<leader>u", group = "Toggle Snacks", icon = "󱐟" },
+			{ "/", icon = "" },
+			{ "<leader>:", icon = {
+				icon = "󰋚",
+				color = "yellow",
+			} },
 		})
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",

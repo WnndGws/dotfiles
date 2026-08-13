@@ -13,7 +13,14 @@ return {
 
 		local wk = require("which-key")
 		wk.add({
-			{ "<leader>c", group = "Case Change", icon = "󱔎", mode = { "n", "v" } },
+			{
+				"<leader>c",
+				group = "Case Change",
+				icon = {
+					icon = "󱔎",
+				},
+				mode = { "n", "v" },
+			},
 		})
 	end,
 }

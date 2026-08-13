@@ -1,40 +1,44 @@
--- ~/nvim/lua/lazy.lua
-
-vim.g.mapleader = ","
-
-local lazy = {}
-
--- Install Lazy if it doesn’t exist
-function lazy.install(path)
-	if not vim.loop.fs_stat(path) then
-		print("Installing lazy.nvim....")
-		vim.fn.system({
-			"git",
-			"clone",
-			"--filter=blob:none",
-			"https://github.com/folke/lazy.nvim.git",
-			"--branch=stable", -- latest stable release
-			path,
-		})
+-- Taken from https://github.com/LazyVim/starter/blob/main/lua/config/lazy.lua
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
 	end
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Load plugins
-function lazy.setup(plugins)
-	if vim.g.plugins_ready then
-		return
-	end
-
-	-- You can "comment out" the line below after lazy.nvim is installed
-	lazy.install(lazy.path)
-
-	vim.opt.rtp:prepend(lazy.path)
-
-	require("lazy").setup(plugins, { change_detection = { notify = false } })
-	vim.g.plugins_ready = true
-end
-
-lazy.path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- Creates and sets ~/.local/nvim/lazy/lazy.nvim
-lazy.opts = {}
-
-lazy.setup({ { import = "plugins" } })
+-- Setup lazy.nvim
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	install = { colorscheme = { "habamax" } },
+	checker = { enabled = false },
+	change_detection = {
+		enabled = false,
+	},
+	rocks = { enabled = false },
+	rtp = {
+		paths = {},
+		disabled_plugins = {
+			-- "gzip",
+			-- "matchit",
+			-- "matchparen",
+			-- "netrwPlugin",
+			-- "tarPlugin",
+			-- "tohtml",
+			-- "tutor",
+			-- "zipPlugin",
+		},
+	},
+})

@@ -1,23 +1,48 @@
-local Plugin = { "christoomey/vim-tmux-navigator" }
+return {
+	"christoomey/vim-tmux-navigator",
+	enabled = false,
+	lazy = true,
+	event = { "VeryLazy" },
 
-Plugin.lazy = true
-Plugin.event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" }
+	cmd = {
+		"TmuxNavigateLeft",
+		"TmuxNavigateDown",
+		"TmuxNavigateUp",
+		"TmuxNavigateRight",
+		"TmuxNavigatePrevious",
+		"TmuxNavigatorProcessList",
+	},
 
-Plugin.cmd = {
-	"TmuxNavigateLeft",
-	"TmuxNavigateDown",
-	"TmuxNavigateUp",
-	"TmuxNavigateRight",
-	"TmuxNavigatePrevious",
-	"TmuxNavigatorProcessList",
+	keys = {
+		{
+			mode = { "n" },
+			"<c-h>",
+			":TmuxNavigateLeft<cr>",
+			desc = "Tmux Navigate Left",
+		},
+		{
+			mode = { "n" },
+			"<c-j>",
+			":TmuxNavigateDown<cr>",
+			desc = "Tmux Navigate Down",
+		},
+		{
+			mode = { "n" },
+			"<c-k>",
+			":TmuxNavigateUp<cr>",
+			desc = "Tmux Navigate Up",
+		},
+		{
+			mode = { "n" },
+			"<c-l>",
+			":TmuxNavigateRight<cr>",
+			desc = "Tmux Navigate Right",
+		},
+		{
+			mode = { "n" },
+			"<c-\\>",
+			":TmuxNavigatePrevious<cr>",
+			desc = "Tmux Navigate Previous",
+		},
+	},
 }
-
-Plugin.keys = {
-	{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-	{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-	{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-	{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-	{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-}
-
-return Plugin

@@ -13,17 +13,27 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
---- Associate FileType
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.tcss", command = "set ft=css" })
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.enc", command = "set ft=markdown" })
-
 --- Write md buffers as you leave them
-vim.api.nvim_create_autocmd("FileType", { pattern = "markdown,python", command = "set awa" })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown,python",
+	command = "set awa",
+})
 -- Use the following if your buffer is set to become hidden
 vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "silent! wall" })
 
 -- Run all commands in interactive so that I can use bash
 vim.api.nvim_create_autocmd("VimEnter", { pattern = "*", command = "let &shell='/bin/bash -i'" })
+
+--- Treesitter stuff
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "<filetype>" },
+	callback = function()
+		vim.treesitter.start()
+		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo[0][0].foldmethod = "expr"
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
 
 --- Fix Clipboard in WSL ---
 if not vim.env.SSH_TTY then

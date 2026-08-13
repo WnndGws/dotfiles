@@ -54,7 +54,7 @@ return {
 				{ pattern = "debug", icon = "󰃤 ", color = "red" },
 				{ pattern = "diagnostic", icon = "󱖫 ", color = "green" },
 				{ pattern = "exit", icon = "󰈆 ", color = "red" },
-				{ pattern = "find", icon = " ", color = "green" },
+				{ pattern = "find", icon = "", color = "green" },
 				{ pattern = "file", icon = "󰈔", color = "cyan" },
 				{ pattern = "format", icon = " ", color = "cyan" },
 				{ pattern = "lazy", cat = "filetype", name = "lazy" },
@@ -82,7 +82,7 @@ return {
 				{ plugin = "octo.nvim", cat = "filetype", name = "git" },
 				{ plugin = "persistence.nvim", icon = " ", color = "azure" },
 				{ plugin = "refactoring.nvim", pattern = "refactor", icon = " ", color = "cyan" },
-				-- { plugin = "snacks.nvim", icon = "", color = "purple" }, -- Changed icon
+				{ plugin = "snacks.nvim", icon = "", color = "purple" }, -- Changed icon
 				{ plugin = "telescope.nvim", pattern = "telescope", icon = "", color = "blue" },
 				{ plugin = "todo-comments.nvim", cat = "file", name = "TODO" },
 				{ plugin = "trouble.nvim", cat = "filetype", name = "trouble" },
@@ -97,6 +97,24 @@ return {
 		wk.setup(opts)
 		wk.add({
 			{ ",", group = "<leader> functions", icon = "󰸤", mode = { "n", "v" } },
+		})
+
+		-- Add icons for keys set in keymaps.lua
+		wk.add({
+			{ "H", icon = "󰉳" },
+			{ "L", icon = "󰉱" },
+			{ "K", icon = "" },
+		})
+
+		-- Hide keybinds in which-key
+		wk.add({
+			{ "b", hidden = true }, -- wordmotion
+			{ "e", hidden = true }, -- wordmotion
+			{ "w", hidden = true }, -- wordmotion
+			{ "c", hidden = true }, -- wordmotion
+			{ "<Plug>fugitive:", hidden = true }, -- fugitive
+			{ "y<C-G>", hidden = true }, -- fugitive
+			{ "<C-L>", hidden = true }, -- nvim default set somewhere
 		})
 	end,
 }
