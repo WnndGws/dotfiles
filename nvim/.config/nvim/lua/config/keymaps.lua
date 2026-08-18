@@ -10,9 +10,9 @@ keymap.set("n", "c", '"_c', { desc = "Always send 'Change' to blackhole register
 -------------------
 --- General Keys ---
 -------------------
--- resize splits
-keymap.set("n", "H", ":vertical resize +5<CR>", { desc = "Resize vertical splits LARGER" })
-keymap.set("n", "L", ":vertical resize -5<CR>", { desc = "Resize vertical splits SMALLER" })
+-- Add extra motions
+keymap.set("n", "H", "0", { desc = "Move to the start of the line" })
+keymap.set("n", "L", "$", { desc = "Move to the end of the line" })
 
 -- Save and commit
 keymap.set("n", "<leader>ww", function()
