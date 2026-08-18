@@ -383,6 +383,9 @@ return {
 	init = function()
 		local wk = require("which-key")
 		wk.add({
+			{ "<leader><Space>", icon = "" },
+			{ "J", desc = "Join the line with the one above", icon = "󰦦" },
+			{ "S", desc = "Split to the line below", icon = "󰦦" },
 			{ "<leader>g", group = "Git", icon = "" },
 			{ "<leader>s", group = "Snacks", icon = "󱐟" },
 			{ "<leader>l", group = "LSP Help", icon = "" },
