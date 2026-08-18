@@ -74,6 +74,7 @@ alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 ##Create a gitignore file
 alias gi="cp $HOME/git/dotfiles/git/.config/git/gitignore .gitignore"
 alias gs="git status"
+gpp(){ while ! git diff --quiet -- .; do git add --patch . || break; git commit; done }
 
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fuzzy/fzrepl -c awk'
