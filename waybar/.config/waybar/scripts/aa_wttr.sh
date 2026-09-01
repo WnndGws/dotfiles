@@ -9,7 +9,7 @@
 
 echo '{"text":" Refreshing...", "class":"green"}' | jq --compact-output .
 
-SLSFILE=$(curl --silent wttr.in/canberra\?format=j1)
+SLSFILE=$(curl --silent wttr.in/bailup\?format=j1)
 
 echo "$SLSFILE" | jq --unbuffered --compact-output '
 def parse_time: gsub(" "; "") | strptime("%I:%M%p") | mktime;
@@ -23,7 +23,9 @@ gsub("4"; "₄") | gsub("5"; "₅") | gsub("6"; "₆") | gsub("7"; "₇") |
 gsub("8"; "₈") | gsub("9"; "₉") | gsub("\\+"; "₊") | gsub("-"; "₋");
 {
 feelslikec: .current_condition[0].FeelsLikeC,
+feelslikec_super: .current_condition[0].FeelsLikeC | superscript,
 humidity: .current_condition[0].humidity,
+forecast_precip: .weather[0].hourly[((now | gmtime | .[3] | floor / 3) - 1 | floor)].chanceofrain,
 precipmm: .current_condition[0].precipMM,
 tempc: .current_condition[0].temp_C,
 today_maxtempc: .weather[0].maxtempC,
@@ -42,7 +44,7 @@ sunrise_delta_mins: (((.weather[1].astronomy[0].sunrise | parse_time) - (.weathe
 sunset_delta_mins: (((.weather[1].astronomy[0].sunset | parse_time) - (.weather[0].astronomy[0].sunset | parse_time)) / 60) | (if . > 0 then "+\(.)" else tostring end) | superscript,
 day_lenght_delta: (((.weather[1].astronomy[0].sunset | parse_time) - (.weather[0].astronomy[0].sunset | parse_time)) - ((.weather[1].astronomy[0].sunrise | parse_time) - (.weather[0].astronomy[0].sunrise | parse_time))) | format_suntime,
 } | {
-    text: "\(.feelslikec)\(.feelslike_delta)℃ ( \(.humidity)%) (tmrw: \(.tomorrow_mintempc)\(.mintemp_delta)℃ to \(.tomorrow_maxtempc)\(.maxtemp_delta)℃ )",
+    text: "\(.tempc)\(.feelslikec_super)℃ ( \(.forecast_precip)%) (tmrw: \(.tomorrow_mintempc)\(.mintemp_delta)℃ to \(.tomorrow_maxtempc)\(.maxtemp_delta)℃ )",
 alt: .weatherdesc,
 class: (
     if (.feelslikec | tonumber) < 10 then "blue"
