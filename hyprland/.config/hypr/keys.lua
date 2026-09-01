@@ -31,7 +31,6 @@ hl.config({
 hl.bind("ALT + Space", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 --- PROGRAMS
---- hl.bind("ALT + Return", hl.dsp.exec_cmd("alacritty"))
 hl.bind("ALT + Return", hl.dsp.exec_cmd("$HOME/git/scripts/hypr_open_shell_in_pwd.sh"))
 hl.bind("ALT + f", hl.dsp.exec_cmd("firefox", { workspace = 10 }))
 hl.bind("ALT + F10", hl.dsp.exec_cmd("~/git/scripts/headphone_toggler.sh"))
@@ -53,8 +52,8 @@ hl.bind("ALT + F6", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous_per_monitor" }))
 hl.bind("ALT + q", hl.dsp.window.close())
 hl.bind("ALT + code:48", hl.dsp.layout("swapwithmaster"))
---- hl.bind("ALT + LEFT", hl.dsp.focus({ workspace = "m-1" }))
---- hl.bind("ALT + RIGHT", hl.dsp.focus({ workspace = "m+1" }))
+hl.bind("ALT + LEFT", hl.dsp.focus({ workspace = "m-1" }))
+hl.bind("ALT + RIGHT", hl.dsp.focus({ workspace = "m+1" }))
 
 hl.bind("ALT + 1", hl.dsp.focus({ workspace = "1" }))
 hl.bind("ALT + a", hl.dsp.focus({ workspace = "1" }))
