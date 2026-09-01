@@ -27,6 +27,9 @@ hl.config({
 ------------------
 ---- KEYBINDS ----
 ------------------
+--- SHORTCUTS
+hl.bind("ALT + Space", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+
 --- PROGRAMS
 --- hl.bind("ALT + Return", hl.dsp.exec_cmd("alacritty"))
 hl.bind("ALT + Return", hl.dsp.exec_cmd("$HOME/git/scripts/hypr_open_shell_in_pwd.sh"))
