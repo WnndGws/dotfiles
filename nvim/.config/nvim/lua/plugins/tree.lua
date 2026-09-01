@@ -5,7 +5,7 @@ return {
 		"nvim-mini/mini.icons",
 	},
 	enabled = true,
-	lazy = true,
+	lazy = false,
 
 	keys = {
 		{
