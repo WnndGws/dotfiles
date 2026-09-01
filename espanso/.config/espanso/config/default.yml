@@ -5,8 +5,8 @@
 # https://espanso.org/docs/
 #
 # toggle_key: false
-# search_trigger: false
-# search_shortcut: false
+search_trigger: false
+search_shortcut: false
 # backend: auto
 # undo_backspace: true
 # preserve_clipboard: true
