@@ -42,7 +42,7 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 #Update commands
-alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check'
+alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && uv tool upgrade --all && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock
