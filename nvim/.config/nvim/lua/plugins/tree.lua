@@ -10,7 +10,7 @@ return {
 	keys = {
 		{
 			mode = { "n" },
-			"<leader>e",
+			"<leader>ee",
 			function()
 				local nvimTree = require("nvim-tree.api")
 				local currentBuf = vim.api.nvim_get_current_buf()
@@ -22,6 +22,12 @@ return {
 				end
 			end,
 			desc = "Toggle Nvim-Tree",
+		},
+		{
+			mode = { "n" },
+			"<leader>ef",
+			"<C-w>w",
+			desc = "Switch between panes",
 		},
 	},
 
