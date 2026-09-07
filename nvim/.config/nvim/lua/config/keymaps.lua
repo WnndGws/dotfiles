@@ -17,12 +17,7 @@ keymap.set("n", "L", "$", { desc = "Move to the end of the line" })
 -- Save and commit
 keymap.set("n", "<leader>ww", function()
 	vim.cmd("write")
-	vim.cmd('Git commit -m "try:autosave"')
 end, { desc = "Write and add a file" })
-keymap.set("n", "<leader>we", function()
-	vim.cmd("write")
-	vim.cmd("Git commit")
-end, { desc = "Write and add a file with manual commit msg" })
 keymap.set("n", "<leader>wq", function()
 	vim.cmd("write")
 	vim.cmd("OutlineClose")
@@ -35,7 +30,6 @@ keymap.set("n", "<leader>qq", function()
 	vim.cmd("quit!")
 end, { desc = "Just quit. No writing" })
 keymap.set("n", "<leader>gg", ":Git<CR>", { desc = "Git commands" })
-keymap.set("n", "<leader>wc", ":write<CR>", { desc = "Write without commiting a file" })
 
 --------------------------------
 --- Which-Key Driven Changes ---
