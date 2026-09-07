@@ -1,0 +1,225 @@
+{
+    "-[[": {
+        "prefix": "-[[",
+        "body": [
+            "- [ ] "
+        ],
+        "description": "task checkbox"
+    },
+    "[note]": {
+        "prefix": "[note]",
+        "body": [
+            "> [!NOTE]",
+            "> $0"
+        ],
+        "description": "NOTE callout"
+    },
+    "[tip]": {
+        "prefix": "[tip]",
+        "body": [
+            "> [!TIP]",
+            "> $0"
+        ],
+        "description": "TIP callout"
+    },
+    "[impo]": {
+        "prefix": "[impo]",
+        "body": [
+            "> [!IMPORTANT]",
+            "> $0"
+        ],
+        "description": "IMPORTANT callout"
+    },
+    "[warn]": {
+        "prefix": "[warn]",
+        "body": [
+            "> [!WARNING]",
+            "> $0"
+        ],
+        "description": "WARNING callout"
+    },
+    "[cau]": {
+        "prefix": "[cau]",
+        "body": [
+            "> [!CAUTION]",
+            "> $0"
+        ],
+        "description": "CAUTION callout"
+    },
+    "[abs]": {
+        "prefix": "[abs]",
+        "body": [
+            "> [!ABSTRACT]",
+            "> $0"
+        ],
+        "description": "ABSTRACT callout"
+    },
+    "[summary]": {
+        "prefix": "[summary]",
+        "body": [
+            "> [!SUMMARY]",
+            "> $0"
+        ],
+        "description": "SUMMARY callout"
+    },
+    "[tldr]": {
+        "prefix": "[tldr]",
+        "body": [
+            "> [!TLDR]",
+            "> $0"
+        ],
+        "description": "TLDR callout"
+    },
+    "[info]": {
+        "prefix": "[info]",
+        "body": [
+            "> [!INFO]",
+            "> $0"
+        ],
+        "description": "INFO callout"
+    },
+    "[todo]": {
+        "prefix": "[todo]",
+        "body": [
+            "> [!TODO]",
+            "> $0"
+        ],
+        "description": "TODO callout"
+    },
+    "[hint]": {
+        "prefix": "[hint]",
+        "body": [
+            "> [!HINT]",
+            "> $0"
+        ],
+        "description": "HINT callout"
+    },
+    "[success]": {
+        "prefix": "[success]",
+        "body": [
+            "> [!SUCCESS]",
+            "> $0"
+        ],
+        "description": "SUCCESS callout"
+    },
+    "[check]": {
+        "prefix": "[check]",
+        "body": [
+            "> [!CHECK]",
+            "> $0"
+        ],
+        "description": "CHECK callout"
+    },
+    "[done]": {
+        "prefix": "[done]",
+        "body": [
+            "> [!DONE]",
+            "> $0"
+        ],
+        "description": "DONE callout"
+    },
+    "[?]": {
+        "prefix": "[?]",
+        "body": [
+            "> [!QUESTION]",
+            "> $0"
+        ],
+        "description": "QUESTION callout"
+    },
+    "[help]": {
+        "prefix": "[help]",
+        "body": [
+            "> [!HELP]",
+            "> $0"
+        ],
+        "description": "HELP callout"
+    },
+    "[faq]": {
+        "prefix": "[faq]",
+        "body": [
+            "> [!FAQ]",
+            "> $0"
+        ],
+        "description": "FAQ callout"
+    },
+    "[attn]": {
+        "prefix": "[attn]",
+        "body": [
+            "> [!ATTENTION]",
+            "> $0"
+        ],
+        "description": "ATTENTION callout"
+    },
+    "[failure]": {
+        "prefix": "[failure]",
+        "body": [
+            "> [!FAILURE]",
+            "> $0"
+        ],
+        "description": "FAILURE callout"
+    },
+    "[fail]": {
+        "prefix": "[fail]",
+        "body": [
+            "> [!FAIL]",
+            "> $0"
+        ],
+        "description": "FAIL callout"
+    },
+    "[missing]": {
+        "prefix": "[missing]",
+        "body": [
+            "> [!MISSING]",
+            "> $0"
+        ],
+        "description": "MISSING callout"
+    },
+    "[danger]": {
+        "prefix": "[danger]",
+        "body": [
+            "> [!DANGER]",
+            "> $0"
+        ],
+        "description": "DANGER callout"
+    },
+    "[error]": {
+        "prefix": "[error]",
+        "body": [
+            "> [!ERROR]",
+            "> $0"
+        ],
+        "description": "ERROR callout"
+    },
+    "[bug]": {
+        "prefix": "[bug]",
+        "body": [
+            "> [!BUG]",
+            "> $0"
+        ],
+        "description": "BUG callout"
+    },
+    "[eg]": {
+        "prefix": "[eg]",
+        "body": [
+            "> [!EXAMPLE]",
+            "> $0"
+        ],
+        "description": "EXAMPLE callout"
+    },
+    "['']": {
+        "prefix": "['']",
+        "body": [
+            "> [!QUOTE]",
+            "> $0"
+        ],
+        "description": "QUOTE callout"
+    },
+    "[cite]": {
+        "prefix": "[cite]",
+        "body": [
+            "> [!CITE]",
+            "> $0"
+        ],
+        "description": "CITE callout"
+    }
+}
