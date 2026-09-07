@@ -51,6 +51,7 @@ hl.bind("ALT + F6", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 
 --- MOVEMENT
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous_per_monitor" }))
+hl.bind("ALT + ESCAPE", hl.dsp.focus({ workspace = "previous" }))
 hl.bind("ALT + q", hl.dsp.window.close())
 hl.bind("ALT + code:48", hl.dsp.layout("swapwithmaster"))
 hl.bind("ALT + LEFT", hl.dsp.focus({ workspace = "m-1" }))
