@@ -9,34 +9,35 @@ instance = "alacritty"
 draw_bold_text_with_bright_colors = false
 
 # Colours taken from the 'onedark' theme
+# using "Darker" colours
+[colors.normal]
+black = "#0e1013"
+blue = "#4fa6ed"
+cyan = "#48b0bd"
+green = "#8ebd6b"
+magenta = "#bf68d9"
+red = "#e55561"
+white = "#dcdcdc"
+yellow = "#e2b86b"
+
+# using "Light" colours
 [colors.bright]
-black = "#5c6370"
-blue = "#61afef"
-cyan = "#56b6c2"
-green = "#98c379"
-magenta = "#c678dd"
-red = "#e06c75"
-white = "#abb2bf"
-yellow = "#e5c07b"
+black = "#383a42"
+blue = "#4078f2"
+cyan = "#0184bc"
+green = "#50a14f"
+magenta = "#a626a4"
+red = "#e45649"
+white = "#f0f0f0"
+yellow = "#986801"
+
+[colors.primary]
+background = "#181a1f"
+foreground = "#abb2bf"
 
 [colors.cursor]
 cursor = "#abb2bf"
 text = "#282c34"
-
-[colors.normal]
-black = "#282c34"
-blue = "#61afef"
-cyan = "#56b6c2"
-green = "#98c379"
-magenta = "#c678dd"
-red = "#be5046"
-white = "#abb2bf"
-yellow = "#d19a66"
-
-[colors.primary]
-# background = "#282c34"  -- Original 'onedark' colour
-background = "#001014"
-foreground = "#abb2bf"
 
 [cursor]
 style = "Block"
