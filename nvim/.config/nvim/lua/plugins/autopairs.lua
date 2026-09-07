@@ -23,5 +23,6 @@ return {
 	},
 	config = function(_, opts)
 		require("nvim-autopairs").setup(opts)
+		require("nvim-autopairs").remove_rule("`")
 	end,
 }
