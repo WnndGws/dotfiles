@@ -12,10 +12,8 @@ local menu = "hyprlauncher"
 -- Autostart
 hl.on("hyprland.start", function()
 	hl.exec_cmd("/home/wynand/git/hyprwyn/.venv/bin/python /home/wynand/git/hyprwyn/main.py &")
-end)
-
-hl.on("hyprland.start", function()
 	hl.exec_cmd("brightnessctl --device='tpacpi::kbd_backlight' set 0")
+	hl.exec_cmd("kdeconnectd")
 end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
