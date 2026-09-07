@@ -38,8 +38,8 @@ gui:
 #
 #
 git:
-  pagers:
-    - pager: delta --color-only --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  diffRenderers:
+    - command: delta --color-only --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
   # (This should really be under 'gui', not 'git')
   parseEmoji: true
@@ -141,7 +141,7 @@ keybinding:
     prevTab: '['
     nextScreenMode: +
     prevScreenMode: _
-    cyclePagers: '|'
+    cycleDiffRenderers: '|'
     undo: z
     redo: Z
     filteringMenu: <c-s>
@@ -157,6 +157,7 @@ keybinding:
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <c-t>
+    newWorktree: w
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -199,8 +200,6 @@ keybinding:
     setUpstream: u
     fetchRemote: f
     sortOrder: s
-  worktrees:
-    viewWorktreeOptions: w
   commits:
     squashDown: s
     renameCommit: r
