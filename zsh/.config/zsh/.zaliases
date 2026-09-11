@@ -165,8 +165,3 @@ alias p='$HOME/git/scripts/fuzzy/fpikaur'
 
 #Udiskie
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
-
-# FZF stuff
-c() { . $HOME/git/scripts/fuzzy/fcd "$1" }
-v() { . $HOME/git/scripts/fuzzy/fv "$1" }
-va() { . $HOME/git/scripts/fuzzy/fva "$1" }

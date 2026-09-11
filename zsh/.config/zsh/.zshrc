@@ -123,9 +123,8 @@ source /usr/share/doc/find-the-command/ftc.zsh
 # ------------------------------------------------------------------------------------------------ #
 #fasd shortcuts
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-#alias v='f -e "$EDITOR"'
-#alias o='a -e $BROWSER'
-#alias j='zz'
+source "$XDG_CONFIG_HOME/zsh/fzf-shortcuts"
+
 # ------------------------------------------------------------------------------------------------ #
 # FZF Looks Good
 fzf_base="/usr/share/fzf"
