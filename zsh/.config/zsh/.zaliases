@@ -78,7 +78,6 @@ alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 
 #Git Stuff
 ##Create a gitignore file
-alias gi="cp $HOME/git/dotfiles/git/.config/git/gitignore .gitignore"
 alias gs="git status"
 alias gpp="$HOME/git/scripts/git-patch-commit.sh"
 
