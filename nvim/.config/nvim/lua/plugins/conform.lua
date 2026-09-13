@@ -1,16 +1,13 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre", "BufReadPre", "BufNewFile" },
-	lazy = false,
-	keys = {
-		-- No which-key needed
-	},
+	event = { "BufReadPre", "BufNewFile" },
+	cmd = { "ConformInfo" },
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
 				angular = { "rustywind", "prettier" },
 				awk = { "gawk" },
-				bash = { "beautysh", "shellharden", "shellcheck" },
+				bash = { "shuck" },
 				css = { "rustywind", "stylelint", "prettier" },
 				html = { "djlint", "rustywind", "html_beautify", "prettier" },
 				javascript = { "rustywind", "prettier" },
@@ -19,14 +16,14 @@ return {
 				latex = { "tex-fmt", "latexindent" },
 				lua = { "stylua" },
 				markdown = { "markdownlint-cli2", "mdslw", "prettier" },
-				python = { "pyupgrade", "ruff_fix", "ruff_format", "ruff_organize_imports" },
-				sh = { "beautysh", "shellharden", "shellcheck" },
+				python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+				sh = { "shuck" },
 				tex = { "bibtex-tidy", "tex-fmt", "latexindent" },
 				toml = { "taplo" },
 				typescript = { "rustywind", "prettier" },
 				xml = { "xmlstarlet" },
-				yaml = { "yamlfix", "yamlfmt", "prettier" },
-				zsh = { "beautysh", "shellharden", "shellcheck" },
+				yaml = { "yamlfmt", "prettier" },
+				zsh = { "shuck" },
 			},
 			formatters = {
 				["markdownlint-cli2"] = {
@@ -36,19 +33,11 @@ return {
 						vim.fn.expand("~/.config/nvim/markdownlint_conf.json"),
 					},
 				},
-				["prettier"] = {
-					args = {
-						"--tab-width",
-						"4",
-						"--prose-wrap",
-						"always",
-						"--write",
-					},
+				prettier = {
+					args = { "--tab-width", "4", "--prose-wrap", "always" },
 				},
-				["pyupgrade"] = {
-					command = "pyupgrade",
-					args = { "--py315-plus" },
-					stdin = false,
+				pyupgrade = {
+					args = { "--py314-plus" },
 				},
 			},
 			format_on_save = {

@@ -50,11 +50,12 @@ function Plugin.config()
 		},
 		window = {
 			completion = cmp.config.window.bordered(),
-			documentation = cmp.config.window.bordered(),
+			documentation = cmp.config.disable,
 		},
 		formatting = {
 			fields = { "menu", "abbr", "kind" },
 			format = function(entry, item)
+				item.dup = 0
 				local menu_icon = {
 					nvim_lsp = "λ",
 					luasnip = "⋗",

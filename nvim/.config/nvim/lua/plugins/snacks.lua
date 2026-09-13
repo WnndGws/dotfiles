@@ -39,7 +39,7 @@ return {
 		profiler = { enabled = false },
 		quickfile = { enabled = false },
 		rename = { enabled = false },
-		scope = { enabled = true },
+		scope = { enabled = false },
 		scratch = { enabled = false },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = false },

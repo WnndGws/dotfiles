@@ -11,7 +11,6 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			bash = { "bash", "shellcheck" },
 			css = { "biomejs" },
 			django = { "curlylint" },
 			dotenv = { "dotenv-linter" },
@@ -25,7 +24,6 @@ return {
 			openapi = { "vacuum" },
 			python = { "pydocstyle", "ruff", "snyk_iac" },
 			rust = { "snyk_iac" },
-			sh = { "shellcheck" },
 			systemd = { "systemd-analyze", "systemdlint" },
 			tex = { "chktex" },
 			text = {},
@@ -33,7 +31,6 @@ return {
 			typescript = { "biomejs", "snyk_iac" },
 			vimscript = { "vint" },
 			yaml = { "yamllint" },
-			zsh = { "zsh", "shellcheck" },
 		}
 
 		lint.linters["markdownlint-cli2.args"] = {
