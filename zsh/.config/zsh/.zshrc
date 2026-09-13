@@ -22,7 +22,6 @@
 #      \/
 # $ZDOTDIR/zshrc     ->    THIS FILE    ->    Used for INTERACTIVE SHELL launch settings for specific user
 
-
 ### ------------- ###
 ### ZSH VARIABLES ###
 ### ------------- ###
@@ -63,7 +62,6 @@ add-zsh-hook preexec _preexec_title
 
 #Aliases
 source "$XDG_CONFIG_HOME"/zsh/.zaliases
-source "$HOME"/git/scripts/wyngit.sh
 
 ###---------------###
 ###--- HISTORY ---###
@@ -83,7 +81,7 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 #Don't record an entry that was just recorded again
 setopt HIST_IGNORE_DUPS
-#Delete old recorded entry if new entry is a duplicate
+#Delete old recorded entry if new command is a duplicate
 setopt HIST_IGNORE_ALL_DUPS
 
 ###--------------###
@@ -105,74 +103,115 @@ unset BEEP
 #Explicitly sets keys to vim mode
 bindkey -v
 
-#Edit commands by pressing spacebar when in normal mode
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd " " edit-command-line
-
-#By default, there is a 0.4 second delay after you hit the <ESC> key and when the mode change is registered. This results in a very jarring and frustrating transition between modes. Let's reduce this delay to 0.1 seconds.
+#By default, there is a 0.4 second delay after you hit the <ESC> key and when the mode change is registered. This results in a very jarring and frustrating transition between insert and normal mode. Let's reduce this delay to 0.1 seconds.
 export KEYTIMEOUT=1
+
+###--------------------###
+###--- AUTOCOMPLETE ---###
+###--------------------###
+# NOTE: moved ABOVE the plugin sources. fzf-tab must be sourced AFTER compinit
+# but BEFORE zsh-autosuggestions / zsh-syntax-highlighting.
+fpath=("$XDG_CONFIG_HOME/zsh/completions" "${fpath[@]}")
+autoload -Uz compinit
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+zstyle :compinstall filename "$XDG_CONFIG_HOME"/zsh/.zshrc
+# Single compinit call: use the fast -C path (skip security check / rescan) if
+# the dump is younger than 2 hours, otherwise do a full rebuild.
+if [[ -n $(/usr/bin/find "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION" -mmin -120 2>/dev/null) ]]; then
+    compinit -C -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+else
+    compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+fi
+
+#Case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+#
+#Partial completion suggestions
+zstyle ':completion:*' list-suffixes
+zstyle ':completion:*' expand prefix suffix
+
+#Double TAB gives menu
+zstyle ':completion:*' menu select
+
+#Move in menu with vim keys
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+#Show completions grouped by source (file/command/option/...) as fzf headers
+#NOTE: no zsh escape sequences (%F{red}%d%f) here, fzf-tab ignores them
+zstyle ':completion:*:descriptions' format '[%d]'
+# MENU_COMPLETE removed: it auto-inserts the first ambiguous match and fights fzf-tab
+
+###---------------------------###
+###--- ALIAS ORIGIN TRACKING ---###
+###---------------------------###
+# zsh doesn't record where an alias was defined, so snapshot the alias table
+# around each plugin source and tag anything newly defined.
+typeset -gA _alias_origin
+_source_tracked() {
+    local before=(${(k)aliases})
+    source "$@"
+    local a
+    for a in ${${(k)aliases}:*before}; do
+        _alias_origin[$a]="$1"
+    done
+}
+
+# Look up where a command came from
+wherefrom() {
+    local c=$1
+    if [[ -n $_alias_origin[$c] ]]; then
+        print -u2 "alias, defined in: $_alias_origin[$c]"
+        print "  expands to: ${aliases[$c]}"
+    elif (( $+functions[$c] )); then
+        print -u2 "function"
+        whence -v $c
+    else
+        whence -v $c
+    fi
+}
 
 ###------------------------------###
 ###--- Sources that look nice ---###
 ###------------------------------###
-# ------------------------------------------------------------------------------------------------ #
+# --------------------------------------------------------------------------- #
 #find-the-command
 #make sure to run pacman -Fy and systemctl enable pacman-files.timer
 source /usr/share/doc/find-the-command/ftc.zsh
-# ------------------------------------------------------------------------------------------------ #
+# --------------------------------------------------------------------------- #
 #fasd shortcuts
 eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-source "$XDG_CONFIG_HOME/zsh/fzf-shortcuts"
-
-# ------------------------------------------------------------------------------------------------ #
-# FZF Looks Good
-fzf_base="/usr/share/fzf"
-fzf_shell="$fzf_base"
-#Auto-completion
-if [[ ! "$DISABLE_FZF_AUTO_COMPLETION" == "true" ]]; then
-    [[ $- == *i* ]] && source "${fzf_shell}/completion.zsh" 2> /dev/null
-fi
-##Key bindings
-if [[ ! "$DISABLE_FZF_KEY_BINDINGS" == "true" ]]; then
-    source "${fzf_shell}/key-bindings.zsh"
-fi
-unset fzf_base fzf_shell dir fzfdirs
-
-##use fzf everywhere
+# --------------------------------------------------------------------------- #
+#FZF Looks Good
+#use fzf everywhere
+# now correctly AFTER compinit, and before autosuggestions/syntax-highlighting
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
-
-export FZF_DEFAULT_OPTS="
---bind ctrl-d:half-page-down
---bind ctrl-u:half-page-up
---bind shift-right:preview-half-page-down
---bind shift-left:preview-half-page-up
---bind shift-down:preview-down
---bind shift-up:preview-up
---preview-window right,40%
--i --border
-"
-# ------------------------------------------------------------------------------------------------ #
+# colour the [file]/[command]... group headers in fzf
+zstyle ':fzf-tab:*' fzf-flags --color=header:3
+# --------------------------------------------------------------------------- #
 #auto-suggestions
 #Make sure have AUR package installed
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-# ------------------------------------------------------------------------------------------------ #
-#syntax highlighting
-#Make sure have AUR package installed
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-# ------------------------------------------------------------------------------------------------ #
+_source_tracked /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# --------------------------------------------------------------------------- #
 #history substring search
 #Make sure have AUR package installed
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-#Search through history with arrow keys
-bindkey "^[[A" history-substring-search-up
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey "^[[B" history-substring-search-down
-bindkey -M vicmd 'j' history-substring-search-down
-# ------------------------------------------------------------------------------------------------ #
+_source_tracked /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# --------------------------------------------------------------------------- #
 #you-should-use
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
-# ------------------------------------------------------------------------------------------------ #
+_source_tracked /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+# --------------------------------------------------------------------------- #
+#syntax highlighting
+#Make sure have AUR package installed
+_source_tracked /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+# --------------------------------------------------------------------------- #
+#forgit
+#fzf git commands
+_source_tracked /usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh
+# --------------------------------------------------------------------------- #
 #glob-alias
 #https://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
 globalias() {
@@ -183,12 +222,29 @@ globalias() {
 zle -N globalias
 # control-space expands all aliases, including global
 bindkey -M viins "^ " globalias
-# ------------------------------------------------------------------------------------------------ #
-# Autocompletions for wyman
-eval "$(_WYMAN_COMPLETE=source_zsh wyman)"
-# ------------------------------------------------------------------------------------------------ #
+# --------------------------------------------------------------------------- #
 # Better vi(m) mode
+# NOTE: moved to last, after syntax highlighting, per zsh-vi-mode's README
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# zsh-vi-mode replaces the keymaps when it loads, so user bindings must be
+# (re)done inside its after-init hook, not before it.
+zvm_after_init() {
+    # Edit command line with space in normal mode
+    autoload -U edit-command-line
+    zle -N edit-command-line
+    bindkey -M vicmd " " edit-command-line
+
+    # history substring search with arrow keys + vicmd hjkl
+    bindkey "^[[A" history-substring-search-up
+    bindkey -M vicmd 'k' history-substring-search-up
+    bindkey "^[[B" history-substring-search-down
+    bindkey -M vicmd 'j' history-substring-search-down
+
+    # control-space expands all aliases, including global
+    bindkey -M viins "^ " globalias
+}
+
 # shellcheck disable=SC2034,SC2153,SC2086,SC2155
 
 # Above line is because shellcheck doesn't support zsh, per
@@ -196,11 +252,10 @@ source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # ludeeus/action-shellcheck only supports _directories_, not _files_. So
 # instead, we manually add any error the shellcheck step finds in the file to
 # the above line ...
-# ------------------------------------------------------------------------------------------------ #
+# --------------------------------------------------------------------------- #
 # Source this in your ~/.zshrc
 autoload -U add-zsh-hook
 zmodload zsh/datetime 2>/dev/null
-
 
 ### --------------------- ###
 ### --- SSH/GPG STUFF --- ###
@@ -265,35 +320,7 @@ fi
 # Clean up.
 unset _gpg_agent_conf
 
-###--------------------###
-###--- AUTOCOMPLETE ---###
-###--------------------###
-fpath=("$XDG_CONFIG_HOME/zsh/completions" "${fpath[@]}")
-# This should be the last thing loaded in zshrc
-autoload -Uz compinit
-zstyle ':completion:*' completer _expand_alias _complete _ignored
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-zstyle :compinstall filename "$XDG_CONFIG_HOME"/zsh/.zshrc
-#Test if zcompdump is older than 2hr, if it is create a new one, else omit the check for new functions since we updated recently enough
-test "$(/usr/bin/find "$XDG_CONFIG_HOME"/zsh/.zcompdump -mmin -120)" && compinit -u -d "$XDG_CONFIG_HOME"/zsh/.zcompdump || compinit -C
-
-#Case insensitive path-completion
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-#
-#Partial completion suggestions
-zstyle ':completion:*' list-suffixes
-zstyle ':completion:*' expand prefix suffix
-
-#Double TAB gives menu
-zstyle ':completion:*' menu select
-
-#Move in menu with vim keys
-zmodload zsh/complist
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-#Completes the first in list of ambiguous completions
-setopt MENU_COMPLETE
+###------------------------###
+###--- CUSTOM FUNCTIONS ---###
+###------------------------###
+for f in ~/git/scripts/shell_source/*(.); source $f

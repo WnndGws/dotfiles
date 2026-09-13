@@ -1,11 +1,7 @@
 ### --------------- ###
 ### --- ALIASES --- ###
 ### --------------- ###
-
-undercut() { curl https://github.com/JustAman62/undercut-f1/releases/latest/download/undercutf1-linux-x64 -o ~/.local/bin/undercutf1 -L && undercutf1 import 2026 -m "$1" -s "$2" && kitty -e "undercutf1" }
-
-wifi_connect() { iwctl station wlan0 connect "$1" > /dev/null 2>&1 ; sleep 7 && pkill -SIGRTMIN+3 waybar & disown}
-
+### Hyprland -----------------------------------------------------------------#
 alias safe_shutdown="hyprshutdown --post-cmd 'shutdown -h now'"
 alias shs=safe_shutdown
 alias sls='hyprshutdown --post-cmd wayland-logout'
@@ -19,21 +15,10 @@ alias shokz_disconnect='bluetoothctl disconnect C0:86:B3:E0:8C:EA && sleep 1 && 
 
 alias ncdu='echo "Use dua-cli instead"'
 
-# shortcut
-alias zl='zathura'
-
-#init new venv
-alias new_env='uv init && uv venv && source .venv/bin/activate'
-alias source_env='source .venv/bin/activate'
-alias ne=new_env
-alias se=source_env
-
-#Quick open
-alias vzal='nvim $XDG_CONFIG_HOME/zsh/.zaliases'
-alias lg='git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
-alias ww='cd ~/git/git-wiki/ && nvim +NvimTreeOpen'
-alias wiki-lazygit='cd ~/git/git-wiki/ && git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
-alias wlg='wiki-lazygit'
+### Zsh ----------------------------------------------------------------------#
+#time zsh startup time
+alias time_zsh='hyperfine --warmup 3 "zsh -i -c exit"'
+alias zt=time_zsh
 
 #Lots of cd's
 alias ...='cd ../..'
@@ -41,34 +26,12 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-#Update commands
-alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && uv tool upgrade --all && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check'
-alias ad=archdate
-alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
-alias rdl=remove_database_lock
-alias paorph='pacman --query --unrequired --deps --quiet'
-alias po=paorph
-alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}'
-alias pare='$HOME/git/scripts/fuzzy/fpikrm -s'
-alias pin='pikaur -S --noconfirm'
-alias pq='pikaur -Qi | rg -B3 -A3'
-alias pir='pikaur -S --rebuild'
-alias pcc='sudo rm -rf /var/cache/pacman/pkg/'
-
-#Bat extras
-alias bm="batman"
-alias bw="batwatch"
-alias bd="batdiff"
-
 #Confirm before overwriting something
 alias cp="cp -i"
 alias mv="mv -i"
 
-#Mullvad relay toggle
-alias mrn='mullvad relay set tunnel wireguard --port=any --use-multihop=on'
-alias mrf='mullvad relay set tunnel wireguard --port=any --use-multihop=off'
-alias mcc="mullvad disconnect ; mullvad connect"
-alias mdc="mullvad disconnect"
+#Speed up making dirs
+alias md='/usr/bin/mkdir -p'
 
 #Change mode of file
 alias cx="chmod +x"
@@ -76,56 +39,81 @@ alias cx="chmod +x"
 #Always dd with same flags
 alias dd='sudo /usr/bin/dd status=progress conv=fsync'
 
-#Git Stuff
-##Create a gitignore file
-alias gs="git status"
-alias gpp="$HOME/git/scripts/git-patch-commit.sh"
+#tmux in one command
+tm() { tmux attach -t "$1" || tmux new -s "$1" }
+
+### Utilities ----------------------------------------------------------------#
+#Uses myman script
+alias mm='wyman'
+
+#Bat extras
+alias bm="batman"
+alias bw="batwatch"
+alias bd="batdiff"
 
 #Interactive awk,sed,rg
 alias iawk='$HOME/git/fzf-scripts/fuzzy/fzrepl -c awk'
 alias ised='$HOME/git/fzf-scripts/fuzzy/fzrepl -c sed'
 alias irg='$HOME/git/fzf-scripts/fuzzy/fzrg'
 
-#Get error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
-
 #List all including hidden
 alias lsa='eza --all --color always --color-scale all'
-
 #List all including hidden in a long list
 alias ll='eza --all --color always --color-scale all --long'
-
 #Colours in ls
 alias ls='eza --color always --color-scale all'
-
 # Show tree of folder depth 3
 alias lt='eza --color always --color-scale all --tree --level=5'
-
 # Show tree of all folders depth 3
 alias lta='eza --all --color always --color-scale all --tree --level=5'
 
-#Speed up making dirs
-alias md='/usr/bin/mkdir -p'
+#Mullvad relay toggle
+alias mrn='mullvad relay set tunnel wireguard --port=any --use-multihop=on'
+alias mrf='mullvad relay set tunnel wireguard --port=any --use-multihop=off'
+alias mcc="mullvad disconnect ; mullvad connect"
+alias mdc="mullvad disconnect"
 
-#Uses myman script
-alias mm='wyman'
+#Minecraft
+alias minecraft='cd "/home/wynand/.local/share/multimc" && "/usr/lib/multimc/MultiMC" -d "/home/wynand/.local/share/multimc" -l "WynSeed" -s "192.168.0.98" -a "Wnnd"'
 
-#tmux in one command
-tm() { tmux attach -t "$1" || tmux new -s "$1" }
+#init new venv
+alias new_env='uv init --python 314 && uv venv && source .venv/bin/activate'
+alias source_env='source .venv/bin/activate'
+alias ne=new_env
+alias se=source_env
 
-#Help transition
+#Quick open
+alias vzal='nvim $XDG_CONFIG_HOME/zsh/.zaliases'
+
+#Nvim stuff
 alias nv="nvim"
 alias sv='sudo nvim'
 
-#Always use ripgrep with these flags
-alias rg='rg --hidden -i --multiline'
+#Shortcuts and flags
 alias fd='fd --hidden --no-ignore'
-
-#I always use rsync with these flags
+alias rg='rg --hidden -i --multiline'
 alias rs="rsync --verbose --recursive --update --human-readable --partial --progress --preallocate --copy-links"
-
-#Sleepcount
 alias scc='sleepcount -c'
+alias time='hyperfine'
+alias udm="udiskie-mount -a"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias zl='zathura'
+
+### Arch ---------------------------------------------------------------------#
+#Get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+#Updates
+alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && uv tool upgrade --all && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check'
+alias ad=archdate
+alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
+alias rdl=remove_database_lock
+alias paorph='pacman --query --unrequired --deps --quiet'
+alias po=paorph
+alias porm='pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}; pacman --query --unrequired --deps --quiet | xargs -I{} pikaur -R --noconfirm {}'
+alias pq='pikaur -Qi | rg -B3 -A3'
+alias pir='pikaur -S --rebuild'
+alias pcc='sudo rm -rf /var/cache/pacman/pkg/'
 
 #Systemd Stuff
 alias ss="sudo systemctl"
@@ -135,20 +123,15 @@ alias ssr="sudo systemctl restart"
 alias sse="sudo systemctl enable"
 alias ssd="sudo systemctl disable"
 
-#Use hyperfine to time commands
-alias time='hyperfine'
+### Git ----------------------------------------------------------------------#
+#General
+alias gs="git status"
 
-#Udiskie
-alias udm="udiskie-mount -a"
-
-#Use yarn XDG
-alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
-
-#Use XDG wget
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-
-#Minecraft
-alias minecraft='cd "/home/wynand/.local/share/multimc" && "/usr/lib/multimc/MultiMC" -d "/home/wynand/.local/share/multimc" -l "WynSeed" -s "192.168.0.98" -a "Wnnd"'
+#WynWiki
+alias lg='git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
+alias ww='cd ~/git/git-wiki/ && nvim +NvimTreeOpen'
+alias wiki-lazygit='cd ~/git/git-wiki/ && git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
+alias wlg='wiki-lazygit'
 
 ### ----------------- ###
 ### --- FUNCTIONS --- ###
@@ -158,10 +141,10 @@ entrwatch() { eza "$1" | entr /_ }
 
 #Watches a tex file and recompiles it each change
 latexwatch() { fd --extension=tex . | entr tectonic -X compile "$1" }
-lw() { fd --extension=tex . | entr tectonic -X compile "$1" }
+alias lw='latexwatch'
 
-#Pacman Stuff
-alias p='$HOME/git/scripts/fuzzy/fpikaur'
-
-#Udiskie
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
+
+undercut() { curl https://github.com/JustAman62/undercut-f1/releases/latest/download/undercutf1-linux-x64 -o ~/.local/bin/undercutf1 -L && undercutf1 import 2026 -m "$1" -s "$2" && kitty -e "undercutf1" }
+
+wifi_connect() { iwctl station wlan0 connect "$1" > /dev/null 2>&1 ; sleep 7 && pkill -SIGRTMIN+3 waybar & disown}
