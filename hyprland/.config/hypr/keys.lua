@@ -32,6 +32,13 @@ hl.bind("ALT + Space", hl.dsp.window.fullscreen({ mode = "maximized", action = "
 
 --- PROGRAMS
 hl.bind("ALT + Return", hl.dsp.exec_cmd("$HOME/git/scripts/hypr_open_shell_in_pwd.sh"))
+hl.bind(
+	"ALT + c",
+	hl.dsp.exec_cmd(
+		"mullvad-exclude chromium --enable-features=FakeLocation --use-fake-ui-for-media-stream",
+		{ workspace = 5 }
+	)
+)
 hl.bind("ALT + f", hl.dsp.exec_cmd("firefox", { workspace = 6 }))
 hl.bind("ALT + F9", hl.dsp.exec_cmd("~/git/scripts/keyboard_backlight_toggle.sh"))
 hl.bind("ALT + F10", hl.dsp.exec_cmd("~/git/scripts/headphone_toggler.sh"))
