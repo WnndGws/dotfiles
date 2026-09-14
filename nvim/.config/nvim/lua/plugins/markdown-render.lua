@@ -7,6 +7,7 @@ return {
 		"nvim-mini/mini.icons",
 		"folke/which-key.nvim",
 	},
+	lazy = true,
 	ft = { "markdown", "tex" },
 	opts = {
 		completions = {

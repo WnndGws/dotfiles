@@ -2,7 +2,6 @@ return {
 	"AckslD/nvim-trevJ.lua",
 
 	enabled = true,
-	lazy = true,
 
 	keys = {
 		{

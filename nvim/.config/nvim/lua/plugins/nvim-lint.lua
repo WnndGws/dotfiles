@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"folke/which-key.nvim",
 	},
+	lazy = true,
 	event = {
 		"BufReadPre",
 		"BufNewFile",

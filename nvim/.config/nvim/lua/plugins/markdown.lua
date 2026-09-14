@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"folke/which-key.nvim",
 	},
+	lazy = true,
 	ft = "markdown", -- or 'event = "VeryLazy"'
 	opts = {
 		-- Disable all keymaps by setting mappings field to 'false'.

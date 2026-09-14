@@ -3,7 +3,6 @@ return {
 	dependencies = { "nvim-treesitter" },
 
 	enabled = true,
-	lazy = false,
 
 	config = function()
 		require("tree-pairs").setup()

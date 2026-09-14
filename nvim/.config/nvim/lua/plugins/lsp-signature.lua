@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"folke/which-key.nvim",
 	},
+	lazy = true,
 	event = "InsertEnter",
 	opts = {
 		bind = true,

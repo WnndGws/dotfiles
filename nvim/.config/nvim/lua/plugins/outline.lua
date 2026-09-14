@@ -1,7 +1,6 @@
 return {
 	"hedyhli/outline.nvim",
 	enabled = true,
-	lazy = true,
 
 	keys = {
 		{

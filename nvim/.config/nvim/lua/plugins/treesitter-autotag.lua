@@ -5,7 +5,6 @@ return {
 	},
 
 	enabled = true,
-	lazy = false,
 
 	opts = {
 		opts = {

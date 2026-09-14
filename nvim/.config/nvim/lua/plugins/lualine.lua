@@ -1,7 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-mini/mini.icons", "arkav/lualine-lsp-progress" },
-	lazy = false,
 	enabled = true,
 
 	config = function()

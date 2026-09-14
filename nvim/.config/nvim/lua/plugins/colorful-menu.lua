@@ -1,5 +1,6 @@
 return {
 	"xzbdmw/colorful-menu.nvim",
+	lazy = true,
 	keys = {
 		-- No which-key needed
 	},

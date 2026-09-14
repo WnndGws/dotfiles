@@ -1,6 +1,7 @@
 local Plugin = { "lewis6991/gitsigns.nvim" }
 
 Plugin.event = { "BufReadPost", "BufNewFile", "BufWritePre" }
+Plugin.lazy = true
 Plugin.config = function()
 	local gitsign = require("gitsigns")
 	gitsign.setup({

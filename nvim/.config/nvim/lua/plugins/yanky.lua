@@ -4,7 +4,6 @@ return {
 		"folke/which-key.nvim",
 		"folke/snacks.nvim",
 	},
-	lazy = false,
 	enabled = true,
 
 	keys = {

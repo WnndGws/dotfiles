@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"folke/which-key.nvim",
 	},
-	lazy = false,
 	opts = {
 		prefix = "<leader>c",
 	},

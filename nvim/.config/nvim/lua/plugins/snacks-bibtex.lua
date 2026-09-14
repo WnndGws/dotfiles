@@ -35,6 +35,7 @@ return {
 	"krissen/snacks-bibtex.nvim",
 	dependencies = { "folke/snacks.nvim", "folke/which-key.nvim" },
 	opts = opts,
+	lazy = true,
 	keys = {
 		{
 			"<leader>bv",

@@ -1,7 +1,7 @@
 return {
 	"windwp/nvim-autopairs",
-	lazy = false,
 	enabled = true,
+	lazy = true,
 	event = "InsertEnter",
 	opts = {
 		disable_filetype = { "TelescopePrompt", "spectre_panel", "snacks_picker_input" },
