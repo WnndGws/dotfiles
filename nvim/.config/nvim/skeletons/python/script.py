@@ -1,11 +1,17 @@
-#!/usr/bin/env python
-"""Description.
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "loguru",
+#     "rich",
+#     "typer",
+# ]
+# ///
+"""Description."""
 
-For current preferred tools see:
-https://github.com/WnndGws/boilerplate-repo/blob/python/README.md
-"""
-
+import typer
 from loguru import logger
+from rich.console import Console
 from rich.logging import RichHandler
 
 # Setup logger with RichHandler for better output
@@ -15,10 +21,14 @@ logger.add(
     level="WARNING",
 )
 
+app = typer.Typer(add_completion=False)
+console = Console()
 
+
+@app.command()
 def main() -> None:
     pass
 
 
 if __name__ == "__main__":
-    main()
+    app()
