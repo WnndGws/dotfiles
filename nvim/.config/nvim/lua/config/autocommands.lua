@@ -69,3 +69,55 @@ if not vim.env.SSH_TTY then
 		}
 	end
 end
+
+-- Debugging function to show events when needed
+-- vim.api.nvim_create_augroup("ft_debug", { clear = true })
+-- for _, ev in ipairs({ "BufNewFile", "BufReadPre", "BufReadPost", "BufEnter", "BufWinEnter" }) do
+-- vim.api.nvim_create_autocmd(ev, {
+-- group = "ft_debug",
+-- pattern = "*",
+-- callback = function(args)
+-- local bt = vim.bo[args.buf].buftype or ""
+-- vim.schedule(function()
+-- vim.notify(
+-- ("%s buf=%d ft=%q bt=%q nested=%s"):format(
+-- ev,
+-- args.buf,
+-- vim.bo[args.buf].filetype,
+-- bt,
+-- vim.fn.getwinvar(vim.fn.bufwinid(args.buf), "&eventignore") or "?"
+-- )
+-- )
+-- end)
+-- end,
+-- })
+-- end
+
+-- Rerun "filetype detect" on "BufEnter" if no filetype
+vim.api.nvim_create_augroup("ft_fallback", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWinEnter", "BufEnter" }, {
+	group = "ft_fallback",
+	callback = function(args)
+		local b = vim.bo[args.buf]
+		if b.filetype == "" and b.buftype == "" and vim.api.nvim_buf_is_loaded(args.buf) then
+			vim.api.nvim_buf_call(args.buf, function()
+				vim.cmd("filetype detect")
+			end)
+		end
+	end,
+})
+
+-- Let "w" and "b" stop at line end rather than wrap
+local function line_bound(motion, fallback)
+	return function()
+		local view = vim.fn.winsaveview()
+		vim.cmd(("normal! %s"):format(motion))
+		if vim.fn.line(".") ~= view.lnum then
+			vim.fn.winrestview(view)
+			vim.cmd(("normal! %s"):format(fallback))
+		end
+	end
+end
+
+vim.keymap.set({ "n", "x" }, "w", line_bound("w", "$"))
+vim.keymap.set({ "n", "x" }, "b", line_bound("b", "0"))
