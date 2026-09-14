@@ -1,12 +1,11 @@
 # espanso configuration file
-
 # This is the default configuration file, change it as you like it
 # You can refer to the official documentation:
 # https://espanso.org/docs/
 #
 # toggle_key: false
-search_trigger: false
-search_shortcut: false
+search_trigger: off
+search_shortcut: off
 # backend: auto
 # undo_backspace: true
 # preserve_clipboard: true
