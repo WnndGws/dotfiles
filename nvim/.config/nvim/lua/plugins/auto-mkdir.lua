@@ -1,6 +1,5 @@
 return {
 	"mateuszwieloch/automkdir.nvim",
-	lazy = false,
 	enabled = true,
 	opts = {},
 	keys = {

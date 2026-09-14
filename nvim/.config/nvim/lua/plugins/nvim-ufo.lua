@@ -2,8 +2,8 @@ local Plugin = { "kevinhwang91/nvim-ufo" }
 
 Plugin.dependencies = { "kevinhwang91/promise-async", "folke/which-key.nvim" }
 
+Plugin.event = { "BufReadPost" }
 Plugin.lazy = true
-Plugin.event = { "VeryLazy" }
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
 	local newVirtText = {}
