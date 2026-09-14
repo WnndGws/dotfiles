@@ -1,6 +1,7 @@
 ---------------
 ---- THEME ----
 ---------------
+require("layouts.bigbrother")
 hl.config({
 	general = {
 		border_size = 2,
@@ -10,7 +11,7 @@ hl.config({
 			active_border = "0xff61afef",
 			inactive_border = "0xff5c6370",
 		},
-		layout = "master",
+		layout = "lua:bigbrother",
 		resize_on_border = true, -- allows dragging border to resize
 		locale = "en_AU",
 		snap = {

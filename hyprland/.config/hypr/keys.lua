@@ -57,6 +57,12 @@ hl.bind("ALT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 hl.bind("ALT + F6", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 
 --- MOVEMENT
+hl.bind("ALT + SHIFT + h", hl.dsp.layout("cycleprev noloop"))
+hl.bind("ALT + SHIFT + l", hl.dsp.layout("cyclenext noloop"))
+hl.bind("ALT + SHIFT + j", hl.dsp.layout("swapprev noloop"))
+hl.bind("ALT + SHIFT + k", hl.dsp.layout("swapnext noloop"))
+hl.bind("ALT + SHIFT + m", hl.dsp.layout("swapwithmaster"))
+
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous_per_monitor" }))
 hl.bind("ALT + ESCAPE", hl.dsp.focus({ workspace = "previous" }))
 hl.bind("ALT + q", hl.dsp.window.close())
