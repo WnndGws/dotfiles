@@ -25,7 +25,7 @@
             "class<Signal>": "󰭹",
             "class<chromium>": "",
             "class<firefox> title<.*github.*>": "",
-            "class<firefox> title<.*Kagi Assistant.*>": "󰧑",
+            "class<firefox> title<.*Kagi Assistant.*>": "󰰊",
             "class<kitty> title<undercutf1>": "󰶓",
             "alacritty": "",
             "moonlight": "",
