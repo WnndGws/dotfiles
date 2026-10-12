@@ -29,7 +29,7 @@ green = "#50a14f"
 magenta = "#a626a4"
 red = "#e45649"
 white = "#f0f0f0"
-yellow = "#986801"
+yellow = "#e2b86b"
 
 [colors.primary]
 background = "#181a1f"
