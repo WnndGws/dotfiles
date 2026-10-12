@@ -3,9 +3,10 @@
 # You can refer to the official documentation:
 # https://espanso.org/docs/
 #
-# toggle_key: false
+toggle_key: OFF
 search_trigger: off
 search_shortcut: off
+show_icon: false
 # backend: auto
 # undo_backspace: true
 # preserve_clipboard: true
