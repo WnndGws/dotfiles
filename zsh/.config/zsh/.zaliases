@@ -13,6 +13,9 @@ alias atlas_disconnect='bluetoothctl disconnect 00:04:32:9A:8E:96 && sleep 1 && 
 alias shokz_connect='bluetoothctl connect C0:86:B3:E0:8C:EA && sleep 1 && pactl set-default-sink bluez_output.C0_86_B3_E0_8C_EA.1'
 alias shokz_disconnect='bluetoothctl disconnect C0:86:B3:E0:8C:EA && sleep 1 && pactl set-default-source alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
 
+alias aerofit_connect='bluetoothctl connect 4C:D7:3A:33:48:BE && sleep 1 && pactl set-default-sink bluez_output.4C_D7_3A_33_48_BE.1'
+alias aerofit_disconnect='bluetoothctl disconnect 4C:D7:3A:33:48:BE && sleep 1 && pactl set-default-source alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+
 alias ncdu='echo "Use dua-cli instead"'
 
 ### Zsh ----------------------------------------------------------------------#
@@ -104,7 +107,7 @@ alias zl='zathura'
 alias jctl="journalctl -p 3 -xb"
 
 #Updates
-alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && uv tool upgrade --all && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check'
+alias archdate='rm -rf $HOME/.cache/pikaur/build/ ; pikaur --sync --refresh --sysupgrade --rebuild --needed && pikaur --deptest && uv tool upgrade --all && tldr --update & checkrebuild && sudo pacleaner --uninstalled --number 1 --delete --no-confirm && pkill -SIGRTMIN+2 waybar && cd $HOME/git/aur-malware-check && git pull && python -m aur_check && cd ~'
 alias ad=archdate
 alias remove_database_lock='sudo /bin/rm /var/lib/pacman/db.lck'
 alias rdl=remove_database_lock
@@ -145,6 +148,6 @@ alias lw='latexwatch'
 
 udum() {for folder in /run/media/wynand/*; do udiskie-umount --detach $folder ; done}
 
-undercut() { curl https://github.com/JustAman62/undercut-f1/releases/latest/download/undercutf1-linux-x64 -o ~/.local/bin/undercutf1 -L && undercutf1 import 2026 -m "$1" -s "$2" && kitty -e "undercutf1" }
+alias undercut='cd ~/.local/share/undercut-f1/ && fd --extension jsonl --changed-within 1d --exec cat | rg "race start" | gron && curl https://github.com/JustAman62/undercut-f1/releases/latest/download/undercutf1-linux-x64 -o ~/.local/bin/undercutf1 -L && kitty -e "undercutf1"'
 
 wifi_connect() { iwctl station wlan0 connect "$1" > /dev/null 2>&1 ; sleep 7 && pkill -SIGRTMIN+3 waybar & disown}
