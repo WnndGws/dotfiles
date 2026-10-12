@@ -1,19 +1,13 @@
 ------------------
 ---- KEYBOARD ----
 ------------------
+hl.device({ name = "synaptics-tm3145-005", enabled = false })
 hl.config({
 	input = {
 		kb_layout = "us",
 		kb_options = "caps:escape",
-		follow_mouse = 1,
+		follow_mouse = 2, -- Need to click to change focus
 		follow_mouse_shrink = 10, -- 10px deadzone for follow mouse
-		touchpad = {
-			disable_while_typing = true,
-			natural_scroll = false,
-			tap_to_click = false,
-			tap_and_drag = false,
-			clickfinger_behavior = false,
-		},
 	},
 	binds = {
 		allow_workspace_cycles = true,
@@ -21,6 +15,7 @@ hl.config({
 	},
 	cursor = {
 		hide_on_key_press = true,
+		inactive_timeout = 2,
 	},
 })
 
@@ -36,13 +31,19 @@ hl.bind(
 	"ALT + c",
 	hl.dsp.exec_cmd(
 		"mullvad-exclude chromium --enable-features=FakeLocation --use-fake-ui-for-media-stream",
-		{ workspace = 5 }
+		{ workspace = 4 }
 	)
 )
 hl.bind("ALT + f", hl.dsp.exec_cmd("firefox", { workspace = 6 }))
 hl.bind("ALT + F9", hl.dsp.exec_cmd("~/git/scripts/keyboard_backlight_toggle.sh"))
 hl.bind("ALT + F10", hl.dsp.exec_cmd("~/git/scripts/headphone_toggler.sh"))
 hl.bind("ALT + i", hl.dsp.exec_cmd("hyprlauncher"))
+hl.bind(
+	"PRINT",
+	hl.dsp.exec_cmd(
+		'grim -g "$(slurp)" slurp.png && kdeconnect-cli --share=slurp.png --device=5289ba3e7a93456babf9d8ae89cc9da6 && sleep 1 && rm slurp.png'
+	)
+)
 
 --- VOLUME
 hl.bind("ALT + XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
@@ -64,7 +65,25 @@ hl.bind("ALT + SHIFT + k", hl.dsp.layout("swapnext noloop"))
 hl.bind("ALT + SHIFT + m", hl.dsp.layout("swapwithmaster"))
 
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous_per_monitor" }))
-hl.bind("ALT + ESCAPE", hl.dsp.focus({ workspace = "previous" }))
+hl.bind("ALT + ESCAPE", function() -- Switches to the last not-on-this-monitor workspace
+	local cur = hl.get_active_monitor()
+	local last = hl.get_last_workspace()
+
+	-- previous workspace is on another monitor: jump to it
+	if last and last.monitor and last.monitor.name ~= cur.name then
+		hl.dispatch(hl.dsp.focus({ workspace = last.id }))
+		return
+	end
+
+	-- previous workspace is on this monitor: go to the other monitor,
+	-- which restores its active workspace
+	for _, mon in ipairs(hl.get_monitors()) do
+		if mon.name ~= cur.name then
+			hl.dispatch(hl.dsp.focus({ monitor = mon.name }))
+			return
+		end
+	end
+end)
 hl.bind("ALT + q", hl.dsp.window.close())
 hl.bind("ALT + code:48", hl.dsp.layout("swapwithmaster"))
 hl.bind("ALT + LEFT", hl.dsp.focus({ workspace = "m-1" }))

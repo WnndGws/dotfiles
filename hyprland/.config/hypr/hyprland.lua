@@ -32,6 +32,7 @@ hl.config({
 		animate_manual_resizes = true,
 		focus_on_activate = true,
 		allow_session_lock_restore = true,
+		disable_autoreload = true,
 	},
 })
 
