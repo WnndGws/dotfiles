@@ -1,3 +1,55 @@
+-------------------
+---- FUNCTIONS ----
+-------------------
+local function quarter_toggle()
+	local w = hl.get_active_window()
+	if w == nil then
+		return
+	end
+
+	if w.pinned then
+		-- currently on: undo
+		hl.dispatch(hl.dsp.window.pin()) -- unpin
+		if w.floating then
+			hl.dispatch(hl.dsp.window.float({ action = "unset" })) -- back to tiling
+		end
+		return
+	end
+
+	-- currently off: apply
+	if not w.floating then
+		hl.dispatch(hl.dsp.window.float({ action = "set" }))
+	end
+	hl.dispatch(hl.dsp.window.pin()) -- pin
+
+	local mon = hl.get_active_monitor()
+	if mon == nil then
+		return
+	end
+	hl.dispatch(hl.dsp.window.resize({ x = math.floor(mon.width * 0.3), y = math.floor(mon.height * 0.3) }))
+	hl.dispatch(hl.dsp.window.move({ x = math.floor(mon.width * 0.3), y = math.floor(mon.height * 0.3) + 40 })) -- 40 is waybar
+end
+
+local function non_monitor()
+	local cur = hl.get_active_monitor()
+	local last = hl.get_last_workspace()
+
+	-- previous workspace is on another monitor: jump to it
+	if last and last.monitor and last.monitor.name ~= cur.name then
+		hl.dispatch(hl.dsp.focus({ workspace = last.id }))
+		return
+	end
+
+	-- previous workspace is on this monitor: go to the other monitor,
+	-- which restores its active workspace
+	for _, mon in ipairs(hl.get_monitors()) do
+		if mon.name ~= cur.name then
+			hl.dispatch(hl.dsp.focus({ monitor = mon.name }))
+			return
+		end
+	end
+end
+
 ------------------
 ---- KEYBOARD ----
 ------------------
@@ -27,13 +79,7 @@ hl.bind("ALT + Space", hl.dsp.window.fullscreen({ mode = "maximized", action = "
 
 --- PROGRAMS
 hl.bind("ALT + Return", hl.dsp.exec_cmd("$HOME/git/scripts/hypr_open_shell_in_pwd.sh"))
-hl.bind(
-	"ALT + c",
-	hl.dsp.exec_cmd(
-		"mullvad-exclude chromium --enable-features=FakeLocation --use-fake-ui-for-media-stream",
-		{ workspace = 4 }
-	)
-)
+hl.bind("ALT + c", hl.dsp.exec_cmd("mullvad-exclude chromium --enable-features=FakeLocation", { workspace = 4 }))
 hl.bind("ALT + f", hl.dsp.exec_cmd("firefox", { workspace = 6 }))
 hl.bind("ALT + F9", hl.dsp.exec_cmd("~/git/scripts/keyboard_backlight_toggle.sh"))
 hl.bind("ALT + F10", hl.dsp.exec_cmd("~/git/scripts/headphone_toggler.sh"))
@@ -58,32 +104,17 @@ hl.bind("ALT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 hl.bind("ALT + F6", hl.dsp.exec_cmd("brightnessctl set 5%+"))
 
 --- MOVEMENT
+hl.bind("ALT + period", quarter_toggle)
+
 hl.bind("ALT + SHIFT + h", hl.dsp.layout("cycleprev noloop"))
 hl.bind("ALT + SHIFT + l", hl.dsp.layout("cyclenext noloop"))
 hl.bind("ALT + SHIFT + j", hl.dsp.layout("swapprev noloop"))
 hl.bind("ALT + SHIFT + k", hl.dsp.layout("swapnext noloop"))
 hl.bind("ALT + SHIFT + m", hl.dsp.layout("swapwithmaster"))
 
+hl.bind("ALT + grave", hl.dsp.window.cycle_next())
 hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous_per_monitor" }))
-hl.bind("ALT + ESCAPE", function() -- Switches to the last not-on-this-monitor workspace
-	local cur = hl.get_active_monitor()
-	local last = hl.get_last_workspace()
-
-	-- previous workspace is on another monitor: jump to it
-	if last and last.monitor and last.monitor.name ~= cur.name then
-		hl.dispatch(hl.dsp.focus({ workspace = last.id }))
-		return
-	end
-
-	-- previous workspace is on this monitor: go to the other monitor,
-	-- which restores its active workspace
-	for _, mon in ipairs(hl.get_monitors()) do
-		if mon.name ~= cur.name then
-			hl.dispatch(hl.dsp.focus({ monitor = mon.name }))
-			return
-		end
-	end
-end)
+hl.bind("ALT + ESCAPE", non_monitor)
 hl.bind("ALT + q", hl.dsp.window.close())
 hl.bind("ALT + code:48", hl.dsp.layout("swapwithmaster"))
 hl.bind("ALT + LEFT", hl.dsp.focus({ workspace = "m-1" }))
