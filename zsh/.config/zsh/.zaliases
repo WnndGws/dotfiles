@@ -132,7 +132,7 @@ alias gs="git status"
 
 #WynWiki
 alias lg='git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
-alias ww='cd ~/git/git-wiki/ && nvim +NvimTreeOpen'
+alias ww='cd ~/git/git-wiki/ && nvim +OutlineOpen +NvimTreeOpen'
 alias wiki-lazygit='cd ~/git/git-wiki/ && git fetch && print -Pn "\e]0;lazygit:%~\a" && lazygit'
 alias wlg='wiki-lazygit'
 
