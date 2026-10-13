@@ -31,9 +31,10 @@ hl.config({
 		mouse_move_enables_dpms = false,
 		key_press_enables_dpms = true,
 		animate_manual_resizes = true,
-		focus_on_activate = true,
+		focus_on_activate = false,
 		allow_session_lock_restore = true,
 		disable_autoreload = true,
+		mouse_move_focuses_monitor = false,
 	},
 })
 
