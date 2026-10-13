@@ -14,6 +14,11 @@ keymap.set("n", "c", '"_c', { desc = "Always send 'Change' to blackhole register
 keymap.set("n", "H", "0", { desc = "Move to the start of the line" })
 keymap.set("n", "L", "$", { desc = "Move to the end of the line" })
 
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window left" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window down" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window up" })
+
 -- Save and commit
 keymap.set("n", "<leader>ww", function()
 	vim.cmd("write")
